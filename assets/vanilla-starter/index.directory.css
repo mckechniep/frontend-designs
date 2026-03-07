@@ -1,0 +1,1183 @@
+/* ================================================================
+   FRAMEKIT THEME VAULT — Directory Hub
+   A dark observatory where each theme is a glowing specimen.
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap');
+
+/* --- Tokens --- */
+:root {
+  --vault-bg: #08080c;
+  --vault-surface: rgba(255, 255, 255, 0.032);
+  --vault-border: rgba(255, 255, 255, 0.065);
+  --vault-text: #e5e2dc;
+  --vault-muted: #6e6c66;
+  --vault-dim: #9a9890;
+  --vault-radius: 20px;
+  --vault-radius-lg: 28px;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--vault-text);
+  background: var(--vault-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Atmospheric radial washes */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 28% -4%, rgba(110, 70, 190, 0.07), transparent 48%),
+    radial-gradient(ellipse at 72% 0%, rgba(40, 90, 160, 0.05), transparent 36%),
+    radial-gradient(ellipse at 50% 100%, rgba(170, 100, 40, 0.03), transparent 36%);
+}
+
+/* Faint grid texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 15%, rgba(0, 0, 0, 0.5), transparent);
+}
+
+a {
+  color: inherit;
+}
+
+/* --- Skip Link --- */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+.vault-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 16px 24px;
+}
+
+.vault-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 13px 22px;
+  border: 1px solid var(--vault-border);
+  border-radius: 999px;
+  background: rgba(8, 8, 12, 0.8);
+  backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.vault-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.vault-brand__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dbb670, #a07830);
+  box-shadow: 0 0 14px rgba(200, 160, 80, 0.35);
+}
+
+.vault-brand__text {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vault-dim);
+}
+
+.vault-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.vault-nav__links a {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--vault-muted);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.vault-nav__links a:hover,
+.vault-nav__links a:focus-visible {
+  color: var(--vault-text);
+}
+
+.vault-nav__cta {
+  padding: 7px 16px !important;
+  border: 1px solid var(--vault-border);
+  border-radius: 999px;
+  transition: border-color 200ms ease, color 200ms ease !important;
+}
+
+.vault-nav__cta:hover,
+.vault-nav__cta:focus-visible {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.vault-hero {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 72px 32px 56px;
+}
+
+.vault-hero__content {
+  position: relative;
+}
+
+/* Giant decorative "8" watermark */
+.vault-hero__content::before {
+  content: '8';
+  position: absolute;
+  top: -80px;
+  right: -40px;
+  font-family: var(--font-display);
+  font-size: clamp(14rem, 28vw, 26rem);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.018);
+  pointer-events: none;
+  user-select: none;
+}
+
+.vault-hero__kicker {
+  margin: 0 0 20px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--vault-muted);
+}
+
+.vault-hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  background: linear-gradient(160deg, #f2eee6 0%, #c4bcae 55%, #e8e2d8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vault-hero__lead {
+  max-width: 50ch;
+  margin: 24px 0 0;
+  font-size: 1.06rem;
+  font-weight: 300;
+  line-height: 1.72;
+  color: var(--vault-dim);
+}
+
+/* Spectrum color strip */
+.vault-hero__spectrum {
+  display: flex;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--vault-border);
+}
+
+.vault-hero__spectrum span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: default;
+}
+
+.vault-hero__spectrum span::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--hue);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--hue) 45%, transparent);
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms ease;
+}
+
+.vault-hero__spectrum span:hover::before {
+  transform: scale(1.4);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--hue) 65%, transparent);
+}
+
+.vault-hero__spectrum span::after {
+  content: attr(data-label);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vault-muted);
+  transition: color 200ms ease;
+}
+
+.vault-hero__spectrum span:hover::after {
+  color: var(--vault-text);
+}
+
+/* ================================================================
+   GALLERY GRID
+   ================================================================ */
+.vault-gallery {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px 28px;
+}
+
+.vault-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ================================================================
+   CARD — Base Styles
+   ================================================================ */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--vault-border);
+  border-radius: var(--vault-radius-lg);
+  background: var(--vault-surface);
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 400ms ease,
+    box-shadow 400ms ease;
+  animation: cardReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--delay, 0) * 0.09s + 0.15s);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--card-accent) 28%, transparent);
+  box-shadow:
+    0 28px 56px rgba(0, 0, 0, 0.32),
+    0 0 0 1px color-mix(in srgb, var(--card-accent) 10%, transparent);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--card-accent);
+  outline-offset: 4px;
+}
+
+/* Hover accent line at top */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 10;
+  background: linear-gradient(90deg, var(--card-accent), transparent 80%);
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* --- Canvas (preview area) --- */
+.card__canvas {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--vault-border);
+}
+
+.card__canvas span {
+  position: absolute;
+  display: block;
+}
+
+/* --- Card body --- */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 24px 26px;
+  flex: 1;
+}
+
+.card__num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--vault-muted);
+}
+
+.card__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.card__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--vault-dim);
+}
+
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.card__tags span {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--card-accent) 80%, #fff);
+}
+
+/* ================================================================
+   CARD THEMES — Per-theme preview canvases
+   Each canvas is a CSS-only miniature that captures the theme's DNA.
+   ================================================================ */
+
+/* --- 01: Modern SaaS ------------------------------------------------ */
+.card--saas {
+  --card-accent: #e8a94a;
+}
+
+.card--saas .card__canvas {
+  background:
+    radial-gradient(ellipse at 18% 16%, rgba(232, 169, 74, 0.14), transparent 48%),
+    linear-gradient(180deg, #1a1f2e, #12161f);
+}
+
+/* Glass hero block */
+.card--saas .card__canvas::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 24px;
+  right: 24px;
+  height: 58px;
+  border: 1px solid rgba(232, 169, 74, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Warm orb glow */
+.card--saas .card__canvas::after {
+  content: '';
+  position: absolute;
+  bottom: -36px;
+  right: -16px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 169, 74, 0.22), transparent 68%);
+  filter: blur(8px);
+}
+
+.card--saas .card__canvas span:nth-child(1) {
+  top: 106px;
+  left: 24px;
+  width: calc(44% - 8px);
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.card--saas .card__canvas span:nth-child(2) {
+  top: 106px;
+  left: calc(44% + 24px);
+  width: calc(56% - 40px);
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.card--saas .card__canvas span:nth-child(3) {
+  top: 160px;
+  left: 24px;
+  right: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(232, 169, 74, 0.45), transparent 55%);
+}
+
+/* --- 02: Cyberpunk Neon --------------------------------------------- */
+.card--cyber {
+  --card-accent: #00fff0;
+}
+
+.card--cyber .card__canvas {
+  background: #0a0a0f;
+}
+
+/* Scanline overlay */
+.card--cyber .card__canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 240, 0.025) 2px,
+    rgba(0, 255, 240, 0.025) 4px
+  );
+}
+
+/* Hot magenta glow */
+.card--cyber .card__canvas::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 79, 216, 0.3), transparent 68%);
+  filter: blur(6px);
+  z-index: 1;
+}
+
+/* Terminal window */
+.card--cyber .card__canvas span:nth-child(1) {
+  top: 22px;
+  left: 20px;
+  right: 20px;
+  height: 76px;
+  border: 1px solid rgba(0, 255, 240, 0.28);
+  background: rgba(0, 255, 240, 0.03);
+  z-index: 2;
+}
+
+/* Cyan neon scan line */
+.card--cyber .card__canvas span:nth-child(2) {
+  top: 62px;
+  left: 20px;
+  width: 48%;
+  height: 2px;
+  background: #00fff0;
+  box-shadow: 0 0 14px rgba(0, 255, 240, 0.55);
+  z-index: 2;
+}
+
+/* Data grid block */
+.card--cyber .card__canvas span:nth-child(3) {
+  top: 118px;
+  left: 20px;
+  right: 20px;
+  height: 68px;
+  z-index: 2;
+  border: 1px solid rgba(0, 255, 240, 0.1);
+  background:
+    linear-gradient(rgba(0, 255, 240, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 240, 0.05) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+/* --- 03: Arctic Mono ------------------------------------------------ */
+.card--arctic {
+  --card-accent: #7ec8e3;
+}
+
+.card--arctic .card__canvas {
+  background: linear-gradient(180deg, #0c1822, #080f16);
+}
+
+/* Ice glow */
+.card--arctic .card__canvas::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(126, 200, 227, 0.09), transparent 58%);
+  transform: translateX(-50%);
+  filter: blur(10px);
+}
+
+/* Diagnostic module 1 */
+.card--arctic .card__canvas span:nth-child(1) {
+  top: 26px;
+  left: 20px;
+  right: 20px;
+  height: 58px;
+  border: 1px solid rgba(126, 200, 227, 0.13);
+  border-left: 3px solid rgba(126, 200, 227, 0.45);
+  background: rgba(126, 200, 227, 0.025);
+}
+
+/* Diagnostic module 2 */
+.card--arctic .card__canvas span:nth-child(2) {
+  top: 98px;
+  left: 20px;
+  width: 58%;
+  height: 38px;
+  border: 1px solid rgba(126, 200, 227, 0.09);
+  border-left: 3px solid rgba(126, 200, 227, 0.28);
+  background: rgba(126, 200, 227, 0.015);
+}
+
+/* Floating frost particles */
+.card--arctic .card__canvas span:nth-child(3) {
+  inset: 0;
+  background: transparent;
+  box-shadow:
+    145px 48px 0 1.5px rgba(126, 200, 227, 0.28),
+    82px 135px 0 1px rgba(126, 200, 227, 0.18),
+    205px 92px 0 1px rgba(126, 200, 227, 0.22),
+    48px 172px 0 1.5px rgba(126, 200, 227, 0.14),
+    265px 155px 0 1px rgba(126, 200, 227, 0.18),
+    310px 40px 0 1px rgba(126, 200, 227, 0.12);
+  animation: arcticDrift 14s ease-in-out infinite alternate;
+}
+
+/* --- 04: Noire Editorial -------------------------------------------- */
+.card--noire {
+  --card-accent: #c9a84c;
+}
+
+.card--noire .card__canvas {
+  background: #0e0e0e;
+}
+
+/* Subtle gold ambience */
+.card--noire .card__canvas::before {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.05), transparent 58%);
+  transform: translate(-50%, -50%);
+}
+
+/* Classified stamp */
+.card--noire .card__canvas::after {
+  content: 'CLASSIFIED';
+  position: absolute;
+  bottom: 22px;
+  right: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: rgba(201, 168, 76, 0.18);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  padding: 4px 10px;
+  transform: rotate(-3deg);
+}
+
+/* Gold rule */
+.card--noire .card__canvas span:nth-child(1) {
+  top: 42px;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, #c9a84c, transparent 65%);
+}
+
+/* Redacted bar 1 */
+.card--noire .card__canvas span:nth-child(2) {
+  top: 68px;
+  left: 24px;
+  width: 62%;
+  height: 16px;
+  background: rgba(201, 168, 76, 0.065);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+/* Redacted bar 2 */
+.card--noire .card__canvas span:nth-child(3) {
+  top: 96px;
+  left: 24px;
+  width: 38%;
+  height: 16px;
+  background: rgba(201, 168, 76, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.07);
+}
+
+/* --- 05: Corporate Blueprint ---------------------------------------- */
+.card--blueprint {
+  --card-accent: #3ec6e0;
+}
+
+.card--blueprint .card__canvas {
+  background:
+    linear-gradient(rgba(62, 198, 224, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(62, 198, 224, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, #06101f, #0a1428);
+  background-size: 20px 20px, 20px 20px, 100% 100%;
+}
+
+/* Dimension annotation */
+.card--blueprint .card__canvas::after {
+  content: '1440 \D7 900';
+  position: absolute;
+  top: 146px;
+  left: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: rgba(62, 198, 224, 0.3);
+}
+
+/* Spec rectangle */
+.card--blueprint .card__canvas span:nth-child(1) {
+  top: 26px;
+  left: 24px;
+  right: 24px;
+  height: 78px;
+  border: 1px solid rgba(62, 198, 224, 0.22);
+  background: rgba(62, 198, 224, 0.025);
+}
+
+/* Crosshair marker */
+.card--blueprint .card__canvas span:nth-child(2) {
+  top: 18px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+}
+
+.card--blueprint .card__canvas span:nth-child(2)::before,
+.card--blueprint .card__canvas span:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  background: rgba(62, 198, 224, 0.35);
+}
+
+.card--blueprint .card__canvas span:nth-child(2)::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.card--blueprint .card__canvas span:nth-child(2)::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+/* Dimension line with end marks */
+.card--blueprint .card__canvas span:nth-child(3) {
+  top: 128px;
+  left: 24px;
+  width: 58%;
+  height: 1px;
+  background: rgba(62, 198, 224, 0.28);
+}
+
+.card--blueprint .card__canvas span:nth-child(3)::before,
+.card--blueprint .card__canvas span:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 8px;
+  top: -3px;
+  background: rgba(62, 198, 224, 0.35);
+}
+
+.card--blueprint .card__canvas span:nth-child(3)::before {
+  left: 0;
+}
+
+.card--blueprint .card__canvas span:nth-child(3)::after {
+  right: 0;
+}
+
+/* --- 06: Retro Terminal --------------------------------------------- */
+.card--retro {
+  --card-accent: #33ff33;
+}
+
+.card--retro .card__canvas {
+  background: radial-gradient(ellipse at center, #0a0a0a 40%, #040404 100%);
+}
+
+/* CRT scanlines + vignette */
+.card--retro .card__canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.14) 3px,
+      rgba(0, 0, 0, 0.14) 4px
+    ),
+    radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* Green phosphor ambience */
+.card--retro .card__canvas::after {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(51, 255, 51, 0.055), transparent 58%);
+  transform: translateX(-50%);
+}
+
+/* Prompt line > */
+.card--retro .card__canvas span:nth-child(1) {
+  top: 36px;
+  left: 24px;
+  width: 68%;
+  height: 3px;
+  background: rgba(51, 255, 51, 0.45);
+  box-shadow: 0 0 8px rgba(51, 255, 51, 0.25);
+  z-index: 3;
+}
+
+/* Second text line */
+.card--retro .card__canvas span:nth-child(2) {
+  top: 56px;
+  left: 24px;
+  width: 46%;
+  height: 3px;
+  background: rgba(51, 255, 51, 0.3);
+  box-shadow: 0 0 6px rgba(51, 255, 51, 0.15);
+  z-index: 3;
+}
+
+/* Blinking block cursor */
+.card--retro .card__canvas span:nth-child(3) {
+  top: 76px;
+  left: 24px;
+  width: 10px;
+  height: 16px;
+  background: #33ff33;
+  box-shadow: 0 0 10px rgba(51, 255, 51, 0.45);
+  animation: cursorBlink 1s step-end infinite;
+  z-index: 3;
+}
+
+/* --- 07: Pastel Dreamscape ------------------------------------------ */
+.card--pastel {
+  --card-accent: #f08db8;
+}
+
+.card--pastel .card__canvas {
+  background: linear-gradient(135deg, #fff8fb, #fef0f5, #f8f0ff);
+}
+
+/* Pink organic blob */
+.card--pastel .card__canvas span:nth-child(1) {
+  top: 28px;
+  left: 28px;
+  width: 105px;
+  height: 92px;
+  border-radius: 62% 38% 56% 44% / 48% 62% 38% 52%;
+  background: linear-gradient(135deg, rgba(240, 141, 184, 0.32), rgba(184, 164, 244, 0.22));
+  filter: blur(1px);
+}
+
+/* Mint blob */
+.card--pastel .card__canvas span:nth-child(2) {
+  top: 78px;
+  right: 36px;
+  width: 82px;
+  height: 72px;
+  border-radius: 44% 56% 38% 62% / 56% 44% 56% 44%;
+  background: linear-gradient(135deg, rgba(158, 222, 207, 0.32), rgba(184, 164, 244, 0.18));
+  filter: blur(1px);
+}
+
+/* Butter accent dot */
+.card--pastel .card__canvas span:nth-child(3) {
+  top: 48px;
+  right: 76px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(246, 214, 133, 0.48);
+  box-shadow: 0 4px 14px rgba(246, 214, 133, 0.25);
+}
+
+/* --- 08: Sunset Gradient -------------------------------------------- */
+.card--sunset {
+  --card-accent: #f48b41;
+}
+
+.card--sunset .card__canvas {
+  background: linear-gradient(180deg, #1a0d22, #170d1f, #1c1018);
+}
+
+/* Sun orb */
+.card--sunset .card__canvas::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 139, 65, 0.45), rgba(216, 95, 127, 0.18) 50%, transparent 68%);
+  transform: translateX(-50%);
+  box-shadow: 0 0 44px rgba(244, 139, 65, 0.25);
+}
+
+/* Horizon gradient line */
+.card--sunset .card__canvas::after {
+  content: '';
+  position: absolute;
+  top: 98px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 4%, #f48b41, #d85f7f, #7f5bd6, transparent 96%);
+  box-shadow: 0 0 22px rgba(244, 139, 65, 0.25);
+}
+
+/* Glass card left */
+.card--sunset .card__canvas span:nth-child(1) {
+  top: 118px;
+  left: 24px;
+  width: calc(50% - 28px);
+  height: 54px;
+  border: 1px solid rgba(244, 139, 65, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Glass card right */
+.card--sunset .card__canvas span:nth-child(2) {
+  top: 118px;
+  right: 24px;
+  width: calc(50% - 28px);
+  height: 54px;
+  border: 1px solid rgba(216, 95, 127, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Warm lower glow */
+.card--sunset .card__canvas span:nth-child(3) {
+  bottom: -28px;
+  left: 28%;
+  width: 120px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 139, 65, 0.14), transparent 68%);
+  filter: blur(6px);
+}
+
+/* ================================================================
+   COMPONENTS LAB CTA
+   ================================================================ */
+.vault-lab {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 12px 32px 0;
+}
+
+.vault-lab__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 36px;
+  border: 1px solid var(--vault-border);
+  border-radius: var(--vault-radius-lg);
+  background: var(--vault-surface);
+  text-decoration: none;
+  transition:
+    border-color 350ms ease,
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms ease;
+}
+
+.vault-lab__card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.vault-lab__card:focus-visible {
+  outline: 2px solid var(--vault-dim);
+  outline-offset: 4px;
+}
+
+.vault-lab__kicker {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vault-muted);
+}
+
+.vault-lab__card h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.vault-lab__card p {
+  margin: 8px 0 0;
+  color: var(--vault-dim);
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: 0.92rem;
+}
+
+.vault-lab__arrow {
+  font-size: 2rem;
+  color: var(--vault-muted);
+  transition:
+    color 250ms ease,
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.vault-lab__card:hover .vault-lab__arrow {
+  color: var(--vault-text);
+  transform: translateX(6px);
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.vault-footer {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 32px 32px 52px;
+}
+
+.vault-footer p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--vault-muted);
+  border-top: 1px solid var(--vault-border);
+  padding-top: 24px;
+}
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes arcticDrift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-6px, 5px); }
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 960px) {
+  .vault-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vault-hero {
+    padding: 56px 20px 40px;
+  }
+
+  .vault-hero h1 {
+    font-size: clamp(2.8rem, 10vw, 4.5rem);
+  }
+
+  .vault-hero__content::before {
+    font-size: clamp(10rem, 22vw, 18rem);
+    right: -20px;
+    top: -50px;
+  }
+
+  .vault-hero__spectrum {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .vault-gallery,
+  .vault-lab,
+  .vault-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .vault-header {
+    padding: 10px 14px;
+  }
+
+  .vault-nav {
+    border-radius: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .vault-hero {
+    padding: 36px 16px 28px;
+  }
+
+  .vault-hero h1 {
+    font-size: clamp(2.2rem, 12vw, 3.2rem);
+  }
+
+  .vault-hero__content::before {
+    font-size: 10rem;
+    right: -10px;
+    top: -30px;
+  }
+
+  .vault-hero__spectrum {
+    gap: 16px;
+  }
+
+  .vault-gallery,
+  .vault-lab,
+  .vault-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .card {
+    border-radius: var(--vault-radius);
+  }
+
+  .card__canvas {
+    height: 176px;
+  }
+
+  .card__body {
+    padding: 18px 20px 22px;
+  }
+
+  .vault-lab__card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+
+  .vault-lab__arrow {
+    align-self: flex-end;
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "modern-saas",
+    "name": "Modern SaaS",
+    "description": "Premium warm product narrative with serif-led hierarchy and selective glass",
+    "file": "profiles/modern-saas.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "cyberpunk-neon",
+    "name": "Cyberpunk Neon",
+    "description": "Neon-lit terminal aesthetic with glow effects and monospace type",
+    "file": "profiles/cyberpunk-neon.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "arctic-mono",
+    "name": "Arctic Mono",
+    "description": "Cold monochrome research system with helix and isometric blueprint visuals",
+    "file": "profiles/arctic-mono.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "noire-editorial",
+    "name": "Noire Editorial",
+    "description": "Dark dossier editorial with serif display, classified cues, and near-black luxury atmosphere",
+    "file": "profiles/noire-editorial.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "corporate-blueprint",
+    "name": "Corporate Blueprint",
+    "description": "Dark architectural consultancy blueprint with serif display, cyan annotations, and disciplined enterprise structure",
+    "file": "profiles/corporate-blueprint.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "retro-terminal",
+    "name": "Retro Terminal",
+    "description": "Green-on-black CRT aesthetic with phosphor glow and scanlines",
+    "file": "profiles/retro-terminal.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "pastel-dreamscape",
+    "name": "Pastel Dreamscape",
+    "description": "Dreamy collage pastel editorial with layered softness and varied rounded geometry",
+    "file": "profiles/pastel-dreamscape.css",
+    "defaultTheme": "light"
+  },
+  {
+    "id": "sunset-gradient",
+    "name": "Sunset Gradient",
+    "description": "Cinematic warm poster narrative with horizon gradients and framed showcase bands",
+    "file": "profiles/sunset-gradient.css",
+    "defaultTheme": "dark"
+  }
+]

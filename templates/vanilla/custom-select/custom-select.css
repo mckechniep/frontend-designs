@@ -1,0 +1,79 @@
+/* Custom Select — base styles (token-driven)
+   Import this CSS when using the custom select template.
+   Profile-specific overrides can be added in the profile CSS file.
+*/
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+:root[data-theme="light"] .custom-select__trigger {
+  background: var(--surface-2);
+}
+
+.custom-select__trigger[aria-expanded="true"] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.custom-select__chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.custom-select__trigger[aria-expanded="true"] .custom-select__chevron {
+  transform: rotate(180deg);
+}
+
+.custom-select__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: var(--s-1) 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  z-index: 30;
+  overflow: hidden;
+}
+
+.custom-select__option {
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.custom-select__option:hover,
+.custom-select__option:focus {
+  background: var(--glass-bg);
+  outline: none;
+}
+
+.custom-select__option--selected {
+  color: var(--accent);
+  font-weight: 600;
+}

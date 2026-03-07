@@ -1,0 +1,545 @@
+<!-- Dashboard — single-file template (HTML + CSS + JS)
+     Usage:
+     1. Copy this file into your project
+     2. Swap CSS custom property values or link a profile CSS
+     3. Replace placeholder data, labels, and chart region with real content
+     4. Optionally extract <style>/<script> to external files
+
+     Follows the Dashboard layout pattern:
+       Header + Filters → KPI Row → Chart Region → Data Table
+
+     Responsive: works at 360px+. Table scrolls horizontally on small screens.
+     Tokens match the vanilla-starter design system (styles.base.css).
+-->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────── */
+    :root {
+      --bg: #06090f;
+      --surface: #111827;
+      --surface-2: #1e293b;
+      --surface-3: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.04);
+      --accent: #8b5cf6;
+      --accent-2: #7c3aed;
+      --accent-glow: rgba(139, 92, 246, 0.25);
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --success: #34d399;
+      --error: #f87171;
+
+      --radius: 14px;
+      --radius-lg: 20px;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+      --shadow-lg: 0 20px 50px rgba(2, 6, 23, 0.18);
+      --container: 1120px;
+
+      --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+      --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 72px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+        "Liberation Mono", monospace;
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-2: #f1f5f9;
+      --surface-3: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-subtle: rgba(0, 0, 0, 0.04);
+      --accent: #7c3aed;
+      --accent-2: #6d28d9;
+      --accent-glow: rgba(124, 58, 237, 0.2);
+      --glass-bg: rgba(0, 0, 0, 0.02);
+      --glass-border: rgba(0, 0, 0, 0.06);
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    /* ── Layout ────────────────────────────────────────────── */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 48px);
+    }
+
+    .section {
+      padding: var(--s-7) 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section:first-of-type { border-top: none; }
+
+    /* ── Typography ────────────────────────────────────────── */
+    .h1 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+    .h2 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 700; letter-spacing: -0.02em; }
+    .h3 { font-size: 1.125rem; font-weight: 600; }
+    .muted { color: var(--muted); }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: var(--s-1) var(--s-3);
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+
+    .badge--success { background: rgba(52, 211, 153, 0.15); color: var(--success); }
+    .badge--error   { background: rgba(248, 113, 113, 0.15); color: var(--error); }
+
+    /* ── Header ────────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px) saturate(180%);
+      background: rgba(6, 9, 15, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    :root[data-theme="light"] .site-header {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 60px;
+      gap: var(--s-4);
+    }
+
+    .header-logo { font-weight: 700; font-size: 1.125rem; }
+
+    /* ── Filters ───────────────────────────────────────────── */
+    .filters {
+      display: flex;
+      gap: var(--s-3);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .select {
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    :root[data-theme="light"] .select { background: var(--surface-2); }
+
+    .input {
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--text);
+    }
+
+    :root[data-theme="light"] .input { background: var(--surface-2); }
+
+    .input:focus, .select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    /* ── Buttons ────────────────────────────────────────────── */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-2);
+      padding: 8px 16px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .button:hover { background: var(--glass-bg); }
+
+    .button-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .button-primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+
+    /* ── KPI Cards ──────────────────────────────────────────── */
+    .kpi-grid {
+      display: grid;
+      gap: var(--s-5);
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 880px) { .kpi-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .kpi-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s-5);
+      backdrop-filter: blur(12px) saturate(140%);
+    }
+
+    .kpi-card__label { font-size: 0.8125rem; color: var(--muted); margin-bottom: var(--s-1); }
+
+    .kpi-card__value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-card__delta {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      margin-top: var(--s-1);
+    }
+
+    .delta--up   { color: var(--success); }
+    .delta--down { color: var(--error); }
+
+    /* ── Chart Region ──────────────────────────────────────── */
+    .chart-region {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s-6);
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chart-placeholder {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    /* ── Data Table ─────────────────────────────────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      text-align: left;
+      padding: var(--s-3) var(--s-4);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+      user-select: none;
+    }
+
+    thead th[data-sort] { cursor: pointer; }
+    thead th[data-sort]:hover { color: var(--text); }
+    thead th[data-sort]:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+      color: var(--text);
+    }
+
+    thead th[aria-sort="ascending"]::after  { content: " ▲"; font-size: 0.65em; }
+    thead th[aria-sort="descending"]::after { content: " ▼"; font-size: 0.65em; }
+
+    tbody td {
+      padding: var(--s-3) var(--s-4);
+      border-bottom: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+
+    tbody tr:hover { background: var(--glass-bg); }
+    tbody tr:nth-child(even) { background: rgba(255, 255, 255, 0.01); }
+
+    :root[data-theme="light"] tbody tr:nth-child(even) {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    /* ── Empty / Loading States ─────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: var(--s-8) var(--s-5);
+      color: var(--muted);
+    }
+
+    .empty-state__icon { font-size: 2rem; margin-bottom: var(--s-3); opacity: 0.5; }
+    .empty-state__text { font-size: 0.875rem; }
+
+    .loading-skeleton {
+      background: linear-gradient(
+        90deg,
+        var(--glass-bg) 25%,
+        var(--border-subtle) 50%,
+        var(--glass-bg) 75%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+      border-radius: var(--radius);
+      height: 1em;
+    }
+
+    @keyframes shimmer { to { background-position: -200% 0; } }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 520px) {
+      .filters { flex-direction: column; align-items: stretch; }
+      .header-row { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ── Header ──────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-row">
+        <span class="header-logo">Dashboard</span>
+        <div class="filters">
+          <select class="select" aria-label="Time range">
+            <option>Last 7 days</option>
+            <option>Last 30 days</option>
+            <option>Last 90 days</option>
+            <option>Year to date</option>
+          </select>
+          <button class="button" type="button">Export</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── KPI Row ──────────────────────────────────────────── -->
+    <section class="section" aria-label="Key metrics">
+      <div class="container">
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-card__label">Revenue</div>
+            <div class="kpi-card__value">$48.2k</div>
+            <div class="kpi-card__delta delta--up">+12.5%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__label">Users</div>
+            <div class="kpi-card__value">2,847</div>
+            <div class="kpi-card__delta delta--up">+8.1%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__label">Conversion</div>
+            <div class="kpi-card__value">3.6%</div>
+            <div class="kpi-card__delta delta--down">-0.4%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card__label">Avg. Session</div>
+            <div class="kpi-card__value">4m 32s</div>
+            <div class="kpi-card__delta delta--up">+15s</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Chart Region ─────────────────────────────────────── -->
+    <section class="section" aria-label="Chart">
+      <div class="container">
+        <h2 class="h2" style="margin-bottom:var(--s-5);">Revenue Over Time</h2>
+        <div class="chart-region" role="img" aria-label="Revenue chart placeholder">
+          <div class="chart-placeholder">
+            <p>Chart goes here</p>
+            <p class="muted" style="margin-top:var(--s-2);font-size:0.8125rem;">
+              Replace with a canvas, SVG chart, or Recharts component
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Data Table ──────────────────────────────────────── -->
+    <section class="section" aria-label="Recent transactions">
+      <div class="container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s-5);flex-wrap:wrap;gap:var(--s-3);">
+          <h2 class="h2">Recent Transactions</h2>
+          <input class="input" type="search" placeholder="Search…" aria-label="Search transactions" data-table-search />
+        </div>
+        <div class="table-wrap">
+          <table data-sortable aria-label="Transactions table">
+            <thead>
+              <tr>
+                <th data-sort="id" aria-sort="none">ID</th>
+                <th data-sort="customer" aria-sort="none">Customer</th>
+                <th data-sort="amount" aria-sort="none">Amount</th>
+                <th data-sort="status" aria-sort="none">Status</th>
+                <th data-sort="date" aria-sort="none">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code style="font-family:var(--font-mono);font-size:0.8125rem;">#1042</code></td>
+                <td>Alice Johnson</td>
+                <td>$1,250.00</td>
+                <td><span class="badge badge--success">Completed</span></td>
+                <td>2026-02-28</td>
+              </tr>
+              <tr>
+                <td><code style="font-family:var(--font-mono);font-size:0.8125rem;">#1041</code></td>
+                <td>Bob Chen</td>
+                <td>$890.00</td>
+                <td><span class="badge badge--success">Completed</span></td>
+                <td>2026-02-27</td>
+              </tr>
+              <tr>
+                <td><code style="font-family:var(--font-mono);font-size:0.8125rem;">#1040</code></td>
+                <td>Carol Martinez</td>
+                <td>$2,100.00</td>
+                <td><span class="badge badge--error">Refunded</span></td>
+                <td>2026-02-26</td>
+              </tr>
+              <tr>
+                <td><code style="font-family:var(--font-mono);font-size:0.8125rem;">#1039</code></td>
+                <td>David Kim</td>
+                <td>$430.00</td>
+                <td><span class="badge badge--success">Completed</span></td>
+                <td>2026-02-25</td>
+              </tr>
+              <tr>
+                <td><code style="font-family:var(--font-mono);font-size:0.8125rem;">#1038</code></td>
+                <td>Eva Rossi</td>
+                <td>$1,875.00</td>
+                <td><span class="badge badge--success">Completed</span></td>
+                <td>2026-02-24</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Empty state (hidden by default — show when table has no data) -->
+        <div class="empty-state" hidden data-empty-state>
+          <div class="empty-state__icon" aria-hidden="true">&#x1F4ED;</div>
+          <p class="empty-state__text">No transactions found.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ── Sortable Table ──────────────────────────────────────
+       Mirrors initDataTable from vanilla-starter/components.js.
+       Activate any <th data-sort> with click, Enter, or Space to toggle sort direction.
+    */
+    document.querySelectorAll("[data-sortable]").forEach((table) => {
+      const headers = Array.from(table.querySelectorAll("th[data-sort]"));
+      const tbody = table.querySelector("tbody");
+
+      headers.forEach((th) => {
+        th.tabIndex = 0;
+        th.setAttribute("role", "button");
+
+        const applySort = () => {
+          const dir = th.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
+
+          headers.forEach((h) => h.setAttribute("aria-sort", "none"));
+          th.setAttribute("aria-sort", dir);
+
+          const rows = Array.from(tbody.querySelectorAll("tr"));
+          const idx = headers.indexOf(th);
+
+          rows.sort((a, b) => {
+            const aVal = a.children[idx]?.textContent.trim() ?? "";
+            const bVal = b.children[idx]?.textContent.trim() ?? "";
+            const aNum = parseFloat(aVal.replace(/[^0-9.\-]/g, ""));
+            const bNum = parseFloat(bVal.replace(/[^0-9.\-]/g, ""));
+            const numeric = !isNaN(aNum) && !isNaN(bNum);
+            const cmp = numeric ? aNum - bNum : aVal.localeCompare(bVal);
+            return dir === "ascending" ? cmp : -cmp;
+          });
+
+          rows.forEach((row) => tbody.appendChild(row));
+        };
+
+        th.addEventListener("click", applySort);
+        th.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            applySort();
+          }
+        });
+      });
+    });
+
+    /* ── Table Search ────────────────────────────────────────
+       Filter table rows by search input value.
+    */
+    document.querySelectorAll("[data-table-search]").forEach((input) => {
+      const section = input.closest("section") || input.closest(".container");
+      const tbody = section?.querySelector("tbody");
+      const emptyState = section?.querySelector("[data-empty-state]");
+      if (!tbody) return;
+
+      input.addEventListener("input", () => {
+        const query = input.value.toLowerCase();
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        let visible = 0;
+
+        rows.forEach((row) => {
+          const match = row.textContent.toLowerCase().includes(query);
+          row.hidden = !match;
+          if (match) visible++;
+        });
+
+        if (emptyState) emptyState.hidden = visible > 0;
+      });
+    });
+  </script>
+</body>
+</html>

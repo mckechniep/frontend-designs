@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-fixed-profile="noire-editorial" data-fixed-profile-stylesheet="./noire-editorial.demo.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Black Ledger Review // Noire Editorial Demo</title>
+    <meta
+      name="description"
+      content="A noire editorial demo landing page with dossier pacing, redaction cues, publication records, and high-contrast luxury typography."
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./noire-editorial.demo.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Black Ledger Review home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Black Ledger Review</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button
+            class="icon-button"
+            type="button"
+            data-menu-button
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#investigations">Investigations</a></li>
+            <li><a class="nav-link" href="#cases">Case files</a></li>
+            <li><a class="nav-link" href="#records">Records</a></li>
+            <li><a class="nav-link" href="#contact">Briefing</a></li>
+            <li><a class="nav-link" href="./components.html">Components</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Request dossier</a>
+        </nav>
+      </div>
+
+      <div class="container mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#investigations">Investigations</a></li>
+          <li><a class="nav-link" href="#cases">Case files</a></li>
+          <li><a class="nav-link" href="#records">Records</a></li>
+          <li><a class="nav-link" href="#contact">Briefing</a></li>
+          <li><a class="nav-link" href="./components.html">Components</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-grid noire-hero-grid">
+          <div class="hero-copy">
+            <p class="badge">Special Report // Issue 09</p>
+            <h1 class="h1">
+              Most launches do not need more content. They need a sharper
+              <em>line of questioning</em>.
+            </h1>
+            <p class="lead">
+              The Noire Editorial demo now reads like a dossier: tense margins,
+              disciplined serif hierarchy, and
+              <span class="noire-redacted-line" data-noire-redaction>
+                evidence arranged to make the argument inevitable.
+              </span>
+            </p>
+
+            <div class="cta-row">
+              <a class="button button-primary" href="#contact">Open the brief</a>
+              <a class="button button-ghost" href="#investigations">Read the file</a>
+            </div>
+
+            <div class="mini-stats" aria-label="Issue notes">
+              <div class="mini-stat">
+                <div class="mini-stat__value">Vol. 09</div>
+                <div class="mini-stat__label">Late edition</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">03 files</div>
+                <div class="mini-stat__label">Open investigations</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">Night desk</div>
+                <div class="mini-stat__label">Deadline posture</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card noire-hero-card" data-noire-cursor-scope>
+            <div class="card noire-cover-card">
+              <div class="card-header">
+                <div class="section-kicker" aria-label="Cover label">
+                  <span class="section-kicker__rule" aria-hidden="true"></span>
+                  <span class="section-kicker__text">Cover Sheet</span>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <div class="noire-cover-intro">
+                  <p class="noire-cover-kicker">File 01 / Launch dossier</p>
+                  <h2 class="noire-cover-title">
+                    The page should read like a lead story before it asks for
+                    contact.
+                  </h2>
+                  <p class="muted">
+                    Build the case with hard hierarchy, witness quotes, and
+                    deliberate evidence trays. Then close with a briefing, not a
+                    chirpy form card.
+                  </p>
+                </div>
+
+                <div class="noire-ledger" aria-label="Dossier notes">
+                  <div class="noire-ledger__row">
+                    <span class="noire-ledger__term">Mandate</span>
+                    <span class="noire-ledger__detail">
+                      Replace soft brand theater with authored editorial
+                      tension.
+                    </span>
+                  </div>
+                  <div class="noire-ledger__row">
+                    <span class="noire-ledger__term">Voice</span>
+                    <span class="noire-ledger__detail">
+                      Reported, luxurious, and exact. Never campy.
+                    </span>
+                  </div>
+                  <div class="noire-ledger__row">
+                    <span class="noire-ledger__term">Close</span>
+                    <span class="noire-ledger__detail">
+                      Request a briefing when the launch needs a harder point of
+                      view.
+                    </span>
+                  </div>
+                </div>
+
+                <p class="noire-cover-note muted">
+                  Margin, tone, and sequencing carry as much weight as the color
+                  palette. The page fails the moment it slips back into template
+                  symmetry.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="investigations">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">01 / Investigations</span>
+            </div>
+            <h2 class="h2">
+              The evidence wall is where the page earns its right to feel
+              dramatic.
+            </h2>
+            <p class="muted">
+              Each module should read like a clipped note from the desk: precise
+              claim, supporting context, and no filler copy pretending to be
+              confidence.
+            </p>
+          </div>
+
+          <div class="cards-grid noire-story-grid">
+            <article class="card noire-feature-card noire-feature-card--lead">
+              <p class="noire-panel-index">Lead Thesis</p>
+              <h3 class="h3">A cover line should hold the whole launch together.</h3>
+              <p class="muted">
+                Noire works when one idea feels important enough to support the
+                entire spread. The rest of the page becomes corroboration.
+              </p>
+              <ul class="noire-note-list">
+                <li>Wide margins create tension before any animation does.</li>
+                <li>Gold accents should behave like underlines, not neon paint.</li>
+                <li>Every supporting card should feel edited, not simply arranged.</li>
+              </ul>
+            </article>
+
+            <article class="card noire-feature-card noire-feature-card--note">
+              <p class="noire-panel-index">Desk Note</p>
+              <h3 class="h3">Typography carries the suspicion.</h3>
+              <p class="muted">
+                Serif display for argument, utility type for facts, and enough
+                restraint that the page never slips into costume.
+              </p>
+            </article>
+
+            <article class="card noire-pullquote">
+              <blockquote class="noire-pullquote__quote">
+                “If the copy cannot survive a hard edit, the palette will not
+                save it.”
+              </blockquote>
+              <p class="noire-pullquote__source muted">
+                Editor’s margin note, midnight review
+              </p>
+            </article>
+
+            <article class="card noire-feature-card noire-feature-card--support">
+              <p class="noire-panel-index">Field Tray</p>
+              <h3 class="h3">Supporting panels need the calm of evidence trays.</h3>
+              <p class="muted">
+                Small cards should feel precise and factual, giving the large
+                editorial moments room to stay severe.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cases">
+        <div class="container noire-spread-grid">
+          <div class="noire-spread-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">02 / Case Files</span>
+            </div>
+            <h2 class="h2">
+              One large narrative spread should do the work a dozen startup
+              cards usually pretend to do.
+            </h2>
+            <p class="lead">
+              The mid-page story panel is where Noire stops being a style pass
+              and becomes a point of view. It should read like a photo essay
+              captioned by someone who actually made cuts.
+            </p>
+            <ul class="noire-spread-points">
+              <li>Hold one image-scale idea long enough to feel deliberate.</li>
+              <li>Break the rhythm with a witness quote or desk annotation.</li>
+              <li>Keep the supporting facts close so the drama stays earned.</li>
+            </ul>
+          </div>
+
+          <div class="noire-spread-stack" data-noire-cursor-scope>
+            <article class="card noire-scene-card">
+              <div class="noire-scene-frame">
+                <p class="noire-scene-label">Witness Statement / 11:48 PM</p>
+                <blockquote class="noire-scene-quote">
+                  “We stopped treating the hero like a billboard and started
+                  treating it like the opening page of a serious story.”
+                </blockquote>
+                <p class="muted">
+                  The visual surface does not need an image to feel cinematic if
+                  the typography and framing already imply one.
+                </p>
+              </div>
+            </article>
+
+            <article class="card noire-brief-card">
+              <div class="card-body">
+                <div class="noire-brief-item">
+                  <span class="noire-brief-label">Spread</span>
+                  <strong>Asymmetric lead</strong>
+                </div>
+                <div class="noire-brief-item">
+                  <span class="noire-brief-label">Accent</span>
+                  <strong>Champagne gold only</strong>
+                </div>
+                <div class="noire-brief-item">
+                  <span class="noire-brief-label">Motion</span>
+                  <strong>Reveal, stamp, ticker</strong>
+                </div>
+                <div class="noire-brief-item">
+                  <span class="noire-brief-label">Risk</span>
+                  <strong>Too much copy softens the posture</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="records">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">03 / Records</span>
+            </div>
+            <h2 class="h2">
+              Publication history, witness notes, and margin comments keep the
+              whole thing grounded.
+            </h2>
+            <p class="muted">
+              Noire fails when it is all mood and no record. These surfaces keep
+              the page factual enough to feel authored instead of ornamental.
+            </p>
+          </div>
+
+          <div class="noire-records-layout">
+            <article class="card noire-records-card" data-noire-cursor-scope>
+              <div class="card-body noire-record-list">
+                <div class="noire-record-item">
+                  <p class="noire-record-kicker">Cover Package / 04.02</p>
+                  <h3 class="noire-record-title">Midnight commerce relaunch</h3>
+                  <p class="muted">
+                    Reframed the story around evidence, not aspiration. Lead
+                    spread carried the conversion argument.
+                  </p>
+                </div>
+
+                <div class="noire-record-item">
+                  <p class="noire-record-kicker">Field Memo / 03.19</p>
+                  <h3 class="noire-record-title">Luxury platform briefing</h3>
+                  <p class="muted">
+                    Pulled the proof strip, widened the margins, and treated the
+                    CTA like a final desk note instead of a cheerful sign-off.
+                  </p>
+                </div>
+
+                <div class="noire-record-item">
+                  <p class="noire-record-kicker">Witness Interview / 02.11</p>
+                  <h3 class="noire-record-title">Founder story reconstruction</h3>
+                  <p class="muted">
+                    Split long-form quotes through the body so the page could
+                    breathe without losing pressure.
+                  </p>
+                </div>
+
+                <div class="noire-record-item">
+                  <p class="noire-record-kicker">Late Edition / 01.26</p>
+                  <h3 class="noire-record-title">Editorial system audit</h3>
+                  <p class="muted">
+                    Removed soft-card repetition and rebuilt the layout around
+                    dossier cues, records, and a cleaner close.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <div class="noire-records-sidebar">
+              <article class="card noire-record-note">
+                <div class="card-body">
+                  <p class="noire-panel-index">Witness Quote</p>
+                  <blockquote class="noire-note-quote">
+                    “The noir pass only started working after we stopped trying
+                    to be friendly.”
+                  </blockquote>
+                  <p class="muted">
+                    Severe does not mean hostile. It means the page knows what
+                    to cut.
+                  </p>
+                </div>
+              </article>
+
+              <article class="card noire-record-note">
+                <div class="card-body">
+                  <p class="noire-panel-index">Desk Checklist</p>
+                  <ul class="noire-stamp-list">
+                    <li>Section indices and dossier cues present</li>
+                    <li>Hero, spread, and records all feel editorial</li>
+                    <li>Close reads like a briefing, not a promo form</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout noire-contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Final Brief</span>
+            </div>
+            <h2 class="h2">
+              Open the next file when the launch needs more than polish.
+            </h2>
+            <p class="lead">
+              This direction is for teams that want sophistication, pressure,
+              and narrative authority without turning the interface into theater
+              for its own sake.
+            </p>
+            <ul class="contact-points">
+              <li>Best for premium launches, campaign worlds, and editorial brand systems.</li>
+              <li>Weak copy shows instantly in this profile, which is part of its value.</li>
+              <li>Use the dossier surfaces when you want proof, quotes, and product voice to feel curated together.</li>
+            </ul>
+          </div>
+
+          <div class="contact-card-wrapper">
+            <form class="card form contact-form" novalidate data-contact-form>
+              <div class="form-row">
+                <label class="label" for="name">Name</label>
+                <input
+                  class="input"
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+                <p class="error" data-error-for="name" hidden>
+                  Please enter your name.
+                </p>
+              </div>
+
+              <div class="form-row">
+                <label class="label" for="publication">Publication</label>
+                <input
+                  class="input"
+                  id="publication"
+                  name="publication"
+                  type="text"
+                  autocomplete="organization"
+                  placeholder="Blackline Studio"
+                />
+              </div>
+
+              <div class="form-row">
+                <label class="label" for="message">Assignment note</label>
+                <textarea
+                  class="textarea"
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  placeholder="What does the current launch get wrong?"
+                ></textarea>
+                <p class="error" data-error-for="message" hidden>
+                  Please enter a message.
+                </p>
+              </div>
+
+              <button class="button button-primary button-full" type="submit">
+                Request briefing
+              </button>
+              <p class="hint">No network request is made in this demo.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container noire-footer-grid">
+        <div class="noire-footer-column">
+          <p class="noire-footer-label">Black Ledger Review</p>
+          <p class="muted">
+            Editorial launch systems for premium products, campaign worlds, and
+            teams that want the page to carry a stronger thesis.
+          </p>
+        </div>
+
+        <div class="noire-footer-column">
+          <p class="noire-footer-label">Sections</p>
+          <ul class="noire-footer-list">
+            <li><a href="#investigations">Investigations</a></li>
+            <li><a href="#cases">Case files</a></li>
+            <li><a href="#records">Records</a></li>
+            <li><a href="#contact">Briefing</a></li>
+          </ul>
+        </div>
+
+        <div class="noire-footer-column">
+          <p class="noire-footer-label">Channels</p>
+          <ul class="noire-footer-list">
+            <li><a href="./components.html">Component library</a></li>
+            <li><a href="#contact">Open assignment</a></li>
+            <li><a href="#main">Return to lead</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container noire-footer-meta">
+        <p>© <span data-year></span> Black Ledger Review.</p>
+        <p>Filed under: dossier systems / premium launch direction</p>
+      </div>
+    </footer>
+
+    <script src="./noire-editorial.demo.js" defer></script>
+  </body>
+</html>

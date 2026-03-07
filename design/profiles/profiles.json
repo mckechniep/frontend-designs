@@ -1,0 +1,58 @@
+[
+  {
+    "id": "modern-saas",
+    "name": "Modern SaaS",
+    "description": "Premium warm product narrative with serif-led hierarchy and selective glass",
+    "file": "styles.profile.modern-saas.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "cyberpunk-neon",
+    "name": "Cyberpunk Neon",
+    "description": "Neon-lit terminal aesthetic with glow effects and monospace type",
+    "file": "styles.profile.cyberpunk-neon.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "arctic-mono",
+    "name": "Arctic Mono",
+    "description": "Frost-tech research archive with diagnostic shell and precise monochrome hierarchy",
+    "file": "styles.profile.arctic-mono.css",
+    "defaultTheme": "light"
+  },
+  {
+    "id": "noire-editorial",
+    "name": "Noire Editorial",
+    "description": "Dark dossier editorial with serif display, classified cues, and near-black luxury atmosphere",
+    "file": "styles.profile.noire-editorial.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "corporate-blueprint",
+    "name": "Corporate Blueprint",
+    "description": "Dark architectural consultancy blueprint with serif display, cyan annotations, and disciplined enterprise structure",
+    "file": "styles.profile.corporate-blueprint.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "retro-terminal",
+    "name": "Retro Terminal",
+    "description": "Green-on-black CRT aesthetic with phosphor glow and scanlines",
+    "file": "styles.profile.retro-terminal.css",
+    "defaultTheme": "dark"
+  },
+  {
+    "id": "pastel-dreamscape",
+    "name": "Pastel Dreamscape",
+    "description": "Dreamy serif editorial with blob hero, layered softness, and curated pastel depth",
+    "file": "styles.profile.pastel-dreamscape.css",
+    "defaultTheme": "light"
+  },
+  {
+    "id": "sunset-gradient",
+    "name": "Sunset Gradient",
+    "description": "Cinematic warm enterprise poster with glowing horizon depth and glass launch pacing",
+    "file": "styles.profile.sunset-gradient.css",
+    "defaultTheme": "dark"
+  }
+]

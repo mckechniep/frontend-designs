@@ -1,0 +1,64 @@
+<!-- Custom Select — drop-in replacement for native <select>
+     Requires: custom-select.js + custom-select.css (or profile override)
+
+     Replace the native select in your form with this markup.
+     Set data-value on each option to match your form values.
+-->
+<div class="form-row">
+  <label class="label" id="plan-label">Plan</label>
+  <div
+    class="custom-select"
+    data-custom-select
+    role="listbox"
+    aria-labelledby="plan-label"
+    tabindex="0"
+  >
+    <button
+      class="custom-select__trigger"
+      type="button"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+    >
+      <span class="custom-select__value" data-select-value>Starter</span>
+      <svg
+        class="custom-select__chevron"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </button>
+    <ul class="custom-select__menu" role="presentation" hidden>
+      <li
+        class="custom-select__option custom-select__option--selected"
+        role="option"
+        aria-selected="true"
+        data-value="starter"
+      >
+        Starter
+      </li>
+      <li
+        class="custom-select__option"
+        role="option"
+        aria-selected="false"
+        data-value="pro"
+      >
+        Pro
+      </li>
+      <li
+        class="custom-select__option"
+        role="option"
+        aria-selected="false"
+        data-value="enterprise"
+      >
+        Enterprise
+      </li>
+    </ul>
+  </div>
+</div>

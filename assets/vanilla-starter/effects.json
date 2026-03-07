@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "maxEffects": 12,
+  "tiers": ["profile-default", "off", "low", "medium", "high", "custom"],
+  "constraints": {
+    "overlayExclusiveEffects": [
+      "ambient-gradient",
+      "grid-overlay",
+      "scanline-overlay",
+      "vignette-frame",
+      "film-grain-overlay"
+    ],
+    "incompatiblePairs": [
+      ["grid-overlay", "scanline-overlay"],
+      ["panel-glow", "bloom-halo"],
+      ["hero-underlight", "ambient-gradient"],
+      ["hero-underlight", "cursor-spotlight"],
+      ["glitch-burst", "section-reveal-once"],
+      ["glitch-burst", "badge-pulse"],
+      ["bloom-halo", "depth-fade-gradient"]
+    ]
+  },
+  "effects": [
+    {
+      "id": "ambient-gradient",
+      "name": "Ambient Gradient",
+      "description": "Soft atmospheric radial bleed.",
+      "continuousMotion": false,
+      "viewportOverlay": true
+    },
+    {
+      "id": "hero-sweep",
+      "name": "Hero Sweep",
+      "description": "Subtle animated sweep line across hero surface.",
+      "continuousMotion": true,
+      "viewportOverlay": false
+    },
+    {
+      "id": "grid-overlay",
+      "name": "Grid Overlay",
+      "description": "Low-opacity perspective grid texture.",
+      "continuousMotion": false,
+      "viewportOverlay": true
+    },
+    {
+      "id": "scanline-overlay",
+      "name": "Scanline Overlay",
+      "description": "CRT-style horizontal scan texture.",
+      "continuousMotion": false,
+      "viewportOverlay": true
+    },
+    {
+      "id": "panel-glow",
+      "name": "Panel Glow",
+      "description": "Soft luminous elevation on cards and panels.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "panel-sheen",
+      "name": "Panel Sheen",
+      "description": "Subtle directional sheen on panel surfaces.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "badge-pulse",
+      "name": "Badge Pulse",
+      "description": "Calm pulsing accent indicator.",
+      "continuousMotion": true,
+      "viewportOverlay": false
+    },
+    {
+      "id": "vignette-frame",
+      "name": "Vignette Frame",
+      "description": "Subtle edge framing for cinematic focus.",
+      "continuousMotion": false,
+      "viewportOverlay": true
+    },
+    {
+      "id": "film-grain-overlay",
+      "name": "Film Grain Overlay",
+      "description": "Fine static grain texture for tactile depth.",
+      "continuousMotion": false,
+      "viewportOverlay": true
+    },
+    {
+      "id": "hero-underlight",
+      "name": "Hero Underlight",
+      "description": "Soft radial underglow beneath hero surface.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "section-reveal-once",
+      "name": "Section Reveal Once",
+      "description": "One-time staggered entrance for key sections.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "interaction-lift",
+      "name": "Interaction Lift",
+      "description": "Hover/active/focus polish with controlled glow and micro-scale.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "bloom-halo",
+      "name": "Bloom Halo",
+      "description": "Soft non-directional bloom around key panels and sections.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "depth-fade-gradient",
+      "name": "Depth Fade Gradient",
+      "description": "Section-level fade gradients for subtle depth layering.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "cursor-spotlight",
+      "name": "Cursor Spotlight",
+      "description": "Pointer-follow radial glow that tracks the hero region.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "title-rgb-split",
+      "name": "Title RGB Split",
+      "description": "Chromatic text offset for neon title distortion.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    },
+    {
+      "id": "glitch-burst",
+      "name": "Glitch Burst",
+      "description": "Transient signal-corruption accent with channel split, jitter, and typographic distortion.",
+      "continuousMotion": false,
+      "viewportOverlay": false
+    }
+  ],
+  "profileMenus": {
+    "modern-saas": [
+      "ambient-gradient",
+      "hero-sweep",
+      "hero-underlight",
+      "panel-glow",
+      "panel-sheen",
+      "vignette-frame",
+      "film-grain-overlay",
+      "section-reveal-once",
+      "interaction-lift",
+      "bloom-halo",
+      "depth-fade-gradient"
+    ],
+    "cyberpunk-neon": [
+      "ambient-gradient",
+      "grid-overlay",
+      "scanline-overlay",
+      "panel-glow",
+      "badge-pulse",
+      "section-reveal-once",
+      "interaction-lift",
+      "bloom-halo",
+      "depth-fade-gradient",
+      "cursor-spotlight",
+      "title-rgb-split",
+      "glitch-burst"
+    ],
+    "arctic-mono": [
+      "hero-sweep",
+      "panel-sheen",
+      "vignette-frame",
+      "film-grain-overlay",
+      "section-reveal-once",
+      "interaction-lift",
+      "depth-fade-gradient",
+      "title-rgb-split"
+    ],
+    "noire-editorial": [
+      "hero-sweep",
+      "vignette-frame",
+      "panel-sheen",
+      "ambient-gradient",
+      "film-grain-overlay",
+      "section-reveal-once",
+      "interaction-lift",
+      "depth-fade-gradient"
+    ],
+    "corporate-blueprint": [
+      "panel-sheen",
+      "hero-sweep",
+      "ambient-gradient",
+      "grid-overlay",
+      "film-grain-overlay",
+      "section-reveal-once",
+      "interaction-lift",
+      "depth-fade-gradient",
+      "cursor-spotlight"
+    ],
+    "retro-terminal": [
+      "scanline-overlay",
+      "grid-overlay",
+      "badge-pulse",
+      "ambient-gradient",
+      "film-grain-overlay",
+      "section-reveal-once",
+      "interaction-lift",
+      "depth-fade-gradient",
+      "cursor-spotlight",
+      "title-rgb-split",
+      "glitch-burst"
+    ],
+    "pastel-dreamscape": [
+      "ambient-gradient",
+      "hero-sweep",
+      "hero-underlight",
+      "panel-glow",
+      "badge-pulse",
+      "section-reveal-once",
+      "interaction-lift",
+      "bloom-halo",
+      "depth-fade-gradient"
+    ],
+    "sunset-gradient": [
+      "ambient-gradient",
+      "hero-sweep",
+      "hero-underlight",
+      "panel-glow",
+      "badge-pulse",
+      "vignette-frame",
+      "section-reveal-once",
+      "interaction-lift",
+      "bloom-halo",
+      "depth-fade-gradient",
+      "cursor-spotlight",
+      "title-rgb-split"
+    ]
+  },
+  "profileDefaults": {
+    "modern-saas": {
+      "tier": "high",
+      "recipes": {
+        "low": ["panel-sheen", "interaction-lift"],
+        "medium": ["hero-underlight", "interaction-lift", "panel-sheen", "film-grain-overlay"],
+        "high": ["hero-underlight", "panel-glow", "interaction-lift", "depth-fade-gradient", "film-grain-overlay"]
+      }
+    },
+    "cyberpunk-neon": {
+      "tier": "high",
+      "recipes": {
+        "low": ["hero-underlight", "interaction-lift"],
+        "medium": ["hero-underlight", "hero-sweep", "interaction-lift"],
+        "high": ["hero-underlight", "hero-sweep", "panel-glow", "glitch-burst"]
+      }
+    },
+    "arctic-mono": {
+      "tier": "high",
+      "recipes": {
+        "low": ["depth-fade-gradient"],
+        "medium": ["panel-sheen", "depth-fade-gradient", "interaction-lift"],
+        "high": [
+          "panel-sheen",
+          "depth-fade-gradient",
+          "interaction-lift",
+          "film-grain-overlay"
+        ]
+      }
+    },
+    "noire-editorial": {
+      "tier": "high",
+      "recipes": {
+        "low": ["film-grain-overlay", "depth-fade-gradient"],
+        "medium": ["film-grain-overlay", "depth-fade-gradient", "panel-sheen"],
+        "high": [
+          "film-grain-overlay",
+          "depth-fade-gradient",
+          "panel-sheen",
+          "section-reveal-once"
+        ]
+      }
+    },
+    "corporate-blueprint": {
+      "tier": "high",
+      "recipes": {
+        "low": ["panel-sheen", "depth-fade-gradient"],
+        "medium": ["panel-sheen", "depth-fade-gradient", "interaction-lift"],
+        "high": [
+          "panel-sheen",
+          "grid-overlay",
+          "hero-sweep",
+          "interaction-lift"
+        ]
+      }
+    },
+    "retro-terminal": {
+      "tier": "high",
+      "recipes": {
+        "low": ["film-grain-overlay", "interaction-lift"],
+        "medium": ["scanline-overlay", "interaction-lift", "badge-pulse"],
+        "high": ["film-grain-overlay", "glitch-burst", "interaction-lift", "depth-fade-gradient"]
+      }
+    },
+    "pastel-dreamscape": {
+      "tier": "high",
+      "recipes": {
+        "low": ["hero-underlight", "interaction-lift"],
+        "medium": ["hero-underlight", "interaction-lift", "section-reveal-once"],
+        "high": ["hero-underlight", "bloom-halo", "interaction-lift", "section-reveal-once"]
+      }
+    },
+    "sunset-gradient": {
+      "tier": "high",
+      "recipes": {
+        "low": ["hero-underlight", "depth-fade-gradient"],
+        "medium": ["hero-underlight", "bloom-halo", "interaction-lift"],
+        "high": ["hero-underlight", "hero-sweep", "bloom-halo", "interaction-lift"]
+      }
+    }
+  }
+}

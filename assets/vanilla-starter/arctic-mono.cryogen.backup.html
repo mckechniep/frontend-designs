@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYOGEN LABS — Bio-Engineering the Future</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./arctic-mono.demo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Outfit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="frost-canvas"></canvas>
+
+  <div class="grain-overlay"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <div class="nav__logo-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L16 30" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M16 8L8 4M16 8L24 4" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M16 16L6 12M16 16L26 12" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M16 24L8 28M16 24L24 28" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="16" cy="8" r="2" fill="currentColor" opacity="0.6"/>
+          <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+          <circle cx="16" cy="24" r="2" fill="currentColor" opacity="0.6"/>
+        </svg>
+      </div>
+      <span>CRYOGEN</span>
+    </div>
+    <div class="nav__links">
+      <a href="#research" class="nav__link">Research</a>
+      <a href="#divisions" class="nav__link">Divisions</a>
+      <a href="#publications" class="nav__link">Publications</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </div>
+    <a href="#contact" class="nav__cta">Request Access</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero__badge" data-reveal>
+      <span class="hero__badge-dot"></span>
+      Lab Status: Active — 3 trials in progress
+    </div>
+
+    <h1 class="hero__title" data-reveal>
+      <span class="hero__title-line">Rewriting the</span>
+      <span class="hero__title-line hero__title-line--accent">architecture</span>
+      <span class="hero__title-line">of life itself.</span>
+    </h1>
+
+    <p class="hero__sub" data-reveal>
+      Cryogen Labs operates at the frontier of synthetic biology, gene editing,
+      and cryopreservation science. We engineer biological systems that were
+      previously theoretical.
+    </p>
+
+    <div class="hero__actions" data-reveal>
+      <a href="#research" class="btn btn--primary">
+        <span>Explore Research</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#divisions" class="btn btn--ghost">Our Divisions</a>
+    </div>
+
+    <div class="hero__stats" data-reveal>
+      <div class="hero__stat">
+        <span class="hero__stat-num" data-count="147">0</span>
+        <span class="hero__stat-label">Published Papers</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-num" data-count="12">0</span>
+        <span class="hero__stat-label">Active Patents</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-num" data-count="4">0</span>
+        <span class="hero__stat-label">Global Facilities</span>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator">
+      <div class="hero__scroll-line"></div>
+    </div>
+  </header>
+
+  <section class="research" id="research">
+    <div class="section-label" data-reveal>
+      <span class="section-label__num">01</span>
+      <span class="section-label__line"></span>
+      <span>Core Research</span>
+    </div>
+
+    <div class="research__header" data-reveal>
+      <h2 class="research__title">Pushing the boundaries of<br>biological possibility.</h2>
+      <p class="research__desc">Our interdisciplinary teams combine computational biology, materials science, and genetic engineering to develop solutions that operate at the molecular level.</p>
+    </div>
+
+    <div class="research__grid">
+      <article class="research__card" data-reveal>
+        <div class="research__card-num">01</div>
+        <div class="research__card-icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 4C18 4 14 10 14 16C14 22 18 26 18 32H30C30 26 34 22 34 16C34 10 30 4 24 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M18 32v4a6 6 0 0012 0v-4" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="38" x2="28" y2="38" stroke="currentColor" stroke-width="1"/><line x1="20" y1="35" x2="28" y2="35" stroke="currentColor" stroke-width="1"/><circle cx="24" cy="18" r="3" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>
+        </div>
+        <h3 class="research__card-title">Gene Therapy<br>Vectors</h3>
+        <p class="research__card-desc">Next-generation AAV delivery systems with 94.7% transfection efficiency across neural tissue targets.</p>
+        <div class="research__card-tag">Phase III</div>
+      </article>
+
+      <article class="research__card" data-reveal>
+        <div class="research__card-num">02</div>
+        <div class="research__card-icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M8 24C8 24 14 14 24 14C34 14 40 24 40 24C40 24 34 34 24 34C14 34 8 24 8 24Z" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="2" fill="currentColor"/><path d="M24 6v4M24 38v4M6 24h4M38 24h4" stroke="currentColor" stroke-width="1" opacity="0.4"/></svg>
+        </div>
+        <h3 class="research__card-title">Cryo-Electron<br>Microscopy</h3>
+        <p class="research__card-desc">Sub-angstrom resolution imaging of protein complexes at cryogenic temperatures for structural analysis.</p>
+        <div class="research__card-tag">Operational</div>
+      </article>
+
+      <article class="research__card" data-reveal>
+        <div class="research__card-num">03</div>
+        <div class="research__card-icon">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="8" width="28" height="32" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M18 8V4M30 8V4" stroke="currentColor" stroke-width="1.5"/><path d="M16 18h16M16 24h10M16 30h13" stroke="currentColor" stroke-width="1" opacity="0.6"/><circle cx="34" cy="34" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M31 34l2 2 4-4" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3 class="research__card-title">Synthetic<br>Genomics</h3>
+        <p class="research__card-desc">De novo chromosome construction enabling fully programmable organisms with embedded biosafety circuits.</p>
+        <div class="research__card-tag">Phase II</div>
+      </article>
+
+      <article class="research__card" data-reveal>
+        <div class="research__card-num">04</div>
+        <div class="research__card-icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M12 36C12 36 16 28 24 28C32 28 36 36 36 36" stroke="currentColor" stroke-width="1.5"/><path d="M12 28C12 28 16 20 24 20C32 20 36 28 36 28" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><path d="M12 20C12 20 16 12 24 12C32 12 36 20 36 20" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><circle cx="24" cy="28" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="24" y1="31" x2="24" y2="44" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+        <h3 class="research__card-title">Cryopreservation<br>Protocols</h3>
+        <p class="research__card-desc">Vitrification techniques achieving 99.2% cell viability post-thaw for complex tissue architectures.</p>
+        <div class="research__card-tag">Published</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="showcase__inner" data-reveal>
+      <div class="showcase__text">
+        <span class="showcase__eyebrow">Flagship Project</span>
+        <h2 class="showcase__title">Project Boreas</h2>
+        <p class="showcase__desc">A five-year initiative to develop the first fully synthetic cold-tolerant microbiome. Boreas organisms are designed to remediate arctic soil contamination while maintaining ecological stability in sub-zero environments.</p>
+        <div class="showcase__meta">
+          <div class="showcase__meta-item">
+            <span class="showcase__meta-label">Timeline</span>
+            <span class="showcase__meta-value">2024 — 2029</span>
+          </div>
+          <div class="showcase__meta-item">
+            <span class="showcase__meta-label">Funding</span>
+            <span class="showcase__meta-value">$42M Series B</span>
+          </div>
+          <div class="showcase__meta-item">
+            <span class="showcase__meta-label">Team</span>
+            <span class="showcase__meta-value">38 Researchers</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__visual">
+        <div class="showcase__helix" id="helix-container">
+          <canvas id="helix-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="divisions" id="divisions">
+    <div class="section-label" data-reveal>
+      <span class="section-label__num">02</span>
+      <span class="section-label__line"></span>
+      <span>Divisions</span>
+    </div>
+
+    <div class="divisions__list">
+      <a href="#" class="division" data-reveal>
+        <span class="division__num">I</span>
+        <h3 class="division__name">Molecular Engineering</h3>
+        <p class="division__desc">Protein design, enzyme optimization, and molecular machine construction.</p>
+        <span class="division__arrow">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a href="#" class="division" data-reveal>
+        <span class="division__num">II</span>
+        <h3 class="division__name">Computational Biology</h3>
+        <p class="division__desc">Machine learning models for genomic prediction and drug-target interaction.</p>
+        <span class="division__arrow">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a href="#" class="division" data-reveal>
+        <span class="division__num">III</span>
+        <h3 class="division__name">Cryogenics & Preservation</h3>
+        <p class="division__desc">Advanced vitrification, cold-chain logistics, and tissue banking infrastructure.</p>
+        <span class="division__arrow">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a href="#" class="division" data-reveal>
+        <span class="division__num">IV</span>
+        <h3 class="division__name">Biosafety & Ethics</h3>
+        <p class="division__desc">Regulatory compliance, containment protocol design, and ethical review boards.</p>
+        <span class="division__arrow">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H6M16 4v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <section class="publications" id="publications">
+    <div class="section-label" data-reveal>
+      <span class="section-label__num">03</span>
+      <span class="section-label__line"></span>
+      <span>Recent Publications</span>
+    </div>
+
+    <div class="publications__grid">
+      <article class="pub" data-reveal>
+        <span class="pub__date">2026.02</span>
+        <h3 class="pub__title">Programmable ice-nucleation proteins for controlled crystallization in synthetic cryobiology</h3>
+        <span class="pub__journal">Nature Biotechnology</span>
+        <div class="pub__authors">Vasquez, K., Chen, L., Okafor, N. et al.</div>
+      </article>
+      <article class="pub" data-reveal>
+        <span class="pub__date">2025.11</span>
+        <h3 class="pub__title">Cold-active CRISPR-Cas systems: genome editing at sub-zero temperatures</h3>
+        <span class="pub__journal">Science</span>
+        <div class="pub__authors">Lindström, A., Park, J., Reyes, M.</div>
+      </article>
+      <article class="pub" data-reveal>
+        <span class="pub__date">2025.09</span>
+        <h3 class="pub__title">Synthetic psychrophilic gene circuits with tunable thermal response curves</h3>
+        <span class="pub__journal">Cell Systems</span>
+        <div class="pub__authors">Okafor, N., Dubois, F., Vasquez, K.</div>
+      </article>
+      <article class="pub" data-reveal>
+        <span class="pub__date">2025.06</span>
+        <h3 class="pub__title">Vitrification without cryoprotectants: electrostatic stabilization of cellular water</h3>
+        <span class="pub__journal">PNAS</span>
+        <div class="pub__authors">Chen, L., Andersson, S., Kim, H.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact__inner" data-reveal>
+      <div class="contact__text">
+        <h2 class="contact__title">Collaborate<br>with us.</h2>
+        <p class="contact__desc">We partner with research institutions, pharmaceutical companies, and government agencies. Access to our facilities and datasets is available through our partnership program.</p>
+      </div>
+      <form class="contact__form" id="contact-form">
+        <div class="form__group">
+          <label class="form__label" for="name">Full Name</label>
+          <input class="form__input" type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="email">Institutional Email</label>
+          <input class="form__input" type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="org">Organization</label>
+          <input class="form__input" type="text" id="org" name="org" required autocomplete="organization">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="message">Research Interest</label>
+          <textarea class="form__input form__textarea" id="message" name="message" rows="4"></textarea>
+        </div>
+        <button class="btn btn--primary btn--full" type="submit">
+          <span>Submit Inquiry</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="nav__logo">
+            <div class="nav__logo-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L16 30" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M16 8L8 4M16 8L24 4" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M16 16L6 12M16 16L26 12" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M16 24L8 28M16 24L24 28" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="16" cy="8" r="2" fill="currentColor" opacity="0.6"/>
+                <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+                <circle cx="16" cy="24" r="2" fill="currentColor" opacity="0.6"/>
+              </svg>
+            </div>
+            <span>CRYOGEN</span>
+          </div>
+          <p class="footer__tagline">Engineering biology at the edge of cold.</p>
+        </div>
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Research</h4>
+            <a href="#">Publications</a>
+            <a href="#">Datasets</a>
+            <a href="#">Open Source</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Company</h4>
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#">Press</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Legal</h4>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Biosafety</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Cryogen Labs. All rights reserved.</span>
+        <span class="footer__coords">71.2906&deg;N, 156.7886&deg;W — Utqiagvik Research Station</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./arctic-mono.demo.js"></script>
+</body>
+</html>
