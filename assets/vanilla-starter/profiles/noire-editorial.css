@@ -298,6 +298,39 @@ body {
   font-weight: 600;
 }
 
+.nav-link--themes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem 0.78rem;
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  background: transparent;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.nav-link--themes:hover {
+  color: var(--text);
+  border-color: rgba(201, 168, 76, 0.42);
+}
+
+.nav-list {
+  align-items: center;
+}
+
+.nav-list > li {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav-list .nav-link--themes {
+  color: var(--accent);
+}
+
+.mobile-nav-list .nav-link--themes:hover {
+  color: var(--text);
+}
+
 /* === Noire atmospheric overlays === */
 
 body::before {

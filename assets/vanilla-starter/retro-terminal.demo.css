@@ -280,6 +280,9 @@ body::after {
   transition: all 0.2s ease;
   white-space: nowrap;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .nav-cmd:hover {
@@ -300,6 +303,18 @@ body::after {
   content: '>';
   margin-right: 2px;
   color: var(--green);
+}
+
+.nav-cmd--themes {
+  color: var(--amber);
+  border-color: color-mix(in srgb, var(--amber) 36%, var(--border));
+}
+
+.nav-cmd--themes:hover {
+  color: var(--amber);
+  text-shadow: 0 0 8px var(--amber-glow);
+  border-color: var(--amber);
+  background: color-mix(in srgb, var(--amber-glow) 22%, transparent);
 }
 
 /* ═══ MAIN BODY ═══ */

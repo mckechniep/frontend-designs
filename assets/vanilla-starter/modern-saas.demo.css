@@ -4211,6 +4211,31 @@ body {
   color: var(--text);
 }
 
+.nav-link--themes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem 0.82rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--glass-border));
+  border-radius: 999px;
+  background: transparent;
+  color: color-mix(in srgb, var(--accent) 34%, var(--text));
+}
+
+.nav-link--themes:hover {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--glass-border));
+}
+
+.nav-list {
+  align-items: center;
+}
+
+.nav-list > li {
+  display: flex;
+  align-items: center;
+}
+
 .button {
   border-radius: 999px;
   padding-inline: 22px;

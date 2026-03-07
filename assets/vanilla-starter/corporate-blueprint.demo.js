@@ -156,6 +156,47 @@
     });
   }
 
+  // ── Mobile Nav ──
+  function initNavMenu() {
+    const toggle = document.querySelector('[data-nav-toggle]');
+    const panel = document.getElementById('nav-mobile');
+    if (!toggle || !panel) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 1180px)');
+
+    function closeMenu() {
+      toggle.setAttribute('aria-expanded', 'false');
+      panel.hidden = true;
+    }
+
+    function syncForViewport() {
+      if (!mobileQuery.matches) {
+        closeMenu();
+      }
+    }
+
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      panel.hidden = expanded;
+    });
+
+    panel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', syncForViewport, { passive: true });
+    syncForViewport();
+  }
+
   // ── Scroll Reveal ──
   function initScrollReveal() {
     const elements = document.querySelectorAll('[data-reveal]');
@@ -288,6 +329,7 @@
     initBlueprintGrid();
     initCrosshair();
     initNavScroll();
+    initNavMenu();
     initScrollReveal();
     initCounters();
     initSmoothScroll();

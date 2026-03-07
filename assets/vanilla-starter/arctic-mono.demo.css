@@ -4091,7 +4091,9 @@ html[data-effects-tier="medium"] .form .hero::before {
   --badge-bg: rgba(126, 200, 227, 0.1);
 
   --font: "Outfit", system-ui, sans-serif;
-  --font-mono: "DM Mono", "Courier New", monospace;
+  --font-mono:
+    "DM Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   --font-ui: "Outfit", system-ui, sans-serif;
 }
 
@@ -4335,6 +4337,40 @@ main::after {
   border-radius: 0;
 }
 
+.nav-link--themes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.38rem 0.72rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 52%, transparent);
+  background: transparent;
+  color: color-mix(in srgb, var(--accent-2) 28%, var(--accent));
+  line-height: 1;
+}
+
+.nav-link--themes:hover {
+  border-color: color-mix(in srgb, var(--accent-2) 72%, transparent);
+  background: transparent;
+  color: color-mix(in srgb, var(--accent-2) 62%, var(--text));
+}
+
+.nav-list {
+  align-items: center;
+}
+
+.nav-list > li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  line-height: 1;
+}
+
 .button,
 .chip,
 .icon-button,
@@ -4550,6 +4586,14 @@ main::after {
 .button-ghost:hover {
   border-color: color-mix(in srgb, var(--accent) 46%, transparent);
   background: color-mix(in srgb, var(--badge-bg) 72%, transparent);
+}
+
+.mobile-nav-list .nav-link--themes {
+  color: color-mix(in srgb, var(--accent-2) 28%, var(--accent));
+}
+
+.mobile-nav-list .nav-link--themes:hover {
+  color: color-mix(in srgb, var(--accent-2) 62%, var(--text));
 }
 
 .metric__value,

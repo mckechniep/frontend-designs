@@ -1465,8 +1465,29 @@ function setNoireMode(active) {
 /* ── Profile switching ── */
 
 async function loadProfiles() {
-  const res = await fetch("./profiles.json");
-  const profiles = await res.json();
+  let profiles;
+  try {
+    const res = await fetch("./profiles.json");
+    if (!res.ok) {
+      throw new Error(`profiles.json request failed with ${res.status}`);
+    }
+    profiles = await res.json();
+  } catch (error) {
+    const fixedId = getFixedProfileId();
+    const fixedStylesheet = getFixedProfileStylesheet();
+    const existingStylesheet = qs("#profile-stylesheet")?.getAttribute("href") || "";
+
+    console.warn("Falling back to inline profile config.", error);
+    profiles = [
+      {
+        id: fixedId || "modern-saas",
+        name: fixedId || "modern-saas",
+        description: "Fallback profile config for local preview boot.",
+        file: fixedStylesheet || existingStylesheet || "profiles/modern-saas.css",
+        defaultTheme: document.documentElement.dataset.theme || "dark",
+      },
+    ];
+  }
 
   const select = qs("[data-profile-select]");
   if (select) {
@@ -2387,8 +2408,40 @@ function syncEffects(profileId, effectsConfig, state) {
 }
 
 async function loadEffectsConfig() {
-  const res = await fetch("./effects.json");
-  return res.json();
+  try {
+    const res = await fetch("./effects.json");
+    if (!res.ok) {
+      throw new Error(`effects.json request failed with ${res.status}`);
+    }
+    return await res.json();
+  } catch (error) {
+    const fixedId = getFixedProfileId() || "modern-saas";
+
+    console.warn("Falling back to inline effects config.", error);
+    return {
+      version: 1,
+      maxEffects: 12,
+      tiers: ["profile-default", "off", "low", "medium", "high", "custom"],
+      constraints: {
+        overlayExclusiveEffects: [],
+        incompatiblePairs: [],
+      },
+      effects: [],
+      profileMenus: {
+        [fixedId]: [],
+      },
+      profileDefaults: {
+        [fixedId]: {
+          tier: "off",
+          recipes: {
+            low: [],
+            medium: [],
+            high: [],
+          },
+        },
+      },
+    };
+  }
 }
 
 /* ── Mobile menu ── */

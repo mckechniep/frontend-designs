@@ -174,6 +174,11 @@ nav.scrolled {
   align-items: center;
 }
 
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links a {
   font-size: 0.85rem;
   letter-spacing: 0.12em;
@@ -201,6 +206,27 @@ nav.scrolled {
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+.nav-links .nav-link--themes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.62rem 1.25rem;
+  border: 1px solid rgba(52, 41, 69, 0.12);
+  border-radius: 50px;
+  color: var(--text);
+  background: transparent;
+  box-shadow: 0 6px 14px rgba(240, 141, 184, 0.05);
+}
+
+.nav-links .nav-link--themes::after {
+  content: none;
+}
+
+.nav-links .nav-link--themes:hover {
+  color: var(--rose-deep);
+  border-color: rgba(52, 41, 69, 0.18);
 }
 
 .nav-cta {

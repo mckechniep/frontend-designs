@@ -155,9 +155,10 @@ img { display: block; max-width: 100%; }
 .nav-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
+  column-gap: 1.5rem;
 }
 
 .nav-logo {
@@ -192,7 +193,9 @@ img { display: block; max-width: 100%; }
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 2.5rem;
+  justify-self: center;
 }
 
 .nav-link {
@@ -227,6 +230,36 @@ img { display: block; max-width: 100%; }
 .nav-link:hover { color: var(--white); }
 .nav-link:hover::after { width: 100%; }
 
+.nav-link--themes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 1rem;
+  border: 1px solid var(--cyan-dim);
+  border-radius: 2px;
+  color: var(--cyan);
+  box-shadow: inset 0 0 0 1px rgba(62, 198, 224, 0.08);
+  box-sizing: border-box;
+}
+
+.nav-link--themes::before,
+.nav-link--themes::after {
+  content: none;
+}
+
+.nav-link--themes:hover {
+  color: var(--white);
+  border-color: var(--cyan);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 0.75rem;
+}
+
 .nav-cta {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -235,7 +268,12 @@ img { display: block; max-width: 100%; }
   background: transparent;
   border: 1px solid var(--cyan-dim);
   color: var(--cyan);
-  padding: 0.6rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 1.4rem;
+  box-sizing: border-box;
   transition: all 0.3s;
 }
 
@@ -243,6 +281,90 @@ img { display: block; max-width: 100%; }
   background: var(--cyan);
   color: var(--navy-deep);
   border-color: var(--cyan);
+}
+
+.nav-cta--link {
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 44px;
+  height: 40px;
+  justify-self: end;
+  background: transparent;
+  border: 1px solid var(--cyan-dim);
+  color: var(--cyan);
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+}
+
+.nav-mobile {
+  max-width: var(--max-width);
+  margin: 0.9rem auto 0;
+  padding: 0 0 0.75rem;
+}
+
+.nav-mobile-panel {
+  margin-left: auto;
+  width: min(420px, 100%);
+  padding: 1rem;
+  border: 1px solid var(--cyan-line);
+  background: rgba(6, 16, 31, 0.94);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.nav-mobile-links {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.nav-mobile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 36px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  text-decoration: none;
+}
+
+.nav-mobile-link::before {
+  content: attr(data-index);
+  color: var(--cyan-dim);
+  font-size: 0.65rem;
+  opacity: 0.72;
+}
+
+.nav-mobile-link:hover {
+  color: var(--white);
+}
+
+.nav-mobile-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.nav-mobile-actions .nav-link--themes,
+.nav-mobile-actions .nav-cta {
+  width: 100%;
 }
 
 /* ── Hero ── */
@@ -1153,6 +1275,21 @@ a.contact-value:hover { color: var(--cyan); }
 }
 
 /* ── Responsive ── */
+@media (max-width: 1180px) {
+  .nav-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .nav-links,
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+}
+
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
@@ -1168,7 +1305,15 @@ a.contact-value:hover { color: var(--cyan); }
   body { cursor: auto; }
   .crosshair { display: none; }
 
-  .nav-links { display: none; }
+  .nav-inner {
+    grid-template-columns: auto 1fr;
+  }
+  .nav-mobile-panel {
+    width: 100%;
+  }
+  .nav-mobile-actions {
+    grid-template-columns: 1fr;
+  }
 
   .hero-stats {
     flex-direction: column;
