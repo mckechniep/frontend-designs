@@ -1375,14 +1375,30 @@ function ensureNoirePressStrip(active) {
   const hero = qs(".hero");
   if (!hero) return;
 
+  const items = [
+    "SPECIAL REPORT",
+    "INVESTIGATION OPEN",
+    "DOSSIER ACCESS GRANTED",
+    "FIELD NOTES UPDATED",
+    "SPECIAL REPORT",
+    "INVESTIGATION OPEN",
+    "DOSSIER ACCESS GRANTED",
+    "FIELD NOTES UPDATED",
+  ];
+  const trackMarkup = `<div class="noire-press-track" aria-hidden="true">${items
+    .map(
+      (item) =>
+        `<span class="noire-press-item">${item}<span class="noire-press-sep">•</span></span>`
+    )
+    .join("")}</div>`;
+
   let strip = qs(".noire-press-strip");
   if (!strip) {
     strip = document.createElement("div");
     strip.className = "noire-press-strip";
-    strip.innerHTML =
-      '<div class="noire-press-track" aria-hidden="true">SPECIAL REPORT • INVESTIGATION OPEN • DOSSIER ACCESS GRANTED • FIELD NOTES UPDATED • SPECIAL REPORT • INVESTIGATION OPEN • DOSSIER ACCESS GRANTED • FIELD NOTES UPDATED</div>';
     hero.insertAdjacentElement("afterend", strip);
   }
+  strip.innerHTML = trackMarkup;
   strip.hidden = !active;
 }
 

@@ -1,13 +1,20 @@
 # Refinement Loop
 
-Use this after the first draft is delivered.
+Use this after the first draft is delivered, or when `task_mode=small-refinement` is locked at the start of the turn.
 
-## Activation Trigger (Mandatory)
+## Task Mode Split (Mandatory)
 
-Immediately after first-draft delivery, always send a concise handoff block before waiting for user feedback:
+Use this file in two different ways:
+
+- `full-build`: after first-draft delivery, send the required refinement handoff block below before waiting for feedback.
+- `small-refinement`: skip the first-draft handoff block, keep current invariants locked, implement only the requested delta, and return a concise `DELTA_SUMMARY` instead of a fresh `PLAN` + `DESIGN_SPEC`.
+
+## Full-Build First-Draft Handoff (Mandatory)
+
+Immediately after `full-build` first-draft delivery, always send a concise handoff block before waiting for user feedback:
 
 1. `What I changed` (high-level delta)
-2. `Locked invariants` (style/theme/stack/layers/icons/intervention mode)
+2. `Locked invariants` (task mode/style/theme/stack/layers/icons/intervention mode)
 3. `Verification coverage` (ran, skipped, why)
 4. `Refinement entry prompt` (explicitly invite refinements)
 
@@ -34,6 +41,19 @@ Hard rules:
 - Tailor component examples to current surface type (landing/dashboard/app screen) and selected stack.
 - Do not mention locked `layers` in user-facing first-draft refinement prompt text.
 - Include the backticked `<Back>` navigation line above in first-draft refinement handoff and in any later multi-question refinement interrogation.
+
+## Small-Refinement Entry Rules
+
+When `task_mode=small-refinement`:
+
+- do not emit the first-draft 5-line refinement handoff block
+- do not generate a fresh `PLAN` or full `DESIGN_SPEC`
+- treat current UI and locked invariants as the baseline contract
+- return `DELTA_SUMMARY` with:
+  - requested delta
+  - locked invariants retained
+  - targeted verification coverage
+- ask only for missing blocking invariants or a task-mode clarification if the request is ambiguous
 
 After the required 5-line block, include this optional one-line offer:
 
@@ -175,6 +195,7 @@ Use these as reference outputs for the `Refinement entry prompt` block. Use each
 
 After scope lock + first draft, treat these as locked:
 
+- task mode
 - style profile
 - theme mode
 - stack target
@@ -203,7 +224,7 @@ Do not change locked invariants unless the user explicitly requests the change.
 3. Apply only requested deltas in-scope.
 4. Keep untouched surfaces stable unless a cross-cutting bug requires broader fixes.
 5. Run targeted checks (see below).
-6. Return a short delta summary:
+6. Return `DELTA_SUMMARY`:
    - what changed
    - what remained locked
    - what was verified

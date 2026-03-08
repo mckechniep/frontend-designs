@@ -18,9 +18,12 @@ Treat these rules as non-negotiable.
 
 ## Protocol Invariants
 
-- Always run `Scope Lock -> PLAN -> DESIGN_SPEC -> Implement -> Quality Gates -> Deliver`.
-- Never output code before `PLAN` and `DESIGN_SPEC`.
-- Ask at most 1-3 blocking questions during scope lock.
+- Always lock `task_mode` before normal scope lock.
+- `full-build`: run `Task Mode Gate -> Scope Lock -> PLAN -> DESIGN_SPEC -> Implement -> Quality Gates -> Deliver`.
+- `small-refinement`: run `Task Mode Gate -> Lock Delta/Invariants -> Implement -> Targeted Quality Gates -> Deliver`.
+- Never output code before `PLAN` and `DESIGN_SPEC` on `full-build` tasks.
+- Do not force a new `PLAN` or `DESIGN_SPEC` on `small-refinement` tasks unless the user expands scope.
+- Ask at most 1-3 blocking questions total across task-mode and scope lock.
 - Never re-ask locked choices after proceeding.
 
 ## Non-Negotiables
@@ -56,6 +59,8 @@ Treat these rules as non-negotiable.
 
 ## Decision Behavior
 
+- Detect `task_mode` before normal scope lock.
+- If the request could be either a `small-refinement` or a `full-build`, ask one immediate clarifying question before stack/style prompts.
 - Detect before asking.
 - Ask only when a choice changes output.
 - If the user provides brand/domain context, lock it and propagate it through title/meta/headings/CTA/copy.
@@ -65,6 +70,7 @@ Treat these rules as non-negotiable.
 - In empty/greenfield ambiguous repos, use the verbatim canned scope-lock prompt from `references/10-stack-detection.md`.
 - After visual direction is locked, lock `expressive_intensity` (`restrained|balanced|high-drama`); default to `high-drama` if unanswered.
 - For React/Next targets, resolve optional layer intent (Tailwind, shadcn/ui, Recharts) during stack resolution.
+- On `full-build`, record `task_mode`, `icon_system`, and `intervention_mode` in `DESIGN_SPEC.scope_lock`.
 - If scope includes dashboard/analytics tables, default to sortable headers and simple filtering unless user asks for static tables.
 - If scope includes charts, default to responsive chart containers and basic interaction (tooltip/legend/hover state) unless user asks for static charts.
 - Run keep-existing viability gate before honoring keep-existing choices.
@@ -76,7 +82,7 @@ Treat these rules as non-negotiable.
 - Resolve Expressive Effects Layer choices immediately after style choice using style-scoped options in `design/motion/motion.rules.md`.
 - Resolve profile recipe defaults from `design/profiles/profile.<id>.md` before writing code.
 - For `retro-terminal` with `profile_recipe_lock=signature-on`, select `Layout L5 - Terminal Command Console` from `design/layout/landing.layouts.md`.
-- For expressive profiles, require a `PROFILE_SIGNATURES` block inside `DESIGN_SPEC` with:
+- On `full-build` tasks for expressive profiles, require a `PROFILE_SIGNATURES` block inside `DESIGN_SPEC` with:
   - required signatures
   - selected effects set
   - interaction set
@@ -86,7 +92,7 @@ Treat these rules as non-negotiable.
 - When theme includes light mode (`light` or `both-toggle-*`), verify text/surface contrast before finalizing output.
 - Default safely when user does not respond.
 - In mixed/degraded existing UI, ask once for intervention mode (`polish-existing`, `partial-restyle`, `full-takeover`).
-- After first draft, lock resolved invariants (style/theme/stack/layers/icon/intervention) unless user explicitly requests a change.
+- After first draft, lock resolved invariants (`task_mode`, style/theme/stack/layers/icon/intervention) unless user explicitly requests a change.
 - In refinement mode, offer 1-2 profile-relevant effect upgrades (not a full effect list).
 - Run a mandatory self-polish pass against `references/41-design-excellence-rubric.md` before final output.
 - If a profile score is weak, revise once before returning deliverables (do not ask user to request this revision).

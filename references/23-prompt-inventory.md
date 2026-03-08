@@ -4,11 +4,21 @@ Canonical source for user-facing canned prompts and fixed prompt blocks used by 
 
 Use this file to keep wording consistent and avoid prompt drift.
 
+## Task-Mode Clarifier (Verbatim)
+
+Source: `references/10-stack-detection.md`
+
+Use immediately when the request could be either a small refinement or a full build/restyle.
+
+```text
+Before I scope this, should I treat it as a small refinement to the existing UI or a full build/restyle pass?
+```
+
 ## Scope-Lock Intake (Verbatim)
 
 Source: `references/10-stack-detection.md`
 
-Use when repo is empty/greenfield and build brief is underspecified.
+Use only after `task_mode=full-build`, when repo is empty/greenfield and the build brief is underspecified.
 
 ```text
 Scope lock: I can’t infer stack/contracts yet from this repo, so lock these 3 items and I’ll return PLAN + DESIGN_SPEC next.
@@ -73,6 +83,7 @@ Source: `references/22-refinement-loop.md`
 
 Rules:
 
+- Use only for `full-build` first-draft handoff.
 - Keep this exact 5-line structure.
 - Render as separate paragraphs with one blank line between lines.
 - Keep `<Back>` line included.

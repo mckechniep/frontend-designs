@@ -83,7 +83,10 @@
           </a>
 
           <a href="./arctic-mono.html" class="card card--arctic" style="--delay: 2">
-            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__canvas" data-arctic-preview>
+              <span></span><span></span><span></span>
+              <canvas class="arctic-preview-helix" aria-hidden="true"></canvas>
+            </div>
             <div class="card__body">
               <span class="card__num">03</span>
               <h2 class="card__name">Arctic Mono</h2>
@@ -107,7 +110,15 @@
           </a>
 
           <a href="./corporate-blueprint.html" class="card card--blueprint" style="--delay: 4">
-            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__canvas" data-blueprint-preview>
+              <span></span><span></span><span></span>
+              <div class="blueprint-preview-cursor" aria-hidden="true">
+                <span class="blueprint-preview-cursor__ring"></span>
+                <span class="blueprint-preview-cursor__h"></span>
+                <span class="blueprint-preview-cursor__v"></span>
+                <span class="blueprint-preview-cursor__coord">000,000</span>
+              </div>
+            </div>
             <div class="card__body">
               <span class="card__num">05</span>
               <h2 class="card__name">Corporate Blueprint</h2>
@@ -172,5 +183,6 @@
     <footer class="vault-footer">
       <p>Each theme is intentionally distinct &mdash; built as its own standalone visual experience.</p>
     </footer>
+    <script src="./index.directory.js" defer></script>
   </body>
 </html>

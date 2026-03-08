@@ -4341,12 +4341,14 @@ main::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
-  padding: 0.38rem 0.72rem;
+  min-height: 38px;
+  padding: 10px 14px;
   border: 1px solid color-mix(in srgb, var(--accent) 52%, transparent);
+  border-radius: 0;
   background: transparent;
   color: color-mix(in srgb, var(--accent-2) 28%, var(--accent));
   line-height: 1;
+  white-space: nowrap;
 }
 
 .nav-link--themes:hover {
@@ -4355,8 +4357,20 @@ main::after {
   color: color-mix(in srgb, var(--accent-2) 62%, var(--text));
 }
 
+.nav {
+  gap: clamp(0.85rem, 1.4vw, 1.25rem);
+}
+
+.nav-actions {
+  display: none;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
 .nav-list {
   align-items: center;
+  gap: clamp(0.75rem, 1.15vw, 1.05rem);
 }
 
 .nav-list > li {
@@ -4369,6 +4383,7 @@ main::after {
   align-items: center;
   min-height: 2rem;
   line-height: 1;
+  padding: 0 0.1rem;
 }
 
 .button,
@@ -4594,6 +4609,12 @@ main::after {
 
 .mobile-nav-list .nav-link--themes:hover {
   color: color-mix(in srgb, var(--accent-2) 62%, var(--text));
+}
+
+@media (min-width: 880px) {
+  .nav-actions {
+    display: inline-flex;
+  }
 }
 
 .metric__value,

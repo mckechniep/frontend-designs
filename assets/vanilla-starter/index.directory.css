@@ -429,63 +429,93 @@ a {
 
 .card--saas .card__canvas {
   background:
+    radial-gradient(circle at 78% 26%, rgba(232, 169, 74, 0.18), transparent 24%),
     radial-gradient(ellipse at 18% 16%, rgba(232, 169, 74, 0.14), transparent 48%),
     linear-gradient(180deg, #1a1f2e, #12161f);
 }
 
-/* Glass hero block */
+/* Glass shell */
 .card--saas .card__canvas::before {
   content: '';
   position: absolute;
-  top: 28px;
-  left: 24px;
-  right: 24px;
-  height: 58px;
-  border: 1px solid rgba(232, 169, 74, 0.18);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
+  inset: 18px;
+  border: 1px solid rgba(232, 169, 74, 0.16);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 18px 40px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
 }
 
 /* Warm orb glow */
 .card--saas .card__canvas::after {
   content: '';
   position: absolute;
-  bottom: -36px;
-  right: -16px;
-  width: 140px;
-  height: 140px;
+  bottom: -30px;
+  right: -10px;
+  width: 152px;
+  height: 152px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(232, 169, 74, 0.22), transparent 68%);
   filter: blur(8px);
+  pointer-events: none;
 }
 
 .card--saas .card__canvas span:nth-child(1) {
-  top: 106px;
-  left: 24px;
-  width: calc(44% - 8px);
-  height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.035);
+  top: 42px;
+  left: 34px;
+  width: 40%;
+  height: 84px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84)) 0 0 / 78% 12px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28)) 0 24px / 92% 8px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)) 0 42px / 84% 8px no-repeat,
+    linear-gradient(rgba(232, 169, 74, 0.82), rgba(232, 169, 74, 0.82)) 0 68px / 46% 10px no-repeat;
+  opacity: 0.96;
 }
 
 .card--saas .card__canvas span:nth-child(2) {
-  top: 106px;
-  left: calc(44% + 24px);
-  width: calc(56% - 40px);
-  height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.035);
+  top: 34px;
+  right: 28px;
+  width: 98px;
+  height: 116px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card--saas .card__canvas span:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  inset: 18px 14px 20px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)) 0 0 / 62% 8px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)) 0 18px / 86% 6px no-repeat,
+    linear-gradient(90deg, rgba(232, 169, 74, 0.78), rgba(240, 197, 127, 0.45)) 0 40px / 100% 12px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)) 0 68px / 70% 6px no-repeat,
+    linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)) 0 82px / 54% 6px no-repeat;
 }
 
 .card--saas .card__canvas span:nth-child(3) {
-  top: 160px;
-  left: 24px;
-  right: 24px;
-  height: 3px;
+  top: 166px;
+  left: 28px;
+  right: 28px;
+  height: 24px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(232, 169, 74, 0.45), transparent 55%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.06) 0 29%,
+      transparent 29% 33%,
+      rgba(255, 255, 255, 0.06) 33% 66%,
+      transparent 66% 70%,
+      rgba(232, 169, 74, 0.16) 70% 100%
+    );
 }
 
 /* --- 02: Cyberpunk Neon --------------------------------------------- */
@@ -538,15 +568,36 @@ a {
   z-index: 2;
 }
 
-/* Cyan neon scan line */
+/* Moving scanner band */
 .card--cyber .card__canvas span:nth-child(2) {
-  top: 62px;
+  top: 20px;
   left: 20px;
-  width: 48%;
+  right: 20px;
+  height: 30px;
+  background: linear-gradient(
+    180deg,
+    transparent 0,
+    rgba(0, 255, 240, 0.05) 36%,
+    rgba(0, 255, 240, 0.24) 52%,
+    rgba(255, 79, 216, 0.09) 64%,
+    transparent 100%
+  );
+  box-shadow: 0 0 18px rgba(0, 255, 240, 0.14);
+  mix-blend-mode: screen;
+  z-index: 4;
+  animation: cyberCardScanSweep 3.2s linear infinite;
+}
+
+.card--cyber .card__canvas span:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
   height: 2px;
-  background: #00fff0;
-  box-shadow: 0 0 14px rgba(0, 255, 240, 0.55);
-  z-index: 2;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent 0, rgba(0, 255, 240, 0.82) 18%, #00fff0 50%, transparent 100%);
+  box-shadow: 0 0 18px rgba(0, 255, 240, 0.78);
 }
 
 /* Data grid block */
@@ -569,57 +620,133 @@ a {
 }
 
 .card--arctic .card__canvas {
-  background: linear-gradient(180deg, #0c1822, #080f16);
+  background: linear-gradient(180deg, #0c1822 0%, #09121a 58%, #050b11 100%);
 }
 
-/* Ice glow */
+/* Frost field */
 .card--arctic .card__canvas::before {
   content: '';
   position: absolute;
-  top: -24px;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(126, 200, 227, 0.09), transparent 58%);
-  transform: translateX(-50%);
-  filter: blur(10px);
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(163, 223, 240, 0.34) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 24% 30%, rgba(163, 223, 240, 0.22) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 42% 14%, rgba(163, 223, 240, 0.2) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 58% 28%, rgba(163, 223, 240, 0.18) 0 1.1px, transparent 1.9px),
+    radial-gradient(circle at 74% 16%, rgba(163, 223, 240, 0.28) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 86% 34%, rgba(163, 223, 240, 0.16) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 18% 74%, rgba(163, 223, 240, 0.14) 0 1.3px, transparent 2.2px),
+    radial-gradient(circle at 38% 62%, rgba(163, 223, 240, 0.16) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 67% 72%, rgba(163, 223, 240, 0.18) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 82% 58%, rgba(163, 223, 240, 0.14) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 24% 12%, rgba(126, 200, 227, 0.12), transparent 22%),
+    radial-gradient(circle at 72% 26%, rgba(126, 200, 227, 0.1), transparent 26%),
+    linear-gradient(180deg, rgba(126, 200, 227, 0.06), transparent 48%);
+  opacity: 0.86;
+  animation: arcticPreviewSnowDrift 18s linear infinite alternate;
+  pointer-events: none;
 }
 
-/* Diagnostic module 1 */
+.card--arctic .card__canvas::after {
+  content: 'HELIX / BLUEPRINT';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.14em;
+  color: rgba(126, 200, 227, 0.42);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Helix shell */
 .card--arctic .card__canvas span:nth-child(1) {
-  top: 26px;
+  top: 40px;
+  left: 20px;
+  width: calc(46% - 10px);
+  height: 114px;
+  border: 1px solid rgba(126, 200, 227, 0.14);
+  border-left: 3px solid rgba(126, 200, 227, 0.42);
+  background: linear-gradient(180deg, rgba(126, 200, 227, 0.05), rgba(126, 200, 227, 0.015));
+  box-shadow: inset 0 0 0 1px rgba(126, 200, 227, 0.04);
+  z-index: 1;
+}
+
+.card--arctic .card__canvas span:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  inset: 10px 12px;
+  border: 1px solid rgba(126, 200, 227, 0.08);
+  background: linear-gradient(180deg, rgba(126, 200, 227, 0.05), transparent 48%);
+}
+
+.card--arctic .arctic-preview-helix {
+  position: absolute;
+  top: 54px;
+  left: 34px;
+  width: calc(46% - 38px);
+  height: 86px;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px rgba(126, 200, 227, 0.32));
+  pointer-events: none;
+}
+
+/* Isometric blueprint shell */
+.card--arctic .card__canvas span:nth-child(2) {
+  top: 40px;
+  left: calc(46% + 18px);
+  right: 20px;
+  height: 114px;
+  border: 1px solid rgba(126, 200, 227, 0.1);
+  border-right: 3px solid rgba(126, 200, 227, 0.26);
+  background:
+    linear-gradient(30deg, transparent 0 47.5%, rgba(126, 200, 227, 0.08) 47.5% 48.5%, transparent 48.5%),
+    linear-gradient(-30deg, transparent 0 47.5%, rgba(126, 200, 227, 0.08) 47.5% 48.5%, transparent 48.5%),
+    linear-gradient(rgba(126, 200, 227, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(126, 200, 227, 0.05), rgba(126, 200, 227, 0.018));
+  background-size: 18px 18px, 18px 18px, 18px 18px, 100% 100%;
+}
+
+.card--arctic .card__canvas span:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(126, 200, 227, 0.22);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.card--arctic .card__canvas span:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(126, 200, 227, 0.12), rgba(126, 200, 227, 0.32), rgba(126, 200, 227, 0.12));
+  transform: translateX(-50%);
+}
+
+/* Diagnostic rail */
+.card--arctic .card__canvas span:nth-child(3) {
+  top: 172px;
   left: 20px;
   right: 20px;
-  height: 58px;
-  border: 1px solid rgba(126, 200, 227, 0.13);
-  border-left: 3px solid rgba(126, 200, 227, 0.45);
-  background: rgba(126, 200, 227, 0.025);
-}
-
-/* Diagnostic module 2 */
-.card--arctic .card__canvas span:nth-child(2) {
-  top: 98px;
-  left: 20px;
-  width: 58%;
-  height: 38px;
-  border: 1px solid rgba(126, 200, 227, 0.09);
-  border-left: 3px solid rgba(126, 200, 227, 0.28);
-  background: rgba(126, 200, 227, 0.015);
-}
-
-/* Floating frost particles */
-.card--arctic .card__canvas span:nth-child(3) {
-  inset: 0;
-  background: transparent;
-  box-shadow:
-    145px 48px 0 1.5px rgba(126, 200, 227, 0.28),
-    82px 135px 0 1px rgba(126, 200, 227, 0.18),
-    205px 92px 0 1px rgba(126, 200, 227, 0.22),
-    48px 172px 0 1.5px rgba(126, 200, 227, 0.14),
-    265px 155px 0 1px rgba(126, 200, 227, 0.18),
-    310px 40px 0 1px rgba(126, 200, 227, 0.12);
-  animation: arcticDrift 14s ease-in-out infinite alternate;
+  height: 20px;
+  border-top: 1px solid rgba(126, 200, 227, 0.08);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(126, 200, 227, 0.34) 0 18%,
+      transparent 18% 24%,
+      rgba(126, 200, 227, 0.22) 24% 46%,
+      transparent 46% 52%,
+      rgba(126, 200, 227, 0.14) 52% 82%,
+      transparent 82% 100%
+    );
 }
 
 /* --- 04: Noire Editorial -------------------------------------------- */
@@ -651,12 +778,20 @@ a {
   bottom: 22px;
   right: 22px;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.22em;
-  color: rgba(201, 168, 76, 0.18);
-  border: 1px solid rgba(201, 168, 76, 0.1);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #d84747;
+  background: rgba(216, 71, 71, 0.08);
+  border: 1px solid rgba(216, 71, 71, 0.82);
+  box-shadow:
+    0 0 0 1px rgba(216, 71, 71, 0.18),
+    0 0 18px rgba(216, 71, 71, 0.16);
+  text-shadow: 0 0 10px rgba(216, 71, 71, 0.2);
   padding: 4px 10px;
-  transform: rotate(-3deg);
+  transform: rotate(-6deg);
+  opacity: 0.94;
+  animation: noireCardStampPulse 2.8s ease-in-out infinite;
 }
 
 /* Gold rule */
@@ -701,34 +836,83 @@ a {
   background-size: 20px 20px, 20px 20px, 100% 100%;
 }
 
+.card--blueprint .card__canvas[data-blueprint-preview] {
+  cursor: none;
+}
+
+.card--blueprint .card__canvas::before {
+  content: '';
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 88px;
+  height: 44px;
+  border: 1px solid rgba(62, 198, 224, 0.18);
+  background:
+    linear-gradient(rgba(62, 198, 224, 0.22), rgba(62, 198, 224, 0.22)) 10px 10px / 42px 1px no-repeat,
+    linear-gradient(rgba(62, 198, 224, 0.16), rgba(62, 198, 224, 0.16)) 10px 19px / 60px 1px no-repeat,
+    linear-gradient(rgba(62, 198, 224, 0.16), rgba(62, 198, 224, 0.16)) 10px 28px / 48px 1px no-repeat,
+    rgba(62, 198, 224, 0.02);
+  box-shadow: inset 0 0 0 1px rgba(62, 198, 224, 0.03);
+}
+
 /* Dimension annotation */
 .card--blueprint .card__canvas::after {
-  content: '1440 \D7 900';
+  content: 'SECTION A / 1440 \00D7 900';
   position: absolute;
-  top: 146px;
+  top: 18px;
   left: 24px;
   font-family: var(--font-mono);
   font-size: 0.56rem;
   letter-spacing: 0.1em;
-  color: rgba(62, 198, 224, 0.3);
+  color: rgba(62, 198, 224, 0.34);
 }
 
-/* Spec rectangle */
+/* Main plan */
 .card--blueprint .card__canvas span:nth-child(1) {
-  top: 26px;
+  top: 42px;
   left: 24px;
-  right: 24px;
-  height: 78px;
+  right: 118px;
+  height: 82px;
   border: 1px solid rgba(62, 198, 224, 0.22);
-  background: rgba(62, 198, 224, 0.025);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 20%,
+      rgba(62, 198, 224, 0.16) 20% 21%,
+      transparent 21% 47%,
+      rgba(62, 198, 224, 0.16) 47% 48%,
+      transparent 48% 74%,
+      rgba(62, 198, 224, 0.16) 74% 75%,
+      transparent 75%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0 30%,
+      rgba(62, 198, 224, 0.14) 30% 31%,
+      transparent 31% 62%,
+      rgba(62, 198, 224, 0.14) 62% 63%,
+      transparent 63%
+    ),
+    linear-gradient(135deg, transparent 0 58%, rgba(62, 198, 224, 0.1) 58% 59%, transparent 59%),
+    rgba(62, 198, 224, 0.025);
 }
 
-/* Crosshair marker */
+.card--blueprint .card__canvas span:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  inset: 14px 18px 16px 16px;
+  border: 1px solid rgba(62, 198, 224, 0.16);
+}
+
+/* Spec column */
 .card--blueprint .card__canvas span:nth-child(2) {
-  top: 18px;
-  right: 14px;
-  width: 22px;
-  height: 22px;
+  top: 42px;
+  right: 24px;
+  width: 70px;
+  height: 82px;
+  border: 1px solid rgba(62, 198, 224, 0.18);
+  background: rgba(62, 198, 224, 0.03);
 }
 
 .card--blueprint .card__canvas span:nth-child(2)::before,
@@ -740,25 +924,26 @@ a {
 
 .card--blueprint .card__canvas span:nth-child(2)::before {
   top: 50%;
-  left: 0;
-  right: 0;
+  left: 12px;
+  right: 12px;
   height: 1px;
 }
 
 .card--blueprint .card__canvas span:nth-child(2)::after {
   left: 50%;
-  top: 0;
-  bottom: 0;
+  top: 12px;
+  bottom: 12px;
   width: 1px;
 }
 
 /* Dimension line with end marks */
 .card--blueprint .card__canvas span:nth-child(3) {
-  top: 128px;
+  top: 144px;
   left: 24px;
   width: 58%;
   height: 1px;
   background: rgba(62, 198, 224, 0.28);
+  box-shadow: 0 12px 0 0 rgba(62, 198, 224, 0.18);
 }
 
 .card--blueprint .card__canvas span:nth-child(3)::before,
@@ -769,6 +954,7 @@ a {
   height: 8px;
   top: -3px;
   background: rgba(62, 198, 224, 0.35);
+  box-shadow: 0 12px 0 0 rgba(62, 198, 224, 0.24);
 }
 
 .card--blueprint .card__canvas span:nth-child(3)::before {
@@ -777,6 +963,70 @@ a {
 
 .card--blueprint .card__canvas span:nth-child(3)::after {
   right: 0;
+}
+
+.blueprint-preview-cursor {
+  --coord-shift-x: 12px;
+  --coord-shift-y: -28px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease;
+}
+
+.blueprint-preview-cursor.is-active {
+  opacity: 1;
+}
+
+.blueprint-preview-cursor__ring,
+.blueprint-preview-cursor__h,
+.blueprint-preview-cursor__v,
+.blueprint-preview-cursor__coord {
+  position: absolute;
+  display: block;
+}
+
+.blueprint-preview-cursor__ring {
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(62, 198, 224, 0.32);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(62, 198, 224, 0.18);
+}
+
+.blueprint-preview-cursor__h {
+  top: 0;
+  left: -20px;
+  width: 40px;
+  height: 1px;
+  background: rgba(62, 198, 224, 0.48);
+}
+
+.blueprint-preview-cursor__v {
+  top: -20px;
+  left: 0;
+  width: 1px;
+  height: 40px;
+  background: rgba(62, 198, 224, 0.48);
+}
+
+.blueprint-preview-cursor__coord {
+  top: 0;
+  left: 0;
+  padding: 4px 7px;
+  border: 1px solid rgba(62, 198, 224, 0.2);
+  background: rgba(6, 16, 31, 0.9);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  color: rgba(62, 198, 224, 0.74);
+  transform: translate(var(--coord-shift-x), var(--coord-shift-y));
+  white-space: nowrap;
 }
 
 /* --- 06: Retro Terminal --------------------------------------------- */
@@ -1081,9 +1331,42 @@ a {
   50% { opacity: 0; }
 }
 
-@keyframes arcticDrift {
+@keyframes arcticPreviewSnowDrift {
   from { transform: translate(0, 0); }
-  to { transform: translate(-6px, 5px); }
+  to { transform: translate(-6px, 7px); }
+}
+
+@keyframes cyberCardScanSweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 0.96;
+  }
+  100% {
+    transform: translateY(128px);
+    opacity: 0;
+  }
+}
+
+@keyframes noireCardStampPulse {
+  0%,
+  100% {
+    opacity: 0.94;
+    box-shadow:
+      0 0 0 1px rgba(216, 71, 71, 0.18),
+      0 0 16px rgba(216, 71, 71, 0.14);
+  }
+  50% {
+    opacity: 0.66;
+    box-shadow:
+      0 0 0 1px rgba(216, 71, 71, 0.3),
+      0 0 24px rgba(216, 71, 71, 0.26);
+  }
 }
 
 /* ================================================================
@@ -1118,6 +1401,14 @@ a {
   .vault-footer {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .card--blueprint .card__canvas[data-blueprint-preview] {
+    cursor: default;
+  }
+
+  .blueprint-preview-cursor {
+    display: none;
   }
 }
 

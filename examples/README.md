@@ -20,11 +20,20 @@ Recommended viewports:
 
 ## v2 Behavior Check
 
-For `with-skill` runs, confirm first draft follows v2 ordering:
+For `with-skill` `full-build` runs, confirm first draft follows v2 ordering:
 
 1. `PLAN`
 2. `DESIGN_SPEC`
-3. implementation output
+3. `FILES_CHANGED`
+4. `KEY_DECISIONS_AND_RATIONALE`
+5. `QUALITY_GATE_RESULTS`
+
+For `with-skill` `small-refinement` runs, confirm output begins with:
+
+1. `DELTA_SUMMARY`
+2. `FILES_CHANGED`
+3. `KEY_DECISIONS_AND_RATIONALE`
+4. `QUALITY_GATE_RESULTS`
 
 For `without-skill`, keep normal unconstrained behavior.
 

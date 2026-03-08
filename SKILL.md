@@ -1,6 +1,6 @@
 ---
 name: kickass-frontend
-description: Deterministic planner-first frontend skill for Vanilla HTML/CSS/JS, React, and Next.js. Invoke explicitly with $kickass-frontend to scope-lock stack/style, produce PLAN and DESIGN_SPEC artifacts, then render accessible, responsive, profile-consistent UI with verification gates and refinement support.
+description: Deterministic planner-first frontend skill for Vanilla HTML/CSS/JS, React, and Next.js. Invoke explicitly with $kickass-frontend to lock task mode and scope, produce PLAN and DESIGN_SPEC for full builds, or run a targeted refinement flow for small edits, then render verified, accessible, profile-consistent UI.
 ---
 
 # Kickass Frontend
@@ -26,22 +26,35 @@ This skill is explicit-only.
 
 Follow this exact sequence. Reordering is an error.
 
-### Step 0 - Scope Lock
+### Step -1 - Task Mode Gate
 
-Lock required execution choices before any implementation.
+Lock `task_mode` before normal scope lock.
+
+- Lock `task_mode`: `full-build | small-refinement`.
+- Detect obvious refinement intent before asking.
+- Use `small-refinement` for localized edits to existing UI (for example copy, spacing, component behavior, asset swaps, or narrow style polish).
+- Use `full-build` for net-new surfaces, broad redesign/restyle work, or major layout/composition changes.
+- If ambiguous, ask one immediate clarifying question before normal scope lock using [references/23-prompt-inventory.md](references/23-prompt-inventory.md).
+- `full-build` continues to Step 0.
+- `small-refinement` skips full `PLAN` and `DESIGN_SPEC`; use [references/22-refinement-loop.md](references/22-refinement-loop.md) plus targeted verification from [references/91-verification-gates.md](references/91-verification-gates.md).
+
+### Step 0 - Scope Lock (Required for `full-build`)
+
+After `task_mode=full-build`, lock required execution choices before any implementation.
 
 1. Lock `output_target`: `vanilla | react | nextjs`.
 2. Lock `styling_system`: `css | tailwind`.
 3. Lock `design_profile`: concrete profile id or `keep-existing`.
-4. Lock theme, optional layers, and icon system.
+4. Lock `theme_mode`, optional layers, and `icon_system`.
 5. Lock `expressive_intensity` (`high-drama` default; downgrade only when user asks).
-6. In non-empty repos, run existing UI triage and intervention-mode selection.
+6. In non-empty repos, run existing UI triage and lock `intervention_mode`; use `not-applicable` in empty/greenfield repos.
 
 Use:
 
 - Contract and non-negotiables: [references/00-contract.md](references/00-contract.md)
 - Stack detection: [references/10-stack-detection.md](references/10-stack-detection.md)
 - Existing UI triage: [references/21-existing-ui-triage.md](references/21-existing-ui-triage.md)
+- Icon systems: [references/33-icon-systems.md](references/33-icon-systems.md)
 - Style system: [references/30-style-system.md](references/30-style-system.md)
 - Prompt inventory: [references/23-prompt-inventory.md](references/23-prompt-inventory.md)
 - Profile registry: [references/32-profile-registry.md](references/32-profile-registry.md)
@@ -50,13 +63,14 @@ Use:
 Scope-lock questioning rules:
 
 - Detect before asking.
-- Ask at most 1-3 questions only when decisions are blocking.
+- If `task_mode` is ambiguous, resolve it before stack/style questions.
+- Ask at most 1-3 questions total across task-mode and scope lock, only when decisions are blocking.
 - Ask stack and styling as separate locks (`output_target`, `styling_system`); avoid ambiguous shorthand-only prompts.
 - When asking for a profile choice, include the profile menu from [references/30-style-system.md](references/30-style-system.md) in the same message.
 - In empty/greenfield ambiguous context, use the verbatim canned scope-lock prompt from [references/10-stack-detection.md](references/10-stack-detection.md).
 - Do not re-ask locked choices after proceeding.
 
-### Step 1 - PLAN (Required Output)
+### Step 1 - PLAN (Required Output for `full-build`)
 
 Before code, output `PLAN` with:
 
@@ -67,23 +81,29 @@ Before code, output `PLAN` with:
 - responsive rules (`360px`, `768px`, `1280px`)
 - accessibility notes (landmarks, focus, labels, keyboard)
 
-### Step 2 - DESIGN_SPEC (Required Output, No Code Yet)
+### Step 2 - DESIGN_SPEC (Required Output for `full-build`, No Code Yet)
 
 Output a fully populated `DESIGN_SPEC` that matches the schema in **Output Schema**.
 
 Hard rule:
 
-- Do not produce implementation code before `PLAN` and `DESIGN_SPEC` are present.
+- Do not produce implementation code before `PLAN` and `DESIGN_SPEC` are present on `full-build` tasks.
 
 ### Step 3 - Implement (Deterministic Order)
 
-Generate code in this order only:
+For `full-build`, generate code in this order only:
 
 1. tokens/theme wiring
 2. layout skeleton (landmarks + sections)
 3. components (buttons/cards/forms/tables/charts)
 4. interactions/state wiring
 5. responsive + accessibility polish
+
+For `small-refinement`:
+
+- lock current invariants + requested delta via [references/22-refinement-loop.md](references/22-refinement-loop.md)
+- patch only requested deltas in the existing architecture
+- keep untouched surfaces stable unless a cross-cutting bug requires broader repair
 
 Load stack playbook after stack lock:
 
@@ -118,9 +138,14 @@ On blocking failure, return canonical error block from:
 
 - Error taxonomy: [references/90-error-taxonomy.md](references/90-error-taxonomy.md)
 
+Verification mode rules:
+
+- `full-build`: run full verification coverage, including responsive checks at `360px`, `768px`, and `1280px`.
+- `small-refinement`: run targeted checks first on touched surfaces and escalate only when shared primitives, config, or cross-surface behavior changed.
+
 ### Step 5 - Deliverable Format
 
-Return output in this order:
+For `full-build`, return output in this order:
 
 1. `PLAN`
 2. `DESIGN_SPEC`
@@ -129,13 +154,22 @@ Return output in this order:
 5. `QUALITY_GATE_RESULTS`
 6. `ERROR_BLOCK` (only when blocked)
 
+For `small-refinement`, return output in this order:
+
+1. `DELTA_SUMMARY`
+2. `FILES_CHANGED`
+3. `KEY_DECISIONS_AND_RATIONALE`
+4. `QUALITY_GATE_RESULTS`
+5. `ERROR_BLOCK` (only when blocked)
+
 For first draft and refinements, follow:
 
 - Refinement loop: [references/22-refinement-loop.md](references/22-refinement-loop.md)
 
 ## Constraints
 
-- Do not generate code before `PLAN` and `DESIGN_SPEC`.
+- Do not generate code before `PLAN` and `DESIGN_SPEC` on `full-build` tasks.
+- Do not emit a fresh `PLAN` or full `DESIGN_SPEC` on `small-refinement` tasks unless the user explicitly expands scope to `full-build`.
 - Do not implicitly invoke this skill.
 - Do not silently add dependencies.
 - Do not replace user-provided company/product/domain narrative with invented branding unless explicitly requested.
@@ -152,7 +186,9 @@ For first draft and refinements, follow:
 
 ## Output Schema
 
-Return sections in this exact order:
+Return sections in this exact order for the active `task_mode`.
+
+For `full-build`:
 
 1. `PLAN`
 2. `DESIGN_SPEC`
@@ -161,17 +197,28 @@ Return sections in this exact order:
 5. `QUALITY_GATE_RESULTS`
 6. `ERROR_BLOCK` (conditional)
 
+For `small-refinement`:
+
+1. `DELTA_SUMMARY`
+2. `FILES_CHANGED`
+3. `KEY_DECISIONS_AND_RATIONALE`
+4. `QUALITY_GATE_RESULTS`
+5. `ERROR_BLOCK` (conditional)
+
 `DESIGN_SPEC` schema (mandatory):
 
 ```yaml
 DESIGN_SPEC:
-  version: "1.0"
+  version: "1.1"
   scope_lock:
+    task_mode: "full-build"
     output_target: "vanilla|react|nextjs"
     styling_system: "css|tailwind"
     design_profile: "<profile-id|keep-existing>"
     theme_mode: "dark|light|both-toggle-dark-default|both-toggle-light-default"
     expressive_intensity: "restrained|balanced|high-drama"
+    icon_system: "keep-existing|heroicons|tabler|feather|material-icons|tabler-inline-svg|feather-inline-svg|material-inline-svg|none"
+    intervention_mode: "polish-existing|partial-restyle|full-takeover|not-applicable"
     layers:
       tailwind: "yes|no|keep-existing"
       shadcn_ui: "yes|no|keep-existing"
@@ -207,6 +254,32 @@ DESIGN_SPEC:
     checks: ["semantic", "keyboard", "contrast", "responsive", "regression"]
 ```
 
+`DELTA_SUMMARY` schema (mandatory for `small-refinement`):
+
+```yaml
+DELTA_SUMMARY:
+  task_mode: "small-refinement"
+  requested_delta: "<1 sentence>"
+  locked_invariants:
+    output_target: "vanilla|react|nextjs"
+    styling_system: "css|tailwind"
+    design_profile: "<profile-id|keep-existing>"
+    theme_mode: "dark|light|both-toggle-dark-default|both-toggle-light-default"
+    expressive_intensity: "restrained|balanced|high-drama"
+    icon_system: "keep-existing|heroicons|tabler|feather|material-icons|tabler-inline-svg|feather-inline-svg|material-inline-svg|none"
+    intervention_mode: "polish-existing|partial-restyle|full-takeover|not-applicable"
+    layers:
+      tailwind: "yes|no|keep-existing"
+      shadcn_ui: "yes|no|keep-existing"
+      recharts: "yes|no|keep-existing"
+  implementation_scope:
+    touched_surfaces: ["<sections/components/files changed>"]
+    protected_surfaces: ["<areas intentionally kept stable>"]
+  verification_scope:
+    ran: ["<targeted checks>"]
+    skipped: ["<skipped checks + why>"]
+```
+
 `PROFILE_SIGNATURES` is required when `design_profile` is an expressive profile with signature requirements (`retro-terminal`, `cyberpunk-neon`, `arctic-mono`, `noire-editorial`, `corporate-blueprint`, `pastel-dreamscape`, `sunset-gradient`). Omit it only for `keep-existing` or profiles without a signature contract.
 
 If blocked, emit `ERROR_BLOCK` using the canonical shape from [references/90-error-taxonomy.md](references/90-error-taxonomy.md).
@@ -218,7 +291,7 @@ Before final output, verify:
 - semantic structure and landmarks
 - keyboard navigation and visible focus
 - color contrast not obviously broken
-- responsive behavior at `360px`, `768px`, `1280px`
+- responsive behavior at `360px`, `768px`, `1280px` for `full-build`, or targeted breakpoints for `small-refinement`
 - table/chart interactions when data surfaces are in scope
 - no regressions to existing behavior/contracts
 - verification coverage summary (what ran, what skipped, why)

@@ -302,11 +302,12 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.42rem 0.78rem;
   border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 0;
   background: transparent;
   color: var(--accent);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .nav-link--themes:hover {
@@ -314,13 +315,39 @@ body {
   border-color: rgba(201, 168, 76, 0.42);
 }
 
+.nav {
+  gap: clamp(0.85rem, 1.35vw, 1.2rem);
+}
+
+.nav-actions {
+  display: none;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
+.nav-actions > .nav-link--themes,
+.nav-actions > .button {
+  height: 38px;
+  padding: 0 14px;
+}
+
 .nav-list {
   align-items: center;
+  gap: clamp(0.75rem, 1.05vw, 1rem);
 }
 
 .nav-list > li {
   display: flex;
   align-items: center;
+}
+
+.nav-list .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  line-height: 1;
+  padding: 0 0.08rem;
 }
 
 .mobile-nav-list .nav-link--themes {
@@ -454,14 +481,32 @@ body::after {
 
 .noire-press-track {
   display: inline-flex;
-  gap: 2.2rem;
+  align-items: center;
+  gap: 1.2rem;
   font-family: "Courier Prime", var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
   padding-left: 100%;
-  animation: noireTicker 24s linear infinite;
+  animation: noireTicker 30s linear infinite;
+}
+
+.noire-press-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  white-space: nowrap;
+}
+
+.noire-press-sep {
+  color: color-mix(in srgb, var(--accent) 72%, var(--muted));
+  opacity: 0.75;
+}
+
+.noire-press-strip:hover .noire-press-track,
+.noire-press-strip:focus-within .noire-press-track {
+  animation-play-state: paused;
 }
 
 [data-noire-cursor-scope],
@@ -514,6 +559,10 @@ body::after {
   transform: scaleX(1);
 }
 
+:root[data-profile="noire-editorial"] .nav-actions .nav-link--themes::after {
+  content: none;
+}
+
 :root[data-profile="noire-editorial"] .card {
   position: relative;
   overflow: hidden;
@@ -536,12 +585,22 @@ body::after {
   opacity: 1;
 }
 
+:root[data-profile="noire-editorial"] .hero-copy .lead {
+  margin-top: calc(var(--s-3) + 0.65rem);
+}
+
 @media (max-width: 880px) {
   #noire-cursor-dot {
     display: none;
   }
 
   .noire-press-track {
-    animation-duration: 20s;
+    animation-duration: 26s;
+  }
+}
+
+@media (min-width: 880px) {
+  .nav-actions {
+    display: inline-flex;
   }
 }

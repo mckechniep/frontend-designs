@@ -8,11 +8,15 @@ Return only files required for selected target and current scope.
 - Avoid adding setup/config files unless requested or required to unblock delivery.
 - Avoid introducing dependencies silently.
 - Keep style-profile intent consistent with selected profile id.
-- In existing repos, state intervention mode: `polish-existing`, `partial-restyle`, or `full-takeover`.
+- On `full-build`, record `task_mode`, `icon_system`, and `intervention_mode` in `DESIGN_SPEC.scope_lock`.
+- Use `intervention_mode=not-applicable` for empty/greenfield repos.
+- On `small-refinement`, do not emit a fresh `DESIGN_SPEC`; restate locked invariants in `DELTA_SUMMARY`.
 - Do not ship untouched placeholder/template copy in final deliverables.
 - When blocked by environment/repo/input failures, return structured error per [references/90-error-taxonomy.md](references/90-error-taxonomy.md).
 
 ## Mandatory Response Artifact Order
+
+For `task_mode=full-build`:
 
 1. `PLAN`
 2. `DESIGN_SPEC`
@@ -21,7 +25,15 @@ Return only files required for selected target and current scope.
 5. `QUALITY_GATE_RESULTS`
 6. `ERROR_BLOCK` (only when blocked)
 
-`DESIGN_SPEC` must include a profile execution contract for expressive profiles:
+For `task_mode=small-refinement`:
+
+1. `DELTA_SUMMARY`
+2. `FILES_CHANGED`
+3. `KEY_DECISIONS_AND_RATIONALE`
+4. `QUALITY_GATE_RESULTS`
+5. `ERROR_BLOCK` (only when blocked)
+
+For `task_mode=full-build`, `DESIGN_SPEC` must include a profile execution contract for expressive profiles:
 
 - `PROFILE_SIGNATURES.required` (non-negotiable profile signatures)
 - `PROFILE_SIGNATURES.selected` (what this draft will implement)
@@ -29,6 +41,12 @@ Return only files required for selected target and current scope.
 - `PROFILE_SIGNATURES.effects_stack` (atmosphere + interaction effects)
 
 If `required` and `selected` diverge without explicit user scope constraints, revise before code output.
+
+`DELTA_SUMMARY` must include:
+
+- requested delta
+- locked invariants retained
+- targeted verification coverage (ran, skipped, why)
 
 For landing pages using expressive profiles (`arctic-mono`, `cyberpunk-neon`, `noire-editorial`) with `profile_recipe_lock=signature-on`:
 

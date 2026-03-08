@@ -2,6 +2,25 @@
 
 Resolve stack during Scope Lock before writing any implementation code.
 
+## Task Mode Gate (Before Scope Lock)
+
+Lock `task_mode` first:
+
+- `full-build`: net-new page/screen work, broad redesign/restyle, or major layout/composition changes
+- `small-refinement`: localized edits to existing UI, copy/spacing polish, component behavior fixes, or asset swaps
+
+If intent is ambiguous, ask this exact prompt:
+
+```text
+Before I scope this, should I treat it as a small refinement to the existing UI or a full build/restyle pass?
+```
+
+If `task_mode=small-refinement`:
+
+- skip the full-build intake prompt below
+- continue with [references/22-refinement-loop.md](references/22-refinement-loop.md)
+- ask only for missing blocking invariants
+
 ## User-Intent Override (Highest Priority)
 
 If the user explicitly names stack/framework/language, lock to that choice.
@@ -91,7 +110,7 @@ Rules:
 
 ## Ambiguous Context
 
-If repo is empty/greenfield and the build brief is underspecified, use this exact canned scope-lock prompt (verbatim, max 3 questions total):
+If repo is empty/greenfield and the build brief is underspecified after `task_mode=full-build`, use this exact canned scope-lock prompt (verbatim, max 3 questions total):
 
 ```text
 Scope lock: I can’t infer stack/contracts yet from this repo, so lock these 3 items and I’ll return PLAN + DESIGN_SPEC next.
@@ -109,6 +128,7 @@ Scope lock: I can’t infer stack/contracts yet from this repo, so lock these 3 
 3) Visual direction lock (pick `design_profile` + `theme_mode`, or describe a vibe and I’ll map it):
    - `design_profile` options: `modern-saas`, `cyberpunk-neon`, `arctic-mono`, `noire-editorial`, `corporate-blueprint`, `retro-terminal`, `pastel-dreamscape`, `sunset-gradient`
    - `theme_mode`: `light`, `dark`, `both-toggle-dark-default`, or `both-toggle-light-default`
+   - profile recipe lock: default is `signature-on` (recommended); choose `softened` only if you want a less theatrical first draft
 ```
 
 Normalization rules for tech stack lock:

@@ -74,7 +74,7 @@ I reviewed the existing UI and it looks [mixed/degraded]. Choose how you want me
 Use this exact prompt when `keep-existing` fails the viability gate:
 
 ```text
-I checked the current UI and `keep-existing` is not viable here (insufficient or degraded baseline design system). Choose: 1) `partial-restyle` with a concrete profile, or 2) `full-takeover` with a concrete profile. If you do not choose, I will proceed with `partial-restyle` + `modern-saas`.
+I checked the current UI and `keep-existing` is not viable here (insufficient or degraded baseline design system). Choose: 1) `partial-restyle` with a concrete profile, or 2) `full-takeover` with a concrete profile. If you do not choose, I will proceed with `partial-restyle` + `arctic-mono` for landing/brand-forward work, or `partial-restyle` + `corporate-blueprint` for dashboard/app/data/product UI.
 ```
 
 ## Safety Rules
@@ -82,12 +82,15 @@ I checked the current UI and `keep-existing` is not viable here (insufficient or
 - Preserve routes, data contracts, and core product behaviors.
 - Avoid destructive rewrites of business logic.
 - If scope is large, apply takeover to requested pages first, then expand.
-- Always state chosen intervention mode in the design brief snapshot.
+- Always state chosen intervention mode in `DESIGN_SPEC.scope_lock.intervention_mode` for `full-build`, or in `DELTA_SUMMARY.locked_invariants.intervention_mode` for `small-refinement`.
 
 ## Defaults
 
 - `healthy` -> default `polish-existing`
 - `mixed` -> default `partial-restyle` only if user asks for redesign; otherwise ask once
 - `degraded` -> recommend `full-takeover`, but require explicit user confirmation before broad restyle
-- If `keep-existing` fails viability gate and user does not choose: default `partial-restyle` + `modern-saas`.
-- If that fallback is used and expressive effects layer tier is unanswered: use `modern-saas` profile default tier (`low`).
+- If `keep-existing` fails viability gate and user does not choose: default by detected surface:
+  - landing/brand-forward marketing -> `partial-restyle` + `arctic-mono`
+  - dashboard/app/data/product UI -> `partial-restyle` + `corporate-blueprint`
+  - if surface type remains unclear, prefer `partial-restyle` + `corporate-blueprint`
+- If that fallback is used and expressive effects layer tier is unanswered, use the selected profile default tier from `design/motion/motion.rules.md`.

@@ -38,7 +38,7 @@ For `arctic-mono`:
 
 - Prefer frost-tech research archive composition over minimalist SaaS simplification.
 - Default landing layout is `Layout L4 - Cinematic Research Narrative`, specifically: hero system state + research modules + signature technical split + divisions row-list + publication record + field briefing close.
-- Use `DM Mono` for nav, labels, metadata, and smaller structural headings by default; do not let Arctic drift into friendly product-marketing typography.
+- Use `DM Mono`-style mono labels for nav, labels, metadata, and smaller structural headings by default; prefer `DM Mono` when available, otherwise use shipped `IBM Plex Mono` in font mode `A`, and do not let Arctic drift into friendly product-marketing typography.
 - Do not introduce trust rails, pricing, or generic proof-strip cadence unless the user explicitly asks for them.
 
 For `noire-editorial`:
@@ -57,7 +57,7 @@ For `corporate-blueprint`:
 
 - Prefer blueprint annotation rhythm over dense enterprise default packing.
 - Default landing layout should follow the canonical consultancy sequence: fixed glass nav + annotated hero + services grid + phased methodology + selected projects + split contact workflow + structured footer.
-- Use `Playfair Display`-style display type, `IBM Plex Sans`-style body type, and `DM Mono`-style labels by default; do not flatten it into all-sans enterprise UI.
+- Use `Playfair Display`-style display type, `IBM Plex Sans`-style body type, and `DM Mono`-style labels by default; in font mode `A`, prefer shipped `IBM Plex Mono` over unresolved `DM Mono` declarations, and do not flatten it into all-sans enterprise UI.
 - Keep section/panel spacing disciplined and legible, especially on dashboard/table/chart surfaces.
 - If a cursor-driven effect is used, demonstrate it in 2-3 named sections/components at most; never make it the page-wide default cursor.
 
@@ -99,6 +99,15 @@ For `sunset-gradient`:
   - translate to stack-native tokens/classes/components
   - preserve profile typography/spacing/radius/shadow/accent behavior
   - apply typography fallback chain `A -> B -> C` (skill-shipped, Google-hosted equivalent, local/system)
+
+## Font Delivery Alignment
+
+When a profile calls for `DM Mono`-style labels or metadata:
+
+- prefer `DM Mono` when it is actually available in the chosen delivery mode
+- in this repo's font mode `A`, use shipped `IBM Plex Mono` as the deterministic mono fallback
+- preserve the mono-label role even when the exact family changes
+- never declare a non-system font family with no valid load path
 
 ## Profile Baseline vs Expressive Effects Layer
 

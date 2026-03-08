@@ -4,14 +4,16 @@ Run this phase before final output.
 
 ## Protocol Verification
 
-- Confirm response includes `PLAN` and `DESIGN_SPEC` before implementation code.
-- Confirm implementation follows deterministic order:
+- For `task_mode=full-build`, confirm response includes `PLAN` and `DESIGN_SPEC` before implementation code.
+- For `task_mode=small-refinement`, confirm response begins with `DELTA_SUMMARY` and does not force a fresh `PLAN` or `DESIGN_SPEC` unless scope expanded.
+- For `task_mode=full-build`, confirm implementation follows deterministic order:
   1. tokens/theme wiring
   2. layout skeleton
   3. components
   4. interactions/state
   5. responsive + accessibility polish
-- Confirm output sections follow required schema order.
+- For `task_mode=small-refinement`, confirm only the requested deltas were patched and untouched surfaces remained stable unless a cross-cutting bug required broader repair.
+- Confirm output sections follow the required order for the active `task_mode`.
 
 ## Code Verification
 
@@ -42,7 +44,7 @@ If permission is denied:
 
 ## Targeted Verification Mode (Refinements)
 
-- For refinement turns, run targeted checks on touched surfaces first.
+- For `task_mode=small-refinement` or later refinement turns, run targeted checks on touched surfaces first.
 - Keep minimum targeted checks aligned to [references/22-refinement-loop.md](references/22-refinement-loop.md).
 - Escalate to broader/full verification when shared primitives, config, or cross-surface behavior changed.
 
@@ -87,13 +89,19 @@ If permission is denied:
 
 ## Responsive Verification
 
-Check key breakpoints:
+For `task_mode=full-build`, check key breakpoints:
 
 - `360px` (mobile)
 - `768px` (tablet)
 - `1280px` (desktop)
 
 Verify no horizontal overflow and no broken interaction targets.
+
+For `task_mode=small-refinement`:
+
+- check only the breakpoints relevant to touched sections/components first
+- include `360px`, `768px`, and `1280px` when the refinement changes layout, shared primitives, or nav/shell structure
+- otherwise state which breakpoints were checked and why broader coverage was unnecessary
 
 ## Data Interaction Verification
 
@@ -122,8 +130,8 @@ For `light` or `both-toggle-*` outputs:
 - Ensure output files match [references/20-deliverables-matrix.md](references/20-deliverables-matrix.md).
 - Ensure no silent dependency additions.
 - Report what ran, what skipped, and why.
-- For first-draft responses, ensure refinement entry uses required 5-line block in [references/22-refinement-loop.md](references/22-refinement-loop.md).
-- In existing repos, confirm intervention mode and behavior-contract preservation.
+- For `full-build` first-draft responses, ensure refinement entry uses required 5-line block in [references/22-refinement-loop.md](references/22-refinement-loop.md).
+- In existing repos, confirm intervention mode is preserved and recorded in `DESIGN_SPEC.scope_lock.intervention_mode` for `full-build`, or `DELTA_SUMMARY.locked_invariants.intervention_mode` for `small-refinement`.
 
 ## Structured Error Reporting
 
