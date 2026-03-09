@@ -1,0 +1,461 @@
+/* ========== SaaS Comparison Table ========== */
+/* Exclusive component for the modern-saas theme. */
+/* Premium pricing/feature comparison table with warm glass effects. */
+
+
+/* ===== Floating Orb Decoration ===== */
+
+.comparison-table-wrapper {
+  position: relative;
+}
+
+.comparison-table-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: -20%;
+  right: -15%;
+  background: radial-gradient(circle, rgba(232, 167, 78, 0.1), transparent 70%);
+  border-radius: 999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.comparison-table-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  bottom: -10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(196, 120, 50, 0.08), transparent 70%);
+  border-radius: 999px;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ===== Billing Toggle ===== */
+
+.comparison-table__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2, 8px);
+  margin-bottom: var(--s-6, 32px);
+  position: relative;
+  z-index: 1;
+}
+
+.comparison-table__toggle-option {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  background: transparent;
+  color: var(--muted, #a8a3a0);
+  font-family: var(--font-ui, "Outfit", sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comparison-table__toggle-option--active {
+  background: linear-gradient(135deg, var(--accent, #e8a74e), var(--accent-2, #c47832));
+  color: #1a1f2e;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.comparison-table__toggle-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.48rem;
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--accent, #e8a74e) 18%, transparent);
+  color: var(--accent, #e8a74e);
+  border: 1px solid rgba(232, 167, 78, 0.22);
+}
+
+.comparison-table__toggle-option--active .comparison-table__toggle-badge {
+  background: rgba(26, 31, 46, 0.08);
+  color: #1a1f2e;
+  border-color: rgba(26, 31, 46, 0.12);
+}
+
+
+/* ===== Main Table Container ===== */
+
+.comparison-table {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.34);
+}
+
+
+/* ===== Table Header ===== */
+
+.comparison-table__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.comparison-table__header tr {
+  background: rgba(26, 23, 20, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+
+/* ===== Plan Column Headers ===== */
+
+.comparison-table__plan {
+  padding: var(--s-6, 32px) var(--s-5, 24px);
+  text-align: center;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+/* Feature name column header (empty corner cell) */
+.comparison-table__header .comparison-table__feature-header {
+  padding: var(--s-6, 32px) var(--s-5, 24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 200px;
+  background: rgba(26, 23, 20, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+.comparison-table__plan-name {
+  font-family: var(--font-display, "DM Serif Display", serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text, #f8f5f0);
+  margin: 0 0 var(--s-2, 8px);
+}
+
+.comparison-table__plan-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: var(--s-1, 4px);
+}
+
+.comparison-table__plan-currency {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--muted, #a8a3a0);
+  opacity: 0.7;
+}
+
+.comparison-table__plan-amount {
+  font-family: var(--font-display, "DM Serif Display", serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--text, #f8f5f0);
+  line-height: 1;
+  transition: opacity 0.15s ease;
+}
+
+.comparison-table__plan-period {
+  font-family: var(--font-ui, "Outfit", sans-serif);
+  font-size: 0.85rem;
+  color: var(--muted, #a8a3a0);
+  margin-bottom: var(--s-4, 16px);
+}
+
+.comparison-table__plan-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+  background: var(--glass-bg, rgba(255, 255, 255, 0.08));
+  color: var(--text, #f8f5f0);
+  font-family: var(--font-ui, "Outfit", sans-serif);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.comparison-table__plan-cta:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+}
+
+
+/* ===== Featured Plan ===== */
+
+.comparison-table__plan--featured {
+  background: linear-gradient(180deg, rgba(232, 167, 78, 0.08), rgba(232, 167, 78, 0.02));
+  backdrop-filter: blur(20px);
+}
+
+/* Gradient top border on featured */
+.comparison-table__plan--featured::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-2, #c47832), var(--accent, #e8a74e), var(--accent-2, #c47832));
+}
+
+/* Subtle glow behind featured header */
+.comparison-table__plan--featured::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 120px;
+  background: radial-gradient(ellipse, rgba(232, 167, 78, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.comparison-table__plan--featured .comparison-table__plan-amount {
+  color: var(--accent, #e8a74e);
+}
+
+.comparison-table__plan--featured .comparison-table__plan-cta {
+  background: linear-gradient(135deg, var(--accent, #e8a74e), var(--accent-2, #c47832));
+  color: #1a1f2e;
+  border-color: transparent;
+  box-shadow: 0 12px 28px rgba(232, 167, 78, 0.22);
+}
+
+.comparison-table__plan--featured .comparison-table__plan-cta:hover {
+  background: linear-gradient(135deg, #f0be6a, var(--accent, #e8a74e));
+  box-shadow: 0 16px 34px rgba(232, 167, 78, 0.28);
+}
+
+/* Popular badge */
+.comparison-table__badge {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--accent, #e8a74e), var(--accent-2, #c47832));
+  color: #1a1f2e;
+}
+
+.comparison-table__plan--featured .comparison-table__plan-name {
+  margin-top: 24px;
+}
+
+
+/* ===== Featured column highlight on body cells ===== */
+
+.comparison-table__value--featured {
+  background: rgba(232, 167, 78, 0.03);
+}
+
+
+/* ===== Category Headers ===== */
+
+.comparison-table__category td {
+  padding: var(--s-4, 16px) var(--s-5, 24px);
+  font-family: var(--font-display, "DM Serif Display", serif);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--accent, #e8a74e);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(232, 167, 78, 0.12);
+  background: rgba(232, 167, 78, 0.04);
+}
+
+
+/* ===== Feature Rows ===== */
+
+.comparison-table__row {
+  transition: background 0.15s ease;
+}
+
+.comparison-table__row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Alternating subtle row backgrounds */
+.comparison-table__row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.comparison-table__row:nth-child(even):hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* ===== Feature Name Cell ===== */
+
+.comparison-table__feature {
+  padding: var(--s-3, 12px) var(--s-5, 24px);
+  font-family: var(--font-ui, "Outfit", sans-serif);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text, #f8f5f0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+}
+
+
+/* ===== Value Cells ===== */
+
+.comparison-table__value {
+  padding: var(--s-3, 12px) var(--s-5, 24px);
+  text-align: center;
+  font-family: var(--font-ui, "Outfit", sans-serif);
+  font-size: 0.88rem;
+  color: var(--text, #f8f5f0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  vertical-align: middle;
+}
+
+/* Checkmark icon */
+.comparison-table__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(232, 167, 78, 0.12);
+  color: var(--accent, #e8a74e);
+}
+
+.comparison-table__check svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* X mark icon */
+.comparison-table__x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--muted-2, #6e6a68);
+  opacity: 0.5;
+}
+
+.comparison-table__x svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Text values */
+.comparison-table__text {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text, #f8f5f0);
+  letter-spacing: 0.02em;
+}
+
+
+/* ===== Mobile: Horizontal scroll with sticky first column ===== */
+
+.comparison-table-scroll {
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+}
+
+/* Scrollbar styling */
+.comparison-table-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.comparison-table-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.comparison-table-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .comparison-table__feature,
+  .comparison-table__header .comparison-table__feature-header {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: rgba(26, 23, 20, 0.98);
+    backdrop-filter: blur(10px);
+    min-width: 160px;
+  }
+
+  .comparison-table__category td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+  }
+
+  .comparison-table__plan {
+    min-width: 160px;
+  }
+
+  .comparison-table__value {
+    min-width: 160px;
+  }
+}
+
+
+/* ===== Reduced Motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .comparison-table__plan-amount {
+    transition: none;
+  }
+
+  .comparison-table__row {
+    transition: none;
+  }
+
+  .comparison-table__plan-cta {
+    transition: none;
+  }
+
+  .comparison-table__toggle-option {
+    transition: none;
+  }
+}

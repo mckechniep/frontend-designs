@@ -1,0 +1,459 @@
+/* ========== Stepper / Wizard ========== */
+/* Token-driven multi-step indicator. Works with all 8 theme profiles. */
+
+.stepper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: stepper;
+}
+
+.stepper__step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+/* ===== Indicator (circle) ===== */
+
+.stepper__indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== Connector (line between steps) ===== */
+
+.stepper__connector {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  align-self: center;
+  transition: background 0.3s ease;
+}
+
+/* Hide connector on the last step */
+.stepper__step:last-child .stepper__connector {
+  display: none;
+}
+
+/* ===== Label & Description ===== */
+
+.stepper__label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: var(--s-2);
+  transition: color 0.3s ease;
+}
+
+.stepper__desc {
+  display: block;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0.7;
+  margin-top: 2px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Content wrapper for label + desc beneath indicator */
+.stepper__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Step inner layout: stacks indicator on top, text below */
+.stepper__step {
+  flex-direction: column;
+  flex: 1;
+  align-items: stretch;
+}
+
+/* Row that holds indicator + connector */
+.stepper__step-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Center the indicator within its half */
+.stepper__step-row {
+  justify-content: flex-start;
+}
+
+.stepper__step-row .stepper__indicator {
+  flex-shrink: 0;
+}
+
+/* ===== Step States ===== */
+
+/* Completed */
+.stepper__step--completed .stepper__indicator {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.stepper__step--completed .stepper__connector {
+  background: var(--accent);
+}
+
+.stepper__step--completed .stepper__label {
+  color: var(--text);
+}
+
+/* Checkmark SVG for completed steps */
+.stepper__indicator-check {
+  display: none;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stepper__indicator-number {
+  display: inline;
+}
+
+.stepper__step--completed .stepper__indicator-check {
+  display: inline;
+}
+
+.stepper__step--completed .stepper__indicator-number {
+  display: none;
+}
+
+/* Active */
+.stepper__step--active .stepper__indicator {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.stepper__step--active .stepper__label {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.stepper__step--active .stepper__desc {
+  opacity: 1;
+  color: var(--text);
+}
+
+/* Upcoming (default — already styled as muted/dim) */
+.stepper__step--upcoming .stepper__indicator {
+  opacity: 0.5;
+}
+
+.stepper__step--upcoming .stepper__label {
+  opacity: 0.5;
+}
+
+.stepper__step--upcoming .stepper__desc {
+  opacity: 0.35;
+}
+
+
+/* ===== Variant: Vertical ===== */
+
+.stepper--vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+.stepper--vertical .stepper__step {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.stepper--vertical .stepper__step-row {
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  min-width: 40px;
+}
+
+.stepper--vertical .stepper__connector {
+  width: 2px;
+  height: 40px;
+  flex: none;
+  margin: 0;
+}
+
+.stepper--vertical .stepper__content {
+  align-items: flex-start;
+  text-align: left;
+  padding-left: var(--s-3);
+  padding-bottom: var(--s-4);
+  min-height: 70px;
+}
+
+.stepper--vertical .stepper__step:last-child .stepper__connector {
+  display: none;
+}
+
+
+/* ===== Variant: Compact (numbers only, no labels) ===== */
+
+.stepper--compact .stepper__content {
+  display: none;
+}
+
+.stepper--compact .stepper__indicator {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  font-size: 0.78rem;
+}
+
+
+/* ===== Theme: Arctic Mono ===== */
+
+[data-profile="arctic-mono"] .stepper__indicator {
+  border-radius: 0;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+[data-profile="arctic-mono"] .stepper__step--active .stepper__indicator {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-glow) 30%, transparent);
+}
+
+
+/* ===== Theme: Cyberpunk Neon ===== */
+
+[data-profile="cyberpunk-neon"] .stepper__indicator {
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  border: none;
+  background: var(--surface-2);
+}
+
+[data-profile="cyberpunk-neon"] .stepper__step--active .stepper__indicator,
+[data-profile="cyberpunk-neon"] .stepper__step--completed .stepper__indicator {
+  background: var(--accent);
+  box-shadow: 0 0 16px rgba(0, 255, 240, 0.3);
+}
+
+[data-profile="cyberpunk-neon"] .stepper__step--active .stepper__indicator {
+  box-shadow: 0 0 20px rgba(0, 255, 240, 0.4), 0 0 40px rgba(0, 255, 240, 0.15);
+}
+
+[data-profile="cyberpunk-neon"] .stepper__connector {
+  height: 2px;
+  background: rgba(0, 255, 240, 0.15);
+}
+
+[data-profile="cyberpunk-neon"] .stepper__step--completed .stepper__connector {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(0, 255, 240, 0.3);
+}
+
+[data-profile="cyberpunk-neon"] .stepper__label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+}
+
+
+/* ===== Theme: Noire Editorial ===== */
+
+[data-profile="noire-editorial"] .stepper__indicator {
+  border-radius: 0;
+  border-color: rgba(201, 168, 76, 0.12);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+[data-profile="noire-editorial"] .stepper__label {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+[data-profile="noire-editorial"] .stepper__desc {
+  font-family: var(--font);
+}
+
+[data-profile="noire-editorial"] .stepper__step--active .stepper__indicator {
+  box-shadow: none;
+  border: 2px solid var(--accent);
+}
+
+
+/* ===== Theme: Corporate Blueprint ===== */
+
+[data-profile="corporate-blueprint"] .stepper__indicator {
+  font-family: var(--font-ui);
+}
+
+[data-profile="corporate-blueprint"] .stepper__label {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+}
+
+
+/* ===== Theme: Modern SaaS ===== */
+
+[data-profile="modern-saas"] .stepper__indicator {
+  border-radius: 16px;
+}
+
+[data-profile="modern-saas"] .stepper__step--active .stepper__indicator {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, var(--accent)));
+  border-color: transparent;
+}
+
+[data-profile="modern-saas"] .stepper__step--completed .stepper__indicator {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, var(--accent)));
+  border-color: transparent;
+}
+
+[data-profile="modern-saas"] .stepper__connector {
+  border-radius: 2px;
+  height: 3px;
+}
+
+
+/* ===== Theme: Pastel Dreamscape ===== */
+
+[data-profile="pastel-dreamscape"] .stepper__indicator {
+  border-radius: 18px;
+  border-width: 2px;
+}
+
+[data-profile="pastel-dreamscape"] .stepper__step--active .stepper__indicator {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, #b8a4f4));
+  border-color: transparent;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+[data-profile="pastel-dreamscape"] .stepper__step--completed .stepper__indicator {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, #b8a4f4));
+  border-color: transparent;
+}
+
+[data-profile="pastel-dreamscape"] .stepper__connector {
+  height: 3px;
+  border-radius: 2px;
+}
+
+
+/* ===== Theme: Retro Terminal ===== */
+
+[data-profile="retro-terminal"] .stepper__indicator {
+  border-radius: 0;
+  border-style: dashed;
+  font-family: var(--font-mono);
+}
+
+[data-profile="retro-terminal"] .stepper__step--active .stepper__indicator {
+  border-style: solid;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+[data-profile="retro-terminal"] .stepper__step--completed .stepper__indicator {
+  border-style: solid;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+[data-profile="retro-terminal"] .stepper__connector {
+  border-top: 2px dashed var(--border);
+  background: none;
+  height: 0;
+}
+
+[data-profile="retro-terminal"] .stepper__step--completed .stepper__connector {
+  border-top-color: var(--accent);
+  background: none;
+}
+
+[data-profile="retro-terminal"] .stepper__label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+}
+
+
+/* ===== Theme: Sunset Gradient ===== */
+
+[data-profile="sunset-gradient"] .stepper__indicator {
+  border-radius: 18px;
+}
+
+[data-profile="sunset-gradient"] .stepper__step--active .stepper__indicator {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, var(--accent)));
+  border-color: transparent;
+}
+
+[data-profile="sunset-gradient"] .stepper__step--completed .stepper__indicator {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, var(--accent)));
+  border-color: transparent;
+}
+
+[data-profile="sunset-gradient"] .stepper__connector {
+  height: 3px;
+  border-radius: 2px;
+}
+
+
+/* ===== Reduced Motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .stepper__indicator,
+  .stepper__connector,
+  .stepper__label,
+  .stepper__desc {
+    transition: none;
+  }
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 520px) {
+  .stepper:not(.stepper--vertical):not(.stepper--compact) .stepper__content {
+    display: none;
+  }
+
+  .stepper:not(.stepper--vertical):not(.stepper--compact) .stepper__indicator {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 0.78rem;
+  }
+}

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="modern-saas">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SaaS Comparison Table — Modern SaaS Exclusive</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/modern-saas.demo.css" />
+    <link rel="stylesheet" href="./saas-comparison-table.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .demo-page .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+
+      .demo-header {
+        margin-bottom: var(--s-7);
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin: 0 0 var(--s-2);
+        color: var(--accent);
+        letter-spacing: -0.01em;
+      }
+
+      .demo-header p {
+        color: var(--muted);
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>SaaS Comparison Table</h1>
+          <p>// exclusive component :: modern-saas profile</p>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="comparison-table-wrapper">
+
+          <!-- Billing Toggle -->
+          <div class="comparison-table__toggle">
+            <button class="comparison-table__toggle-option comparison-table__toggle-option--active" data-billing="monthly">Monthly</button>
+            <button class="comparison-table__toggle-option" data-billing="annual">
+              Annual
+              <span class="comparison-table__toggle-badge">SAVE 20%</span>
+            </button>
+          </div>
+
+          <!-- Scrollable Table -->
+          <div class="comparison-table-scroll">
+            <table class="comparison-table">
+
+              <!-- Plan Headers -->
+              <thead class="comparison-table__header">
+                <tr>
+                  <th class="comparison-table__feature-header"></th>
+
+                  <!-- Starter -->
+                  <th class="comparison-table__plan">
+                    <div class="comparison-table__plan-name">Starter</div>
+                    <div class="comparison-table__plan-price">
+                      <span class="comparison-table__plan-currency">$</span>
+                      <span class="comparison-table__plan-amount" data-monthly="19" data-annual="190">19</span>
+                    </div>
+                    <div class="comparison-table__plan-period">/month</div>
+                    <button class="comparison-table__plan-cta" data-plan="Starter">Get Started</button>
+                  </th>
+
+                  <!-- Pro (Featured) -->
+                  <th class="comparison-table__plan comparison-table__plan--featured">
+                    <span class="comparison-table__badge">Popular</span>
+                    <div class="comparison-table__plan-name">Pro</div>
+                    <div class="comparison-table__plan-price">
+                      <span class="comparison-table__plan-currency">$</span>
+                      <span class="comparison-table__plan-amount" data-monthly="49" data-annual="490">49</span>
+                    </div>
+                    <div class="comparison-table__plan-period">/month</div>
+                    <button class="comparison-table__plan-cta" data-plan="Pro">Get Started</button>
+                  </th>
+
+                  <!-- Enterprise -->
+                  <th class="comparison-table__plan">
+                    <div class="comparison-table__plan-name">Enterprise</div>
+                    <div class="comparison-table__plan-price">
+                      <span class="comparison-table__plan-currency">$</span>
+                      <span class="comparison-table__plan-amount" data-monthly="99" data-annual="990">99</span>
+                    </div>
+                    <div class="comparison-table__plan-period">/month</div>
+                    <button class="comparison-table__plan-cta" data-plan="Enterprise">Contact Sales</button>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="comparison-table__body">
+
+                <!-- Category: Core Features -->
+                <tr class="comparison-table__category">
+                  <td colspan="4">Core Features</td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Projects</td>
+                  <td class="comparison-table__value"><span class="comparison-table__text">5</span></td>
+                  <td class="comparison-table__value comparison-table__value--featured"><span class="comparison-table__text">Unlimited</span></td>
+                  <td class="comparison-table__value"><span class="comparison-table__text">Unlimited</span></td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Users</td>
+                  <td class="comparison-table__value"><span class="comparison-table__text">1</span></td>
+                  <td class="comparison-table__value comparison-table__value--featured"><span class="comparison-table__text">10</span></td>
+                  <td class="comparison-table__value"><span class="comparison-table__text">Unlimited</span></td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Storage</td>
+                  <td class="comparison-table__value"><span class="comparison-table__text">5 GB</span></td>
+                  <td class="comparison-table__value comparison-table__value--featured"><span class="comparison-table__text">50 GB</span></td>
+                  <td class="comparison-table__value"><span class="comparison-table__text">500 GB</span></td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">API Access</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <!-- Category: Advanced -->
+                <tr class="comparison-table__category">
+                  <td colspan="4">Advanced</td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Custom Domains</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Analytics</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">SSO</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Audit Log</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <!-- Category: Support -->
+                <tr class="comparison-table__category">
+                  <td colspan="4">Support</td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Email Support</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Priority Support</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">Dedicated Manager</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  </td>
+                </tr>
+
+                <tr class="comparison-table__row">
+                  <td class="comparison-table__feature">SLA</td>
+                  <td class="comparison-table__value">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value comparison-table__value--featured">
+                    <span class="comparison-table__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg></span>
+                  </td>
+                  <td class="comparison-table__value"><span class="comparison-table__text">99.99%</span></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./saas-comparison-table.js"></script>
+  </body>
+</html>

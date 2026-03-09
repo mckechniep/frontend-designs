@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-profile="pastel-dreamscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mood Board — Pastel Dreamscape</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/pastel-dreamscape.demo.css" />
+    <link rel="stylesheet" href="./pastel-mood-board.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+      }
+
+      .demo-page .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+
+      .demo-header {
+        margin-bottom: var(--s-7);
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-family: var(--font-display, "Comfortaa", sans-serif);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        color: var(--text);
+        margin: 0 0 var(--s-2);
+      }
+
+      .demo-header h1 em {
+        font-style: normal;
+        color: var(--accent-strong, #d46b87);
+      }
+
+      .demo-header p {
+        font-family: var(--font, "Instrument Sans", sans-serif);
+        font-size: 1rem;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .demo-header__rule {
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+        border: none;
+        border-radius: 999px;
+        margin: var(--s-4) auto 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>My <em>Mood Board</em></h1>
+          <p>Collecting visual inspiration, one pastel at a time</p>
+          <hr class="demo-header__rule" />
+        </div>
+
+        <!-- Tag Filter Row -->
+        <div data-mood-board-root>
+          <div class="mood-board-filters">
+            <button class="mood-board-filters__tag" data-tag="color">color</button>
+            <button class="mood-board-filters__tag" data-tag="typography">typography</button>
+            <button class="mood-board-filters__tag" data-tag="texture">texture</button>
+            <button class="mood-board-filters__tag" data-tag="inspiration">inspiration</button>
+            <button class="mood-board-filters__tag" data-tag="organic">organic</button>
+          </div>
+
+          <!-- Mood Board Masonry Grid -->
+          <div class="mood-board">
+
+            <!-- Card 1: Color Swatch — Blush Pink -->
+            <div class="mood-card mood-card--color" data-color="#F4A0C0" data-color-name="Blush Pink" data-tags="color, inspiration">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__swatch" style="background: #F4A0C0;"></div>
+              <div class="mood-card__color-info">
+                <div>
+                  <div class="mood-card__color-name">Blush Pink</div>
+                  <div class="mood-card__color-hex">#F4A0C0</div>
+                </div>
+                <button class="mood-card__copy-btn">Copy</button>
+              </div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="color">color</span>
+                <span class="mood-card__tag" data-tag="inspiration">inspiration</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Note -->
+            <div class="mood-card mood-card--note" data-tags="inspiration, typography">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__note-text">Remember: less is more. Let the whitespace breathe and the content speak for itself.</div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="inspiration">inspiration</span>
+                <span class="mood-card__tag" data-tag="typography">typography</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Image Placeholder -->
+            <div class="mood-card mood-card--image" data-tags="texture, organic">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__image-placeholder"></div>
+              <div class="mood-card__image-caption">Morning light study</div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="texture">texture</span>
+                <span class="mood-card__tag" data-tag="organic">organic</span>
+              </div>
+            </div>
+
+            <!-- Card 4: Quote -->
+            <div class="mood-card mood-card--quote" data-tags="inspiration, typography">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__quote-mark">"</div>
+              <p class="mood-card__quote-text">Design is not just what it looks like and feels like. Design is how it works.</p>
+              <div class="mood-card__quote-attribution">-- Steve Jobs</div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="inspiration">inspiration</span>
+                <span class="mood-card__tag" data-tag="typography">typography</span>
+              </div>
+            </div>
+
+            <!-- Card 5: Color Swatch — Sage Green -->
+            <div class="mood-card mood-card--color" data-color="#A8C0A0" data-color-name="Sage Green" data-tags="color, organic">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__swatch" style="background: #A8C0A0;"></div>
+              <div class="mood-card__color-info">
+                <div>
+                  <div class="mood-card__color-name">Sage Green</div>
+                  <div class="mood-card__color-hex">#A8C0A0</div>
+                </div>
+                <button class="mood-card__copy-btn">Copy</button>
+              </div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="color">color</span>
+                <span class="mood-card__tag" data-tag="organic">organic</span>
+              </div>
+            </div>
+
+            <!-- Card 6: Note -->
+            <div class="mood-card mood-card--note" data-tags="organic, texture">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__note-text">Explore organic shapes and natural textures. Think pebbles, leaves, flowing water.</div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="organic">organic</span>
+                <span class="mood-card__tag" data-tag="texture">texture</span>
+              </div>
+            </div>
+
+            <!-- Card 7: Palette -->
+            <div class="mood-card mood-card--palette" data-tags="color, inspiration">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__palette-label">Spring Garden</div>
+              <div class="mood-card__palette-strips">
+                <div class="mood-card__palette-strip" style="background: #F4A0C0;" title="#F4A0C0"></div>
+                <div class="mood-card__palette-strip" style="background: #B8A4F4;" title="#B8A4F4"></div>
+                <div class="mood-card__palette-strip" style="background: #9EDECF;" title="#9EDECF"></div>
+                <div class="mood-card__palette-strip" style="background: #F6D685;" title="#F6D685"></div>
+                <div class="mood-card__palette-strip" style="background: #A8C0A0;" title="#A8C0A0"></div>
+              </div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="color">color</span>
+                <span class="mood-card__tag" data-tag="inspiration">inspiration</span>
+              </div>
+            </div>
+
+            <!-- Card 8: Image Placeholder -->
+            <div class="mood-card mood-card--image" data-tags="texture, inspiration">
+              <span class="mood-card__pin"></span>
+              <div class="mood-card__image-placeholder" style="height: 200px; background: linear-gradient(135deg, rgba(246, 214, 133, 0.25), rgba(240, 141, 184, 0.2));"></div>
+              <div class="mood-card__image-caption">Texture collection</div>
+              <div class="mood-card__tags">
+                <span class="mood-card__tag" data-tag="texture">texture</span>
+                <span class="mood-card__tag" data-tag="inspiration">inspiration</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./pastel-mood-board.js"></script>
+  </body>
+</html>

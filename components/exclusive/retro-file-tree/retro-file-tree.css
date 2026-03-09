@@ -1,0 +1,298 @@
+/* ========== Retro File Tree ========== */
+/* Terminal-style file/directory tree browser — DOS/Unix file manager aesthetic. */
+/* EXCLUSIVE to retro-terminal profile. */
+
+.file-tree {
+  position: relative;
+  border: 1px dashed var(--border);
+  border-radius: 0;
+  background: var(--surface-2);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--text);
+  overflow: hidden;
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--accent) 8%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+/* CRT scanline overlay on component */
+.file-tree::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  opacity: 0.5;
+}
+
+/* ---- Header (DOS prompt title bar) ---- */
+
+.file-tree__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-4);
+  border-bottom: 1px dashed var(--border);
+  background: color-mix(in srgb, var(--surface-3) 80%, transparent);
+}
+
+.file-tree__path {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-glow);
+  letter-spacing: 0.04em;
+}
+
+.file-tree__header-info {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+/* ---- Body (tree content area) ---- */
+
+.file-tree__body {
+  padding: var(--s-3) 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  max-height: 520px;
+}
+
+/* ---- Tree structure ---- */
+
+.file-tree__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.file-tree__list .file-tree__list {
+  padding-left: 1.6em;
+}
+
+/* ---- Node (each file/folder item) ---- */
+
+.file-tree__node {
+  position: relative;
+}
+
+.file-tree__label {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 1px var(--s-4);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  line-height: 1.65;
+  color: var(--text);
+  text-shadow: 0 0 6px var(--accent-glow);
+  transition: background 0.05s, color 0.05s;
+  position: relative;
+}
+
+.file-tree__label:hover {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+/* Selected state — inverted terminal highlight */
+.file-tree__node--selected > .file-tree__label {
+  background: var(--accent);
+  color: var(--bg);
+  text-shadow: none;
+}
+
+.file-tree__node--selected > .file-tree__label .file-tree__connector,
+.file-tree__node--selected > .file-tree__label .file-tree__type,
+.file-tree__node--selected > .file-tree__label .file-tree__size,
+.file-tree__node--selected > .file-tree__label .file-tree__date {
+  color: var(--bg);
+}
+
+/* Focused node — blinking cursor */
+.file-tree__node--focused > .file-tree__label::after {
+  content: "\2588";
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent);
+  animation: fileTreeCursorBlink 1s step-end infinite;
+}
+
+.file-tree__node--selected.file-tree__node--focused > .file-tree__label::after {
+  color: var(--bg);
+}
+
+@keyframes fileTreeCursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ---- Tree connectors (ASCII art via CSS) ---- */
+
+.file-tree__connector {
+  display: inline-block;
+  color: var(--muted);
+  white-space: pre;
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* ---- Toggle indicator for folders ---- */
+
+.file-tree__toggle {
+  display: inline-block;
+  width: 3ch;
+  flex-shrink: 0;
+  color: var(--amber, #ffb000);
+  text-shadow: 0 0 6px var(--amber-glow, rgba(255, 176, 0, 0.4));
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+/* ---- Type indicator ---- */
+
+.file-tree__type {
+  display: inline-block;
+  width: 5ch;
+  flex-shrink: 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  color: var(--amber, #ffb000);
+  text-shadow: 0 0 4px var(--amber-glow, rgba(255, 176, 0, 0.4));
+  margin-right: 0.5em;
+}
+
+.file-tree__type--dir {
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-glow);
+}
+
+/* ---- File/folder name ---- */
+
+.file-tree__name {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-tree__folder > .file-tree__label .file-tree__name {
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.file-tree__node--selected.file-tree__folder > .file-tree__label .file-tree__name {
+  color: var(--bg);
+}
+
+/* ---- Size and date columns ---- */
+
+.file-tree__meta {
+  display: inline-flex;
+  gap: 2ch;
+  margin-left: auto;
+  padding-left: 2ch;
+  flex-shrink: 0;
+}
+
+.file-tree__size {
+  display: inline-block;
+  min-width: 8ch;
+  text-align: right;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.file-tree__date {
+  display: inline-block;
+  min-width: 10ch;
+  text-align: right;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Collapsed folders hide children ---- */
+
+.file-tree__folder--collapsed > .file-tree__children {
+  display: none;
+}
+
+/* ---- Status bar ---- */
+
+.file-tree__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-2) var(--s-4);
+  border-top: 1px dashed var(--border);
+  background: color-mix(in srgb, var(--surface-3) 80%, transparent);
+  font-size: 0.74rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.file-tree__status-left,
+.file-tree__status-right {
+  display: flex;
+  gap: 2ch;
+}
+
+/* ---- Boot-up animation ---- */
+
+.file-tree--booting .file-tree__node {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+.file-tree__node--visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.08s ease, transform 0.08s ease;
+}
+
+/* ---- Phosphor glow on the whole component ---- */
+
+.file-tree:focus-within {
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--accent) 12%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 640px) {
+  .file-tree__meta {
+    display: none;
+  }
+
+  .file-tree__body {
+    font-size: 0.78rem;
+  }
+
+  .file-tree__header,
+  .file-tree__status {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .file-tree--booting .file-tree__node {
+    opacity: 1;
+    transform: none;
+  }
+
+  .file-tree__node--focused > .file-tree__label::after {
+    animation: none;
+  }
+}

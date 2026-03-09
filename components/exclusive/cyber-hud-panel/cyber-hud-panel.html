@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="cyberpunk-neon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cyber HUD Panel — Cyberpunk Neon Exclusive</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/cyberpunk-neon.demo.css" />
+    <link rel="stylesheet" href="./cyber-hud-panel.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* Subtle full-page scanline */
+      .demo-page::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 100;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.04) 2px,
+          rgba(0, 0, 0, 0.04) 4px
+        );
+      }
+
+      .demo-page .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+
+      .demo-header {
+        margin-bottom: var(--s-7);
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0 0 var(--s-2);
+        color: var(--accent);
+        text-shadow: 0 0 20px rgba(0, 255, 240, 0.4);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .demo-header p {
+        color: var(--muted);
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+      }
+
+      .demo-section {
+        margin-bottom: var(--s-7);
+      }
+
+      .demo-section h2 {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.72rem;
+        margin: 0 0 var(--s-4);
+        padding-bottom: var(--s-2);
+        border-bottom: 1px solid rgba(0, 255, 240, 0.08);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>Cyber HUD Panel</h1>
+          <p>// exclusive component :: cyberpunk-neon profile</p>
+        </div>
+
+        <!-- HUD Grid -->
+        <div class="demo-section">
+          <h2>HUD Grid Layout</h2>
+
+          <div class="hud-grid">
+
+            <!-- 1. System Status Panel -->
+            <div class="hud-panel">
+              <div class="hud-panel__corner-tr"></div>
+              <div class="hud-panel__corner-bl"></div>
+              <div class="hud-panel__corner-br"></div>
+
+              <div class="hud-panel__header">
+                <span class="hud-status hud-status--online"></span>
+                <h3 class="hud-panel__title" data-text="System Status">System Status</h3>
+                <div class="hud-panel__controls">
+                  <button class="hud-panel__btn" data-hud-minimize aria-label="Minimize panel">&ndash;</button>
+                  <button class="hud-panel__btn hud-panel__btn--close" data-hud-close aria-label="Close panel">&times;</button>
+                </div>
+              </div>
+
+              <div class="hud-panel__body">
+                <ul class="hud-status-list">
+                  <li class="hud-status-item">
+                    <span class="hud-status hud-status--online"></span>
+                    <span class="hud-status-item__label">Core Systems</span>
+                    <span class="hud-status-item__value">ONLINE</span>
+                  </li>
+                  <li class="hud-status-item">
+                    <span class="hud-status hud-status--online"></span>
+                    <span class="hud-status-item__label">Neural Link</span>
+                    <span class="hud-status-item__value">ACTIVE</span>
+                  </li>
+                  <li class="hud-status-item">
+                    <span class="hud-status hud-status--warning"></span>
+                    <span class="hud-status-item__label">Firewall</span>
+                    <span class="hud-status-item__value">DEGRADED</span>
+                  </li>
+                  <li class="hud-status-item">
+                    <span class="hud-status hud-status--critical"></span>
+                    <span class="hud-status-item__label">Intrusion Det.</span>
+                    <span class="hud-status-item__value">ALERT</span>
+                  </li>
+                  <li class="hud-status-item">
+                    <span class="hud-status hud-status--online"></span>
+                    <span class="hud-status-item__label">Memory Banks</span>
+                    <span class="hud-status-item__value">64.2 TB</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="hud-panel__footer">
+                <span class="hud-panel__scroll-text">SYS.INTEGRITY: 97.3% // UPTIME: 2847:16:03 // LAST SCAN: 00:04:12 AGO // THREAT LEVEL: AMBER // NODE COUNT: 14,209</span>
+              </div>
+            </div>
+
+            <!-- 2. Data Readout Panel -->
+            <div class="hud-panel hud-panel--readout">
+              <div class="hud-panel__corner-tr"></div>
+              <div class="hud-panel__corner-bl"></div>
+              <div class="hud-panel__corner-br"></div>
+
+              <div class="hud-panel__header">
+                <span class="hud-status hud-status--online"></span>
+                <h3 class="hud-panel__title" data-text="Data Stream">Data Stream</h3>
+                <div class="hud-panel__controls">
+                  <button class="hud-panel__btn" data-hud-minimize aria-label="Minimize panel">&ndash;</button>
+                  <button class="hud-panel__btn hud-panel__btn--close" data-hud-close aria-label="Close panel">&times;</button>
+                </div>
+              </div>
+
+              <div class="hud-panel__body">
+                <div class="hud-readout__line">INIT SEQUENCE 0xAF29... OK</div>
+                <div class="hud-readout__line">LOADING NEURAL_NET v4.7.2</div>
+                <div class="hud-readout__line">DECRYPT LAYER_3 :: KEY ACCEPTED</div>
+                <div class="hud-readout__line">SCANNING PORT 7741... CLEAR</div>
+                <div class="hud-readout__line">MEM ALLOC 2048MB :: SECTOR 9</div>
+                <div class="hud-readout__line">HANDSHAKE NODE-14 :: VERIFIED</div>
+                <div class="hud-readout__line">STREAM BUFFER SYNC... COMPLETE</div>
+              </div>
+
+              <div class="hud-panel__footer">
+                <span class="hud-panel__scroll-text">PACKETS: 1,204,887 // LATENCY: 2.4ms // BUFFER: 98% // ERRORS: 0 // THROUGHPUT: 14.2 GB/s</span>
+              </div>
+            </div>
+
+            <!-- 3. Gauge Panel -->
+            <div class="hud-panel">
+              <div class="hud-panel__corner-tr"></div>
+              <div class="hud-panel__corner-bl"></div>
+              <div class="hud-panel__corner-br"></div>
+
+              <div class="hud-panel__header">
+                <span class="hud-status hud-status--warning"></span>
+                <h3 class="hud-panel__title" data-text="CPU Usage">CPU Usage</h3>
+                <div class="hud-panel__controls">
+                  <button class="hud-panel__btn" data-hud-minimize aria-label="Minimize panel">&ndash;</button>
+                  <button class="hud-panel__btn hud-panel__btn--close" data-hud-close aria-label="Close panel">&times;</button>
+                </div>
+              </div>
+
+              <div class="hud-panel__body">
+                <div class="hud-gauge">
+                  <svg class="hud-gauge__svg" viewBox="0 0 120 120">
+                    <circle class="hud-gauge__track" cx="60" cy="60" r="50" />
+                    <circle class="hud-gauge__fill" cx="60" cy="60" r="50" data-percent="73" />
+                    <text class="hud-gauge__center-text" x="60" y="60" transform="rotate(90 60 60)">0%</text>
+                  </svg>
+                  <span class="hud-gauge__label">Processing Load</span>
+                </div>
+              </div>
+
+              <div class="hud-panel__footer">
+                <span class="hud-panel__scroll-text">CORES: 128 // THREADS: 256 // CLOCK: 4.8 GHz // TEMP: 67C // THROTTLE: NONE</span>
+              </div>
+            </div>
+
+            <!-- 4. Network Monitor Panel -->
+            <div class="hud-panel">
+              <div class="hud-panel__corner-tr"></div>
+              <div class="hud-panel__corner-bl"></div>
+              <div class="hud-panel__corner-br"></div>
+
+              <div class="hud-panel__header">
+                <span class="hud-status hud-status--online"></span>
+                <h3 class="hud-panel__title" data-text="Net Monitor">Net Monitor</h3>
+                <div class="hud-panel__controls">
+                  <button class="hud-panel__btn" data-hud-minimize aria-label="Minimize panel">&ndash;</button>
+                  <button class="hud-panel__btn hud-panel__btn--close" data-hud-close aria-label="Close panel">&times;</button>
+                </div>
+              </div>
+
+              <div class="hud-panel__body">
+                <div class="hud-stat-row">
+                  <div class="hud-stat">
+                    <span class="hud-stat__label">Upload</span>
+                    <span class="hud-stat__value">847 MB/s</span>
+                  </div>
+                  <div class="hud-stat">
+                    <span class="hud-stat__label">Download</span>
+                    <span class="hud-stat__value">1.2 GB/s</span>
+                  </div>
+                </div>
+                <div class="hud-stat-row" style="margin-top: 0.75rem;">
+                  <div class="hud-stat">
+                    <span class="hud-stat__label">Nodes</span>
+                    <span class="hud-stat__value">14,209</span>
+                  </div>
+                  <div class="hud-stat">
+                    <span class="hud-stat__label">Latency</span>
+                    <span class="hud-stat__value">2.4 ms</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hud-panel__footer">
+                <span class="hud-panel__scroll-text">PROTOCOL: TCP/MESH v6.1 // ENCRYPTION: AES-512 // ROUTES: 48 ACTIVE // PEERS: 312 // BANDWIDTH: 94%</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./cyber-hud-panel.js"></script>
+  </body>
+</html>

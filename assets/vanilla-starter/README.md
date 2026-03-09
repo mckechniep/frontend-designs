@@ -1,7 +1,7 @@
 The starter now has two clear roles:
 
 - `index.html` is the demo directory / launcher for the canonical bespoke profile pages.
-- `components.html` is the remaining shared component lab for reusable UI review and experiments.
+- `../../components/index.html` is the dedicated component vault for reusable UI review and experiments.
 
 Dedicated fixed-profile portfolio entry pages live alongside the directory:
 
@@ -22,7 +22,7 @@ They are now bespoke portfolio entry pages rather than simple fixed-profile wrap
 - pricing is only present where it fits the profile
 - profile-specific runtime hooks are preserved where needed (for example retro terminal feed, arctic blueprint layers, noire editorial treatments, and corporate blueprint crosshair coordinates)
 
-Shared profile switching now applies to internal lab surfaces like `components.html`, not to the canonical portfolio directory:
+Shared profile switching still applies to internal lab surfaces like `components.html`, while the dedicated component vault now lives at `../../components/index.html`:
 
 - Profile `<select data-profile-select>` options come from `profiles.json`
 - Selecting a profile injects/updates `<link id="profile-stylesheet">` in `<head>`

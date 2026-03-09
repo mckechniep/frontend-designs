@@ -1,0 +1,249 @@
+/* ========== Pagination ========== */
+/* Token-driven content navigation. Works with all 8 theme profiles. */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination__item {
+  display: inline-flex;
+}
+
+.pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 var(--s-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  line-height: 1;
+}
+
+.pagination__link:hover {
+  text-decoration: none;
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  color: var(--accent);
+}
+
+/* Active page */
+.pagination__link[aria-current="page"],
+.pagination__link--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-glow) 50%, transparent);
+}
+
+.pagination__link[aria-current="page"]:hover,
+.pagination__link--active:hover {
+  background: var(--accent-2, var(--accent));
+  border-color: var(--accent-2, var(--accent));
+  color: var(--bg);
+}
+
+/* Disabled (prev/next at boundaries) */
+.pagination__link[disabled],
+.pagination__link[aria-disabled="true"] {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Ellipsis */
+.pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  cursor: default;
+}
+
+/* Prev/Next arrows */
+.pagination__link--prev svg,
+.pagination__link--next svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Info text (e.g., "Page 3 of 12") */
+.pagination__info {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-left: var(--s-3);
+}
+
+/* Compact variant (prev + info + next only) */
+.pagination--compact {
+  gap: var(--s-2);
+}
+
+.pagination--compact .pagination__info {
+  margin: 0;
+}
+
+/* Bar wrapper */
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.pagination-bar__summary {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+
+/* ===== Theme: Arctic Mono ===== */
+
+[data-profile="arctic-mono"] .pagination__link {
+  border-radius: 0;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+[data-profile="arctic-mono"] .pagination__link[aria-current="page"] {
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent-glow) 50%, transparent);
+}
+
+
+/* ===== Theme: Cyberpunk Neon ===== */
+
+[data-profile="cyberpunk-neon"] .pagination__link {
+  border-radius: 2px;
+  font-family: var(--font-ui);
+  border-color: rgba(0, 255, 240, 0.15);
+}
+
+[data-profile="cyberpunk-neon"] .pagination__link:hover {
+  border-color: rgba(0, 255, 240, 0.35);
+  text-shadow: 0 0 8px rgba(0, 255, 240, 0.3);
+}
+
+[data-profile="cyberpunk-neon"] .pagination__link[aria-current="page"] {
+  box-shadow: 0 0 16px rgba(0, 255, 240, 0.2), 0 4px 12px rgba(0, 255, 240, 0.15);
+}
+
+
+/* ===== Theme: Noire Editorial ===== */
+
+[data-profile="noire-editorial"] .pagination__link {
+  border-radius: 0;
+  border-color: rgba(201, 168, 76, 0.12);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+[data-profile="noire-editorial"] .pagination__info {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+
+/* ===== Theme: Retro Terminal ===== */
+
+[data-profile="retro-terminal"] .pagination__link {
+  border-radius: 0;
+  border-style: dashed;
+  font-family: var(--font-mono);
+}
+
+[data-profile="retro-terminal"] .pagination__link[aria-current="page"] {
+  border-style: solid;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+[data-profile="retro-terminal"] .pagination__link:hover {
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+
+/* ===== Theme: Modern SaaS ===== */
+
+[data-profile="modern-saas"] .pagination__link {
+  border-radius: 10px;
+}
+
+[data-profile="modern-saas"] .pagination__link[aria-current="page"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, var(--accent)));
+}
+
+
+/* ===== Theme: Pastel Dreamscape ===== */
+
+[data-profile="pastel-dreamscape"] .pagination__link {
+  border-radius: 12px;
+}
+
+[data-profile="pastel-dreamscape"] .pagination__link[aria-current="page"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2, #b8a4f4));
+  border-color: transparent;
+}
+
+
+/* ===== Theme: Sunset Gradient ===== */
+
+[data-profile="sunset-gradient"] .pagination__link {
+  border-radius: 10px;
+}
+
+[data-profile="sunset-gradient"] .pagination__link[aria-current="page"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent-3, var(--accent-2)));
+  border-color: transparent;
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 520px) {
+  .pagination {
+    gap: 2px;
+  }
+
+  .pagination__link {
+    min-width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+
+  .pagination__ellipsis {
+    min-width: 28px;
+  }
+
+  .pagination-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

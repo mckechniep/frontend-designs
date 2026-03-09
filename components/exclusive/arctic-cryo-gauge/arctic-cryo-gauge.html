@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arctic Cryo Gauge — Exclusive Component Demo</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="./arctic-cryo-gauge.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+      }
+      .demo-page .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+      .demo-header {
+        margin-bottom: var(--s-7);
+        text-align: center;
+      }
+      .demo-header h1 {
+        font-family: var(--font);
+        font-size: 1.8rem;
+        font-weight: 300;
+        letter-spacing: -0.015em;
+        margin: 0 0 var(--s-2);
+        color: var(--text);
+      }
+      .demo-header p {
+        color: var(--muted);
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .demo-section {
+        margin-bottom: var(--s-7);
+      }
+      .demo-section__title {
+        font-family: var(--font-mono);
+        font-weight: 400;
+        color: color-mix(in srgb, var(--accent) 62%, var(--muted) 38%);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.68rem;
+        margin: 0 0 var(--s-4);
+        padding-bottom: var(--s-2);
+        border-bottom: 1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+      }
+      .demo-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s-2);
+        margin-top: var(--s-5);
+        justify-content: center;
+      }
+      .demo-btn {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+        background: color-mix(in srgb, var(--surface) 90%, transparent);
+        color: var(--text);
+        cursor: pointer;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+      .demo-btn:hover {
+        border-color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+      }
+      .demo-event-log {
+        margin-top: var(--s-4);
+        padding: var(--s-3);
+        border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent);
+        background: color-mix(in srgb, var(--surface) 80%, transparent);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--muted);
+        max-height: 80px;
+        overflow-y: auto;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>Cryo Station Monitor</h1>
+          <p>Arctic Cryo Gauge &mdash; Exclusive Component</p>
+        </div>
+
+        <!-- Circular Gauges -->
+        <div class="demo-section">
+          <h2 class="demo-section__title">System Metrics</h2>
+          <div class="cryo-grid cryo-grid--3">
+            <div class="cryo-gauge cryo-gauge--circular"
+                 id="gauge-cpu"
+                 data-cryo-gauge
+                 data-value="73"
+                 data-min="0"
+                 data-max="100"
+                 data-unit="%"
+                 data-label="CPU Load">
+            </div>
+            <div class="cryo-gauge cryo-gauge--circular"
+                 id="gauge-mem"
+                 data-cryo-gauge
+                 data-value="45"
+                 data-min="0"
+                 data-max="100"
+                 data-unit="%"
+                 data-label="Memory">
+            </div>
+            <div class="cryo-gauge cryo-gauge--circular"
+                 id="gauge-disk"
+                 data-cryo-gauge
+                 data-value="89"
+                 data-min="0"
+                 data-max="100"
+                 data-unit="%"
+                 data-label="Disk Usage">
+            </div>
+          </div>
+        </div>
+
+        <!-- Linear Gauges -->
+        <div class="demo-section">
+          <h2 class="demo-section__title">Network &amp; Storage</h2>
+          <div class="cryo-grid cryo-grid--2">
+            <div class="cryo-gauge cryo-gauge--linear"
+                 id="gauge-net"
+                 data-cryo-gauge
+                 data-value="340"
+                 data-min="0"
+                 data-max="1000"
+                 data-unit="Mbps"
+                 data-label="Network Throughput">
+            </div>
+            <div class="cryo-gauge cryo-gauge--linear"
+                 id="gauge-tank"
+                 data-cryo-gauge
+                 data-value="62"
+                 data-min="0"
+                 data-max="100"
+                 data-unit="%"
+                 data-label="Cryo Tank Level">
+            </div>
+          </div>
+        </div>
+
+        <!-- Temperature Gauge -->
+        <div class="demo-section">
+          <h2 class="demo-section__title">Temperature</h2>
+          <div class="cryo-grid" style="max-width: 200px;">
+            <div class="cryo-gauge cryo-gauge--temp"
+                 id="gauge-temp"
+                 data-cryo-gauge
+                 data-value="-42"
+                 data-min="-180"
+                 data-max="20"
+                 data-unit="&deg;C"
+                 data-label="Core Temp">
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Controls -->
+        <div class="demo-section">
+          <h2 class="demo-section__title">Simulation Controls</h2>
+          <div class="demo-controls">
+            <button class="demo-btn" onclick="simulateSpike()">Spike CPU</button>
+            <button class="demo-btn" onclick="simulateCool()">Cool Down</button>
+            <button class="demo-btn" onclick="simulateRandom()">Randomize All</button>
+            <button class="demo-btn" onclick="simulateCritical()">Critical Alert</button>
+            <button class="demo-btn" onclick="simulateNormal()">Reset Normal</button>
+          </div>
+          <div class="demo-event-log" id="event-log">Threshold events appear here...</div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./arctic-cryo-gauge.js"></script>
+    <script>
+      // Event log
+      var log = document.getElementById("event-log");
+      document.addEventListener("cryogauge:threshold", function (e) {
+        var label = e.target.dataset.label || "Gauge";
+        var d = e.detail;
+        var msg = "[" + label + "] " + d.previous + " -> " + d.status +
+                  " (value: " + Math.round(d.value) + ", " + Math.round(d.percent) + "%)";
+        log.textContent = msg + "\n" + log.textContent;
+      });
+
+      // Simulation helpers
+      function rand(min, max) {
+        return Math.round(min + Math.random() * (max - min));
+      }
+
+      function simulateSpike() {
+        CryoGauge.setValue(document.getElementById("gauge-cpu"), rand(88, 98));
+      }
+
+      function simulateCool() {
+        CryoGauge.setValue(document.getElementById("gauge-cpu"), rand(15, 35));
+        CryoGauge.setValue(document.getElementById("gauge-temp"), rand(-160, -120));
+      }
+
+      function simulateRandom() {
+        CryoGauge.setValue(document.getElementById("gauge-cpu"), rand(10, 95));
+        CryoGauge.setValue(document.getElementById("gauge-mem"), rand(20, 90));
+        CryoGauge.setValue(document.getElementById("gauge-disk"), rand(30, 98));
+        CryoGauge.setValue(document.getElementById("gauge-net"), rand(50, 950));
+        CryoGauge.setValue(document.getElementById("gauge-tank"), rand(10, 95));
+        CryoGauge.setValue(document.getElementById("gauge-temp"), rand(-170, 10));
+      }
+
+      function simulateCritical() {
+        CryoGauge.setValue(document.getElementById("gauge-cpu"), 96);
+        CryoGauge.setValue(document.getElementById("gauge-mem"), 91);
+        CryoGauge.setValue(document.getElementById("gauge-disk"), 94);
+        CryoGauge.setValue(document.getElementById("gauge-tank"), 12);
+        CryoGauge.setValue(document.getElementById("gauge-temp"), 15);
+      }
+
+      function simulateNormal() {
+        CryoGauge.setValue(document.getElementById("gauge-cpu"), 32);
+        CryoGauge.setValue(document.getElementById("gauge-mem"), 45);
+        CryoGauge.setValue(document.getElementById("gauge-disk"), 52);
+        CryoGauge.setValue(document.getElementById("gauge-net"), 340);
+        CryoGauge.setValue(document.getElementById("gauge-tank"), 78);
+        CryoGauge.setValue(document.getElementById("gauge-temp"), -42);
+      }
+    </script>
+  </body>
+</html>

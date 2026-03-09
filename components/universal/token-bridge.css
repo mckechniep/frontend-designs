@@ -1,0 +1,338 @@
+/* ================================================================
+   TOKEN BRIDGE
+   Maps non-conforming theme palettes to the standard component
+   token contract (--bg, --surface, --text, --accent, --font, etc.)
+   ================================================================
+   Themes that already define the standard contract (arctic-mono,
+   cyberpunk-neon, noire-editorial, modern-saas) don't need this.
+   These four themes use their own naming conventions and require
+   bridging to work with universal components.
+   ================================================================ */
+
+
+/* ===== Body baseline — ensure bg/color follow tokens ===== */
+
+html[data-profile="corporate-blueprint"] body,
+html[data-profile="retro-terminal"] body,
+html[data-profile="pastel-dreamscape"] body,
+html[data-profile="sunset-gradient"] body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+
+/* ===== Corporate Blueprint — Dark (default) ===== */
+
+html[data-profile="corporate-blueprint"] {
+  --bg: #06101f;
+  --surface: #0b1a30;
+  --surface-2: #102240;
+  --surface-3: #17304f;
+  --text: #e8edf4;
+  --muted: rgba(232, 237, 244, 0.6);
+  --border: rgba(62, 198, 224, 0.15);
+  --border-subtle: rgba(62, 198, 224, 0.08);
+  --accent: #3ec6e0;
+  --accent-2: #5fd4eb;
+  --accent-glow: rgba(62, 198, 224, 0.4);
+  --glass-bg: rgba(11, 26, 48, 0.72);
+  --glass-border: rgba(62, 198, 224, 0.12);
+  --success: #3ec6e0;
+  --error: #c9a84c;
+  --radius: 0px;
+  --radius-lg: 0px;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 18px 42px rgba(0, 0, 0, 0.5);
+  --font: 'IBM Plex Sans', -apple-system, sans-serif;
+  --font-ui: 'DM Mono', 'Courier New', monospace;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --badge-bg: rgba(62, 198, 224, 0.1);
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+}
+
+/* Corporate Blueprint — Light */
+html[data-profile="corporate-blueprint"][data-theme="light"] {
+  --bg: #edf2f8;
+  --surface: #ffffff;
+  --surface-2: #e4ecf4;
+  --surface-3: #d6e2ef;
+  --text: #0b1a30;
+  --muted: rgba(11, 26, 48, 0.55);
+  --border: rgba(62, 198, 224, 0.2);
+  --border-subtle: rgba(62, 198, 224, 0.1);
+  --accent: #1f8ea8;
+  --accent-2: #167a92;
+  --accent-glow: rgba(31, 142, 168, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(62, 198, 224, 0.14);
+  --success: #1f8ea8;
+  --error: #8b7230;
+  --badge-bg: rgba(31, 142, 168, 0.08);
+  --shadow: 0 4px 12px rgba(6, 16, 31, 0.08);
+  --shadow-lg: 0 14px 36px rgba(6, 16, 31, 0.14);
+}
+
+
+/* ===== Retro Terminal — Dark (default) ===== */
+
+html[data-profile="retro-terminal"] {
+  --bg: #0a0a0a;
+  --surface: #0d1a0d;
+  --surface-2: #111111;
+  --surface-3: #0a0a0a;
+  --text: #33ff33;
+  --muted: #1a9e1a;
+  --border: #1a3a1a;
+  --border-subtle: rgba(51, 255, 51, 0.06);
+  --accent: #33ff33;
+  --accent-2: #ffb000;
+  --accent-glow: rgba(51, 255, 51, 0.4);
+  --glass-bg: rgba(13, 26, 13, 0.72);
+  --glass-border: rgba(51, 255, 51, 0.12);
+  --success: #33ff33;
+  --error: #ff3333;
+  --radius: 0px;
+  --radius-lg: 0px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 34px rgba(0, 0, 0, 0.75);
+  --font: 'Share Tech Mono', monospace;
+  --font-ui: 'VT323', monospace;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-display: 'VT323', monospace;
+  --badge-bg: rgba(51, 255, 51, 0.08);
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+}
+
+/* Retro Terminal — Light (amber paper printout) */
+html[data-profile="retro-terminal"][data-theme="light"] {
+  --bg: #f4f0e8;
+  --surface: #faf8f2;
+  --surface-2: #edeade;
+  --surface-3: #e4e0d4;
+  --text: #1a3a1a;
+  --muted: #4a6a4a;
+  --border: rgba(26, 58, 26, 0.18);
+  --border-subtle: rgba(26, 58, 26, 0.08);
+  --accent: #1a7a1a;
+  --accent-2: #996a00;
+  --accent-glow: rgba(26, 122, 26, 0.2);
+  --glass-bg: rgba(250, 248, 242, 0.8);
+  --glass-border: rgba(26, 58, 26, 0.1);
+  --success: #1a7a1a;
+  --error: #992020;
+  --badge-bg: rgba(26, 122, 26, 0.08);
+  --shadow: 0 2px 8px rgba(26, 58, 26, 0.06);
+  --shadow-lg: 0 8px 24px rgba(26, 58, 26, 0.1);
+}
+
+
+/* ===== Pastel Dreamscape — Light (default) ===== */
+
+html[data-profile="pastel-dreamscape"] {
+  --bg: #fdf6f0;
+  --surface: #fffbf8;
+  --surface-2: #fdf6f0;
+  --surface-3: #f8f0ff;
+  --text: #4a3f5c;
+  --muted: #7b6f8e;
+  --border: rgba(74, 63, 92, 0.12);
+  --border-subtle: rgba(74, 63, 92, 0.06);
+  --accent: #d4909c;
+  --accent-2: #c9b8e8;
+  --accent-glow: rgba(212, 144, 156, 0.3);
+  --glass-bg: rgba(255, 251, 248, 0.7);
+  --glass-border: rgba(74, 63, 92, 0.08);
+  --success: #a8c5b8;
+  --error: #d4909c;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --shadow: 0 4px 12px rgba(82, 58, 106, 0.06);
+  --shadow-lg: 0 14px 36px rgba(82, 58, 106, 0.08);
+  --font: 'Questrial', sans-serif;
+  --font-ui: 'Questrial', sans-serif;
+  --font-mono: 'Questrial', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --badge-bg: rgba(212, 144, 156, 0.12);
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+}
+
+/* Pastel Dreamscape — Dark (muted evening pastels) */
+html[data-profile="pastel-dreamscape"][data-theme="dark"] {
+  --bg: #1e1a24;
+  --surface: #28232e;
+  --surface-2: #221e28;
+  --surface-3: #2e2836;
+  --text: #e8e0f0;
+  --muted: #9a8eae;
+  --border: rgba(201, 184, 232, 0.14);
+  --border-subtle: rgba(201, 184, 232, 0.07);
+  --accent: #e8a8b4;
+  --accent-2: #c9b8e8;
+  --accent-glow: rgba(232, 168, 180, 0.25);
+  --glass-bg: rgba(40, 35, 46, 0.75);
+  --glass-border: rgba(201, 184, 232, 0.1);
+  --success: #8ec0a8;
+  --error: #e8a0a0;
+  --badge-bg: rgba(232, 168, 180, 0.1);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ===== Sunset Gradient — Dark (default) ===== */
+
+html[data-profile="sunset-gradient"] {
+  --bg: #13001A;
+  --surface: rgba(55, 6, 23, 0.7);
+  --surface-2: #370617;
+  --surface-3: #2D0A1F;
+  --text: #FFF5EE;
+  --muted: rgba(255, 245, 238, 0.7);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --accent: #F48C06;
+  --accent-2: #FFBA08;
+  --accent-3: #E85D04;
+  --accent-4: #DC2F02;
+  --accent-glow: rgba(244, 140, 6, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --success: #FFBA08;
+  --error: #D00000;
+  --radius: 16px;
+  --radius-lg: 20px;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.4);
+  --font: 'Outfit', system-ui, sans-serif;
+  --font-ui: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --badge-bg: rgba(244, 140, 6, 0.1);
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+}
+
+/* Sunset Gradient — Light (warm blush morning) */
+html[data-profile="sunset-gradient"][data-theme="light"] {
+  --bg: #FFF5EE;
+  --surface: #ffffff;
+  --surface-2: #FFF0E5;
+  --surface-3: #FFE8D6;
+  --text: #2D0A1F;
+  --muted: rgba(45, 10, 31, 0.6);
+  --border: rgba(244, 140, 6, 0.15);
+  --border-subtle: rgba(244, 140, 6, 0.08);
+  --accent: #DC2F02;
+  --accent-2: #E85D04;
+  --accent-3: #D00000;
+  --accent-4: #9D0208;
+  --accent-glow: rgba(220, 47, 2, 0.18);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(244, 140, 6, 0.12);
+  --success: #E85D04;
+  --error: #D00000;
+  --badge-bg: rgba(220, 47, 2, 0.08);
+  --shadow: 0 4px 12px rgba(45, 10, 31, 0.06);
+  --shadow-lg: 0 14px 36px rgba(45, 10, 31, 0.1);
+}
+
+
+/* ================================================================
+   BASE COMPONENT CLASSES
+   Conforming theme bundles include .button / .card / etc. as part
+   of their base CSS framework.  Non-conforming bundles don't, so
+   we provide minimal versions here using the standard token contract.
+   ================================================================ */
+
+/* ===== .button base ===== */
+
+html[data-profile="corporate-blueprint"] .button,
+html[data-profile="retro-terminal"] .button,
+html[data-profile="pastel-dreamscape"] .button,
+html[data-profile="sunset-gradient"] .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+/* ===== .button-primary ===== */
+
+html[data-profile="corporate-blueprint"] .button-primary,
+html[data-profile="retro-terminal"] .button-primary,
+html[data-profile="pastel-dreamscape"] .button-primary,
+html[data-profile="sunset-gradient"] .button-primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+html[data-profile="corporate-blueprint"] .button-primary:hover,
+html[data-profile="retro-terminal"] .button-primary:hover,
+html[data-profile="pastel-dreamscape"] .button-primary:hover,
+html[data-profile="sunset-gradient"] .button-primary:hover {
+  background: var(--accent-2);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Pastel light mode needs dark text on light accent */
+html[data-profile="pastel-dreamscape"] .button-primary {
+  color: #fff8f5;
+}
+
+/* ===== .button-ghost ===== */
+
+html[data-profile="corporate-blueprint"] .button-ghost,
+html[data-profile="retro-terminal"] .button-ghost,
+html[data-profile="pastel-dreamscape"] .button-ghost,
+html[data-profile="sunset-gradient"] .button-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+html[data-profile="corporate-blueprint"] .button-ghost:hover,
+html[data-profile="retro-terminal"] .button-ghost:hover,
+html[data-profile="pastel-dreamscape"] .button-ghost:hover,
+html[data-profile="sunset-gradient"] .button-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

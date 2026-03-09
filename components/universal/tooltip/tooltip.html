@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tooltip — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./tooltip.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 900px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; margin: 0 0 var(--s-4); }
+      .demo-row { display: flex; flex-wrap: wrap; gap: var(--s-6); align-items: center; justify-content: center; padding: var(--s-7) 0; }
+      .demo-target { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--glass-bg); color: var(--text); font-family: var(--font-ui); font-size: 0.88rem; cursor: default; }
+      .demo-icon-target { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--glass-bg); color: var(--muted); cursor: default; }
+      .demo-icon-target svg { width: 20px; height: 20px; }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Tooltip</h1>
+          <p>CSS-driven tooltips with JS edge-detection. Hover or focus any element below. Switch profiles to preview themed variants.</p>
+        </div>
+
+        <!-- Directional -->
+        <div class="demo-section">
+          <h2>Positions</h2>
+          <div class="demo-row">
+            <span class="demo-target" data-tooltip="Tooltip on top" data-tooltip-pos="top" tabindex="0">Top</span>
+            <span class="demo-target" data-tooltip="Tooltip on bottom" data-tooltip-pos="bottom" tabindex="0">Bottom</span>
+            <span class="demo-target" data-tooltip="Tooltip on left" data-tooltip-pos="left" tabindex="0">Left</span>
+            <span class="demo-target" data-tooltip="Tooltip on right" data-tooltip-pos="right" tabindex="0">Right</span>
+          </div>
+        </div>
+
+        <!-- On interactive elements -->
+        <div class="demo-section">
+          <h2>On Buttons &amp; Icons</h2>
+          <div class="demo-row">
+            <button class="button button-primary" data-tooltip="Save your current progress" data-tooltip-pos="top">Save changes</button>
+            <button class="button button-ghost" data-tooltip="Discard all unsaved changes" data-tooltip-pos="bottom">Reset</button>
+
+            <span class="demo-icon-target" data-tooltip="Settings" data-tooltip-pos="top" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+              </svg>
+            </span>
+
+            <span class="demo-icon-target" data-tooltip="Notifications" data-tooltip-pos="top" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/>
+              </svg>
+            </span>
+
+            <span class="demo-icon-target" data-tooltip="Search (Ctrl+K)" data-tooltip-pos="top" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Long text -->
+        <div class="demo-section">
+          <h2>Longer Content</h2>
+          <div class="demo-row">
+            <span class="demo-target" data-tooltip="This tooltip contains a longer description to demonstrate text wrapping behavior in the tooltip component." data-tooltip-pos="top" tabindex="0" style="max-width: 160px; text-align: center;">Hover for details</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./tooltip.js"></script>
+    <script>
+      const profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      const defaultThemes = {
+        "arctic-mono": "dark", "cyberpunk-neon": "dark", "noire-editorial": "dark",
+        "corporate-blueprint": "dark", "modern-saas": "dark", "retro-terminal": "dark",
+        "pastel-dreamscape": "light", "sunset-gradient": "dark",
+      };
+      const ps = document.getElementById("ps");
+      const ts = document.getElementById("ts");
+      ps.addEventListener("change", () => {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", () => {
+        document.documentElement.dataset.theme = ts.value;
+      });
+    </script>
+  </body>
+</html>

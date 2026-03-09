@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="retro-terminal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Retro File Tree — Component Demo</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/retro-terminal.demo.css" />
+    <link rel="stylesheet" href="./retro-file-tree.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+      }
+      .demo-page .container {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+      .demo-header {
+        margin-bottom: var(--s-7);
+      }
+      .demo-header h1 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin: 0 0 var(--s-2);
+        color: var(--accent);
+        text-shadow: 0 0 10px var(--accent-glow);
+        letter-spacing: 0.04em;
+      }
+      .demo-header p {
+        font-family: var(--font-mono);
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.6;
+        font-size: 0.84rem;
+      }
+      .demo-section {
+        margin-bottom: var(--s-7);
+      }
+      .demo-section h2 {
+        font-family: var(--font-mono);
+        font-weight: 400;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 0.78rem;
+        margin: 0 0 var(--s-4);
+      }
+      .demo-output {
+        margin-top: var(--s-5);
+        border: 1px dashed var(--border);
+        background: var(--surface-2);
+        padding: var(--s-4);
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+        min-height: 60px;
+      }
+      .demo-output__title {
+        color: var(--amber, #ffb000);
+        text-shadow: 0 0 6px var(--amber-glow, rgba(255, 176, 0, 0.4));
+        margin-bottom: var(--s-2);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .demo-output__line {
+        line-height: 1.6;
+      }
+      .demo-output__line span {
+        color: var(--accent);
+        text-shadow: 0 0 6px var(--accent-glow);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <div class="demo-header">
+          <h1>&gt; Retro File Tree</h1>
+          <p>Terminal-style file/directory tree browser. Click to expand folders and select files. Use arrow keys, Enter, and Space for keyboard navigation.</p>
+        </div>
+
+        <!-- File Tree -->
+        <div class="demo-section">
+          <h2>// file browser</h2>
+
+          <div class="file-tree" data-file-tree>
+
+            <!-- Header -->
+            <div class="file-tree__header">
+              <span class="file-tree__path">~/projects/</span>
+              <span class="file-tree__header-info">VOLUME: /dev/sda1</span>
+            </div>
+
+            <!-- Body -->
+            <div class="file-tree__body">
+              <ul class="file-tree__list" role="tree">
+
+                <!-- src/ -->
+                <li class="file-tree__node file-tree__folder" data-name="src" data-path="~/projects/src/" role="treeitem" aria-expanded="true">
+                  <div class="file-tree__label">
+                    <span class="file-tree__connector"></span>
+                    <span class="file-tree__toggle">[-]</span>
+                    <span class="file-tree__type file-tree__type--dir">[DIR]</span>
+                    <span class="file-tree__name">src/</span>
+                    <span class="file-tree__meta">
+                      <span class="file-tree__size">&lt;DIR&gt;</span>
+                      <span class="file-tree__date">2026-03-05</span>
+                    </span>
+                  </div>
+                  <ul class="file-tree__list file-tree__children" role="group">
+
+                    <!-- src/components/ -->
+                    <li class="file-tree__node file-tree__folder" data-name="components" data-path="~/projects/src/components/" role="treeitem" aria-expanded="true">
+                      <div class="file-tree__label">
+                        <span class="file-tree__connector">&boxvr;&boxh;&boxh; </span>
+                        <span class="file-tree__toggle">[-]</span>
+                        <span class="file-tree__type file-tree__type--dir">[DIR]</span>
+                        <span class="file-tree__name">components/</span>
+                        <span class="file-tree__meta">
+                          <span class="file-tree__size">&lt;DIR&gt;</span>
+                          <span class="file-tree__date">2026-03-04</span>
+                        </span>
+                      </div>
+                      <ul class="file-tree__list file-tree__children" role="group">
+
+                        <li class="file-tree__node file-tree__file" data-name="header.js" data-path="~/projects/src/components/header.js" role="treeitem">
+                          <div class="file-tree__label">
+                            <span class="file-tree__connector">&boxv;   &boxvr;&boxh;&boxh; </span>
+                            <span class="file-tree__toggle">   </span>
+                            <span class="file-tree__type">[JS ]</span>
+                            <span class="file-tree__name">header.js</span>
+                            <span class="file-tree__meta">
+                              <span class="file-tree__size" data-size="2340">2,340 B</span>
+                              <span class="file-tree__date">2026-03-01</span>
+                            </span>
+                          </div>
+                        </li>
+
+                        <li class="file-tree__node file-tree__file" data-name="footer.js" data-path="~/projects/src/components/footer.js" role="treeitem">
+                          <div class="file-tree__label">
+                            <span class="file-tree__connector">&boxv;   &boxvr;&boxh;&boxh; </span>
+                            <span class="file-tree__toggle">   </span>
+                            <span class="file-tree__type">[JS ]</span>
+                            <span class="file-tree__name">footer.js</span>
+                            <span class="file-tree__meta">
+                              <span class="file-tree__size" data-size="1820">1,820 B</span>
+                              <span class="file-tree__date">2026-02-28</span>
+                            </span>
+                          </div>
+                        </li>
+
+                        <li class="file-tree__node file-tree__file" data-name="nav.js" data-path="~/projects/src/components/nav.js" role="treeitem">
+                          <div class="file-tree__label">
+                            <span class="file-tree__connector">&boxv;   &boxur;&boxh;&boxh; </span>
+                            <span class="file-tree__toggle">   </span>
+                            <span class="file-tree__type">[JS ]</span>
+                            <span class="file-tree__name">nav.js</span>
+                            <span class="file-tree__meta">
+                              <span class="file-tree__size" data-size="3105">3,105 B</span>
+                              <span class="file-tree__date">2026-03-02</span>
+                            </span>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </li>
+
+                    <!-- src/styles/ -->
+                    <li class="file-tree__node file-tree__folder" data-name="styles" data-path="~/projects/src/styles/" role="treeitem" aria-expanded="true">
+                      <div class="file-tree__label">
+                        <span class="file-tree__connector">&boxvr;&boxh;&boxh; </span>
+                        <span class="file-tree__toggle">[-]</span>
+                        <span class="file-tree__type file-tree__type--dir">[DIR]</span>
+                        <span class="file-tree__name">styles/</span>
+                        <span class="file-tree__meta">
+                          <span class="file-tree__size">&lt;DIR&gt;</span>
+                          <span class="file-tree__date">2026-03-03</span>
+                        </span>
+                      </div>
+                      <ul class="file-tree__list file-tree__children" role="group">
+
+                        <li class="file-tree__node file-tree__file" data-name="main.css" data-path="~/projects/src/styles/main.css" role="treeitem">
+                          <div class="file-tree__label">
+                            <span class="file-tree__connector">&boxv;   &boxvr;&boxh;&boxh; </span>
+                            <span class="file-tree__toggle">   </span>
+                            <span class="file-tree__type">[CSS]</span>
+                            <span class="file-tree__name">main.css</span>
+                            <span class="file-tree__meta">
+                              <span class="file-tree__size" data-size="4512">4,512 B</span>
+                              <span class="file-tree__date">2026-03-03</span>
+                            </span>
+                          </div>
+                        </li>
+
+                        <li class="file-tree__node file-tree__file" data-name="tokens.css" data-path="~/projects/src/styles/tokens.css" role="treeitem">
+                          <div class="file-tree__label">
+                            <span class="file-tree__connector">&boxv;   &boxur;&boxh;&boxh; </span>
+                            <span class="file-tree__toggle">   </span>
+                            <span class="file-tree__type">[CSS]</span>
+                            <span class="file-tree__name">tokens.css</span>
+                            <span class="file-tree__meta">
+                              <span class="file-tree__size" data-size="1280">1,280 B</span>
+                              <span class="file-tree__date">2026-02-27</span>
+                            </span>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </li>
+
+                    <!-- src/index.js -->
+                    <li class="file-tree__node file-tree__file" data-name="index.js" data-path="~/projects/src/index.js" role="treeitem">
+                      <div class="file-tree__label">
+                        <span class="file-tree__connector">&boxur;&boxh;&boxh; </span>
+                        <span class="file-tree__toggle">   </span>
+                        <span class="file-tree__type">[JS ]</span>
+                        <span class="file-tree__name">index.js</span>
+                        <span class="file-tree__meta">
+                          <span class="file-tree__size" data-size="890">  890 B</span>
+                          <span class="file-tree__date">2026-03-05</span>
+                        </span>
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <!-- public/ -->
+                <li class="file-tree__node file-tree__folder" data-name="public" data-path="~/projects/public/" role="treeitem" aria-expanded="true">
+                  <div class="file-tree__label">
+                    <span class="file-tree__connector"></span>
+                    <span class="file-tree__toggle">[-]</span>
+                    <span class="file-tree__type file-tree__type--dir">[DIR]</span>
+                    <span class="file-tree__name">public/</span>
+                    <span class="file-tree__meta">
+                      <span class="file-tree__size">&lt;DIR&gt;</span>
+                      <span class="file-tree__date">2026-03-06</span>
+                    </span>
+                  </div>
+                  <ul class="file-tree__list file-tree__children" role="group">
+
+                    <!-- public/images/ -->
+                    <li class="file-tree__node file-tree__folder" data-name="images" data-path="~/projects/public/images/" role="treeitem" aria-expanded="true">
+                      <div class="file-tree__label">
+                        <span class="file-tree__connector">&boxvr;&boxh;&boxh; </span>
+                        <span class="file-tree__toggle">[-]</span>
+                        <span class="file-tree__type file-tree__type--dir">[DIR]</span>
+                        <span class="file-tree__name">images/</span>
+                        <span class="file-tree__meta">
+                          <span class="file-tree__size">&lt;DIR&gt;</span>
+                          <span class="file-tree__date">2026-03-06</span>
+                        </span>
+                      </div>
+                      <ul class="file-tree__list file-tree__children" role="group">
+
+                        <li class="file-tree__node file-tree__file" data-name="logo.png" data-path="~/projects/public/images/logo.png" role="treeitem">
+                          <div class="file-tree__label">
+                            <span class="file-tree__connector">    &boxur;&boxh;&boxh; </span>
+                            <span class="file-tree__toggle">   </span>
+                            <span class="file-tree__type">[IMG]</span>
+                            <span class="file-tree__name">logo.png</span>
+                            <span class="file-tree__meta">
+                              <span class="file-tree__size" data-size="24576">24,576 B</span>
+                              <span class="file-tree__date">2026-02-20</span>
+                            </span>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </li>
+
+                    <!-- public/index.html -->
+                    <li class="file-tree__node file-tree__file" data-name="index.html" data-path="~/projects/public/index.html" role="treeitem">
+                      <div class="file-tree__label">
+                        <span class="file-tree__connector">&boxur;&boxh;&boxh; </span>
+                        <span class="file-tree__toggle">   </span>
+                        <span class="file-tree__type">[TXT]</span>
+                        <span class="file-tree__name">index.html</span>
+                        <span class="file-tree__meta">
+                          <span class="file-tree__size" data-size="1654">1,654 B</span>
+                          <span class="file-tree__date">2026-03-04</span>
+                        </span>
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <!-- package.json -->
+                <li class="file-tree__node file-tree__file" data-name="package.json" data-path="~/projects/package.json" role="treeitem">
+                  <div class="file-tree__label">
+                    <span class="file-tree__connector"></span>
+                    <span class="file-tree__toggle">   </span>
+                    <span class="file-tree__type">[TXT]</span>
+                    <span class="file-tree__name">package.json</span>
+                    <span class="file-tree__meta">
+                      <span class="file-tree__size" data-size="742">  742 B</span>
+                      <span class="file-tree__date">2026-03-05</span>
+                    </span>
+                  </div>
+                </li>
+
+                <!-- README.md -->
+                <li class="file-tree__node file-tree__file" data-name="README.md" data-path="~/projects/README.md" role="treeitem">
+                  <div class="file-tree__label">
+                    <span class="file-tree__connector"></span>
+                    <span class="file-tree__toggle">   </span>
+                    <span class="file-tree__type">[TXT]</span>
+                    <span class="file-tree__name">README.md</span>
+                    <span class="file-tree__meta">
+                      <span class="file-tree__size" data-size="2048">2,048 B</span>
+                      <span class="file-tree__date">2026-03-07</span>
+                    </span>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+            <!-- Status Bar -->
+            <div class="file-tree__status">
+              <span class="file-tree__status-left">
+                <span data-status-count>10 file(s), 5 dir(s)</span>
+              </span>
+              <span class="file-tree__status-right">
+                <span data-status-size>42,967 B</span>
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Output area -->
+        <div class="demo-section">
+          <h2>// selection output</h2>
+          <div class="demo-output" id="output">
+            <div class="demo-output__title">EVENT LOG</div>
+            <div class="demo-output__line" id="output-line">Waiting for selection...</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./retro-file-tree.js"></script>
+    <script>
+      document.querySelector("[data-file-tree]").addEventListener("filetree:select", function (e) {
+        var d = e.detail;
+        var el = document.getElementById("output-line");
+        el.innerHTML =
+          '&gt; SELECT ' +
+          '<span>' + d.type.toUpperCase() + '</span>' +
+          ' "' + d.name + '"' +
+          '  path=<span>' + d.path + '</span>';
+      });
+    </script>
+  </body>
+</html>

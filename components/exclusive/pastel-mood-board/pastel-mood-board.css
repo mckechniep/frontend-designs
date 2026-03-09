@@ -1,0 +1,461 @@
+/* ========== Pastel Mood Board ========== */
+/* EXCLUSIVE component for pastel-dreamscape theme. */
+/* A Pinterest/mood-board masonry layout for visual inspiration. */
+
+/* ===== Mood Board — Masonry Container ===== */
+
+.mood-board {
+  columns: 3;
+  column-gap: 1.25rem;
+}
+
+.mood-board > * {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+
+
+/* ===== Tag Filter Row ===== */
+
+.mood-board-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  justify-content: center;
+}
+
+.mood-board-filters__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border, rgba(52, 41, 69, 0.1));
+  background: var(--glass-bg, rgba(255, 255, 255, 0.76));
+  color: var(--muted, #7e6d91);
+  font-family: var(--font, "Instrument Sans", sans-serif);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.mood-board-filters__tag:hover {
+  background: rgba(240, 141, 184, 0.12);
+  border-color: var(--accent, #f08db8);
+  color: var(--text, #342945);
+}
+
+.mood-board-filters__tag.is-active {
+  background: linear-gradient(135deg, var(--accent, #f08db8), var(--accent-2, #b8a4f4));
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(240, 141, 184, 0.25);
+}
+
+
+/* ===== Mood Card — Base ===== */
+
+.mood-card {
+  position: relative;
+  background: var(--glass-bg, rgba(255, 255, 255, 0.76));
+  border: 1px solid var(--border-subtle, rgba(52, 41, 69, 0.06));
+  padding: 1.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: moodCardFadeIn 0.5s ease forwards;
+}
+
+.mood-card:hover {
+  transform: translateY(-4px) rotate(0deg) !important;
+  box-shadow:
+    0 16px 40px rgba(82, 58, 106, 0.12),
+    0 0 20px rgba(240, 141, 184, 0.08);
+}
+
+/* Dimmed state for tag filtering */
+.mood-card.is-dimmed {
+  opacity: 0.3;
+  filter: grayscale(0.4);
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* ===== Organic Border-Radius per :nth-child ===== */
+
+.mood-card:nth-child(6n+1) { border-radius: 24px 16px 20px 28px; }
+.mood-card:nth-child(6n+2) { border-radius: 18px 28px 16px 22px; }
+.mood-card:nth-child(6n+3) { border-radius: 22px 20px 28px 16px; }
+.mood-card:nth-child(6n+4) { border-radius: 16px 24px 22px 30px; }
+.mood-card:nth-child(6n+5) { border-radius: 28px 18px 24px 20px; }
+.mood-card:nth-child(6n+6) { border-radius: 20px 26px 18px 24px; }
+
+
+/* ===== Slight Rotation per :nth-child ===== */
+
+.mood-card:nth-child(4n+1) { transform: rotate(-1.5deg); }
+.mood-card:nth-child(4n+2) { transform: rotate(1deg); }
+.mood-card:nth-child(4n+3) { transform: rotate(-0.8deg); }
+.mood-card:nth-child(4n+4) { transform: rotate(1.8deg); }
+
+
+/* ===== Soft Colored Shadows per :nth-child ===== */
+
+.mood-card:nth-child(4n+1) {
+  box-shadow: 0 8px 28px rgba(240, 141, 184, 0.1);
+}
+
+.mood-card:nth-child(4n+2) {
+  box-shadow: 0 8px 28px rgba(184, 164, 244, 0.1);
+}
+
+.mood-card:nth-child(4n+3) {
+  box-shadow: 0 8px 28px rgba(158, 222, 207, 0.1);
+}
+
+.mood-card:nth-child(4n+4) {
+  box-shadow: 0 8px 28px rgba(246, 214, 133, 0.1);
+}
+
+
+/* ===== Staggered Fade-In Animation ===== */
+
+@keyframes moodCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mood-card:nth-child(1)  { animation-delay: 0s; }
+.mood-card:nth-child(2)  { animation-delay: 0.08s; }
+.mood-card:nth-child(3)  { animation-delay: 0.16s; }
+.mood-card:nth-child(4)  { animation-delay: 0.24s; }
+.mood-card:nth-child(5)  { animation-delay: 0.32s; }
+.mood-card:nth-child(6)  { animation-delay: 0.4s; }
+.mood-card:nth-child(7)  { animation-delay: 0.48s; }
+.mood-card:nth-child(8)  { animation-delay: 0.56s; }
+.mood-card:nth-child(9)  { animation-delay: 0.64s; }
+.mood-card:nth-child(10) { animation-delay: 0.72s; }
+
+
+/* ===== Pin Decoration ===== */
+
+.mood-card__pin {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 40% 35%, #fff, var(--accent, #f08db8) 60%, #c06090);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(255, 255, 255, 0.5);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Vary pin color per card type */
+.mood-card--note .mood-card__pin {
+  background: radial-gradient(circle at 40% 35%, #fff, var(--accent-4, #f6d685) 60%, #d4a840);
+}
+
+.mood-card--image .mood-card__pin {
+  background: radial-gradient(circle at 40% 35%, #fff, var(--accent-2, #b8a4f4) 60%, #8a70d0);
+}
+
+.mood-card--palette .mood-card__pin {
+  background: radial-gradient(circle at 40% 35%, #fff, var(--accent-3, #9edecf) 60%, #6ab8a2);
+}
+
+.mood-card--quote .mood-card__pin {
+  background: radial-gradient(circle at 40% 35%, #fff, var(--accent-4, #f6d685) 60%, #d4a840);
+}
+
+
+/* ===== Color Swatch Card ===== */
+
+.mood-card--color {
+  padding: 0;
+  overflow: hidden;
+}
+
+.mood-card__swatch {
+  width: 100%;
+  height: 140px;
+  display: block;
+}
+
+.mood-card__color-info {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.mood-card__color-name {
+  font-family: var(--font-display, "Comfortaa", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text, #342945);
+}
+
+.mood-card__color-hex {
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: 0.78rem;
+  color: var(--muted, #7e6d91);
+  letter-spacing: 0.04em;
+}
+
+.mood-card__copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border, rgba(52, 41, 69, 0.1));
+  background: var(--surface-2, #f8eff8);
+  color: var(--muted, #7e6d91);
+  font-family: var(--font-mono, "Space Mono", monospace);
+  font-size: 0.68rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.mood-card__copy-btn:hover {
+  background: var(--accent, #f08db8);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.mood-card__copy-btn.is-copied {
+  background: var(--success, #6ab8a2);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+
+/* ===== Note Card (Sticky-Note Style) ===== */
+
+.mood-card--note {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 27px,
+      rgba(52, 41, 69, 0.04) 27px,
+      rgba(52, 41, 69, 0.04) 28px
+    ),
+    linear-gradient(135deg, rgba(246, 214, 133, 0.18), rgba(240, 141, 184, 0.08));
+  background-color: var(--glass-bg, rgba(255, 255, 255, 0.76));
+}
+
+.mood-card__note-text {
+  font-family: var(--font-display, "Comfortaa", sans-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text, #342945);
+  font-weight: 500;
+  padding: 0.25rem 0;
+}
+
+
+/* ===== Image Placeholder Card ===== */
+
+.mood-card--image {
+  padding: 0;
+  overflow: hidden;
+}
+
+.mood-card__image-placeholder {
+  width: 100%;
+  height: 180px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(184, 164, 244, 0.2), rgba(158, 222, 207, 0.2));
+  position: relative;
+}
+
+.mood-card__image-placeholder::after {
+  content: "";
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  border: 2px dashed var(--muted, #7e6d91);
+  opacity: 0.35;
+}
+
+.mood-card__image-caption {
+  padding: 1rem 1.25rem;
+  font-family: var(--font, "Instrument Sans", sans-serif);
+  font-size: 0.88rem;
+  color: var(--text, #342945);
+  font-weight: 500;
+}
+
+
+/* ===== Palette Card ===== */
+
+.mood-card--palette {
+  padding-bottom: 1rem;
+}
+
+.mood-card__palette-label {
+  font-family: var(--font-display, "Comfortaa", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text, #342945);
+  margin-bottom: 0.75rem;
+}
+
+.mood-card__palette-strips {
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 64px;
+}
+
+.mood-card__palette-strip {
+  flex: 1;
+  transition: flex 0.3s ease;
+}
+
+.mood-card__palette-strips:hover .mood-card__palette-strip:hover {
+  flex: 1.6;
+}
+
+
+/* ===== Quote Card ===== */
+
+.mood-card--quote {
+  background:
+    linear-gradient(135deg, rgba(240, 141, 184, 0.08), rgba(184, 164, 244, 0.1));
+  background-color: var(--glass-bg, rgba(255, 255, 255, 0.76));
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+}
+
+.mood-card__quote-mark {
+  font-family: var(--font-display, "Comfortaa", sans-serif);
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--accent, #f08db8);
+  opacity: 0.5;
+  margin-bottom: 0.25rem;
+}
+
+.mood-card__quote-text {
+  font-family: var(--font-display, "Comfortaa", sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text, #342945);
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 0 0.75rem;
+}
+
+.mood-card__quote-attribution {
+  font-family: var(--font, "Instrument Sans", sans-serif);
+  font-size: 0.78rem;
+  color: var(--muted, #7e6d91);
+  letter-spacing: 0.02em;
+}
+
+
+/* ===== Tags ===== */
+
+.mood-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding-top: 0.75rem;
+}
+
+/* Tags inside padless cards need internal padding */
+.mood-card--color .mood-card__tags,
+.mood-card--image .mood-card__tags {
+  padding: 0 1.25rem 1rem;
+}
+
+.mood-card__tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--badge-bg, rgba(240, 141, 184, 0.1));
+  color: var(--muted, #7e6d91);
+  font-family: var(--font, "Instrument Sans", sans-serif);
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mood-card__tag:hover {
+  background: var(--accent, #f08db8);
+  color: #ffffff;
+}
+
+.mood-card__tag.is-active {
+  background: var(--accent, #f08db8);
+  color: #ffffff;
+}
+
+
+/* ===== Dark Mode Adjustments ===== */
+
+:root[data-theme="dark"] .mood-card {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05));
+  border-color: var(--border-subtle, rgba(245, 235, 246, 0.05));
+}
+
+:root[data-theme="dark"] .mood-card--note {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 27px,
+      rgba(245, 235, 246, 0.04) 27px,
+      rgba(245, 235, 246, 0.04) 28px
+    ),
+    linear-gradient(135deg, rgba(246, 214, 133, 0.08), rgba(240, 141, 184, 0.04));
+  background-color: var(--glass-bg, rgba(255, 255, 255, 0.05));
+}
+
+:root[data-theme="dark"] .mood-card--quote {
+  background:
+    linear-gradient(135deg, rgba(240, 141, 184, 0.06), rgba(184, 164, 244, 0.06));
+  background-color: var(--glass-bg, rgba(255, 255, 255, 0.05));
+}
+
+:root[data-theme="dark"] .mood-card__copy-btn {
+  background: var(--surface-2, #34284a);
+}
+
+:root[data-theme="dark"] .mood-board-filters__tag {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05));
+  border-color: var(--border, rgba(245, 235, 246, 0.08));
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 879px) {
+  .mood-board {
+    columns: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .mood-board {
+    columns: 1;
+  }
+}

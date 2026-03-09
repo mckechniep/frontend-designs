@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dropdown — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./dropdown.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 900px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-size: 1.1rem; font-weight: 600; margin: 0 0 var(--s-4); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; }
+      .demo-row { display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: flex-start; }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Dropdown Menu</h1>
+          <p>Keyboard-navigable dropdown with groups, icons, dividers, hints, and danger items. Switch profiles above to preview themed variants.</p>
+        </div>
+
+        <!-- Basic -->
+        <div class="demo-section">
+          <h2>Basic</h2>
+          <div class="demo-row">
+            <div class="dropdown" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                Actions
+                <span class="dropdown__caret" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+              <ul class="dropdown__menu" role="menu" data-dropdown-menu>
+                <li><button class="dropdown__item" role="menuitem" data-value="edit">Edit</button></li>
+                <li><button class="dropdown__item" role="menuitem" data-value="duplicate">Duplicate</button></li>
+                <li><button class="dropdown__item" role="menuitem" data-value="archive">Archive</button></li>
+                <hr class="dropdown__divider" />
+                <li><button class="dropdown__item dropdown__item--danger" role="menuitem" data-value="delete">Delete</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Icons & Hints -->
+        <div class="demo-section">
+          <h2>Icons &amp; Keyboard Hints</h2>
+          <div class="demo-row">
+            <div class="dropdown" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                File
+                <span class="dropdown__caret" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+              <ul class="dropdown__menu" role="menu" data-dropdown-menu>
+                <li>
+                  <button class="dropdown__item" role="menuitem" data-value="new">
+                    <span class="dropdown__item-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </span>
+                    New file
+                    <span class="dropdown__item-hint">Ctrl+N</span>
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown__item" role="menuitem" data-value="open">
+                    <span class="dropdown__item-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                    </span>
+                    Open
+                    <span class="dropdown__item-hint">Ctrl+O</span>
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown__item" role="menuitem" data-value="save">
+                    <span class="dropdown__item-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    </span>
+                    Save
+                    <span class="dropdown__item-hint">Ctrl+S</span>
+                  </button>
+                </li>
+                <hr class="dropdown__divider" />
+                <li>
+                  <button class="dropdown__item" role="menuitem" data-value="export">
+                    <span class="dropdown__item-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </span>
+                    Export
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Groups -->
+        <div class="demo-section">
+          <h2>Grouped Items</h2>
+          <div class="demo-row">
+            <div class="dropdown" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                View
+                <span class="dropdown__caret" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+              <ul class="dropdown__menu" role="menu" data-dropdown-menu>
+                <li class="dropdown__group-label">Layout</li>
+                <li><button class="dropdown__item" role="menuitem" data-value="grid">Grid view</button></li>
+                <li><button class="dropdown__item" role="menuitem" data-value="list">List view</button></li>
+                <li><button class="dropdown__item" role="menuitem" data-value="board">Board view</button></li>
+                <hr class="dropdown__divider" />
+                <li class="dropdown__group-label">Display</li>
+                <li><button class="dropdown__item" role="menuitem" data-value="compact">Compact</button></li>
+                <li><button class="dropdown__item" role="menuitem" data-value="comfortable">Comfortable</button></li>
+                <hr class="dropdown__divider" />
+                <li><button class="dropdown__item" role="menuitem" data-value="fullscreen">Full screen</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right-aligned & Disabled -->
+        <div class="demo-section">
+          <h2>Right-aligned &amp; Disabled Items</h2>
+          <div class="demo-row" style="justify-content: flex-end;">
+            <div class="dropdown" data-dropdown>
+              <button class="dropdown__trigger" data-dropdown-trigger aria-haspopup="true" aria-expanded="false">
+                Account
+                <span class="dropdown__caret" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+              <ul class="dropdown__menu dropdown__menu--right" role="menu" data-dropdown-menu>
+                <li><button class="dropdown__item" role="menuitem" data-value="profile">Profile</button></li>
+                <li><button class="dropdown__item" role="menuitem" data-value="settings">Settings</button></li>
+                <li><button class="dropdown__item" role="menuitem" data-value="billing" disabled>Billing (disabled)</button></li>
+                <hr class="dropdown__divider" />
+                <li><button class="dropdown__item dropdown__item--danger" role="menuitem" data-value="logout">Log out</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./dropdown.js"></script>
+    <script>
+      const profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      const defaultThemes = {
+        "arctic-mono": "dark", "cyberpunk-neon": "dark", "noire-editorial": "dark",
+        "corporate-blueprint": "dark", "modern-saas": "dark", "retro-terminal": "dark",
+        "pastel-dreamscape": "light", "sunset-gradient": "dark",
+      };
+      const ps = document.getElementById("ps");
+      const ts = document.getElementById("ts");
+      ps.addEventListener("change", () => {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", () => {
+        document.documentElement.dataset.theme = ts.value;
+      });
+      // Log selections
+      document.querySelectorAll("[data-dropdown]").forEach(d => {
+        d.addEventListener("dropdown:select", e => console.log("Selected:", e.detail));
+      });
+    </script>
+  </body>
+</html>

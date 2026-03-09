@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Breadcrumb — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./breadcrumb.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 900px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; margin: 0 0 var(--s-4); }
+      .demo-block { padding: var(--s-5); border: 1px solid var(--border-subtle); border-radius: var(--radius); margin-bottom: var(--s-4); }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Breadcrumb</h1>
+          <p>Navigation breadcrumb with chevron separators, truncation, and a bar variant. Switch profiles to preview themed separators and styling.</p>
+        </div>
+
+        <!-- Basic -->
+        <div class="demo-section">
+          <h2>Basic</h2>
+          <div class="demo-block">
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Home</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Products</a></li>
+                <li class="breadcrumb__item" aria-current="page"><span class="breadcrumb__link">Widget Pro</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <!-- With Icons -->
+        <div class="demo-section">
+          <h2>With Icons</h2>
+          <div class="demo-block">
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb__item">
+                  <a class="breadcrumb__link" href="#">
+                    <span class="breadcrumb__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </span>
+                    Home
+                  </a>
+                </li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Dashboard</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Analytics</a></li>
+                <li class="breadcrumb__item" aria-current="page"><span class="breadcrumb__link">Reports</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Truncated (collapsible) -->
+        <div class="demo-section">
+          <h2>Truncated Path (click &hellip; to expand)</h2>
+          <div class="demo-block">
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb breadcrumb--truncate" data-breadcrumb>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Home</a></li>
+                <li class="breadcrumb__item breadcrumb__item--collapsed"><a class="breadcrumb__link" href="#">Organization</a></li>
+                <li class="breadcrumb__item breadcrumb__item--collapsed"><a class="breadcrumb__link" href="#">Engineering</a></li>
+                <li class="breadcrumb__item breadcrumb__item--collapsed"><a class="breadcrumb__link" href="#">Frontend</a></li>
+                <li class="breadcrumb__item breadcrumb__ellipsis-item">
+                  <button class="breadcrumb__ellipsis" data-breadcrumb-expand aria-label="Show full path">&hellip;</button>
+                </li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Components</a></li>
+                <li class="breadcrumb__item" aria-current="page"><span class="breadcrumb__link">Breadcrumb</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Bar variant -->
+        <div class="demo-section">
+          <h2>Bar Variant (wrapped in surface)</h2>
+          <div class="demo-block">
+            <nav aria-label="Breadcrumb" class="breadcrumb-bar">
+              <ol class="breadcrumb">
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Workspace</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Projects</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Acme Corp</a></li>
+                <li class="breadcrumb__item" aria-current="page"><span class="breadcrumb__link">Settings</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Long path -->
+        <div class="demo-section">
+          <h2>Deep Nesting</h2>
+          <div class="demo-block">
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Root</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Level 1</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Level 2</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Level 3</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Level 4</a></li>
+                <li class="breadcrumb__item" aria-current="page"><span class="breadcrumb__link">Current Page</span></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./breadcrumb.js"></script>
+    <script>
+      const profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      const defaultThemes = {
+        "arctic-mono": "dark", "cyberpunk-neon": "dark", "noire-editorial": "dark",
+        "corporate-blueprint": "dark", "modern-saas": "dark", "retro-terminal": "dark",
+        "pastel-dreamscape": "light", "sunset-gradient": "dark",
+      };
+      const ps = document.getElementById("ps");
+      const ts = document.getElementById("ts");
+      ps.addEventListener("change", () => {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", () => {
+        document.documentElement.dataset.theme = ts.value;
+      });
+    </script>
+  </body>
+</html>

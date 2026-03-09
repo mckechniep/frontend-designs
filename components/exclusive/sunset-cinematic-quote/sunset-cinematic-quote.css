@@ -1,0 +1,409 @@
+/* ========== Sunset Cinematic Quote ========== */
+/* EXCLUSIVE component for sunset-gradient theme. */
+/* Large, dramatic quote displays — cinematic title cards with letterbox framing. */
+
+/* ===== Cine Quote — Main Container ===== */
+
+.cine-quote {
+  position: relative;
+  background: #0c0a08;
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 3.5rem 2.5rem;
+  isolation: isolate;
+}
+
+/* Film grain overlay */
+.cine-quote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* Warm atmospheric glow */
+.cine-quote::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 70%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(232, 132, 94, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* ===== Letterbox Bars ===== */
+
+.cine-quote__bars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cine-quote__bars::before,
+.cine-quote__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #e8845e, #d4647a);
+  opacity: 0.7;
+}
+
+.cine-quote__bars::before {
+  top: 0;
+}
+
+.cine-quote__bars::after {
+  bottom: 0;
+}
+
+
+/* ===== Decorative Quotation Mark ===== */
+
+.cine-quote__text::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.15em;
+  left: -0.05em;
+  font-family: "Syne", ui-sans-serif, sans-serif;
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #e8845e, #d4647a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* ===== Quote Text ===== */
+
+.cine-quote__text {
+  position: relative;
+  z-index: 3;
+  font-family: "Syne", ui-sans-serif, sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #e8845e, #d4647a, #e8b85e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 1.5rem;
+  max-width: 48ch;
+}
+
+
+/* ===== Attribution ===== */
+
+.cine-quote__attribution {
+  position: relative;
+  z-index: 3;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted, #b89fa4);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.cine-quote__attribution::before {
+  content: "\2014\00a0";
+}
+
+
+/* ===== Source ===== */
+
+.cine-quote__source {
+  position: relative;
+  z-index: 3;
+  display: block;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--muted, #b89fa4);
+  opacity: 0.65;
+  margin-top: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+
+/* ===== Background Number ===== */
+
+.cine-quote__number {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  font-family: "Syne", ui-sans-serif, sans-serif;
+  font-size: clamp(8rem, 18vw, 16rem);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(248, 236, 228, 0.03);
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+
+/* ===== Text Reveal Animation ===== */
+
+.cine-quote__word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cine-quote.is-revealed .cine-quote__word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Attribution fade in */
+.cine-quote__attribution,
+.cine-quote__source {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+
+.cine-quote.is-revealed .cine-quote__attribution,
+.cine-quote.is-revealed .cine-quote__source {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cine-quote.is-revealed .cine-quote__source {
+  opacity: 0.65;
+}
+
+
+/* ========================================== */
+/* VARIANT: Full Viewport Hero               */
+/* ========================================== */
+
+.cine-quote--full {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 0;
+  padding: 4rem 2.5rem;
+}
+
+/* Cinematic vignette — darkened edges */
+.cine-quote--full .cine-quote__bars::before,
+.cine-quote--full .cine-quote__bars::after {
+  height: 4px;
+}
+
+.cine-quote--full > .cine-quote__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(12, 10, 8, 0.7) 100%);
+}
+
+.cine-quote--full .cine-quote__text {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  max-width: 18ch;
+}
+
+.cine-quote--full .cine-quote__text::before {
+  font-size: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -0.35em;
+}
+
+.cine-quote--full .cine-quote__number {
+  right: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(12rem, 28vw, 24rem);
+}
+
+
+/* ========================================== */
+/* VARIANT: Card                             */
+/* ========================================== */
+
+.cine-quote--card {
+  background: #1a1510;
+  border: 1px solid rgba(232, 132, 94, 0.1);
+  padding: 2.5rem 2rem;
+}
+
+.cine-quote--card:hover {
+  border-color: rgba(232, 132, 94, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(232, 132, 94, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cine-quote--card .cine-quote__text {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.cine-quote--card .cine-quote__text::before {
+  font-size: 4rem;
+}
+
+.cine-quote--card .cine-quote__number {
+  font-size: clamp(5rem, 12vw, 10rem);
+}
+
+
+/* ========================================== */
+/* VARIANT: Split (Number Left, Text Right)  */
+/* ========================================== */
+
+.cine-quote--split {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 3rem;
+  align-items: center;
+  padding: 3rem 3rem;
+}
+
+.cine-quote--split .cine-quote__bars {
+  grid-column: 1 / -1;
+}
+
+.cine-quote--split .cine-quote__number {
+  position: relative;
+  top: auto;
+  right: auto;
+  transform: none;
+  grid-row: 1 / 3;
+  font-size: clamp(6rem, 14vw, 12rem);
+  color: transparent;
+  background: linear-gradient(135deg, rgba(232, 132, 94, 0.15), rgba(212, 100, 122, 0.1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  z-index: 3;
+}
+
+.cine-quote--split .cine-quote__text {
+  grid-column: 2;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.cine-quote--split .cine-quote__attribution {
+  grid-column: 2;
+}
+
+.cine-quote--split .cine-quote__source {
+  grid-column: 2;
+}
+
+
+/* ========================================== */
+/* VARIANT: Gallery (Horizontal Scroll)      */
+/* ========================================== */
+
+.cine-quote-gallery {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232, 132, 94, 0.3) transparent;
+}
+
+.cine-quote-gallery::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cine-quote-gallery::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cine-quote-gallery::-webkit-scrollbar-thumb {
+  background: rgba(232, 132, 94, 0.3);
+  border-radius: 3px;
+}
+
+.cine-quote-gallery > .cine-quote {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1.75rem;
+}
+
+.cine-quote-gallery > .cine-quote .cine-quote__text {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+.cine-quote-gallery > .cine-quote .cine-quote__text::before {
+  font-size: 3.5rem;
+}
+
+.cine-quote-gallery > .cine-quote .cine-quote__number {
+  font-size: clamp(4rem, 10vw, 7rem);
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+  .cine-quote--split {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .cine-quote--split .cine-quote__number {
+    grid-row: auto;
+    grid-column: 1;
+    font-size: clamp(4rem, 20vw, 8rem);
+  }
+
+  .cine-quote--split .cine-quote__text,
+  .cine-quote--split .cine-quote__attribution,
+  .cine-quote--split .cine-quote__source {
+    grid-column: 1;
+  }
+
+  .cine-quote-gallery > .cine-quote {
+    flex: 0 0 280px;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 520px) {
+  .cine-quote {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cine-quote--full {
+    padding: 3rem 1.5rem;
+  }
+
+  .cine-quote--card {
+    padding: 2rem 1.5rem;
+  }
+}

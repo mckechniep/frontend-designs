@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Code Block — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./code-block.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 800px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; line-height: 1.6; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; margin: 0 0 var(--s-4); }
+      .demo-inline-row { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; line-height: 1.8; color: var(--muted); }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Code Block</h1>
+          <p>Styled code display with copy-to-clipboard, optional filename header, line numbers, basic syntax token classes, and inline code variant.</p>
+        </div>
+
+        <!-- Basic -->
+        <div class="demo-section">
+          <h2>Basic (with copy button)</h2>
+          <div class="code-block" data-code-block>
+            <button class="code-block__copy" data-copy-btn>Copy</button>
+            <div class="code-block__body">
+              <pre><code><span class="token-keyword">const</span> <span class="token-function">createTheme</span> = (<span class="token-property">name</span>, <span class="token-property">tokens</span>) <span class="token-operator">=></span> <span class="token-punctuation">{</span>
+  <span class="token-keyword">const</span> root <span class="token-operator">=</span> document<span class="token-punctuation">.</span>documentElement<span class="token-punctuation">;</span>
+  root<span class="token-punctuation">.</span>dataset<span class="token-punctuation">.</span>profile <span class="token-operator">=</span> <span class="token-property">name</span><span class="token-punctuation">;</span>
+
+  Object<span class="token-punctuation">.</span><span class="token-function">entries</span>(<span class="token-property">tokens</span>)<span class="token-punctuation">.</span><span class="token-function">forEach</span>(([<span class="token-property">key</span>, <span class="token-property">val</span>]) <span class="token-operator">=></span> <span class="token-punctuation">{</span>
+    root<span class="token-punctuation">.</span>style<span class="token-punctuation">.</span><span class="token-function">setProperty</span>(<span class="token-string">`--${key}`</span>, <span class="token-property">val</span>)<span class="token-punctuation">;</span>
+  <span class="token-punctuation">}</span>)<span class="token-punctuation">;</span>
+
+  <span class="token-keyword">return</span> <span class="token-punctuation">{</span> <span class="token-property">name</span>, applied<span class="token-punctuation">:</span> <span class="token-keyword">true</span> <span class="token-punctuation">}</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span><span class="token-punctuation">;</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With filename header -->
+        <div class="demo-section">
+          <h2>With Filename Header</h2>
+          <div class="code-block" data-code-block>
+            <div class="code-block__header">
+              <span class="code-block__filename">
+                <span class="code-block__filename-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
+                styles.tokens.css
+              </span>
+              <button class="code-block__copy" data-copy-btn>Copy</button>
+            </div>
+            <div class="code-block__body">
+              <pre><code><span class="token-comment">/* Design Tokens */</span>
+<span class="token-keyword">:root</span> <span class="token-punctuation">{</span>
+  <span class="token-property">--bg</span><span class="token-punctuation">:</span> <span class="token-string">#080f16</span><span class="token-punctuation">;</span>
+  <span class="token-property">--surface</span><span class="token-punctuation">:</span> <span class="token-string">#0f1a24</span><span class="token-punctuation">;</span>
+  <span class="token-property">--text</span><span class="token-punctuation">:</span> <span class="token-string">#e5edf5</span><span class="token-punctuation">;</span>
+  <span class="token-property">--accent</span><span class="token-punctuation">:</span> <span class="token-string">#7ec8e3</span><span class="token-punctuation">;</span>
+  <span class="token-property">--radius</span><span class="token-punctuation">:</span> <span class="token-number">0px</span><span class="token-punctuation">;</span>
+  <span class="token-property">--shadow</span><span class="token-punctuation">:</span> <span class="token-number">0</span> <span class="token-number">10px</span> <span class="token-number">28px</span> <span class="token-function">rgba</span>(<span class="token-number">1</span>, <span class="token-number">7</span>, <span class="token-number">14</span>, <span class="token-number">0.5</span>)<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With line numbers -->
+        <div class="demo-section">
+          <h2>Line Numbers</h2>
+          <div class="code-block code-block--numbered" data-code-block>
+            <div class="code-block__header">
+              <span class="code-block__filename">server.js</span>
+              <span class="code-block__lang">javascript</span>
+            </div>
+            <button class="code-block__copy" data-copy-btn>Copy</button>
+            <div class="code-block__body">
+              <pre><code><span class="line"><span class="token-keyword">import</span> express <span class="token-keyword">from</span> <span class="token-string">'express'</span><span class="token-punctuation">;</span></span>
+<span class="line"><span class="token-keyword">import</span> cors <span class="token-keyword">from</span> <span class="token-string">'cors'</span><span class="token-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token-keyword">const</span> app <span class="token-operator">=</span> <span class="token-function">express</span>()<span class="token-punctuation">;</span></span>
+<span class="line">app<span class="token-punctuation">.</span><span class="token-function">use</span>(<span class="token-function">cors</span>())<span class="token-punctuation">;</span></span>
+<span class="line">app<span class="token-punctuation">.</span><span class="token-function">use</span>(express<span class="token-punctuation">.</span><span class="token-function">json</span>())<span class="token-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">app<span class="token-punctuation">.</span><span class="token-function">get</span>(<span class="token-string">'/api/health'</span>, (req, res) <span class="token-operator">=></span> <span class="token-punctuation">{</span></span>
+<span class="line">  res<span class="token-punctuation">.</span><span class="token-function">json</span>(<span class="token-punctuation">{</span> status<span class="token-punctuation">:</span> <span class="token-string">'ok'</span> <span class="token-punctuation">}</span>)<span class="token-punctuation">;</span></span>
+<span class="line"><span class="token-punctuation">}</span>)<span class="token-punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">app<span class="token-punctuation">.</span><span class="token-function">listen</span>(<span class="token-number">3000</span>)<span class="token-punctuation">;</span></span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shell / terminal command -->
+        <div class="demo-section">
+          <h2>Terminal Command</h2>
+          <div class="code-block" data-code-block>
+            <div class="code-block__header">
+              <span class="code-block__filename">Terminal</span>
+              <span class="code-block__lang">bash</span>
+            </div>
+            <button class="code-block__copy" data-copy-btn>Copy</button>
+            <div class="code-block__body">
+              <pre><code><span class="token-comment"># Install dependencies</span>
+npm install
+
+<span class="token-comment"># Start development server</span>
+npm run dev
+
+<span class="token-comment"># Build for production</span>
+npm run build</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inline code -->
+        <div class="demo-section">
+          <h2>Inline Code</h2>
+          <div class="demo-inline-row">
+            Use <code class="code-inline">data-profile="arctic-mono"</code> on the root element. The token <code class="code-inline">--accent</code> controls the primary highlight color. Run <code class="code-inline">npm run build</code> to compile.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./code-block.js"></script>
+    <script>
+      const profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      const defaultThemes = { "arctic-mono":"dark","cyberpunk-neon":"dark","noire-editorial":"dark","corporate-blueprint":"dark","modern-saas":"dark","retro-terminal":"dark","pastel-dreamscape":"light","sunset-gradient":"dark" };
+      const ps = document.getElementById("ps");
+      const ts = document.getElementById("ts");
+      ps.addEventListener("change", () => {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", () => { document.documentElement.dataset.theme = ts.value; });
+    </script>
+  </body>
+</html>

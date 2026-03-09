@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="cyberpunk-neon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cyber Data Stream — Cyberpunk Neon Exclusive</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/cyberpunk-neon.demo.css" />
+    <link rel="stylesheet" href="./cyber-data-stream.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .demo-page::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 100;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.04) 2px,
+          rgba(0, 0, 0, 0.04) 4px
+        );
+      }
+
+      .demo-page .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+
+      .demo-header {
+        margin-bottom: var(--s-7);
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0 0 var(--s-2);
+        color: var(--accent);
+        text-shadow: 0 0 20px rgba(0, 255, 240, 0.4);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .demo-header p {
+        color: var(--muted);
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>Cyber Data Stream</h1>
+          <p>// exclusive component :: cyberpunk-neon profile</p>
+        </div>
+
+        <!-- Data Stream Component -->
+        <div class="data-stream">
+          <div class="data-stream__corner-tr"></div>
+          <div class="data-stream__corner-bl"></div>
+          <div class="data-stream__corner-br"></div>
+
+          <!-- Header Bar -->
+          <div class="data-stream__header">
+            <div class="data-stream__live">
+              <span class="data-stream__live-dot" aria-hidden="true"></span>
+              LIVE
+            </div>
+            <h2 class="data-stream__title" data-text="Network Monitor">Network Monitor</h2>
+            <div class="data-stream__controls">
+              <button class="data-stream__btn" data-action="start">Start</button>
+              <button class="data-stream__btn data-stream__btn--stop" data-action="stop">Stop</button>
+              <button class="data-stream__btn data-stream__btn--clear" data-action="clear">Clear</button>
+            </div>
+          </div>
+
+          <!-- Filter Bar -->
+          <div class="data-stream__filter">
+            <span class="data-stream__filter-label">Filter:</span>
+            <button class="data-stream__filter-btn" data-filter="INFO">INFO</button>
+            <button class="data-stream__filter-btn" data-filter="WARN">WARN</button>
+            <button class="data-stream__filter-btn" data-filter="ERROR">ERROR</button>
+            <button class="data-stream__filter-btn" data-filter="DATA">DATA</button>
+            <button class="data-stream__filter-btn" data-filter="SYS">SYS</button>
+          </div>
+
+          <!-- Scrolling Viewport -->
+          <div class="data-stream__viewport">
+            <div class="data-stream__empty">// awaiting data stream...</div>
+          </div>
+
+          <!-- Stats Bar -->
+          <div class="data-stream__stats">
+            <div class="data-stream__stat">
+              <span class="data-stream__stat-label">Rate:</span>
+              <span class="data-stream__stat-value" data-stat="rate">0/s</span>
+            </div>
+            <div class="data-stream__stat">
+              <span class="data-stream__stat-label">Total:</span>
+              <span class="data-stream__stat-value" data-stat="total">0</span>
+            </div>
+            <div class="data-stream__stat">
+              <span class="data-stream__stat-label">Bandwidth:</span>
+              <span class="data-stream__stat-value" data-stat="bandwidth">0 KB</span>
+            </div>
+            <div class="data-stream__speed">
+              <span class="data-stream__speed-label">Speed:</span>
+              <button class="data-stream__speed-btn" data-speed="slow">Slow</button>
+              <button class="data-stream__speed-btn" data-speed="normal">Normal</button>
+              <button class="data-stream__speed-btn" data-speed="fast">Fast</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./cyber-data-stream.js"></script>
+  </body>
+</html>

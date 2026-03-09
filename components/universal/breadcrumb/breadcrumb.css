@@ -1,0 +1,259 @@
+/* ========== Breadcrumb ========== */
+/* Token-driven navigation breadcrumb. Works with all 8 theme profiles. */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0.88rem;
+}
+
+.breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Separator */
+.breadcrumb__item + .breadcrumb__item::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 var(--s-2);
+  flex-shrink: 0;
+  opacity: 0.5;
+  background: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18l6-6-6-6'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18l6-6-6-6'/%3E%3C/svg%3E");
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  color: var(--muted);
+}
+
+/* Link */
+.breadcrumb__link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+  padding: 2px 0;
+}
+
+.breadcrumb__link:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Current / last item */
+.breadcrumb__item[aria-current="page"] .breadcrumb__link,
+.breadcrumb__item:last-child .breadcrumb__link {
+  color: var(--text);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* Icon variant */
+.breadcrumb__icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  margin-right: var(--s-1);
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.breadcrumb__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Truncation for long paths */
+.breadcrumb--truncate .breadcrumb__item--collapsed {
+  display: none;
+}
+
+.breadcrumb--truncate .breadcrumb__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: calc(var(--radius) * 0.5);
+  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  color: var(--muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.breadcrumb__ellipsis:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  color: var(--accent);
+}
+
+/* Expanded state */
+.breadcrumb--truncate.is-expanded .breadcrumb__item--collapsed {
+  display: inline-flex;
+}
+
+.breadcrumb--truncate.is-expanded .breadcrumb__ellipsis-item {
+  display: none;
+}
+
+/* Card-style variant (wrapped in a surface) */
+.breadcrumb-bar {
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--glass-bg);
+}
+
+
+/* ===== Theme: Arctic Mono ===== */
+
+[data-profile="arctic-mono"] .breadcrumb__link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+[data-profile="arctic-mono"] .breadcrumb-bar,
+[data-profile="arctic-mono"] .breadcrumb__ellipsis {
+  border-radius: 0;
+}
+
+
+/* ===== Theme: Cyberpunk Neon ===== */
+
+[data-profile="cyberpunk-neon"] .breadcrumb__link {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+[data-profile="cyberpunk-neon"] .breadcrumb__link:hover {
+  text-shadow: 0 0 8px rgba(0, 255, 240, 0.3);
+}
+
+[data-profile="cyberpunk-neon"] .breadcrumb__item + .breadcrumb__item::before {
+  color: var(--accent);
+  opacity: 0.4;
+}
+
+[data-profile="cyberpunk-neon"] .breadcrumb-bar {
+  border-color: rgba(0, 255, 240, 0.12);
+}
+
+
+/* ===== Theme: Noire Editorial ===== */
+
+[data-profile="noire-editorial"] .breadcrumb__link {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+[data-profile="noire-editorial"] .breadcrumb-bar,
+[data-profile="noire-editorial"] .breadcrumb__ellipsis {
+  border-radius: 0;
+  border-color: rgba(201, 168, 76, 0.12);
+}
+
+[data-profile="noire-editorial"] .breadcrumb__item + .breadcrumb__item::before {
+  mask-image: none;
+  -webkit-mask-image: none;
+  background: none;
+  width: auto;
+  height: auto;
+  content: "/";
+  font-size: 0.85rem;
+  color: var(--muted);
+  opacity: 0.4;
+}
+
+
+/* ===== Theme: Retro Terminal ===== */
+
+[data-profile="retro-terminal"] .breadcrumb__link {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+[data-profile="retro-terminal"] .breadcrumb__link:hover {
+  text-shadow: 0 0 6px var(--accent-glow);
+}
+
+[data-profile="retro-terminal"] .breadcrumb-bar,
+[data-profile="retro-terminal"] .breadcrumb__ellipsis {
+  border-radius: 0;
+  border-style: dashed;
+}
+
+[data-profile="retro-terminal"] .breadcrumb__item + .breadcrumb__item::before {
+  mask-image: none;
+  -webkit-mask-image: none;
+  background: none;
+  width: auto;
+  height: auto;
+  content: ">";
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+
+/* ===== Theme: Modern SaaS ===== */
+
+[data-profile="modern-saas"] .breadcrumb-bar {
+  border-radius: 999px;
+  padding: var(--s-2) var(--s-5);
+}
+
+[data-profile="modern-saas"] .breadcrumb__ellipsis {
+  border-radius: 8px;
+}
+
+
+/* ===== Theme: Pastel Dreamscape ===== */
+
+[data-profile="pastel-dreamscape"] .breadcrumb-bar {
+  border-radius: 999px;
+  padding: var(--s-2) var(--s-5);
+}
+
+[data-profile="pastel-dreamscape"] .breadcrumb__ellipsis {
+  border-radius: 8px;
+}
+
+
+/* ===== Theme: Sunset Gradient ===== */
+
+[data-profile="sunset-gradient"] .breadcrumb-bar {
+  border-radius: 999px;
+  padding: var(--s-2) var(--s-5);
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 520px) {
+  .breadcrumb {
+    font-size: 0.82rem;
+  }
+
+  .breadcrumb__item + .breadcrumb__item::before {
+    margin: 0 var(--s-1);
+  }
+}

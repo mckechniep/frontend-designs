@@ -1,0 +1,381 @@
+/* ========== Retro Matrix Rain ========== */
+/* Canvas-based Matrix digital rain with interactive terminal overlay. */
+/* EXCLUSIVE to retro-terminal profile. */
+
+.matrix-rain {
+  position: relative;
+  border: 1px dashed var(--border);
+  border-radius: 0;
+  background: #0a0a08;
+  font-family: var(--font-mono);
+  overflow: hidden;
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--accent) 8%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+/* CRT scanline overlay on component */
+.matrix-rain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  opacity: 0.5;
+}
+
+/* ---- Canvas ---- */
+
+.matrix-rain__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Overlay (generic content layer) ---- */
+
+.matrix-rain__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.matrix-rain__overlay > * {
+  pointer-events: auto;
+}
+
+/* ---- Terminal overlay ---- */
+
+.matrix-rain__terminal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  background: rgba(10, 10, 8, 0.88);
+  border-top: 1px dashed var(--border);
+  padding: var(--s-3) var(--s-4);
+  max-height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.matrix-rain__output {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: var(--s-2);
+  max-height: 200px;
+}
+
+.matrix-rain__output-line {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.matrix-rain__output-line--accent {
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-glow);
+}
+
+.matrix-rain__output-line--amber {
+  color: var(--amber, #ffb000);
+  text-shadow: 0 0 6px var(--amber-glow, rgba(255, 176, 0, 0.4));
+}
+
+.matrix-rain__output-line--error {
+  color: var(--error, #ff3333);
+}
+
+.matrix-rain__prompt {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-glow);
+}
+
+.matrix-rain__prompt-symbol {
+  flex-shrink: 0;
+  margin-right: 0.5ch;
+  color: var(--accent);
+}
+
+.matrix-rain__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  text-shadow: 0 0 6px var(--accent-glow);
+  caret-color: var(--accent);
+  padding: 0;
+}
+
+.matrix-rain__input::placeholder {
+  color: color-mix(in srgb, var(--muted) 50%, transparent);
+}
+
+/* ---- Fullscreen variant ---- */
+
+.matrix-rain--fullscreen {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 400px;
+  border: none;
+}
+
+/* ---- Contained variant ---- */
+
+.matrix-rain--contained {
+  width: 100%;
+  height: 300px;
+}
+
+/* ---- Speed variants ---- */
+
+.matrix-rain--slow {
+  /* Handled via JS data attribute */
+}
+
+/* ---- Density variants ---- */
+
+.matrix-rain--dense {
+  /* Handled via JS data attribute */
+}
+
+/* ---- Header bar (title bar for contained panels) ---- */
+
+.matrix-rain__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-4);
+  border-bottom: 1px dashed var(--border);
+  background: color-mix(in srgb, var(--surface-3) 80%, transparent);
+  position: relative;
+  z-index: 4;
+}
+
+.matrix-rain__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-glow);
+  letter-spacing: 0.04em;
+}
+
+.matrix-rain__header-info {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+  font-family: var(--font-mono);
+}
+
+/* ---- Status bar ---- */
+
+.matrix-rain__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-2) var(--s-4);
+  border-top: 1px dashed var(--border);
+  background: color-mix(in srgb, var(--surface-3) 80%, transparent);
+  font-size: 0.74rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+  font-family: var(--font-mono);
+  position: relative;
+  z-index: 4;
+}
+
+/* ---- Controls ---- */
+
+.matrix-rain-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+  margin-top: var(--s-4);
+}
+
+.matrix-rain-controls__btn {
+  background: rgba(51, 255, 51, 0.06);
+  color: var(--accent);
+  border: 1px dashed color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: var(--s-2) var(--s-4);
+  cursor: pointer;
+  text-shadow: 0 0 6px var(--accent-glow);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-rain-controls__btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: translateX(-101%);
+  transition: transform 240ms ease;
+  z-index: 0;
+}
+
+.matrix-rain-controls__btn:hover::before {
+  transform: translateX(0);
+}
+
+.matrix-rain-controls__btn:hover {
+  color: var(--bg);
+  text-shadow: none;
+  border-color: var(--accent);
+}
+
+.matrix-rain-controls__btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.matrix-rain-controls__btn--active {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: var(--accent);
+}
+
+.matrix-rain-controls__label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.matrix-rain-controls__slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.matrix-rain-controls__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 0;
+  border: 1px dashed var(--bg);
+  box-shadow: 0 0 8px var(--accent-glow);
+  cursor: pointer;
+}
+
+.matrix-rain-controls__slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 0;
+  border: 1px dashed var(--bg);
+  box-shadow: 0 0 8px var(--accent-glow);
+  cursor: pointer;
+}
+
+/* ---- Phosphor glow on focus ---- */
+
+.matrix-rain:focus-within {
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--accent) 12%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+/* ---- Static fallback for reduced motion ---- */
+
+.matrix-rain--static .matrix-rain__canvas {
+  opacity: 0.3;
+}
+
+.matrix-rain--static::after {
+  content: "[ ANIMATION PAUSED ]";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 640px) {
+  .matrix-rain--fullscreen {
+    height: 60vh;
+    min-height: 300px;
+  }
+
+  .matrix-rain--contained {
+    height: 220px;
+  }
+
+  .matrix-rain__terminal {
+    padding: var(--s-2) var(--s-3);
+  }
+
+  .matrix-rain__output {
+    font-size: 0.74rem;
+    max-height: 140px;
+  }
+
+  .matrix-rain__prompt,
+  .matrix-rain__input {
+    font-size: 0.78rem;
+  }
+
+  .matrix-rain-controls {
+    gap: var(--s-3);
+  }
+
+  .matrix-rain-controls__btn {
+    font-size: 0.72rem;
+    padding: var(--s-1) var(--s-3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-rain--static::after {
+    content: "[ REDUCED MOTION — STATIC DISPLAY ]";
+  }
+}

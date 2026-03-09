@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stepper / Wizard — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./stepper.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 900px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; margin: 0 0 var(--s-4); }
+      .demo-block { padding: var(--s-5); border: 1px solid var(--border-subtle); border-radius: var(--radius); margin-bottom: var(--s-4); }
+      .demo-output { margin-top: var(--s-3); font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+      .demo-controls { display: flex; gap: var(--s-3); margin-top: var(--s-4); }
+      .demo-btn { display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-4); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); color: var(--text); font-family: var(--font-ui); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: background 0.15s ease, border-color 0.15s ease; }
+      .demo-btn:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--surface-2)); }
+      .demo-btn:disabled { opacity: 0.35; pointer-events: none; }
+      .demo-btn--primary { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600; }
+      .demo-btn--primary:hover { background: var(--accent-2, var(--accent)); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Stepper / Wizard</h1>
+          <p>Multi-step progress indicator with horizontal, vertical, and compact variants.</p>
+        </div>
+
+        <!-- Horizontal stepper -->
+        <div class="demo-section">
+          <h2>Horizontal Stepper</h2>
+          <div class="demo-block">
+            <ol class="stepper" data-stepper id="stepper-h">
+              <li class="stepper__step stepper__step--completed" data-step="1">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">1</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Account Setup</span>
+                  <span class="stepper__desc">Email and password</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--active" data-step="2">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">2</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Profile</span>
+                  <span class="stepper__desc">Personal details</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="3">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">3</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Preferences</span>
+                  <span class="stepper__desc">Notifications and theme</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="4">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">4</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Complete</span>
+                  <span class="stepper__desc">Review and confirm</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Vertical stepper -->
+        <div class="demo-section">
+          <h2>Vertical Stepper</h2>
+          <div class="demo-block">
+            <ol class="stepper stepper--vertical" data-stepper id="stepper-v">
+              <li class="stepper__step stepper__step--completed" data-step="1">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">1</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Select Plan</span>
+                  <span class="stepper__desc">Choose a subscription tier that fits your needs</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--completed" data-step="2">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">2</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Billing Info</span>
+                  <span class="stepper__desc">Enter payment method and billing address</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--active" data-step="3">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">3</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Confirmation</span>
+                  <span class="stepper__desc">Review your order and confirm purchase</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="4">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">4</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Done</span>
+                  <span class="stepper__desc">Access your new subscription</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Compact stepper -->
+        <div class="demo-section">
+          <h2>Compact Stepper (Numbers Only)</h2>
+          <div class="demo-block">
+            <ol class="stepper stepper--compact" data-stepper id="stepper-c">
+              <li class="stepper__step stepper__step--completed" data-step="1">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">1</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Step 1</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--completed" data-step="2">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">2</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Step 2</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--active" data-step="3">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">3</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Step 3</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="4">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">4</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Step 4</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="5">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">5</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Step 5</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Interactive demo -->
+        <div class="demo-section">
+          <h2>Interactive Demo</h2>
+          <div class="demo-block">
+            <ol class="stepper" data-stepper id="stepper-interactive">
+              <li class="stepper__step stepper__step--active" data-step="1">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">1</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Account Setup</span>
+                  <span class="stepper__desc">Email and password</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="2">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">2</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Profile</span>
+                  <span class="stepper__desc">Personal details</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="3">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">3</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="stepper__connector"></span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Preferences</span>
+                  <span class="stepper__desc">Notifications and theme</span>
+                </div>
+              </li>
+              <li class="stepper__step stepper__step--upcoming" data-step="4">
+                <div class="stepper__step-row">
+                  <span class="stepper__indicator">
+                    <span class="stepper__indicator-number">4</span>
+                    <svg class="stepper__indicator-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                </div>
+                <div class="stepper__content">
+                  <span class="stepper__label">Complete</span>
+                  <span class="stepper__desc">Review and confirm</span>
+                </div>
+              </li>
+            </ol>
+            <div class="demo-controls">
+              <button class="demo-btn" id="btn-back" disabled>Back</button>
+              <button class="demo-btn demo-btn--primary" id="btn-next">Next</button>
+            </div>
+            <div class="demo-output" id="interactive-out">Step 1 of 4 — Account Setup</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./stepper.js"></script>
+    <script>
+      // Interactive demo controls
+      (function () {
+        var el = document.getElementById("stepper-interactive");
+        var btnBack = document.getElementById("btn-back");
+        var btnNext = document.getElementById("btn-next");
+        var output = document.getElementById("interactive-out");
+        var stepLabels = ["Account Setup", "Profile", "Preferences", "Complete"];
+
+        function updateControls(step, total) {
+          btnBack.disabled = step <= 1;
+          btnNext.disabled = step >= total;
+          btnNext.textContent = step >= total ? "Done" : "Next";
+          output.textContent = "Step " + step + " of " + total + " — " + stepLabels[step - 1];
+        }
+
+        btnNext.addEventListener("click", function () {
+          if (el._stepper) el._stepper.next();
+        });
+
+        btnBack.addEventListener("click", function () {
+          if (el._stepper) el._stepper.previous();
+        });
+
+        el.addEventListener("stepper:change", function (e) {
+          updateControls(e.detail.step, e.detail.total);
+        });
+      })();
+
+      // Profile switcher
+      var profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      var defaultThemes = { "arctic-mono":"dark","cyberpunk-neon":"dark","noire-editorial":"dark","corporate-blueprint":"dark","modern-saas":"dark","retro-terminal":"dark","pastel-dreamscape":"light","sunset-gradient":"dark" };
+      var ps = document.getElementById("ps");
+      var ts = document.getElementById("ts");
+      ps.addEventListener("change", function () {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", function () { document.documentElement.dataset.theme = ts.value; });
+    </script>
+  </body>
+</html>

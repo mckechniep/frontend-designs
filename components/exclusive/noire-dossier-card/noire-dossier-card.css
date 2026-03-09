@@ -1,0 +1,414 @@
+/* ========== Noire Dossier Card ========== */
+/* EXCLUSIVE component for noire-editorial theme. */
+/* A film-noir detective case file / classified dossier card. */
+
+/* ===== Dossier — Main Container ===== */
+
+.dossier {
+  position: relative;
+  background: var(--surface, #0b0b0b);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Grain/noise texture overlay */
+.dossier::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 210px;
+  mix-blend-mode: soft-light;
+}
+
+/* Page fold effect — corner triangle */
+.dossier::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(225deg, var(--bg, #010101) 50%, rgba(201, 168, 76, 0.12) 50%);
+  z-index: 3;
+}
+
+.dossier:hover {
+  transform: translateY(-3px);
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(201, 168, 76, 0.06);
+}
+
+
+/* ===== Stamp — CLASSIFIED / CONFIDENTIAL ===== */
+
+.dossier__stamp {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier Prime", var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d84747;
+  background: rgba(216, 71, 71, 0.08);
+  border: 1px solid rgba(216, 71, 71, 0.84);
+  padding: 0.32rem 0.54rem;
+  transform: rotate(-6deg);
+  opacity: 0.94;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(216, 71, 71, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(216, 71, 71, 0.18),
+    0 0 18px rgba(216, 71, 71, 0.14);
+  animation: dossierStampPulse 2.8s ease-in-out infinite;
+}
+
+.dossier__stamp--gold {
+  color: #c9a84c;
+  background: rgba(201, 168, 76, 0.06);
+  border-color: rgba(201, 168, 76, 0.6);
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.15);
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.12),
+    0 0 14px rgba(201, 168, 76, 0.1);
+}
+
+@keyframes dossierStampPulse {
+  0%, 100% { opacity: 0.94; }
+  50% { opacity: 0.62; }
+}
+
+
+/* ===== Header — Case Number, Date, Classification ===== */
+
+.dossier__header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 0.75rem;
+  font-family: var(--font-ui, "Cinzel", serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #9a9287);
+}
+
+.dossier__case-number {
+  color: var(--accent, #c9a84c);
+  font-weight: 700;
+}
+
+.dossier__date {
+  color: var(--muted, #9a9287);
+}
+
+.dossier__classification {
+  padding: 0.15rem 0.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  color: var(--accent, #c9a84c);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+}
+
+
+/* ===== Divider — Gold Line ===== */
+
+.dossier__divider {
+  position: relative;
+  z-index: 2;
+  height: 1px;
+  margin: 0 1.5rem;
+  border: none;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.35), transparent);
+}
+
+
+/* ===== Subject — Large Serif Title ===== */
+
+.dossier__subject {
+  position: relative;
+  z-index: 2;
+  padding: 0.75rem 1.5rem 0.5rem;
+  font-family: var(--font-mono, "Playfair Display", serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text, #f1ede7);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  margin: 0;
+}
+
+
+/* ===== Photo — Placeholder with Paper-Clip ===== */
+
+.dossier__photo-wrapper {
+  position: relative;
+  z-index: 2;
+  padding: 0.75rem 1.5rem;
+}
+
+.dossier__photo {
+  position: relative;
+  width: 110px;
+  height: 140px;
+  background:
+    linear-gradient(135deg, var(--surface-3, #121212) 0%, rgba(201, 168, 76, 0.04) 50%, var(--surface-3, #121212) 100%);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.dossier__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder text when no image */
+.dossier__photo::after {
+  content: attr(data-placeholder);
+  font-family: var(--font-ui, "Cinzel", serif);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted, #9a9287);
+  opacity: 0.5;
+  position: absolute;
+}
+
+.dossier__photo img ~ .dossier__photo::after {
+  display: none;
+}
+
+/* Paper-clip decoration */
+.dossier__photo-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: calc(1.5rem + 30px);
+  width: 24px;
+  height: 52px;
+  border: 2px solid rgba(160, 158, 150, 0.4);
+  border-radius: 0 0 12px 12px;
+  border-top: none;
+  z-index: 3;
+}
+
+.dossier__photo-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: calc(1.5rem + 34px);
+  width: 16px;
+  height: 38px;
+  border: 2px solid rgba(160, 158, 150, 0.3);
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+  z-index: 3;
+}
+
+
+/* ===== Details — Key-Value Pairs ===== */
+
+.dossier__details {
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem 1.5rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.dossier__detail {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.dossier__detail-key {
+  font-family: var(--font-ui, "Cinzel", serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #9a9287);
+}
+
+.dossier__detail-value {
+  font-family: var(--font, "DM Sans", sans-serif);
+  color: var(--text, #f1ede7);
+  letter-spacing: 0.02em;
+}
+
+
+/* ===== Notes — Handwritten Section ===== */
+
+.dossier__notes {
+  position: relative;
+  z-index: 2;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono, "Playfair Display", serif);
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--text, #f1ede7) 75%, transparent);
+  border-left: 2px solid rgba(201, 168, 76, 0.2);
+  margin: 0 1.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(201, 168, 76, 0.02);
+}
+
+.dossier__notes-content {
+  min-height: 1.5em;
+}
+
+/* Cursor blink for typewriter */
+.dossier__notes-content--typing::after {
+  content: "|";
+  color: var(--accent, #c9a84c);
+  animation: dossierCursorBlink 0.6s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes dossierCursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+/* ===== Footer — Filed By ===== */
+
+.dossier__footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem 1.25rem;
+  font-family: var(--font-ui, "Cinzel", serif);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #9a9287);
+}
+
+.dossier__filed-by span {
+  color: var(--text, #f1ede7);
+  opacity: 0.7;
+}
+
+
+/* ===== Redacted Variant ===== */
+
+.dossier--redacted .dossier__redacted {
+  display: inline;
+  background: #1a1a18;
+  color: #1a1a18;
+  padding: 0 4px;
+  cursor: pointer;
+  transition:
+    color 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  user-select: none;
+}
+
+.dossier--redacted .dossier__redacted--short {
+  padding-right: 1.2em;
+}
+
+.dossier--redacted .dossier__redacted--medium {
+  padding-right: 3em;
+}
+
+.dossier--redacted .dossier__redacted--long {
+  padding-right: 6em;
+}
+
+.dossier--redacted .dossier__redacted.is-revealed,
+.dossier--redacted .dossier__redacted:hover {
+  background: transparent;
+  color: var(--accent, #c9a84c);
+}
+
+
+/* ===== Compact Variant ===== */
+
+.dossier--compact .dossier__header {
+  padding: 0.75rem 1.25rem 0.5rem;
+}
+
+.dossier--compact .dossier__subject {
+  font-size: 1.2rem;
+  padding: 0.5rem 1.25rem 0.25rem;
+}
+
+.dossier--compact .dossier__details {
+  padding: 0.35rem 1.25rem;
+}
+
+.dossier--compact .dossier__divider {
+  margin: 0 1.25rem;
+}
+
+.dossier--compact .dossier__footer {
+  padding: 0.5rem 1.25rem 0.75rem;
+}
+
+.dossier--compact .dossier__photo-wrapper {
+  display: none;
+}
+
+.dossier--compact .dossier__notes {
+  margin: 0 1.25rem;
+}
+
+
+/* ===== Grid Layout ===== */
+
+.dossier-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 520px) {
+  .dossier__header {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .dossier__detail {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .dossier__stamp {
+    font-size: 0.6rem;
+    right: 24px;
+    top: 14px;
+  }
+
+  .dossier-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="corporate-blueprint">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blueprint Annotation Callout — Corporate Blueprint Exclusive</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/corporate-blueprint.demo.css" />
+    <link rel="stylesheet" href="./blueprint-annotation.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .demo-page .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+
+      .demo-header {
+        margin-bottom: var(--s-7);
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin: 0 0 var(--s-2);
+        color: var(--accent);
+        letter-spacing: -0.01em;
+      }
+
+      .demo-header p {
+        color: var(--muted);
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .demo-section {
+        margin-bottom: var(--s-7);
+      }
+
+      .demo-section h2 {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.68rem;
+        margin: 0 0 var(--s-4);
+        padding-bottom: var(--s-2);
+        border-bottom: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>Blueprint Annotation Callout</h1>
+          <p>// exclusive component :: corporate-blueprint profile</p>
+        </div>
+
+        <!-- Blueprint Canvas -->
+        <div class="demo-section">
+          <h2>System Architecture Diagram</h2>
+
+          <div class="blueprint-canvas" style="height: 620px;">
+            <div class="blueprint-canvas__corners"></div>
+
+            <!-- Annotation 1: Load Balancer -->
+            <div class="blueprint-annotation" data-annotation="1" style="top: 60px; left: 80px;">
+              <button class="blueprint-annotation__marker" aria-label="Annotation 1: Load Balancer" style="top: 0; left: 0;">
+                <span class="blueprint-annotation__crosshair"></span>
+                <span class="blueprint-annotation__number">1</span>
+              </button>
+
+              <svg class="blueprint-annotation__leader" style="width: 200px; height: 100px; top: 20px; left: 40px;">
+                <polyline class="leader-line" points="0,0 60,50 180,50" />
+              </svg>
+
+              <div class="blueprint-annotation__callout" style="top: 45px; left: 220px;">
+                <h4 class="blueprint-annotation__title" data-number="1">Load Balancer</h4>
+                <p class="blueprint-annotation__text">Primary ingress point distributing traffic across backend service pools with health-check failover.</p>
+                <div class="blueprint-annotation__specs">
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Type</span>
+                    <span class="blueprint-annotation__spec-val">L7</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Protocol</span>
+                    <span class="blueprint-annotation__spec-val">HTTPS</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Throughput</span>
+                    <span class="blueprint-annotation__spec-val">10Gbps</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Annotation 2: API Gateway -->
+            <div class="blueprint-annotation" data-annotation="2" style="top: 220px; left: 60px;">
+              <button class="blueprint-annotation__marker" aria-label="Annotation 2: API Gateway" style="top: 0; left: 0;">
+                <span class="blueprint-annotation__crosshair"></span>
+                <span class="blueprint-annotation__number">2</span>
+              </button>
+
+              <svg class="blueprint-annotation__leader" style="width: 200px; height: 80px; top: 20px; left: 40px;">
+                <polyline class="leader-line" points="0,0 80,40 180,40" />
+              </svg>
+
+              <div class="blueprint-annotation__callout" style="top: 35px; left: 220px;">
+                <h4 class="blueprint-annotation__title" data-number="2">API Gateway</h4>
+                <p class="blueprint-annotation__text">Centralized gateway handling authentication, rate limiting, and request routing to microservices.</p>
+                <div class="blueprint-annotation__specs">
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Runtime</span>
+                    <span class="blueprint-annotation__spec-val">Node.js</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Cache</span>
+                    <span class="blueprint-annotation__spec-val">Redis</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Rate Limit</span>
+                    <span class="blueprint-annotation__spec-val">1000/min</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Annotation 3: Database Cluster -->
+            <div class="blueprint-annotation" data-annotation="3" style="top: 380px; left: 100px;">
+              <button class="blueprint-annotation__marker" aria-label="Annotation 3: Database Cluster" style="top: 0; left: 0;">
+                <span class="blueprint-annotation__crosshair"></span>
+                <span class="blueprint-annotation__number">3</span>
+              </button>
+
+              <svg class="blueprint-annotation__leader" style="width: 180px; height: 80px; top: 20px; left: 40px;">
+                <polyline class="leader-line" points="0,0 50,40 160,40" />
+              </svg>
+
+              <div class="blueprint-annotation__callout" style="top: 35px; left: 200px;">
+                <h4 class="blueprint-annotation__title" data-number="3">Database Cluster</h4>
+                <p class="blueprint-annotation__text">High-availability PostgreSQL cluster with synchronous replication and automated failover.</p>
+                <div class="blueprint-annotation__specs">
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Engine</span>
+                    <span class="blueprint-annotation__spec-val">PostgreSQL</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Replicas</span>
+                    <span class="blueprint-annotation__spec-val">3</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Storage</span>
+                    <span class="blueprint-annotation__spec-val">2TB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Annotation 4: CDN Edge -->
+            <div class="blueprint-annotation" data-annotation="4" style="top: 120px; left: 520px;">
+              <button class="blueprint-annotation__marker" aria-label="Annotation 4: CDN Edge" style="top: 0; left: 0;">
+                <span class="blueprint-annotation__crosshair"></span>
+                <span class="blueprint-annotation__number">4</span>
+              </button>
+
+              <svg class="blueprint-annotation__leader" style="width: 180px; height: 100px; top: 20px; left: -200px;">
+                <polyline class="leader-line" points="180,0 100,50 0,50" />
+              </svg>
+
+              <div class="blueprint-annotation__callout" style="top: 50px; left: -240px;">
+                <h4 class="blueprint-annotation__title" data-number="4">CDN Edge</h4>
+                <p class="blueprint-annotation__text">Global content delivery network caching static assets at edge locations for low-latency delivery.</p>
+                <div class="blueprint-annotation__specs">
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Provider</span>
+                    <span class="blueprint-annotation__spec-val">CloudFront</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">Regions</span>
+                    <span class="blueprint-annotation__spec-val">12</span>
+                  </div>
+                  <div class="blueprint-annotation__spec">
+                    <span class="blueprint-annotation__spec-key">TTL</span>
+                    <span class="blueprint-annotation__spec-val">3600s</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="blueprint-legend">
+              <h5 class="blueprint-legend__heading">Annotations</h5>
+              <ul class="blueprint-legend__list">
+                <li>
+                  <button class="blueprint-legend__item" data-annotation="1">
+                    <span class="blueprint-legend__num">1</span>
+                    <span class="blueprint-legend__label">Load Balancer</span>
+                  </button>
+                </li>
+                <li>
+                  <button class="blueprint-legend__item" data-annotation="2">
+                    <span class="blueprint-legend__num">2</span>
+                    <span class="blueprint-legend__label">API Gateway</span>
+                  </button>
+                </li>
+                <li>
+                  <button class="blueprint-legend__item" data-annotation="3">
+                    <span class="blueprint-legend__num">3</span>
+                    <span class="blueprint-legend__label">Database Cluster</span>
+                  </button>
+                </li>
+                <li>
+                  <button class="blueprint-legend__item" data-annotation="4">
+                    <span class="blueprint-legend__num">4</span>
+                    <span class="blueprint-legend__label">CDN Edge</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Title Block -->
+            <div class="blueprint-title-block">
+              <div class="blueprint-title-block__header">System Architecture v2.4</div>
+              <div class="blueprint-title-block__row">
+                <div class="blueprint-title-block__cell">
+                  <span class="blueprint-title-block__key">Date</span>
+                  <span class="blueprint-title-block__val">2026-03-07</span>
+                </div>
+                <div class="blueprint-title-block__cell">
+                  <span class="blueprint-title-block__key">Scale</span>
+                  <span class="blueprint-title-block__val">1:1</span>
+                </div>
+              </div>
+              <div class="blueprint-title-block__row">
+                <div class="blueprint-title-block__cell">
+                  <span class="blueprint-title-block__key">Rev</span>
+                  <span class="blueprint-title-block__val">R4</span>
+                </div>
+                <div class="blueprint-title-block__cell">
+                  <span class="blueprint-title-block__key">Dwg No</span>
+                  <span class="blueprint-title-block__val">SA-2024-041</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./blueprint-annotation.js"></script>
+  </body>
+</html>

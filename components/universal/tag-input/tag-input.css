@@ -1,0 +1,304 @@
+/* ========== Tag Input ========== */
+/* Interactive tagging/filtering component. Token-driven across all 8 themes. */
+
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  cursor: text;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tag-input:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-glow) 40%, transparent);
+}
+
+/* Tags */
+.tag-input__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: 3px 4px 3px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  animation: tag-pop-in 0.15s ease;
+}
+
+.tag-input__tag--removing {
+  animation: tag-pop-out 0.15s ease forwards;
+}
+
+@keyframes tag-pop-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes tag-pop-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.8); }
+}
+
+.tag-input__tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.78rem;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.1s ease, background 0.1s ease;
+}
+
+.tag-input__tag-remove:hover {
+  color: var(--error);
+  background: color-mix(in srgb, var(--error) 12%, transparent);
+}
+
+/* Text input */
+.tag-input__field {
+  flex: 1;
+  min-width: 80px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+
+.tag-input__field::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+/* Suggestions dropdown */
+.tag-input__suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: var(--s-2) 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  list-style: none;
+  margin: 0;
+  display: none;
+}
+
+.tag-input__suggestions--open {
+  display: block;
+}
+
+.tag-input__suggestion {
+  padding: 8px var(--s-4);
+  font-size: 0.88rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.tag-input__suggestion:hover,
+.tag-input__suggestion[data-active="true"] {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+}
+
+.tag-input__suggestion--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Wrapper (for suggestions positioning) */
+.tag-input-wrap {
+  position: relative;
+}
+
+/* Counter */
+.tag-input__count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: var(--s-1);
+}
+
+/* Readonly / disabled states */
+.tag-input[data-readonly="true"] {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.tag-input[data-readonly="true"] .tag-input__tag-remove {
+  display: none;
+}
+
+.tag-input[data-readonly="true"] .tag-input__field {
+  display: none;
+}
+
+
+/* ===== Theme: Arctic Mono ===== */
+
+[data-profile="arctic-mono"] .tag-input,
+[data-profile="arctic-mono"] .tag-input__suggestions {
+  border-radius: 0;
+}
+
+[data-profile="arctic-mono"] .tag-input__tag {
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+
+/* ===== Theme: Cyberpunk Neon ===== */
+
+[data-profile="cyberpunk-neon"] .tag-input {
+  border-color: rgba(0, 255, 240, 0.12);
+  font-family: var(--font-mono);
+}
+
+[data-profile="cyberpunk-neon"] .tag-input:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 255, 240, 0.15), 0 0 20px rgba(0, 255, 240, 0.08);
+}
+
+[data-profile="cyberpunk-neon"] .tag-input__tag {
+  background: rgba(0, 255, 240, 0.08);
+  border-color: rgba(0, 255, 240, 0.22);
+  font-family: var(--font-mono);
+  text-shadow: 0 0 6px rgba(0, 255, 240, 0.2);
+}
+
+[data-profile="cyberpunk-neon"] .tag-input__suggestions {
+  border-color: rgba(0, 255, 240, 0.2);
+}
+
+[data-profile="cyberpunk-neon"] .tag-input__field {
+  font-family: var(--font-mono);
+}
+
+
+/* ===== Theme: Noire Editorial ===== */
+
+[data-profile="noire-editorial"] .tag-input,
+[data-profile="noire-editorial"] .tag-input__suggestions {
+  border-radius: 0;
+  border-color: rgba(201, 168, 76, 0.12);
+}
+
+[data-profile="noire-editorial"] .tag-input__tag {
+  border-radius: 0;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+
+/* ===== Theme: Retro Terminal ===== */
+
+[data-profile="retro-terminal"] .tag-input,
+[data-profile="retro-terminal"] .tag-input__suggestions {
+  border-radius: 0;
+  border-style: dashed;
+  font-family: var(--font-mono);
+}
+
+[data-profile="retro-terminal"] .tag-input__tag {
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  border-style: solid;
+}
+
+[data-profile="retro-terminal"] .tag-input__field {
+  font-family: var(--font-mono);
+}
+
+[data-profile="retro-terminal"] .tag-input__suggestion:hover,
+[data-profile="retro-terminal"] .tag-input__suggestion[data-active="true"] {
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+
+/* ===== Theme: Modern SaaS ===== */
+
+[data-profile="modern-saas"] .tag-input {
+  border-radius: 16px;
+  padding: var(--s-2) var(--s-4);
+}
+
+[data-profile="modern-saas"] .tag-input__suggestions {
+  border-radius: 16px;
+}
+
+
+/* ===== Theme: Pastel Dreamscape ===== */
+
+[data-profile="pastel-dreamscape"] .tag-input {
+  border-radius: 18px;
+  padding: var(--s-2) var(--s-4);
+}
+
+[data-profile="pastel-dreamscape"] .tag-input__tag {
+  background: linear-gradient(135deg, rgba(240, 141, 184, 0.12), rgba(184, 164, 244, 0.12));
+  border-color: rgba(52, 41, 69, 0.08);
+}
+
+[data-profile="pastel-dreamscape"] .tag-input__suggestions {
+  border-radius: 18px;
+}
+
+
+/* ===== Theme: Sunset Gradient ===== */
+
+[data-profile="sunset-gradient"] .tag-input {
+  border-radius: 18px;
+  padding: var(--s-2) var(--s-4);
+}
+
+[data-profile="sunset-gradient"] .tag-input__tag {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+[data-profile="sunset-gradient"] .tag-input__suggestions {
+  border-radius: 18px;
+}
+
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .tag-input__tag,
+  .tag-input__tag--removing {
+    animation: none;
+  }
+}

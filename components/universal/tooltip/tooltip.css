@@ -1,0 +1,273 @@
+/* ========== Tooltip ========== */
+/* Pure CSS + minimal JS for positioning. Token-driven across all 8 themes. */
+
+[data-tooltip] {
+  position: relative;
+  cursor: default;
+}
+
+[data-tooltip]::before,
+[data-tooltip]::after {
+  position: absolute;
+  z-index: 110;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Tooltip body */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  padding: 6px 10px;
+  border-radius: calc(var(--radius) * 0.6);
+  background: var(--surface-3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  max-width: 280px;
+}
+
+/* Arrow */
+[data-tooltip]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+
+/* ===== Position: Top (default) ===== */
+[data-tooltip]::after,
+[data-tooltip][data-tooltip-pos="top"]::after {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+}
+
+[data-tooltip]::before,
+[data-tooltip][data-tooltip-pos="top"]::before {
+  bottom: calc(100% + 4px);
+  left: 50%;
+  margin-left: -4px;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translateY(2px);
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after,
+[data-tooltip][data-tooltip-pos="top"]:hover::after,
+[data-tooltip][data-tooltip-pos="top"]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:focus-visible::before,
+[data-tooltip][data-tooltip-pos="top"]:hover::before,
+[data-tooltip][data-tooltip-pos="top"]:focus-visible::before {
+  opacity: 1;
+  transform: rotate(45deg) translateY(0);
+}
+
+
+/* ===== Position: Bottom ===== */
+[data-tooltip-pos="bottom"]::after {
+  top: calc(100% + 8px);
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+[data-tooltip-pos="bottom"]::before {
+  top: calc(100% + 4px);
+  bottom: auto;
+  left: 50%;
+  margin-left: -4px;
+  border-bottom: none;
+  border-right: none;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  transform: rotate(45deg) translateY(-2px);
+}
+
+[data-tooltip-pos="bottom"]:hover::after,
+[data-tooltip-pos="bottom"]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+[data-tooltip-pos="bottom"]:hover::before,
+[data-tooltip-pos="bottom"]:focus-visible::before {
+  opacity: 1;
+  transform: rotate(45deg) translateY(0);
+}
+
+
+/* ===== Position: Left ===== */
+[data-tooltip-pos="left"]::after {
+  right: calc(100% + 8px);
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  transform: translateY(-50%) translateX(4px);
+}
+
+[data-tooltip-pos="left"]::before {
+  right: calc(100% + 4px);
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  margin-top: -4px;
+  margin-left: 0;
+  border-bottom: none;
+  border-left: none;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  transform: rotate(45deg) translateX(2px);
+}
+
+[data-tooltip-pos="left"]:hover::after,
+[data-tooltip-pos="left"]:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+[data-tooltip-pos="left"]:hover::before,
+[data-tooltip-pos="left"]:focus-visible::before {
+  opacity: 1;
+  transform: rotate(45deg) translateX(0);
+}
+
+
+/* ===== Position: Right ===== */
+[data-tooltip-pos="right"]::after {
+  left: calc(100% + 8px);
+  bottom: auto;
+  top: 50%;
+  right: auto;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+[data-tooltip-pos="right"]::before {
+  left: calc(100% + 4px);
+  bottom: auto;
+  top: 50%;
+  right: auto;
+  margin-top: -4px;
+  margin-left: 0;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  transform: rotate(45deg) translateX(-2px);
+}
+
+[data-tooltip-pos="right"]:hover::after,
+[data-tooltip-pos="right"]:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+[data-tooltip-pos="right"]:hover::before,
+[data-tooltip-pos="right"]:focus-visible::before {
+  opacity: 1;
+  transform: rotate(45deg) translateX(0);
+}
+
+
+/* ===== Theme: Arctic Mono ===== */
+
+[data-profile="arctic-mono"] [data-tooltip]::after {
+  border-radius: 0;
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+[data-profile="arctic-mono"] [data-tooltip]::before {
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+
+/* ===== Theme: Cyberpunk Neon ===== */
+
+[data-profile="cyberpunk-neon"] [data-tooltip]::after {
+  border-radius: 2px;
+  border-color: rgba(0, 255, 240, 0.2);
+  box-shadow:
+    0 0 20px rgba(0, 255, 240, 0.06),
+    0 6px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 6px rgba(0, 255, 240, 0.15);
+}
+
+[data-profile="cyberpunk-neon"] [data-tooltip]::before {
+  border-color: rgba(0, 255, 240, 0.2);
+}
+
+
+/* ===== Theme: Noire Editorial ===== */
+
+[data-profile="noire-editorial"] [data-tooltip]::after {
+  border-radius: 0;
+  border-color: rgba(201, 168, 76, 0.12);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+[data-profile="noire-editorial"] [data-tooltip]::before {
+  border-radius: 0;
+  border-color: rgba(201, 168, 76, 0.12);
+}
+
+
+/* ===== Theme: Retro Terminal ===== */
+
+[data-profile="retro-terminal"] [data-tooltip]::after {
+  border-radius: 0;
+  border-style: dashed;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-shadow: 0 0 6px var(--accent-glow);
+}
+
+[data-profile="retro-terminal"] [data-tooltip]::before {
+  border-style: dashed;
+}
+
+
+/* ===== Theme: Modern SaaS ===== */
+
+[data-profile="modern-saas"] [data-tooltip]::after {
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ===== Theme: Pastel Dreamscape ===== */
+
+[data-profile="pastel-dreamscape"] [data-tooltip]::after {
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(82, 58, 106, 0.08);
+}
+
+
+/* ===== Theme: Sunset Gradient ===== */
+
+[data-profile="sunset-gradient"] [data-tooltip]::after {
+  border-radius: 12px;
+}
+
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tooltip]::before,
+  [data-tooltip]::after {
+    transition: none;
+  }
+}

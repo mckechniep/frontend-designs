@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="noire-editorial">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Case Files — Noire Dossier Card</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/noire-editorial.demo.css" />
+    <link rel="stylesheet" href="./noire-dossier-card.css" />
+    <style>
+      .demo-page {
+        padding: var(--s-7) 0;
+        min-height: 100vh;
+        background: var(--bg, #010101);
+      }
+
+      .demo-page .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+
+      .demo-header {
+        margin-bottom: var(--s-7);
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-family: var(--font-mono, "Playfair Display", serif);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        font-style: italic;
+        color: var(--text);
+        margin: 0 0 var(--s-2);
+        letter-spacing: 0.03em;
+      }
+
+      .demo-header p {
+        font-family: var(--font-ui, "Cinzel", serif);
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .demo-header__rule {
+        width: 120px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.5), transparent);
+        border: none;
+        margin: var(--s-4) auto 0;
+      }
+
+      .demo-section-label {
+        font-family: var(--font-ui, "Cinzel", serif);
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 var(--s-4);
+        padding-bottom: var(--s-2);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+      }
+
+      .demo-section {
+        margin-bottom: var(--s-8, 4rem);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>Case Files</h1>
+          <p>Bureau of Internal Affairs — Active Investigations Division</p>
+          <hr class="demo-header__rule" />
+        </div>
+
+
+        <!-- Card 1: Full Dossier -->
+        <div class="demo-section">
+          <p class="demo-section-label">File I — Active Case</p>
+          <div class="dossier-grid">
+
+            <div class="dossier">
+              <span class="dossier__stamp">Classified</span>
+
+              <div class="dossier__header">
+                <span class="dossier__case-number">Case #NE-4471</span>
+                <span class="dossier__date">12 Nov 1947</span>
+                <span class="dossier__classification">Level 3</span>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <h2 class="dossier__subject">Vincent Moreau</h2>
+
+              <div class="dossier__photo-wrapper">
+                <div class="dossier__photo" data-placeholder="[ Photo ]"></div>
+              </div>
+
+              <div class="dossier__details">
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Name</span>
+                  <span class="dossier__detail-value">Vincent Moreau</span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Alias</span>
+                  <span class="dossier__detail-value">The Architect</span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Location</span>
+                  <span class="dossier__detail-value">Marseille, France</span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Status</span>
+                  <span class="dossier__detail-value">At Large</span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Known For</span>
+                  <span class="dossier__detail-value">Forgery, money laundering, high-profile heists</span>
+                </div>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <div class="dossier__notes">
+                <div class="dossier__notes-content" data-typewriter="Subject was last spotted near the harbor district on the evening of Nov 8. Believed to be operating under a false identity. Approach with extreme caution.">Subject was last spotted near the harbor district on the evening of Nov 8. Believed to be operating under a false identity. Approach with extreme caution.</div>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <div class="dossier__footer">
+                <span class="dossier__filed-by">Filed by: <span>Det. R. Calloway</span></span>
+                <span>Dept. 7 — Homicide</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- Card 2: Heavily Redacted -->
+        <div class="demo-section">
+          <p class="demo-section-label">File II — Redacted Intelligence</p>
+          <div class="dossier-grid">
+
+            <div class="dossier dossier--redacted">
+              <span class="dossier__stamp">Confidential</span>
+
+              <div class="dossier__header">
+                <span class="dossier__case-number">Case #NE-4492</span>
+                <span class="dossier__date">03 Dec 1947</span>
+                <span class="dossier__classification">Level 5</span>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <h2 class="dossier__subject">
+                <span class="dossier__redacted dossier__redacted--long">Elaine Dubois</span>
+              </h2>
+
+              <div class="dossier__photo-wrapper">
+                <div class="dossier__photo" data-placeholder="[ Removed ]"></div>
+              </div>
+
+              <div class="dossier__details">
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Name</span>
+                  <span class="dossier__detail-value"><span class="dossier__redacted dossier__redacted--medium">Elaine Dubois</span></span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Alias</span>
+                  <span class="dossier__detail-value"><span class="dossier__redacted dossier__redacted--short">Nightingale</span></span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Location</span>
+                  <span class="dossier__detail-value"><span class="dossier__redacted dossier__redacted--medium">Vienna, Austria</span></span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Status</span>
+                  <span class="dossier__detail-value"><span class="dossier__redacted dossier__redacted--short">Deceased</span></span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Affiliation</span>
+                  <span class="dossier__detail-value"><span class="dossier__redacted dossier__redacted--long">Syndicate Eastern Bureau</span></span>
+                </div>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <div class="dossier__notes">
+                <div class="dossier__notes-content" data-typewriter="All details surrounding this individual remain classified under directive 9-Alpha. Access restricted to senior field operatives only. Further inquiries must be routed through bureau command.">All details surrounding this individual remain classified under directive 9-Alpha. Access restricted to senior field operatives only. Further inquiries must be routed through bureau command.</div>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <div class="dossier__footer">
+                <span class="dossier__filed-by">Filed by: <span class="dossier__redacted dossier__redacted--medium">Agent M. Strand</span></span>
+                <span>Dept. 12 — Intelligence</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- Card 3: Compact Variant -->
+        <div class="demo-section">
+          <p class="demo-section-label">File III — Brief Summary</p>
+          <div class="dossier-grid">
+
+            <div class="dossier dossier--compact">
+              <span class="dossier__stamp dossier__stamp--gold">Internal</span>
+
+              <div class="dossier__header">
+                <span class="dossier__case-number">Case #NE-4510</span>
+                <span class="dossier__date">19 Dec 1947</span>
+                <span class="dossier__classification">Level 1</span>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <h2 class="dossier__subject">Raymond Soto</h2>
+
+              <div class="dossier__details">
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Alias</span>
+                  <span class="dossier__detail-value">The Courier</span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Location</span>
+                  <span class="dossier__detail-value">Los Angeles, CA</span>
+                </div>
+                <div class="dossier__detail">
+                  <span class="dossier__detail-key">Status</span>
+                  <span class="dossier__detail-value">In Custody</span>
+                </div>
+              </div>
+
+              <hr class="dossier__divider" />
+
+              <div class="dossier__footer">
+                <span class="dossier__filed-by">Filed by: <span>Sgt. H. Nakamura</span></span>
+                <span>Dept. 3 — Narcotics</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./noire-dossier-card.js"></script>
+  </body>
+</html>

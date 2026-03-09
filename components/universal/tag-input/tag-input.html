@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tag Input — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./tag-input.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 700px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; line-height: 1.6; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; margin: 0 0 var(--s-4); }
+      .demo-label { display: block; font-weight: 600; margin-bottom: var(--s-2); font-size: 0.9rem; }
+      .demo-output { margin-top: var(--s-3); padding: var(--s-3); border: 1px solid var(--border-subtle); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); min-height: 2rem; }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Tag Input</h1>
+          <p>Interactive tagging with keyboard support (Enter/comma to add, Backspace to remove last). Type to filter suggestions. Emits <code style="font-family:var(--font-mono);color:var(--accent);">taginput:change</code> events.</p>
+        </div>
+
+        <!-- Basic -->
+        <div class="demo-section">
+          <h2>Basic (free-form)</h2>
+          <label class="demo-label">Tags</label>
+          <div class="tag-input-wrap" data-tag-input>
+            <div class="tag-input" data-tag-input-container>
+              <input class="tag-input__field" data-tag-input-field placeholder="Type and press Enter..." />
+            </div>
+          </div>
+          <div class="demo-output" id="output-basic">No tags yet</div>
+        </div>
+
+        <!-- With Suggestions -->
+        <div class="demo-section">
+          <h2>With Suggestions</h2>
+          <label class="demo-label">Technologies</label>
+          <div class="tag-input-wrap" data-tag-input
+               data-suggestions='["React","Vue","Svelte","Angular","Next.js","Nuxt","Astro","SolidJS","Remix","Qwik","Alpine.js","Lit","Preact","Ember"]'>
+            <div class="tag-input" data-tag-input-container>
+              <input class="tag-input__field" data-tag-input-field placeholder="Search frameworks..." />
+            </div>
+            <ul class="tag-input__suggestions" data-tag-suggestions></ul>
+          </div>
+          <div class="demo-output" id="output-suggestions">No tags yet</div>
+        </div>
+
+        <!-- Max tags -->
+        <div class="demo-section">
+          <h2>Max 3 Tags</h2>
+          <label class="demo-label">Categories (max 3)</label>
+          <div class="tag-input-wrap" data-tag-input data-max-tags="3">
+            <div class="tag-input" data-tag-input-container>
+              <input class="tag-input__field" data-tag-input-field placeholder="Add up to 3 tags..." />
+            </div>
+          </div>
+          <div class="tag-input__count" id="count-max">0 / 3 tags</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./tag-input.js"></script>
+    <script>
+      // Log changes
+      document.querySelectorAll("[data-tag-input]").forEach((root, i) => {
+        root.addEventListener("taginput:change", (e) => {
+          const tags = e.detail.tags;
+          if (i === 0) document.getElementById("output-basic").textContent = tags.length ? tags.join(", ") : "No tags yet";
+          if (i === 1) document.getElementById("output-suggestions").textContent = tags.length ? tags.join(", ") : "No tags yet";
+          if (i === 2) document.getElementById("count-max").textContent = `${tags.length} / 3 tags`;
+        });
+      });
+
+      const profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      const defaultThemes = { "arctic-mono":"dark","cyberpunk-neon":"dark","noire-editorial":"dark","corporate-blueprint":"dark","modern-saas":"dark","retro-terminal":"dark","pastel-dreamscape":"light","sunset-gradient":"dark" };
+      const ps = document.getElementById("ps");
+      const ts = document.getElementById("ts");
+      ps.addEventListener("change", () => {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", () => { document.documentElement.dataset.theme = ts.value; });
+    </script>
+  </body>
+</html>

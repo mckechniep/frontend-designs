@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="retro-terminal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Retro Matrix Rain — Component Demo</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/retro-terminal.demo.css" />
+    <link rel="stylesheet" href="./retro-matrix-rain.css" />
+    <style>
+      .demo-page {
+        min-height: 100vh;
+      }
+      .demo-content {
+        position: relative;
+        z-index: 2;
+      }
+      .demo-content .container {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 0 var(--s-5);
+      }
+      .demo-header {
+        padding-top: var(--s-7);
+        margin-bottom: var(--s-5);
+      }
+      .demo-header h1 {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin: 0 0 var(--s-2);
+        color: var(--accent);
+        text-shadow: 0 0 10px var(--accent-glow);
+        letter-spacing: 0.04em;
+      }
+      .demo-header p {
+        font-family: var(--font-mono);
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.6;
+        font-size: 0.84rem;
+      }
+      .demo-section {
+        margin-bottom: var(--s-7);
+      }
+      .demo-section h2 {
+        font-family: var(--font-mono);
+        font-weight: 400;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 0.78rem;
+        margin: 0 0 var(--s-4);
+      }
+      .demo-spacer {
+        height: var(--s-7);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+
+      <!-- ============================================ -->
+      <!-- 1. Full-screen Matrix Rain with Terminal     -->
+      <!-- ============================================ -->
+
+      <div class="demo-section">
+        <div class="matrix-rain matrix-rain--fullscreen" data-matrix-rain id="rain-fullscreen">
+          <canvas class="matrix-rain__canvas"></canvas>
+
+          <!-- Overlay: title centered on rain -->
+          <div class="matrix-rain__overlay">
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:clamp(1.6rem,4vw,3rem);color:#33ff00;text-shadow:0 0 20px rgba(51,255,0,0.6),0 0 40px rgba(51,255,0,0.3);letter-spacing:0.06em;">
+                MATRIX RAIN
+              </div>
+              <div style="font-family:var(--font-mono);font-size:0.8rem;color:rgba(51,255,51,0.5);margin-top:0.5rem;letter-spacing:0.08em;text-transform:uppercase;">
+                The Matrix has you...
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal overlay -->
+          <div class="matrix-rain__terminal">
+            <div class="matrix-rain__output" id="terminal-output-1"></div>
+            <div class="matrix-rain__prompt">
+              <span class="matrix-rain__prompt-symbol">&gt;</span>
+              <input
+                type="text"
+                class="matrix-rain__input"
+                placeholder="type 'help' for commands..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- Content below the fullscreen rain            -->
+      <!-- ============================================ -->
+
+      <div class="demo-content">
+        <div class="container">
+
+          <div class="demo-header">
+            <h1>&gt; Retro Matrix Rain</h1>
+            <p>Canvas-based Matrix digital rain effect. Use as a fullscreen background, contained panel, or interactive terminal. Try the commands and controls below.</p>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- 2. Controls                                  -->
+          <!-- ============================================ -->
+
+          <div class="demo-section">
+            <h2>// controls</h2>
+
+            <div class="matrix-rain-controls">
+              <button class="matrix-rain-controls__btn" id="btn-toggle" type="button">
+                <span>Stop</span>
+              </button>
+
+              <label class="matrix-rain-controls__label" for="speed-slider">Speed:</label>
+              <input
+                type="range"
+                class="matrix-rain-controls__slider"
+                id="speed-slider"
+                min="0.5"
+                max="5"
+                step="0.5"
+                value="1"
+              />
+              <span class="matrix-rain-controls__label" id="speed-value">1x</span>
+
+              <button class="matrix-rain-controls__btn" id="btn-density-low" type="button">
+                <span>Low</span>
+              </button>
+              <button class="matrix-rain-controls__btn matrix-rain-controls__btn--active" id="btn-density-med" type="button">
+                <span>Medium</span>
+              </button>
+              <button class="matrix-rain-controls__btn" id="btn-density-high" type="button">
+                <span>Dense</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- 3. Contained panel variant                   -->
+          <!-- ============================================ -->
+
+          <div class="demo-section">
+            <h2>// contained panel</h2>
+
+            <div class="matrix-rain matrix-rain--contained" data-matrix-rain id="rain-contained">
+              <div class="matrix-rain__header">
+                <span class="matrix-rain__title">RAIN://PANEL-02</span>
+                <span class="matrix-rain__header-info">PROCESS: 0x7F3A</span>
+              </div>
+              <canvas class="matrix-rain__canvas"></canvas>
+              <div class="matrix-rain__status">
+                <span>COLS: AUTO</span>
+                <span>FPS: 60</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-spacer"></div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <script src="./retro-matrix-rain.js"></script>
+    <script>
+      (function () {
+        /* ---- Grab instances after init ---- */
+        var fullscreenEl = document.getElementById("rain-fullscreen");
+        var containedEl = document.getElementById("rain-contained");
+
+        /* The auto-init already ran via data-matrix-rain.
+           We can access them through MatrixRain.init if needed,
+           but they're already initialized. Store refs for controls. */
+        var fullscreenInstance = null;
+        var containedInstance = null;
+
+        /* Re-init to get instance references */
+        /* Since auto-init already ran, we manually get instances.
+           We'll use a small trick: re-init returns the instance. */
+
+        /* Actually, auto-init already created them. Let's just
+           wire up controls to the global MatrixRain API which
+           targets the last-initialized (activeInstance). We need
+           to target fullscreen specifically for controls. */
+
+        /* ---- Toggle Start/Stop ---- */
+        var btnToggle = document.getElementById("btn-toggle");
+        var isRunning = true;
+
+        btnToggle.addEventListener("click", function () {
+          if (isRunning) {
+            MatrixRain.stop();
+            btnToggle.querySelector("span").textContent = "Start";
+            isRunning = false;
+          } else {
+            MatrixRain.start();
+            btnToggle.querySelector("span").textContent = "Stop";
+            isRunning = true;
+          }
+        });
+
+        /* ---- Speed slider ---- */
+        var speedSlider = document.getElementById("speed-slider");
+        var speedValue = document.getElementById("speed-value");
+
+        speedSlider.addEventListener("input", function () {
+          var val = parseFloat(this.value);
+          MatrixRain.setSpeed(val);
+          speedValue.textContent = val + "x";
+        });
+
+        /* ---- Density buttons ---- */
+        var densityBtns = {
+          low: document.getElementById("btn-density-low"),
+          med: document.getElementById("btn-density-med"),
+          high: document.getElementById("btn-density-high")
+        };
+
+        function setActiveDensity(key) {
+          Object.keys(densityBtns).forEach(function (k) {
+            densityBtns[k].classList.remove("matrix-rain-controls__btn--active");
+          });
+          densityBtns[key].classList.add("matrix-rain-controls__btn--active");
+        }
+
+        densityBtns.low.addEventListener("click", function () {
+          MatrixRain.setDensity("low");
+          setActiveDensity("low");
+        });
+
+        densityBtns.med.addEventListener("click", function () {
+          MatrixRain.setDensity("medium");
+          setActiveDensity("med");
+        });
+
+        densityBtns.high.addEventListener("click", function () {
+          MatrixRain.setDensity("high");
+          setActiveDensity("high");
+        });
+      })();
+    </script>
+  </body>
+</html>

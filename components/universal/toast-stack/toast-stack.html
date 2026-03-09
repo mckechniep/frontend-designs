@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toast Stack — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./toast-stack.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 900px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; line-height: 1.6; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; margin: 0 0 var(--s-4); }
+      .demo-row { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+      .demo-btn { display: inline-flex; align-items: center; gap: var(--s-2); padding: 10px 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--glass-bg); color: var(--text); font-family: var(--font-ui); font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease; }
+      .demo-btn:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+      .demo-btn--info { border-left: 3px solid var(--accent); }
+      .demo-btn--success { border-left: 3px solid var(--success); }
+      .demo-btn--warning { border-left: 3px solid #f59e0b; }
+      .demo-btn--error { border-left: 3px solid var(--error); }
+      .demo-code { margin-top: var(--s-4); padding: var(--s-4); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); overflow-x: auto; white-space: pre; }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Toast Stack</h1>
+          <p>Queued notification system with auto-dismiss, progress bars, and stacking. Click the buttons below to fire toasts. Hover a toast to pause its countdown.</p>
+        </div>
+
+        <div class="demo-section">
+          <h2>Toast Types</h2>
+          <div class="demo-row">
+            <button class="demo-btn demo-btn--info" onclick="Toast.show({ title: 'Info', message: 'This is an informational notification.', type: 'info' })">
+              Info Toast
+            </button>
+            <button class="demo-btn demo-btn--success" onclick="Toast.show({ title: 'Success', message: 'Your changes have been saved successfully.', type: 'success' })">
+              Success Toast
+            </button>
+            <button class="demo-btn demo-btn--warning" onclick="Toast.show({ title: 'Warning', message: 'Your session will expire in 5 minutes.', type: 'warning' })">
+              Warning Toast
+            </button>
+            <button class="demo-btn demo-btn--error" onclick="Toast.show({ title: 'Error', message: 'Failed to connect to the server. Please try again.', type: 'error', duration: 8000 })">
+              Error Toast (8s)
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h2>Variants</h2>
+          <div class="demo-row">
+            <button class="demo-btn" onclick="Toast.show({ title: 'Title only', type: 'info' })">
+              Title Only
+            </button>
+            <button class="demo-btn" onclick="Toast.show({ title: 'Persistent', message: 'This toast will not auto-dismiss. Close it manually.', type: 'warning', duration: 0 })">
+              Persistent (no auto-dismiss)
+            </button>
+            <button class="demo-btn" onclick="Toast.show({ title: 'Quick flash', message: 'Gone in 2 seconds.', type: 'success', duration: 2000 })">
+              Quick (2s)
+            </button>
+            <button class="demo-btn" onclick="Toast.clearAll()">
+              Clear All
+            </button>
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h2>API</h2>
+          <div class="demo-code">Toast.show({
+  title: "Saved",
+  message: "Your changes were saved.",
+  type: "success",   // "info" | "success" | "warning" | "error"
+  duration: 5000     // ms, 0 = persistent
+});
+
+Toast.clearAll();    // dismiss all visible toasts</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./toast-stack.js"></script>
+    <script>
+      const profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      const defaultThemes = {
+        "arctic-mono": "dark", "cyberpunk-neon": "dark", "noire-editorial": "dark",
+        "corporate-blueprint": "dark", "modern-saas": "dark", "retro-terminal": "dark",
+        "pastel-dreamscape": "light", "sunset-gradient": "dark",
+      };
+      const ps = document.getElementById("ps");
+      const ts = document.getElementById("ts");
+      ps.addEventListener("change", () => {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", () => {
+        document.documentElement.dataset.theme = ts.value;
+      });
+    </script>
+  </body>
+</html>

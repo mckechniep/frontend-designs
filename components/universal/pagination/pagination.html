@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="arctic-mono">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pagination — Component Demo</title>
+    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link rel="stylesheet" href="../token-bridge.css" />
+    <link rel="stylesheet" href="./pagination.css" />
+    <style>
+      .demo-page { padding: var(--s-7) 0; min-height: 100vh; }
+      .demo-page .container { max-width: 900px; margin: 0 auto; padding: 0 var(--s-5); }
+      .demo-header { margin-bottom: var(--s-7); }
+      .demo-header h1 { font-family: var(--font); font-size: 1.6rem; font-weight: 700; margin: 0 0 var(--s-2); }
+      .demo-header p { color: var(--muted); margin: 0; }
+      .demo-section { margin-bottom: var(--s-7); }
+      .demo-section h2 { font-family: var(--font); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; margin: 0 0 var(--s-4); }
+      .demo-block { padding: var(--s-5); border: 1px solid var(--border-subtle); border-radius: var(--radius); margin-bottom: var(--s-4); }
+      .demo-output { margin-top: var(--s-3); font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+      .profile-switcher { position: fixed; top: var(--s-4); right: var(--s-4); z-index: 200; display: flex; gap: var(--s-2); align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); font-family: var(--font-mono); font-size: 0.78rem; }
+      .profile-switcher select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; font-family: inherit; font-size: inherit; }
+      .profile-switcher label { color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-switcher">
+      <label for="ps">Profile:</label>
+      <select id="ps">
+        <option value="arctic-mono">Arctic Mono</option>
+        <option value="cyberpunk-neon">Cyberpunk Neon</option>
+        <option value="noire-editorial">Noire Editorial</option>
+        <option value="corporate-blueprint">Corporate Blueprint</option>
+        <option value="modern-saas">Modern SaaS</option>
+        <option value="pastel-dreamscape">Pastel Dreamscape</option>
+        <option value="retro-terminal">Retro Terminal</option>
+        <option value="sunset-gradient">Sunset Gradient</option>
+      </select>
+      <select id="ts">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </div>
+
+    <div class="demo-page">
+      <div class="container">
+        <div class="demo-header">
+          <h1>Pagination</h1>
+          <p>Content navigation with full page set, ellipsis truncation, compact variant, and bar layout.</p>
+        </div>
+
+        <!-- Full pagination -->
+        <div class="demo-section">
+          <h2>Full Page Set</h2>
+          <div class="demo-block">
+            <nav aria-label="Pagination" data-pagination id="pag1">
+              <ol class="pagination">
+                <li class="pagination__item">
+                  <a class="pagination__link pagination__link--prev" href="#" data-page="prev" aria-disabled="true">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                  </a>
+                </li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="1" aria-current="page">1</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="2">2</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="3">3</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="4">4</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="5">5</a></li>
+                <li class="pagination__item">
+                  <a class="pagination__link pagination__link--next" href="#" data-page="next">
+                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                  </a>
+                </li>
+              </ol>
+            </nav>
+            <div class="demo-output" id="pag1-out">Page 1</div>
+          </div>
+        </div>
+
+        <!-- With ellipsis -->
+        <div class="demo-section">
+          <h2>With Ellipsis</h2>
+          <div class="demo-block">
+            <nav aria-label="Pagination" data-pagination id="pag2">
+              <ol class="pagination">
+                <li class="pagination__item">
+                  <a class="pagination__link pagination__link--prev" href="#" data-page="prev">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                  </a>
+                </li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="1">1</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="2">2</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="3" aria-current="page">3</a></li>
+                <li class="pagination__item"><span class="pagination__ellipsis">&hellip;</span></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="10">10</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="11">11</a></li>
+                <li class="pagination__item"><a class="pagination__link" href="#" data-page="12">12</a></li>
+                <li class="pagination__item">
+                  <a class="pagination__link pagination__link--next" href="#" data-page="next">
+                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                  </a>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Compact -->
+        <div class="demo-section">
+          <h2>Compact (Prev / Info / Next)</h2>
+          <div class="demo-block">
+            <nav aria-label="Pagination" data-pagination id="pag3">
+              <ol class="pagination pagination--compact">
+                <li class="pagination__item">
+                  <a class="pagination__link pagination__link--prev" href="#" data-page="prev">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                  </a>
+                </li>
+                <!-- Hidden page links for JS to calculate max -->
+                <li class="pagination__item" style="display:none"><a data-page="1">1</a></li>
+                <li class="pagination__item" style="display:none"><a data-page="8">8</a></li>
+                <li class="pagination__item">
+                  <span class="pagination__info">Page 1 of 8</span>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link pagination__link--next" href="#" data-page="next">
+                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                  </a>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Bar with summary -->
+        <div class="demo-section">
+          <h2>Bar Layout (with summary text)</h2>
+          <div class="demo-block">
+            <div class="pagination-bar">
+              <span class="pagination-bar__summary">Showing 21-30 of 124 results</span>
+              <nav aria-label="Pagination" data-pagination>
+                <ol class="pagination">
+                  <li class="pagination__item">
+                    <a class="pagination__link pagination__link--prev" href="#" data-page="prev">
+                      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    </a>
+                  </li>
+                  <li class="pagination__item"><a class="pagination__link" href="#" data-page="1">1</a></li>
+                  <li class="pagination__item"><a class="pagination__link" href="#" data-page="2">2</a></li>
+                  <li class="pagination__item"><a class="pagination__link" href="#" data-page="3" aria-current="page">3</a></li>
+                  <li class="pagination__item"><span class="pagination__ellipsis">&hellip;</span></li>
+                  <li class="pagination__item"><a class="pagination__link" href="#" data-page="13">13</a></li>
+                  <li class="pagination__item">
+                    <a class="pagination__link pagination__link--next" href="#" data-page="next">
+                      <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </a>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="./pagination.js"></script>
+    <script>
+      document.getElementById("pag1").addEventListener("pagination:change", (e) => {
+        document.getElementById("pag1-out").textContent = `Page ${e.detail.page} (was ${e.detail.prev})`;
+      });
+
+      const profiles = {
+        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
+        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
+        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
+        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
+        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
+        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
+        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
+        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
+      };
+      const defaultThemes = { "arctic-mono":"dark","cyberpunk-neon":"dark","noire-editorial":"dark","corporate-blueprint":"dark","modern-saas":"dark","retro-terminal":"dark","pastel-dreamscape":"light","sunset-gradient":"dark" };
+      const ps = document.getElementById("ps");
+      const ts = document.getElementById("ts");
+      ps.addEventListener("change", () => {
+        document.documentElement.dataset.profile = ps.value;
+        document.getElementById("profile-css").href = profiles[ps.value];
+        ts.value = defaultThemes[ps.value];
+        document.documentElement.dataset.theme = ts.value;
+      });
+      ts.addEventListener("change", () => { document.documentElement.dataset.theme = ts.value; });
+    </script>
+  </body>
+</html>

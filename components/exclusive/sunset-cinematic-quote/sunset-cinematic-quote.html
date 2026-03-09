@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="sunset-gradient">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cinematic Quotes — Sunset Gradient</title>
+    <link rel="stylesheet" href="../../../assets/vanilla-starter/sunset-gradient.demo.css" />
+    <link rel="stylesheet" href="./sunset-cinematic-quote.css" />
+    <style>
+      .demo-page {
+        min-height: 100vh;
+        background: #0c0a08;
+      }
+
+      .demo-page .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 var(--s-5, 1.5rem);
+      }
+
+      .demo-header {
+        padding: var(--s-7, 3rem) 0;
+        text-align: center;
+      }
+
+      .demo-header h1 {
+        font-family: "Syne", ui-sans-serif, sans-serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: var(--text);
+        margin: 0 0 var(--s-2, 0.5rem);
+        letter-spacing: -0.03em;
+      }
+
+      .demo-header p {
+        font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.02em;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .demo-header__rule {
+        width: 120px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #e8845e, #d4647a, transparent);
+        border: none;
+        margin: var(--s-4, 1.5rem) auto 0;
+      }
+
+      .demo-section-label {
+        font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 var(--s-4, 1.5rem);
+        padding-bottom: var(--s-2, 0.5rem);
+        border-bottom: 1px solid rgba(232, 132, 94, 0.12);
+      }
+
+      .demo-section {
+        margin-bottom: var(--s-8, 4rem);
+      }
+
+      .demo-spacer {
+        height: var(--s-7, 3rem);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="demo-page">
+
+      <!-- ============================== -->
+      <!-- 1. Full-Height Hero Quote      -->
+      <!-- ============================== -->
+
+      <div class="cine-quote cine-quote--full">
+        <div class="cine-quote__bars"></div>
+        <div class="cine-quote__vignette"></div>
+        <span class="cine-quote__number">01</span>
+        <p class="cine-quote__text">The only way to do great work is to love what you do.</p>
+        <p class="cine-quote__attribution">Steve Jobs</p>
+      </div>
+
+
+      <div class="container">
+
+        <!-- Header -->
+        <div class="demo-header">
+          <h1>Cinematic Quotes</h1>
+          <p>Dramatic typography for the sunset-gradient theme</p>
+          <hr class="demo-header__rule" />
+        </div>
+
+
+        <!-- ============================== -->
+        <!-- 2. Split Variant               -->
+        <!-- ============================== -->
+
+        <div class="demo-section">
+          <p class="demo-section-label">Split Layout</p>
+          <div class="cine-quote cine-quote--split">
+            <div class="cine-quote__bars"></div>
+            <span class="cine-quote__number">02</span>
+            <p class="cine-quote__text">Simplicity is the ultimate sophistication.</p>
+            <p class="cine-quote__attribution">Leonardo da Vinci</p>
+          </div>
+        </div>
+
+
+        <!-- ============================== -->
+        <!-- 3. Card Variant                -->
+        <!-- ============================== -->
+
+        <div class="demo-section">
+          <p class="demo-section-label">Card Style</p>
+          <div class="cine-quote cine-quote--card">
+            <div class="cine-quote__bars"></div>
+            <span class="cine-quote__number">03</span>
+            <p class="cine-quote__text">Design is intelligence made visible.</p>
+            <p class="cine-quote__attribution">Alina Wheeler</p>
+            <span class="cine-quote__source">Designing Brand Identity</span>
+          </div>
+        </div>
+
+
+        <!-- ============================== -->
+        <!-- 4. Gallery Variant             -->
+        <!-- ============================== -->
+
+        <div class="demo-section">
+          <p class="demo-section-label">Gallery Scroll</p>
+          <div class="cine-quote-gallery">
+
+            <div class="cine-quote cine-quote--card">
+              <div class="cine-quote__bars"></div>
+              <span class="cine-quote__number">04</span>
+              <p class="cine-quote__text">Less is more.</p>
+              <p class="cine-quote__attribution">Ludwig Mies van der Rohe</p>
+            </div>
+
+            <div class="cine-quote cine-quote--card">
+              <div class="cine-quote__bars"></div>
+              <span class="cine-quote__number">05</span>
+              <p class="cine-quote__text">Good design is as little design as possible.</p>
+              <p class="cine-quote__attribution">Dieter Rams</p>
+            </div>
+
+            <div class="cine-quote cine-quote--card">
+              <div class="cine-quote__bars"></div>
+              <span class="cine-quote__number">06</span>
+              <p class="cine-quote__text">Have no fear of perfection, you will never reach it.</p>
+              <p class="cine-quote__attribution">Salvador Dali</p>
+            </div>
+
+            <div class="cine-quote cine-quote--card">
+              <div class="cine-quote__bars"></div>
+              <span class="cine-quote__number">07</span>
+              <p class="cine-quote__text">Everything you can imagine is real.</p>
+              <p class="cine-quote__attribution">Pablo Picasso</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="demo-spacer"></div>
+
+      </div>
+    </div>
+
+    <script src="./sunset-cinematic-quote.js"></script>
+  </body>
+</html>

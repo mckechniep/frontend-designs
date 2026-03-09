@@ -1,0 +1,383 @@
+/* ========== Arctic Cryo Gauge — EXCLUSIVE: arctic-mono ========== */
+/* Scientific/industrial gauges and meters with a cryogenic monitoring aesthetic. */
+
+/* ===== Gauge Container ===== */
+
+.cryo-gauge {
+  position: relative;
+  border: 1px solid var(--glass-border);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px);
+  padding: var(--s-5);
+  display: grid;
+  gap: var(--s-3);
+  place-items: center;
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent),
+    var(--shadow);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cryo-gauge:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 14%, transparent),
+    var(--shadow-lg);
+}
+
+/* Frost top-line accent */
+.cryo-gauge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
+
+
+/* ===== Value / Unit / Label ===== */
+
+.cryo-gauge__value {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 22%, transparent);
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.cryo-gauge__unit {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-left: 0.25em;
+}
+
+.cryo-gauge__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--accent) 62%, var(--muted) 38%);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cryo-gauge__range {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+/* ===== Status Colors ===== */
+
+.cryo-gauge[data-status="safe"] {
+  --gauge-color: #7ec8e3;
+  --gauge-glow: rgba(126, 200, 227, 0.3);
+}
+
+.cryo-gauge[data-status="warning"] {
+  --gauge-color: #e3b87e;
+  --gauge-glow: rgba(227, 184, 126, 0.3);
+}
+
+.cryo-gauge[data-status="critical"] {
+  --gauge-color: #e37e7e;
+  --gauge-glow: rgba(227, 126, 126, 0.3);
+}
+
+.cryo-gauge[data-status="warning"] .cryo-gauge__value,
+.cryo-gauge[data-status="critical"] .cryo-gauge__value {
+  color: var(--gauge-color);
+  text-shadow: 0 0 16px var(--gauge-glow);
+}
+
+/* Critical pulse */
+@keyframes cryoPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.cryo-gauge[data-status="critical"] .cryo-gauge__value {
+  animation: cryoPulse 1.6s ease-in-out infinite;
+}
+
+
+/* ===== Circular Gauge ===== */
+
+.cryo-gauge--circular {
+  min-width: 180px;
+}
+
+.cryo-gauge--circular .cryo-gauge__svg {
+  width: 160px;
+  height: 160px;
+  display: block;
+  filter: drop-shadow(0 0 6px var(--gauge-glow, rgba(126, 200, 227, 0.15)));
+}
+
+.cryo-gauge--circular .cryo-gauge__track {
+  fill: none;
+  stroke: color-mix(in srgb, var(--accent) 12%, transparent);
+  stroke-width: 6;
+  stroke-linecap: butt;
+}
+
+.cryo-gauge--circular .cryo-gauge__fill {
+  fill: none;
+  stroke: var(--gauge-color, var(--accent));
+  stroke-width: 6;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease;
+}
+
+.cryo-gauge--circular .cryo-gauge__tick {
+  stroke: color-mix(in srgb, var(--accent) 28%, transparent);
+  stroke-width: 1;
+}
+
+.cryo-gauge--circular .cryo-gauge__center {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Offset for label below SVG */
+  margin-top: calc(var(--s-3) * -1);
+}
+
+.cryo-gauge--circular .cryo-gauge__svg-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+
+/* ===== Linear Gauge ===== */
+
+.cryo-gauge--linear {
+  width: 100%;
+  place-items: stretch;
+}
+
+.cryo-gauge--linear .cryo-gauge__bar-wrap {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent);
+  overflow: hidden;
+}
+
+.cryo-gauge--linear .cryo-gauge__bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #3a6e8a, var(--gauge-color, var(--accent)));
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+  box-shadow: 0 0 12px var(--gauge-glow, rgba(126, 200, 227, 0.2));
+}
+
+.cryo-gauge--linear .cryo-gauge__bar-ticks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  pointer-events: none;
+}
+
+.cryo-gauge--linear .cryo-gauge__bar-tick {
+  flex: 1;
+  border-right: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.cryo-gauge--linear .cryo-gauge__bar-tick:last-child {
+  border-right: none;
+}
+
+.cryo-gauge--linear .cryo-gauge__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--s-3);
+}
+
+.cryo-gauge--linear .cryo-gauge__header .cryo-gauge__value {
+  font-size: 1.4rem;
+}
+
+
+/* ===== Temperature Gauge ===== */
+
+.cryo-gauge--temp {
+  min-width: 120px;
+  padding: var(--s-5) var(--s-4);
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-3);
+  align-items: end;
+  height: 220px;
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo {
+  position: relative;
+  width: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo-tube {
+  position: relative;
+  width: 12px;
+  flex: 1;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo-mercury {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, var(--gauge-color, var(--accent)), #3a6e8a);
+  transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+  box-shadow: 0 0 8px var(--gauge-glow, rgba(126, 200, 227, 0.25));
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo-bulb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gauge-color, var(--accent));
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: 0 0 12px var(--gauge-glow, rgba(126, 200, 227, 0.3));
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo-scale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 12px;
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo-mark {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cryo-gauge--temp .cryo-gauge__thermo-mark::before {
+  content: "";
+  width: 6px;
+  height: 1px;
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+
+/* ===== Grid Layout ===== */
+
+.cryo-grid {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.cryo-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cryo-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 720px) {
+  .cryo-grid--3,
+  .cryo-grid--2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 960px) {
+  .cryo-grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ===== Animations ===== */
+
+@keyframes cryoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cryo-gauge {
+  animation: cryoFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cryo-gauge:nth-child(2) { animation-delay: 80ms; }
+.cryo-gauge:nth-child(3) { animation-delay: 160ms; }
+.cryo-gauge:nth-child(4) { animation-delay: 240ms; }
+.cryo-gauge:nth-child(5) { animation-delay: 320ms; }
+.cryo-gauge:nth-child(6) { animation-delay: 400ms; }
+
+
+/* ===== Reduced Motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cryo-gauge {
+    animation: none;
+  }
+
+  .cryo-gauge[data-status="critical"] .cryo-gauge__value {
+    animation: none;
+  }
+
+  .cryo-gauge--circular .cryo-gauge__fill,
+  .cryo-gauge--linear .cryo-gauge__bar-fill,
+  .cryo-gauge--temp .cryo-gauge__thermo-mercury {
+    transition: none;
+  }
+}
