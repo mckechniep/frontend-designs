@@ -1,7 +1,7 @@
 profile: pastel-dreamscape
 surface: landing
 style_intent: dreamy-editorial-blob-landing
-canonical_reference: assets/vanilla-starter/pastel-dreamscape.html
+canonical_reference: themes/pastel-dreamscape/index.html
 layout_blueprint:
   - translucent fixed nav with serif wordmark, uppercase links, and soft scroll-state glass treatment
   - split hero with small eyebrow, large serif headline, short body copy, two CTAs, and one oversized organic blob object containing a short quote or affirmation

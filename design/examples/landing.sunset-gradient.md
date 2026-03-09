@@ -1,7 +1,7 @@
 profile: sunset-gradient
 surface: landing
 style_intent: cinematic-warm-enterprise-poster
-canonical_reference: assets/vanilla-starter/sunset-gradient.html
+canonical_reference: themes/sunset-gradient/index.html
 layout_blueprint:
   - fixed glass nav with radiant circular brand mark and pill CTA
   - split hero with signal badge, poster-scale heading, gradient phrase, italic support line, CTA pair, and glowing dashboard orb

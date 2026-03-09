@@ -62,6 +62,14 @@
 /* ---- Nav area ---- */
 
 .sidebar__nav {
+  /* Reset page-level theme nav rules so the component nav stays in flow. */
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: block;
+  justify-content: initial;
+  align-items: stretch;
+  transition: none;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;

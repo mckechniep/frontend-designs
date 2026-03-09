@@ -57,7 +57,7 @@ Use this mode when the requested direction is cinematic, high-contrast, and term
 Do not require all effects at once; keep within active effect budget and readability constraints.
 
 
-> Font delivery note: These profile font families describe the vanilla starter assets. In this repo's starter, fonts are self-hosted under `assets/fonts-bundled/` via `assets/vanilla-starter/styles.fonts.local.css`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
+> Font delivery note: These profile font families describe the canonical theme/runtime assets. In this repo, fonts are self-hosted under `assets/fonts-bundled/` and loaded by the canonical theme CSS in `themes/`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
 
 ## References
 - Cyberpunk 2077 UI panels
@@ -184,7 +184,7 @@ Light theme reduces scan-line opacity to `0.015`.
 - **Body (`--font`)**: `"Rajdhani"` intent (with `"Sora"` fallback) — technical but readable body flow
 - **UI Mono (`--font-mono`)**: `"Share Tech Mono"` intent (with `"IBM Plex Mono"` fallback) — nav links, buttons, labels, and control text
 - **Display (`--font-display`)**: `"Orbitron"` intent (with `"Syne"` fallback) — headings, brand wordmark, and high-drama title moments
-- Fonts are loaded via local `@font-face` declarations in `assets/vanilla-starter/styles.fonts.local.css`, imported by each profile CSS file.
+- Fonts are loaded via local `@font-face` declarations in the canonical `themes/*/theme.css` bundles, sourcing files from `assets/fonts-bundled/`.
 
 Typography split is intentional: readable body flow, technical UI chrome, and high-contrast display headlines.
 
@@ -195,7 +195,7 @@ If Orbitron/Rajdhani/Share Tech Mono are not available locally, use the skill fa
 If you want `Goldman` for biggest hero/headline text:
 
 1. Add local `Goldman` `.woff2` files to `assets/fonts-bundled/` (recommended: `400` and `700`).
-2. Register them in `assets/vanilla-starter/styles.fonts.local.css` via `@font-face`.
+2. Register them in the canonical `themes/*/theme.css` font bundle via `@font-face`.
 3. Set `--font-display-brand: "Goldman"` in the active cyberpunk output scope.
 
 The profile CSS already supports this hook and falls back to `Syne` when Goldman is not available.
@@ -444,6 +444,6 @@ Preferred advanced components for this profile:
 - Toast is positioned absolute within a relative parent (`.hero-card`).
 - The footer has no `margin-top` — it sits flush against the last section so alternating section backgrounds don't leave gaps.
 - Error text color uses `var(--error)`, success delta color uses `var(--success)` — both defined as tokens, not hardcoded.
-- Fonts are loaded via local `@font-face` declarations in `assets/vanilla-starter/styles.fonts.local.css`, imported by each profile CSS file.
+- Fonts are loaded via local `@font-face` declarations in the canonical `themes/*/theme.css` bundles, sourcing files from `assets/fonts-bundled/`.
 - Component overrides (badge, mini-stats, etc.) should reference tokens (`var(--glass-bg)`, `var(--badge-bg)`) rather than hardcoded rgba values, so the light/dark toggle works automatically through the token system.
-- All available profiles are listed in `profiles.json`. Profile CSS is loaded dynamically at runtime via `main.js` (not via `@import` in `styles.css`). The header "Design controls" modal lets users switch profiles, and the selection persists in localStorage.
+- Canonical theme metadata now lives in `themes/shared/theme-registry.json`. Universal component previews load theme CSS directly from `themes/<profile>/theme.css` via the shared preview runtime.

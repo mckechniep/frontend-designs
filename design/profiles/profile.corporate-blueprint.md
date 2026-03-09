@@ -1,11 +1,11 @@
 # Skill: Corporate Blueprint Architectural Consultancy Template
 
 ## Canonical Target
-Corporate Blueprint is now a **dark architectural consultancy landing page** in this repo, not a loose enterprise dashboard skin. The canonical north star is [`assets/vanilla-starter/corporate-blueprint.html`](../../assets/vanilla-starter/corporate-blueprint.html): Meridian & Kirsch, deep navy drafting field, cyan line-work, reserved gold milestones, fixed glass nav, annotated hero, services grid, methodology timeline, case-study section, split contact block, and structured footer.
+Corporate Blueprint is now a **dark architectural consultancy landing page** in this repo, not a loose enterprise dashboard skin. The canonical north star is [`themes/corporate-blueprint/index.html`](../../themes/corporate-blueprint/index.html): Meridian & Kirsch, deep navy drafting field, cyan line-work, reserved gold milestones, fixed glass nav, annotated hero, services grid, methodology timeline, case-study section, split contact block, and structured footer.
 
 If a generated Corporate Blueprint page starts reading like Modern SaaS with colder colors, it has already drifted off profile.
 
-> Font delivery note: These profile font families describe vanilla starter intent. In this repo's starter, fonts are self-hosted under `assets/fonts-bundled/` via `assets/vanilla-starter/styles.fonts.local.css`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
+> Font delivery note: These profile font families describe the canonical theme/runtime intent. In this repo, fonts are self-hosted under `assets/fonts-bundled/` and loaded by the canonical theme CSS in `themes/`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
 
 ## Design Philosophy
 Corporate Blueprint should feel like a premium strategy firm presenting a technical plan:

@@ -15,12 +15,25 @@
     var annotations = canvas.querySelectorAll(".blueprint-annotation");
     var legendItems = canvas.querySelectorAll(".blueprint-legend__item");
     var activeAnnotation = null;
+    var stackOrder = 50;
+
+    function resetStack(ann) {
+      if (!ann) return;
+      ann.style.zIndex = "";
+    }
+
+    function bringToFront(ann) {
+      if (!ann) return;
+      stackOrder += 1;
+      ann.style.zIndex = String(stackOrder);
+    }
 
     /* --- Activate an annotation by number --- */
     function activate(number) {
       /* Deactivate current */
       if (activeAnnotation) {
         activeAnnotation.classList.remove("is-active");
+        resetStack(activeAnnotation);
       }
 
       /* Deactivate legend items */
@@ -46,6 +59,7 @@
 
       /* Activate */
       target.classList.add("is-active");
+      bringToFront(target);
       activeAnnotation = target;
 
       /* Activate corresponding legend item */
@@ -92,6 +106,7 @@
       if (e.target === canvas || e.target.classList.contains("blueprint-canvas__corners")) {
         if (activeAnnotation) {
           activeAnnotation.classList.remove("is-active");
+          resetStack(activeAnnotation);
           activeAnnotation = null;
           legendItems.forEach(function (item) {
             item.classList.remove("is-active");

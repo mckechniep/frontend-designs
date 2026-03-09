@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tooltip — Component Demo</title>
-    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link id="profile-css" rel="stylesheet" href="../../../themes/arctic-mono/theme.css" />
     <link rel="stylesheet" href="../token-bridge.css" />
     <link rel="stylesheet" href="./tooltip.css" />
     <style>
@@ -101,33 +101,6 @@
     </div>
 
     <script src="./tooltip.js"></script>
-    <script>
-      const profiles = {
-        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
-        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
-        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
-        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
-        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
-        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
-        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
-        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
-      };
-      const defaultThemes = {
-        "arctic-mono": "dark", "cyberpunk-neon": "dark", "noire-editorial": "dark",
-        "corporate-blueprint": "dark", "modern-saas": "dark", "retro-terminal": "dark",
-        "pastel-dreamscape": "light", "sunset-gradient": "dark",
-      };
-      const ps = document.getElementById("ps");
-      const ts = document.getElementById("ts");
-      ps.addEventListener("change", () => {
-        document.documentElement.dataset.profile = ps.value;
-        document.getElementById("profile-css").href = profiles[ps.value];
-        ts.value = defaultThemes[ps.value];
-        document.documentElement.dataset.theme = ts.value;
-      });
-      ts.addEventListener("change", () => {
-        document.documentElement.dataset.theme = ts.value;
-      });
-    </script>
+    <script src="../../shared/preview-runtime.js" data-theme-root="../../../themes"></script>
   </body>
 </html>

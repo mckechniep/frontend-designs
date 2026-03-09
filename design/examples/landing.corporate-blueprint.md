@@ -1,7 +1,7 @@
 profile: corporate-blueprint
 surface: landing
 style_intent: architectural-consultancy-blueprint
-canonical_reference: assets/vanilla-starter/corporate-blueprint.html
+canonical_reference: themes/corporate-blueprint/index.html
 layout_blueprint:
   - fixed glass nav with blueprint mark, mono-indexed links, and one CTA
   - annotated hero with consultancy eyebrow, display lockup, dual CTAs, dimension cues, and three counters

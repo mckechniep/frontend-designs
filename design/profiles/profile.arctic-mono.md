@@ -1,11 +1,11 @@
 # Skill: Arctic Mono Frost-Tech Template
 
 ## Canonical Target
-Arctic Mono is a **frost-tech research archive**, not a simplified startup landing page. The canonical landing target in this repo is `assets/vanilla-starter/arctic-mono.html`. First-draft Arctic outputs should aim to feel materially close to that demo in structure, typography split, atmosphere, and technical narrative rhythm.
+Arctic Mono is a **frost-tech research archive**, not a simplified startup landing page. The canonical landing target in this repo is `themes/arctic-mono/index.html`. First-draft Arctic outputs should aim to feel materially close to that demo in structure, typography split, atmosphere, and technical narrative rhythm.
 
 If a generated Arctic landing starts reading like generic SaaS, enterprise blue, or minimal white cards with icy accents, it has already drifted off profile.
 
-> Font delivery note: These profile font families describe vanilla starter intent. In this repo's starter, fonts are self-hosted under `assets/fonts-bundled/` via `assets/vanilla-starter/styles.fonts.local.css`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
+> Font delivery note: These profile font families describe the canonical theme/runtime intent. In this repo, fonts are self-hosted under `assets/fonts-bundled/` and loaded by the canonical theme CSS in `themes/`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
 
 ## Design Philosophy
 Arctic Mono should feel like a premium cold-climate systems lab:

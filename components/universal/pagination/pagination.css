@@ -1,6 +1,22 @@
 /* ========== Pagination ========== */
 /* Token-driven content navigation. Works with all 8 theme profiles. */
 
+[data-pagination] {
+  /* Reset broad page-level theme nav rules inside the isolated demo. */
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: block;
+  justify-content: initial;
+  align-items: stretch;
+  padding: 0;
+  transition: none;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
 .pagination {
   display: flex;
   align-items: center;

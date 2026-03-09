@@ -85,12 +85,12 @@ Default output:
 
 - `index.html`
 - `styles.css`
-- `main.js`
+- page/runtime JS file appropriate to the surface (for example `main.js`, `page.js`, or inline script)
 
 Expressive Effects Layer deliverables (when requested/needed):
 
-- `effects.json`
-- `styles.effects.css`
+- shared or local effects config as appropriate to the runtime surface
+- supporting effects stylesheet only when the surface actually uses one
 - expressive effects layer state wiring in runtime JS
 - `favicon.ico` and/or `favicon.svg` when referenced
 
@@ -98,7 +98,7 @@ If user requests single-file output, return one `index.html` with embedded `<sty
 
 Dashboard/data-surface expectation (when in scope):
 
-- Include sortable/filterable table wiring in `main.js` (or inline script in single-file mode).
+- Include sortable/filterable table wiring in the surface runtime JS (or inline script in single-file mode).
 - Include responsive chart region implementation or explicit placeholder + integration contract when chart library setup is out of scope.
 
 ## React (non-Next)
@@ -154,7 +154,7 @@ If repo is Pages Router only, output `pages/<route>.tsx`.
 ## Style Profile Application by Stack
 
 - Vanilla:
-  - apply selected profile via `design/profiles/profiles.json` intent and runtime CSS profile switching
+  - apply selected profile via `themes/shared/theme-registry.json` intent and canonical runtime CSS switching
 - React and Next.js:
   - do not import vanilla profile CSS directly
   - translate selected profile into stack-native tokens and component styling

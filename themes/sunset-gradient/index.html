@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solaris Software | Enterprise Solutions, NYC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./theme.css">
+
+</head>
+<body>
+    <div class="ambient-bg"></div>
+    <div class="grain-overlay"></div>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">
+            <div class="logo-sun"></div>
+            <span class="logo-text">Solaris</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#features">Platform</a></li>
+            <li><a href="#testimonials">Clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="../index.html" class="nav-link--themes">Themes</a></li>
+            <li><a href="#contact" class="nav-cta">Get a Demo</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Now serving 500+ enterprises across New York
+                </div>
+                <h1 class="hero-title">
+                    Software that<br>
+                    <span class="gradient-text">ignites growth</span><br>
+                    <em>from the city<br>that never sleeps</em>
+                </h1>
+                <p class="hero-desc">
+                    Enterprise-grade software solutions built in the heart of Manhattan.
+                    We help ambitious companies automate, scale, and dominate their markets.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">
+                        Schedule a Demo
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#solutions" class="btn-ghost">Explore Solutions</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-visual">
+                    <div class="hero-orb orb-1"></div>
+                    <div class="hero-orb orb-2"></div>
+                    <div class="dashboard-mock" id="dashMock">
+                        <div class="dash-header">
+                            <div class="dash-dots"><span></span><span></span><span></span></div>
+                            <span class="dash-title-bar">Revenue Dashboard</span>
+                        </div>
+                        <div class="dash-chart" id="dashChart"></div>
+                        <div class="dash-metrics">
+                            <div class="metric-card">
+                                <div class="metric-label">MRR</div>
+                                <div class="metric-value">$2.4M</div>
+                                <div class="metric-change">+18.3%</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Clients</div>
+                                <div class="metric-value">512</div>
+                                <div class="metric-change">+24 this month</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGOS -->
+    <section class="logos-section">
+        <p class="logos-label reveal">Trusted by industry leaders</p>
+        <div class="logos-row reveal">
+            <span class="logo-item">Meridian</span>
+            <span class="logo-item">Apex Corp</span>
+            <span class="logo-item">NovaTech</span>
+            <span class="logo-item">Citadel.io</span>
+            <span class="logo-item">Vertex AI</span>
+            <span class="logo-item">Ironclad</span>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section class="section solutions-section" id="solutions">
+        <div class="section-header reveal">
+            <span class="section-tag">Solutions</span>
+            <h2 class="section-title">Three pillars of<br>enterprise acceleration</h2>
+            <p class="section-subtitle">Purpose-built software that transforms how New York's most ambitious companies operate, sell, and scale.</p>
+        </div>
+        <div class="solutions-grid">
+            <div class="solution-card reveal reveal-delay-1">
+                <div class="solution-icon icon-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#FFBA08" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="solution-name">Solaris CRM</h3>
+                <p class="solution-desc">Intelligent relationship management that anticipates your pipeline and closes deals faster than ever.</p>
+                <ul class="solution-features">
+                    <li>AI-powered lead scoring</li>
+                    <li>Automated pipeline orchestration</li>
+                    <li>Real-time revenue forecasting</li>
+                    <li>Custom workflow engine</li>
+                </ul>
+            </div>
+            <div class="solution-card reveal reveal-delay-2">
+                <div class="solution-icon icon-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#E85D04" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#E85D04" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#E85D04" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#E85D04" stroke-width="1.5"/></svg>
+                </div>
+                <h3 class="solution-name">Solaris Ops</h3>
+                <p class="solution-desc">End-to-end operations platform that eliminates bottlenecks and unifies your entire tech stack.</p>
+                <ul class="solution-features">
+                    <li>200+ native integrations</li>
+                    <li>Process automation studio</li>
+                    <li>Cross-team analytics</li>
+                    <li>Enterprise SSO & RBAC</li>
+                </ul>
+            </div>
+            <div class="solution-card reveal reveal-delay-3">
+                <div class="solution-icon icon-3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" stroke="#D00000" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3 class="solution-name">Solaris Insight</h3>
+                <p class="solution-desc">Business intelligence that cuts through noise and surfaces the insights that actually move the needle.</p>
+                <ul class="solution-features">
+                    <li>Predictive analytics engine</li>
+                    <li>Custom dashboards & reports</li>
+                    <li>Anomaly detection alerts</li>
+                    <li>Board-ready exports</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section stats-section">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-label">Enterprise clients</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-1">
+                <div class="stat-number" data-count="98" data-suffix="%">0</div>
+                <div class="stat-label">Client retention rate</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-2">
+                <div class="stat-number" data-count="3" data-suffix="x">0</div>
+                <div class="stat-label">Average ROI increase</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-3">
+                <div class="stat-number" data-count="12">0</div>
+                <div class="stat-label">Years in New York</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section features-section" id="features">
+        <div class="section-header reveal">
+            <span class="section-tag">Platform</span>
+            <h2 class="section-title">Built different,<br>by design</h2>
+            <p class="section-subtitle">Every layer of our platform is engineered for the demands of high-growth companies.</p>
+        </div>
+        <div class="features-layout">
+            <div class="features-visual reveal">
+                <div class="features-ring"></div>
+                <div class="features-ring"></div>
+                <div class="features-ring"></div>
+                <div class="ring-node">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#FFBA08" stroke-width="1.5"/></svg>
+                </div>
+                <div class="ring-node">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="#F48C06" stroke-width="1.5"/></svg>
+                </div>
+                <div class="ring-node">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#E85D04" stroke-width="1.5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="#E85D04" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div class="ring-node">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#DC2F02" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="ring-node">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#D00000" stroke-width="1.5"/><circle cx="9" cy="7" r="4" stroke="#D00000" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75" stroke="#D00000" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div class="ring-node">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#9D0208" stroke-width="1.5"/><path d="M8 21h8m-4-4v4" stroke="#9D0208" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div class="features-center-glow"></div>
+            </div>
+            <div class="features-list">
+                <div class="feature-item reveal">
+                    <span class="feature-num">01</span>
+                    <div class="feature-text">
+                        <h3>Zero-downtime architecture</h3>
+                        <p>Multi-region deployment with automatic failover. Your business never stops, neither do we.</p>
+                    </div>
+                </div>
+                <div class="feature-item reveal reveal-delay-1">
+                    <span class="feature-num">02</span>
+                    <div class="feature-text">
+                        <h3>SOC 2 Type II certified</h3>
+                        <p>Enterprise-grade security baked in from day one. Bank-level encryption for every byte of data.</p>
+                    </div>
+                </div>
+                <div class="feature-item reveal reveal-delay-2">
+                    <span class="feature-num">03</span>
+                    <div class="feature-text">
+                        <h3>Dedicated success teams</h3>
+                        <p>A Manhattan-based team that knows your business inside out. White-glove onboarding and 24/7 support.</p>
+                    </div>
+                </div>
+                <div class="feature-item reveal reveal-delay-3">
+                    <span class="feature-num">04</span>
+                    <div class="feature-text">
+                        <h3>API-first platform</h3>
+                        <p>RESTful APIs with comprehensive SDKs. Build custom integrations in hours, not weeks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="section-header reveal">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-title">What our clients say</h2>
+        </div>
+        <div class="testimonials-track">
+            <div class="testimonial-card reveal reveal-delay-1">
+                <div class="testimonial-stars">
+                    <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                </div>
+                <p class="testimonial-text">Solaris completely transformed our sales workflow. Revenue is up 40% in six months, and our team spends half the time on admin they used to.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar avatar-1">JK</div>
+                    <div>
+                        <div class="author-name">James Kim</div>
+                        <div class="author-role">VP of Sales, Meridian Capital</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-2">
+                <div class="testimonial-stars">
+                    <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                </div>
+                <p class="testimonial-text">The analytics suite alone justified the investment. We're making decisions in real-time that used to take our team weeks of manual reporting.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar avatar-2">SL</div>
+                    <div>
+                        <div class="author-name">Sarah Lopez</div>
+                        <div class="author-role">COO, Apex Corp</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-3">
+                <div class="testimonial-stars">
+                    <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                </div>
+                <p class="testimonial-text">Best enterprise software vendor we've ever worked with. The NYC team feels like an extension of our own company. True partners, not just providers.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar avatar-3">MR</div>
+                    <div>
+                        <div class="author-name">Marcus Rivera</div>
+                        <div class="author-role">CTO, NovaTech Systems</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="contact">
+        <div class="cta-glow"></div>
+        <div class="cta-content reveal">
+            <h2 class="cta-title">Ready to light up<br><span class="gradient-text">your growth?</span></h2>
+            <p class="cta-desc">Join 500+ companies already using Solaris to accelerate their business. Book a personalized demo with our Manhattan team.</p>
+            <form class="cta-form" id="ctaForm">
+                <input type="email" class="cta-input" placeholder="Enter your work email" required aria-label="Work email">
+                <button type="submit" class="btn-primary">Get Started</button>
+            </form>
+            <p class="cta-note">Free 14-day trial. No credit card required.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <div class="logo-sun"></div>
+                    <span class="logo-text">Solaris</span>
+                </a>
+                <p>Enterprise software solutions from the heart of New York City. Powering the next generation of ambitious businesses.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">Solaris CRM</a></li>
+                    <li><a href="#">Solaris Ops</a></li>
+                    <li><a href="#">Solaris Insight</a></li>
+                    <li><a href="#">API & Integrations</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Status</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copy">&copy; 2026 Solaris Software, Inc. All rights reserved. New York, NY.</span>
+            <div class="footer-socials">
+                <a href="#" aria-label="LinkedIn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#" aria-label="X/Twitter">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="GitHub">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./page.js"></script>
+
+</body>
+</html>

@@ -93,7 +93,7 @@ For `sunset-gradient`:
 ## Cross-Stack Application
 
 - Vanilla:
-  - use runtime CSS profile switching and profile metadata from `design/profiles/profiles.json`
+  - use runtime CSS profile switching and profile metadata from `themes/shared/theme-registry.json`
 - React and Next.js:
   - treat selected profile as design language, not raw vanilla CSS import
   - translate to stack-native tokens/classes/components

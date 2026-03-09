@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-fixed-profile="cyberpunk-neon" data-fixed-profile-stylesheet="./theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ghostline Ops // Cyberpunk Neon Demo</title>
+    <meta
+      name="description"
+      content="A cyberpunk neon demo landing page with clipped geometry, terminal-first composition, scanline atmosphere, and command-console copy."
+    />
+    <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../shared/favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./theme.css" />
+  </head>
+
+  <body data-cyber-noise="on">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Ghostline Ops home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Ghostline//Ops</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button
+            class="icon-button"
+            type="button"
+            data-menu-button
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#modules">Modules</a></li>
+            <li><a class="nav-link" href="#cases">Case files</a></li>
+            <li><a class="nav-link" href="#telemetry">Telemetry</a></li>
+            <li><a class="nav-link" href="#contact">Uplink</a></li>
+            <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Open uplink</a>
+        </nav>
+      </div>
+
+      <div class="container mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#modules">Modules</a></li>
+          <li><a class="nav-link" href="#cases">Case files</a></li>
+          <li><a class="nav-link" href="#telemetry">Telemetry</a></li>
+          <li><a class="nav-link" href="#contact">Uplink</a></li>
+          <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="badge">Node // afterhours uplink</p>
+            <h1 class="h1">
+              Build <span class="line-neon">neon command surfaces</span> for teams shipping through the
+              <span class="line-secondary glitch" data-text="blackout">blackout</span>.
+            </h1>
+            <p class="lead">
+              Cyberpunk Neon is supposed to read like an operator console, not a startup landing page. This demo is structured around terminal rhythm, clipped geometry, scanline depth, and monitored case files.
+            </p>
+
+            <div class="cta-row">
+              <a class="button button-primary" href="#contact">Request uplink</a>
+              <a class="button button-ghost" href="#modules">Inspect modules</a>
+            </div>
+
+            <div class="cyber-terminal-readout" aria-label="Live readout">
+              <div class="cyber-terminal-readout__header">
+                <span>Live readout</span>
+                <span class="cyber-terminal-readout__signal" aria-hidden="true"></span>
+              </div>
+              <div class="cyber-terminal-readout__body">
+                <p><span class="cyber-terminal-readout__line">&gt; profile</span> :: cyberpunk-neon</p>
+                <p><span class="cyber-terminal-readout__line">&gt; posture</span> :: command-first landing</p>
+                <p><span class="cyber-terminal-readout__line">&gt; purge</span> :: modern-saas bleed removed<span class="cyber-terminal-readout__cursor">_</span></p>
+              </div>
+            </div>
+
+            <div class="mini-stats" aria-label="Highlights">
+              <div class="mini-stat">
+                <div class="mini-stat__value">04</div>
+                <div class="mini-stat__label">Atmosphere layers</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">01</div>
+                <div class="mini-stat__label">Hero glitch token</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">24/7</div>
+                <div class="mini-stat__label">Night-shift posture</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card cyber-hero-stack" aria-label="Operations shell">
+            <div class="card hero-terminal">
+              <div class="hero-terminal__header">
+                <span class="hero-terminal__dot hero-terminal__dot--r" aria-hidden="true"></span>
+                <span class="hero-terminal__dot hero-terminal__dot--y" aria-hidden="true"></span>
+                <span class="hero-terminal__dot hero-terminal__dot--g" aria-hidden="true"></span>
+                <span class="muted">ghostline://ops-shell</span>
+              </div>
+              <div class="hero-terminal__body">
+                <p><span class="hero-terminal__prompt">&gt;</span> boot scanline overlay .......... OK</p>
+                <p><span class="hero-terminal__prompt">&gt;</span> sync clipped geometry ......... OK</p>
+                <p><span class="hero-terminal__prompt">&gt;</span> limit expressive glitches ..... 01</p>
+                <p><span class="hero-terminal__prompt">&gt;</span> rewrite section cadence ........ ACTIVE</p>
+                <p><span class="hero-terminal__prompt">&gt;</span> uplink priority ................ CASE-FILE</p>
+                <p><span class="hero-terminal__prompt">&gt;</span> operator ready<span class="hero-terminal__cursor">_</span></p>
+              </div>
+            </div>
+
+            <div class="card cyber-loadout">
+              <div class="card-header">
+                <h2 class="h3">Live loadout</h2>
+                <p class="muted">
+                  Profile rules translated into actual page behavior instead of SaaS leftovers.
+                </p>
+              </div>
+              <div class="card-body">
+                <div class="cyber-loadout-grid" aria-label="Loadout items">
+                  <div class="cyber-loadout-item">
+                    <span class="cyber-loadout__label">Overlay</span>
+                    <span class="cyber-loadout__value">Scanline + grid</span>
+                  </div>
+                  <div class="cyber-loadout-item">
+                    <span class="cyber-loadout__label">Language</span>
+                    <span class="cyber-loadout__value">Terminal UI copy</span>
+                  </div>
+                  <div class="cyber-loadout-item">
+                    <span class="cyber-loadout__label">Geometry</span>
+                    <span class="cyber-loadout__value">Clipped corners</span>
+                  </div>
+                  <div class="cyber-loadout-item">
+                    <span class="cyber-loadout__label">Close</span>
+                    <span class="cyber-loadout__value">Secure uplink</span>
+                  </div>
+                </div>
+
+                <button
+                  class="button button-primary button-full"
+                  type="button"
+                  data-toast-button
+                >
+                  Queue dry run
+                </button>
+                <p class="hint">
+                  Portfolio demo only. Theme controls stay live while the profile remains fixed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="toast"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          hidden
+          data-toast
+        >
+          Saved.
+        </div>
+      </section>
+
+      <section class="trust-bar cyber-signal-strip" aria-label="Signal strip">
+        <div class="container">
+          <p class="trust-label">Signal strip // command-first identity locked</p>
+          <div class="trust-logos">
+            <span>scanline::armed</span>
+            <span>grid::restrained</span>
+            <span>glitch::scoped</span>
+            <span>cards::clipped</span>
+            <span>uplink::secure</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt cyber-modules" id="modules">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Operator modules</h2>
+            <p class="muted">
+              The core module row now behaves like a neon console: hard edges, matrix rain, terminal labels, and zero warm SaaS polish.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="feature-icon amber" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <rect x="6" y="9" width="36" height="24" rx="4"></rect>
+                  <path d="M16 39h16"></path>
+                  <path d="M24 33v6"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Command hero</h3>
+              <p class="muted">
+                Large display copy, terminal readout, and a single controlled glitch token establish the profile before anything else loads.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon sage" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M14 10h20a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path>
+                  <path d="M18 18h12"></path>
+                  <path d="M18 24h12"></path>
+                  <path d="M18 30h8"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Rain-streak panels</h3>
+              <p class="muted">
+                Capability cards use vertical light streaks and clipped silhouettes instead of friendly startup card systems.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon coral" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M13 35v-6a7 7 0 0 1 7-7h8"></path>
+                  <path d="M35 13v6a7 7 0 0 1-7 7h-8"></path>
+                  <path d="M17 18l-4 4 4 4"></path>
+                  <path d="M31 30l4-4-4-4"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Operator language</h3>
+              <p class="muted">
+                Labels, CTAs, and helper copy read like a live console without turning into unreadable cosplay props.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon sage" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M12 36h24"></path>
+                  <path d="M16 36V22"></path>
+                  <path d="M24 36V14"></path>
+                  <path d="M32 36V27"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Telemetry density</h3>
+              <p class="muted">
+                The page proves cyberpunk can carry real operational numbers and event streams without collapsing into pure mood.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon amber" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M24 40s12-6 12-15V13l-12-5-12 5v12c0 9 12 15 12 15z"></path>
+                  <path d="M19 24l4 4 7-8"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Scoped effects</h3>
+              <p class="muted">
+                Expressive motion is rationed. Scanlines, glow, and glitch stay in hero-weight surfaces instead of contaminating the whole page.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon coral" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M12 15h24v18H12z"></path>
+                  <path d="M16 21h16"></path>
+                  <path d="M16 27h10"></path>
+                  <path d="M30 31l3 3 5-7"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Secure uplink close</h3>
+              <p class="muted">
+                The conversion surface feels like opening a hardened channel, not dropping into a generic demo request card.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cases">
+        <div class="container spotlight-grid">
+          <div class="spotlight-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Case Files</span>
+            </div>
+            <h2 class="h2">Featured ops scenarios, not generic product proof blocks.</h2>
+            <p class="lead">
+              Cyberpunk Neon lands best when it feels like an active dossier: a few strong cases, sharp metadata, and terminal-backed context instead of bland marketing proof rails.
+            </p>
+            <ul class="spotlight-list">
+              <li>One hero-weight glitch or RGB split surface is enough.</li>
+              <li>Case cards should carry technical metadata and impact cues.</li>
+              <li>The whole page should read like a monitored operation, not a launch template.</li>
+            </ul>
+          </div>
+
+          <div class="spotlight-stack">
+            <article class="card spotlight-panel cyber-case-card">
+              <div class="cyber-case-card__head">
+                <span class="badge">Case file 01</span>
+                <span class="cyber-case-card__code">GRID-SHIFT//TOKYO</span>
+              </div>
+              <h3 class="h3">Turn a startup hero into a live command brief.</h3>
+              <p class="muted">
+                Reframed a generic launch layout into a clipped, terminal-forward sequence with threat-panel rhythm, neon hierarchy, and operational copy.
+              </p>
+              <div class="cyber-case-meta" aria-label="Case metadata">
+                <span>Scoped glitch</span>
+                <span>Command labels</span>
+                <span>Telemetry surfaces</span>
+              </div>
+            </article>
+
+            <article class="card spotlight-panel cyber-case-card">
+              <div class="cyber-case-card__head">
+                <span class="badge">Case file 02</span>
+                <span class="cyber-case-card__code">LOWLIGHT//SECTOR-8</span>
+              </div>
+              <h3 class="h3">Keep the danger high without wrecking readability.</h3>
+              <p class="muted">
+                Atmospheric layers stay aggressive, but inputs, hierarchy, and CTA path remain legible enough to function like a real product page.
+              </p>
+              <div class="cyber-terminal-readout" aria-label="Case readout">
+                <div class="cyber-terminal-readout__header">
+                  <span>Case readout</span>
+                  <span class="cyber-terminal-readout__signal" aria-hidden="true"></span>
+                </div>
+                <div class="cyber-terminal-readout__body">
+                  <p><span class="cyber-terminal-readout__line">&gt; scanline</span> :: visible / restrained</p>
+                  <p><span class="cyber-terminal-readout__line">&gt; copy</span> :: high-contrast / command-safe</p>
+                  <p><span class="cyber-terminal-readout__line">&gt; mood</span> :: hostile but usable</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="telemetry">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Telemetry board</h2>
+            <p class="muted">
+              After the hero surge, the page drops into monitored signals, event streams, and operational proof instead of drifting back toward SaaS marketing comfort.
+            </p>
+          </div>
+
+          <div class="metrics-grid" role="list">
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Active nodes</div>
+              <div class="metric__value">142</div>
+              <div class="metric__delta metric__delta--up">Network stable</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Sweep success</div>
+              <div class="metric__value">96%</div>
+              <div class="metric__delta metric__delta--up">+4.8%</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Threat drift</div>
+              <div class="metric__value">03</div>
+              <div class="metric__delta metric__delta--down">Contained</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Latency floor</div>
+              <div class="metric__value">12ms</div>
+              <div class="metric__delta metric__delta--up">Green zone</div>
+            </div>
+          </div>
+
+          <div class="cyber-telemetry-layout">
+            <article class="card cyber-feed">
+              <div class="card-header">
+                <h3 class="h3">Event stream</h3>
+                <p class="muted">Static demo feed proving the layout can carry monitored activity.</p>
+              </div>
+              <div class="card-body">
+                <ul class="cyber-feed__list">
+                  <li class="cyber-feed__item">
+                    <span class="cyber-feed__time">02:14</span>
+                    <div>
+                      <p class="cyber-feed__title">Hero shell rebuilt</p>
+                      <p class="cyber-feed__detail">Replaced proof-strip startup framing with terminal-first command brief.</p>
+                    </div>
+                  </li>
+                  <li class="cyber-feed__item">
+                    <span class="cyber-feed__time">02:23</span>
+                    <div>
+                      <p class="cyber-feed__title">Signal strip retuned</p>
+                      <p class="cyber-feed__detail">Removed soft-trust language and switched to monitored neon status labels.</p>
+                    </div>
+                  </li>
+                  <li class="cyber-feed__item">
+                    <span class="cyber-feed__time">02:41</span>
+                    <div>
+                      <p class="cyber-feed__title">Secure uplink locked</p>
+                      <p class="cyber-feed__detail">Final conversion zone now reads like a hardened channel, not a demo-card fallback.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card cyber-feed">
+              <div class="card-header">
+                <h3 class="h3">Signal discipline</h3>
+                <p class="muted">Rules that keep the page sharp instead of noisy.</p>
+              </div>
+              <div class="card-body">
+                <div class="cyber-terminal-readout" aria-label="Signal discipline">
+                  <div class="cyber-terminal-readout__header">
+                    <span>Discipline</span>
+                    <span class="cyber-terminal-readout__signal" aria-hidden="true"></span>
+                  </div>
+                  <div class="cyber-terminal-readout__body">
+                    <p><span class="cyber-terminal-readout__line">&gt; overlays</span> :: two max / readability first</p>
+                    <p><span class="cyber-terminal-readout__line">&gt; spotlight</span> :: page-wide / cyberpunk exception</p>
+                    <p><span class="cyber-terminal-readout__line">&gt; geometry</span> :: clipped / no soft pills</p>
+                    <p><span class="cyber-terminal-readout__line">&gt; close</span> :: uplink, not generic contact card</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Secure Uplink</span>
+            </div>
+            <h2 class="h2">Open a channel without losing the atmosphere.</h2>
+            <p class="lead">
+              The close keeps the cyberpunk tone intact while still behaving like a real conversion surface: clear ask, readable fields, and no retreat into generic startup UI.
+            </p>
+            <ul class="contact-points">
+              <li>One hero glitch token is enough. Keep the rest of the screen disciplined.</li>
+              <li>Terminal labels and clipped geometry should survive all the way through form entry.</li>
+              <li>Cursor-driven effects stay scoped or absent, never global.</li>
+            </ul>
+
+            <div class="cyber-terminal-readout" aria-label="Uplink protocol">
+              <div class="cyber-terminal-readout__header">
+                <span>Uplink protocol</span>
+                <span class="cyber-terminal-readout__signal" aria-hidden="true"></span>
+              </div>
+              <div class="cyber-terminal-readout__body">
+                <p><span class="cyber-terminal-readout__line">&gt; input</span> :: callsign + mission brief</p>
+                <p><span class="cyber-terminal-readout__line">&gt; route</span> :: demo-only / no live transmission</p>
+                <p><span class="cyber-terminal-readout__line">&gt; response</span> :: toast confirmation / local reset</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="card form contact-form" novalidate data-contact-form>
+            <div class="form-row">
+              <label class="label" for="name">Callsign</label>
+              <input
+                class="input"
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+              <p class="error" data-error-for="name" hidden>
+                Please enter your name.
+              </p>
+            </div>
+
+            <div class="form-row">
+              <label class="label" for="email">Network route</label>
+              <input
+                class="input"
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="operator@ghostline.net"
+              />
+            </div>
+
+            <div class="form-row">
+              <label class="label" for="message">Mission brief</label>
+              <textarea
+                class="textarea"
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+              <p class="error" data-error-for="message" hidden>
+                Please enter a message.
+              </p>
+            </div>
+
+            <button class="button button-primary button-full" type="submit">
+              Transmit signal
+            </button>
+            <p class="hint">Demo only. No live uplink is triggered from this portfolio page.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-row">
+        <p class="muted">
+          © <span data-year></span> Ghostline Ops. Cyberpunk Neon portfolio node.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./page.js" defer></script>
+  </body>
+</html>

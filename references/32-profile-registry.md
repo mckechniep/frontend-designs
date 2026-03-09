@@ -19,14 +19,14 @@ Canonical source of profile IDs, labels, defaults, and design references.
 
 - Keep IDs identical across:
   - this file
-  - `design/profiles/profiles.json`
+  - `themes/shared/theme-registry.json`
   - any style/profile selectors in prompts or templates
 - Keep labels/descriptors consistent with user-facing menus.
-- Keep default theme values aligned with `design/profiles/profiles.json`.
+- Keep default theme values aligned with `themes/shared/theme-registry.json`.
 
 For Vanilla starter compatibility:
 
-- Runtime starter CSS still lives under `assets/vanilla-starter/profiles/*.css`.
+- Canonical theme runtime CSS lives under `themes/<profile>/theme.css`.
 - `design/profiles/styles.profile.*.css` is the canonical design-contract copy.
 
 ## React/Next Local/System Fallback Map

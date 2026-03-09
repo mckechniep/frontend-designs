@@ -3,9 +3,9 @@
 ## Design Philosophy
 Modern SaaS is a premium product-story system, not a startup starter kit. The target is a high-trust landing or product screen with warm slate depth, cream text, amber metal accents, serif-led hierarchy, and selective glass only where it adds value.
 
-Use the current starter implementation in `assets/vanilla-starter/index.html` with `assets/vanilla-starter/profiles/modern-saas.css` as the canonical north star: fixed blurred nav, serif-led hero, tilted product mockup, transparent trust rail, premium feature grid, structured proof, pricing, and a strong close over one continuous page atmosphere.
+Use the canonical theme implementation in `themes/modern-saas/index.html` as the north star: fixed blurred nav, serif-led hero, tilted product mockup, transparent trust rail, premium feature grid, structured proof, pricing, and a strong close over one continuous page atmosphere.
 
-> Font delivery note: These profile font families describe vanilla starter intent. In this repo's starter, fonts are self-hosted under `assets/fonts-bundled/` via `assets/vanilla-starter/styles.fonts.local.css`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
+> Font delivery note: These profile font families describe the canonical theme/runtime intent. In this repo, fonts are self-hosted under `assets/fonts-bundled/` and loaded by the canonical theme CSS in `themes/`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
 
 ## Required Signature Structure (Non-Negotiable)
 

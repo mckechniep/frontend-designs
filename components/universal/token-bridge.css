@@ -297,7 +297,6 @@ html[data-profile="sunset-gradient"] .button {
 /* ===== .button-primary ===== */
 
 html[data-profile="corporate-blueprint"] .button-primary,
-html[data-profile="retro-terminal"] .button-primary,
 html[data-profile="pastel-dreamscape"] .button-primary,
 html[data-profile="sunset-gradient"] .button-primary {
   background: var(--accent);
@@ -305,11 +304,22 @@ html[data-profile="sunset-gradient"] .button-primary {
   border-color: rgba(0, 0, 0, 0.15);
 }
 
+html[data-profile="retro-terminal"] .button-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--border));
+}
+
 html[data-profile="corporate-blueprint"] .button-primary:hover,
-html[data-profile="retro-terminal"] .button-primary:hover,
 html[data-profile="pastel-dreamscape"] .button-primary:hover,
 html[data-profile="sunset-gradient"] .button-primary:hover {
   background: var(--accent-2);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+html[data-profile="retro-terminal"] .button-primary:hover {
+  background: var(--accent-2);
+  color: var(--bg);
   box-shadow: 0 0 20px var(--accent-glow);
 }
 

@@ -1,11 +1,11 @@
 # Skill: Noire Editorial Dossier Landing Template
 
 ## Canonical Target
-Noire Editorial is now a **dark dossier landing page** in this repo, not a warm-paper magazine skin and not a luxury SaaS variant with serif type pasted on top. The canonical north star is `assets/vanilla-starter/noire-editorial.html`: near-black page field, sharp gold dividers, classified badge/stamp language, redaction reveal, investigations wall, case-file spread, records feed, split briefing close, and restrained editorial motion.
+Noire Editorial is now a **dark dossier landing page** in this repo, not a warm-paper magazine skin and not a luxury SaaS variant with serif type pasted on top. The canonical north star is `themes/noire-editorial/index.html`: near-black page field, sharp gold dividers, classified badge/stamp language, redaction reveal, investigations wall, case-file spread, records feed, split briefing close, and restrained editorial motion.
 
 If a generated Noire page drifts toward warm newsprint, trust rails, pricing, testimonial carousels, or centered marketing symmetry, it has already lost the profile.
 
-> Font delivery note: These profile font families describe vanilla starter intent. In this repo's starter, fonts are self-hosted under `assets/fonts-bundled/` via `assets/vanilla-starter/styles.fonts.local.css`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
+> Font delivery note: These profile font families describe the canonical theme/runtime intent. In this repo, fonts are self-hosted under `assets/fonts-bundled/` and loaded by the canonical theme CSS in `themes/`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
 
 ## Design Philosophy
 Noire Editorial should feel like an authored report assembled by a premium night desk:
@@ -20,7 +20,7 @@ The page should read like a lead story and a briefing packet, not like a startup
 
 ## Canonical Landing Reference (Non-Negotiable)
 
-When `design_profile=noire-editorial` and the surface is a landing page, aim to reproduce the structure and tone of `assets/vanilla-starter/noire-editorial.html` rather than older generic Noire starter pages.
+When `design_profile=noire-editorial` and the surface is a landing page, aim to reproduce the structure and tone of `themes/noire-editorial/index.html` rather than older generic Noire starter pages.
 
 If the layout becomes `hero -> proof strip -> features -> testimonials -> pricing/contact`, it is invalid for the canonical Noire landing.
 

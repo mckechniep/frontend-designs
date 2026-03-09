@@ -1,7 +1,7 @@
 profile: noire-editorial
 surface: landing
 style_intent: darker-dossier-editorial
-canonical_reference: assets/vanilla-starter/noire-editorial.html
+canonical_reference: themes/noire-editorial/index.html
 layout_blueprint:
   - fixed editorial nav with uppercase links, one dossier CTA, and restrained chrome
   - split dossier hero with special-report badge, classified stamp, redacted lead line, dual CTAs, mini issue stats, and a cover-sheet card

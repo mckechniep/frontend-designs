@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Command Palette — Component Demo</title>
-    <link id="profile-css" rel="stylesheet" href="../../../assets/vanilla-starter/arctic-mono.demo.css" />
+    <link id="profile-css" rel="stylesheet" href="../../../themes/arctic-mono/theme.css" />
     <link rel="stylesheet" href="../token-bridge.css" />
     <link rel="stylesheet" href="./command-palette.css" />
     <style>
@@ -97,6 +97,7 @@
     </div>
 
     <script src="./command-palette.js"></script>
+    <script src="../../shared/preview-runtime.js" data-theme-root="../../../themes"></script>
     <script>
       /* ---- SVG icon helpers ---- */
       var icons = {
@@ -120,8 +121,12 @@
         { id: "theme-toggle",   label: "Toggle Dark Mode", group: "Theme",      icon: icons.moon,      hint: "Ctrl+Shift+T", action: function() {
           var html = document.documentElement;
           var next = html.dataset.theme === "dark" ? "light" : "dark";
-          html.dataset.theme = next;
-          document.getElementById("ts").value = next;
+          if (window.ComponentPreviewRuntime) {
+            window.ComponentPreviewRuntime.applyTheme(next);
+          } else {
+            html.dataset.theme = next;
+            document.getElementById("ts").value = next;
+          }
           log("Theme set to " + next);
         }}
       ]);
@@ -139,34 +144,6 @@
       /* ---- Manual open button ---- */
       document.getElementById("open-btn").addEventListener("click", function() {
         CommandPalette.open();
-      });
-
-      /* ---- Profile switcher ---- */
-      var profiles = {
-        "arctic-mono": "../../../assets/vanilla-starter/arctic-mono.demo.css",
-        "cyberpunk-neon": "../../../assets/vanilla-starter/cyberpunk-neon.demo.css",
-        "noire-editorial": "../../../assets/vanilla-starter/noire-editorial.demo.css",
-        "corporate-blueprint": "../../../assets/vanilla-starter/corporate-blueprint.demo.css",
-        "modern-saas": "../../../assets/vanilla-starter/modern-saas.demo.css",
-        "pastel-dreamscape": "../../../assets/vanilla-starter/pastel-dreamscape.demo.css",
-        "retro-terminal": "../../../assets/vanilla-starter/retro-terminal.demo.css",
-        "sunset-gradient": "../../../assets/vanilla-starter/sunset-gradient.demo.css",
-      };
-      var defaultThemes = {
-        "arctic-mono": "dark", "cyberpunk-neon": "dark", "noire-editorial": "dark",
-        "corporate-blueprint": "dark", "modern-saas": "dark", "retro-terminal": "dark",
-        "pastel-dreamscape": "light", "sunset-gradient": "dark",
-      };
-      var ps = document.getElementById("ps");
-      var ts = document.getElementById("ts");
-      ps.addEventListener("change", function() {
-        document.documentElement.dataset.profile = ps.value;
-        document.getElementById("profile-css").href = profiles[ps.value];
-        ts.value = defaultThemes[ps.value];
-        document.documentElement.dataset.theme = ts.value;
-      });
-      ts.addEventListener("change", function() {
-        document.documentElement.dataset.theme = ts.value;
       });
     </script>
   </body>

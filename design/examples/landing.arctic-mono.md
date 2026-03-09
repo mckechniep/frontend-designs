@@ -1,7 +1,7 @@
 profile: arctic-mono
 surface: landing
 style_intent: frost-tech-research-archive
-canonical_reference: assets/vanilla-starter/arctic-mono.html
+canonical_reference: themes/arctic-mono/index.html
 layout_blueprint:
   - hero system state with dual CTA, animated stats, and vertical scroll cue
   - section 01 core research modules grid with technical tags

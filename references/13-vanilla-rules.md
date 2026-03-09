@@ -42,7 +42,7 @@ Load this file only when Vanilla HTML/CSS/JS is the selected target.
 - For `B`, use explicit `<link>` or CSS `@import`; avoid hidden runtime fetch assumptions.
 - In `B`, keep family parity with `A` (same family intent as bundled profile fonts); change host/source only.
 - For `A`, use bundled in-repo font files via `@font-face` with explicit formats/weights and deterministic fallback stacks.
-- For this skill's vanilla starter, `A` uses `assets/vanilla-starter/styles.fonts.local.css` with files under `assets/fonts-bundled/`.
+- For this repo's canonical theme runtime, `A` uses self-hosted fonts from `assets/fonts-bundled/`, loaded by the `themes/*/theme.css` bundles.
 - For `D`, use user-provided local files/instructions and verify paths/weights.
 - If `A` is selected/defaulted but files are unavailable/invalid, attempt `B` once, then fall back to `C`.
 

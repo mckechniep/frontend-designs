@@ -1,11 +1,11 @@
 # Skill: Sunset Gradient Cinematic Enterprise Poster Template
 
 ## Canonical Target
-Sunset Gradient is now a **warm enterprise poster landing page**, not a generic SaaS page with orange and purple gradients pasted on top. The canonical landing target in this repo is `assets/vanilla-starter/sunset-gradient.html`. First-draft Sunset outputs should aim to feel materially close to that demo in composition, atmosphere, typography, and runtime behavior.
+Sunset Gradient is now a **warm enterprise poster landing page**, not a generic SaaS page with orange and purple gradients pasted on top. The canonical landing target in this repo is `themes/sunset-gradient/index.html`. First-draft Sunset outputs should aim to feel materially close to that demo in composition, atmosphere, typography, and runtime behavior.
 
 If a generated Sunset page starts reading like Modern SaaS with warmer colors, it has already drifted off profile.
 
-> Font delivery note: These profile font families describe vanilla starter intent. In this repo's starter, fonts are self-hosted under `assets/fonts-bundled/` via `assets/vanilla-starter/styles.fonts.local.css`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
+> Font delivery note: These profile font families describe the canonical theme/runtime intent. In this repo, fonts are self-hosted under `assets/fonts-bundled/` and loaded by the canonical theme CSS in `themes/`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
 
 ## Design Philosophy
 Sunset Gradient should feel like a polished launch page from a premium city software company:

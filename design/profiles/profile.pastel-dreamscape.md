@@ -1,15 +1,15 @@
 # Skill: Pastel Dreamscape Editorial Landing Template
 
 ## Design Philosophy
-Pastel Dreamscape should feel like a romantic editorial landing page with dreamy atmosphere and adult taste, not a wellness starter, not a cute creator template, and not a softened SaaS bento. The canonical vanilla north star in this repo is `assets/vanilla-starter/pastel-dreamscape.html`: translucent fixed nav, split serif hero, floating blob object, wave transition, philosophy/services/process/testimonials/CTA cadence, and softly layered glass surfaces.
+Pastel Dreamscape should feel like a romantic editorial landing page with dreamy atmosphere and adult taste, not a wellness starter, not a cute creator template, and not a softened SaaS bento. The canonical north star in this repo is `themes/pastel-dreamscape/index.html`: translucent fixed nav, split serif hero, floating blob object, wave transition, philosophy/services/process/testimonials/CTA cadence, and softly layered glass surfaces.
 
 The target is curated softness with authority. Keep the page luminous and emotional, but composition and typography must stay disciplined enough that it still feels premium.
 
-> Font delivery note: These profile font families describe vanilla starter intent. In this repo's starter, fonts are self-hosted under `assets/fonts-bundled/` via `assets/vanilla-starter/styles.fonts.local.css`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
+> Font delivery note: These profile font families describe the canonical theme/runtime intent. In this repo, fonts are self-hosted under `assets/fonts-bundled/` and loaded by the canonical theme CSS in `themes/`. For React/Next outputs, treat them as stylistic intent and use fallback chain `A -> B -> C` (skill-shipped bundled fonts, then Google-hosted skill families, then local/system).
 
 ## Canonical Landing Reference (Non-Negotiable)
 
-When `design_profile=pastel-dreamscape` and the surface is a landing page, aim to reproduce the structure and tone of `assets/vanilla-starter/pastel-dreamscape.html` rather than older generic pastel starter pages.
+When `design_profile=pastel-dreamscape` and the surface is a landing page, aim to reproduce the structure and tone of `themes/pastel-dreamscape/index.html` rather than older generic pastel starter pages.
 
 If the output drifts toward `soft hero -> proof band -> generic cards -> pricing -> centered contact`, it has lost the profile.
 

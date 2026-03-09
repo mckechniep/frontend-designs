@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Framekit — Theme Vault</title>
+    <meta
+      name="description"
+      content="Browse eight bespoke Framekit demo themes and compare the mood, structure, and visual language of each direction."
+    />
+    <link rel="icon" href="./shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="./shared/favicon.ico" />
+    <link rel="stylesheet" href="./shared/hub.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="vault-header">
+      <nav class="vault-nav" aria-label="Primary">
+        <a class="vault-brand" href="#main" aria-label="Framekit home">
+          <span class="vault-brand__dot" aria-hidden="true"></span>
+          <span class="vault-brand__text">Framekit</span>
+        </a>
+        <div class="vault-nav__links">
+          <a href="#gallery">Themes</a>
+          <a class="vault-nav__cta" href="../components/index.html">Open Components</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="vault-hero">
+        <div class="vault-hero__content">
+          <p class="vault-hero__kicker">The Collection</p>
+          <h1>Eight visual<br>directions.</h1>
+          <p class="vault-hero__lead">
+            Same brief, radically different results. Each theme below is a
+            complete visual system with its own composition, motion, and point
+            of view. Browse by mood, compare the contrast, then open the one
+            that resonates.
+          </p>
+        </div>
+        <div class="vault-hero__spectrum" aria-label="Theme color spectrum">
+          <span style="--hue: #e8a94a" data-label="SaaS"></span>
+          <span style="--hue: #00fff0" data-label="Cyber"></span>
+          <span style="--hue: #7ec8e3" data-label="Arctic"></span>
+          <span style="--hue: #c9a84c" data-label="Noire"></span>
+          <span style="--hue: #3ec6e0" data-label="Blueprint"></span>
+          <span style="--hue: #33ff33" data-label="Terminal"></span>
+          <span style="--hue: #f08db8" data-label="Pastel"></span>
+          <span style="--hue: #f48b41" data-label="Sunset"></span>
+        </div>
+      </section>
+
+      <section class="vault-gallery" id="gallery">
+        <div class="vault-grid">
+
+          <a href="./modern-saas/index.html" class="card card--saas" style="--delay: 0">
+            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__body">
+              <span class="card__num">01</span>
+              <h2 class="card__name">Modern SaaS</h2>
+              <p class="card__desc">Premium warm narrative with serif hierarchy, selective glass, and controlled conversion rhythm.</p>
+              <div class="card__tags">
+                <span>Dark</span><span>Product marketing</span><span>Premium SaaS</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="./cyberpunk-neon/index.html" class="card card--cyber" style="--delay: 1">
+            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__body">
+              <span class="card__num">02</span>
+              <h2 class="card__name">Cyberpunk Neon</h2>
+              <p class="card__desc">Neon-lit operator interface with clipped geometry, scanlines, and a command-console narrative.</p>
+              <div class="card__tags">
+                <span>Dark</span><span>Command UI</span><span>Neon ops</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="./arctic-mono/index.html" class="card card--arctic" style="--delay: 2">
+            <div class="card__canvas" data-arctic-preview>
+              <span></span><span></span><span></span>
+              <canvas class="arctic-preview-helix" aria-hidden="true"></canvas>
+            </div>
+            <div class="card__body">
+              <span class="card__num">03</span>
+              <h2 class="card__name">Arctic Mono</h2>
+              <p class="card__desc">Frost-tech research archive with diagnostic modules, mono labels, and calm editorial structure.</p>
+              <div class="card__tags">
+                <span>Light</span><span>Research archive</span><span>Monochrome</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="./noire-editorial/index.html" class="card card--noire" style="--delay: 3">
+            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__body">
+              <span class="card__num">04</span>
+              <h2 class="card__name">Noire Editorial</h2>
+              <p class="card__desc">Near-black dossier page with classified cues, redaction behavior, and luxury editorial cadence.</p>
+              <div class="card__tags">
+                <span>Dark</span><span>Dossier editorial</span><span>Luxury noir</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="./corporate-blueprint/index.html" class="card card--blueprint" style="--delay: 4">
+            <div class="card__canvas" data-blueprint-preview>
+              <span></span><span></span><span></span>
+              <div class="blueprint-preview-cursor" aria-hidden="true">
+                <span class="blueprint-preview-cursor__ring"></span>
+                <span class="blueprint-preview-cursor__h"></span>
+                <span class="blueprint-preview-cursor__v"></span>
+                <span class="blueprint-preview-cursor__coord">000,000</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <span class="card__num">05</span>
+              <h2 class="card__name">Corporate Blueprint</h2>
+              <p class="card__desc">Architectural consultancy landing with drafting-grid discipline and enterprise intake structure.</p>
+              <div class="card__tags">
+                <span>Dark</span><span>Consultancy</span><span>Drafting grid</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="./retro-terminal/index.html" class="card card--retro" style="--delay: 5">
+            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__body">
+              <span class="card__num">06</span>
+              <h2 class="card__name">Retro Terminal</h2>
+              <p class="card__desc">CRT-green cyber defense console with boot sequence, live telemetry, and terminal-native architecture.</p>
+              <div class="card__tags">
+                <span>Dark</span><span>Terminal UI</span><span>CRT console</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="./pastel-dreamscape/index.html" class="card card--pastel" style="--delay: 6">
+            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__body">
+              <span class="card__num">07</span>
+              <h2 class="card__name">Pastel Dreamscape</h2>
+              <p class="card__desc">Luminous editorial collage with floating forms, soft atmosphere, and intentionally scoped flourishes.</p>
+              <div class="card__tags">
+                <span>Light</span><span>Dream editorial</span><span>Soft collage</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="./sunset-gradient/index.html" class="card card--sunset" style="--delay: 7">
+            <div class="card__canvas"><span></span><span></span><span></span></div>
+            <div class="card__body">
+              <span class="card__num">08</span>
+              <h2 class="card__name">Sunset Gradient</h2>
+              <p class="card__desc">Cinematic warm poster page with glowing horizon depth, glass structure, and enterprise showcase pacing.</p>
+              <div class="card__tags">
+                <span>Dark</span><span>Poster narrative</span><span>Warm cinematic</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <section class="vault-lab" id="lab">
+        <a class="vault-lab__card" href="../components/index.html">
+          <div class="vault-lab__content">
+            <span class="vault-lab__kicker">Component Vault</span>
+            <h2>Inspect the reusable building blocks</h2>
+            <p>Browse universal and theme-exclusive demos built across all eight visual systems.</p>
+          </div>
+          <span class="vault-lab__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="vault-footer">
+      <p>Each theme is intentionally distinct &mdash; built as its own standalone visual experience.</p>
+    </footer>
+    <script src="./shared/hub.js" defer></script>
+  </body>
+</html>

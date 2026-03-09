@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meridian & Kirsch — Strategic Consultancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./theme.css">
+</head>
+<body>
+
+  <!-- Blueprint grid overlay -->
+  <canvas id="blueprint-grid"></canvas>
+
+  <!-- Cursor crosshair -->
+  <div class="crosshair" id="crosshair">
+    <div class="crosshair-h"></div>
+    <div class="crosshair-v"></div>
+    <div class="crosshair-coord" id="crosshair-coord"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none">
+          <rect x="2" y="2" width="36" height="36" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <line x1="20" y1="6" x2="20" y2="34" stroke="currentColor" stroke-width="1"/>
+          <line x1="6" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1"/>
+          <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="20" cy="20" r="2" fill="currentColor"/>
+        </svg>
+        <span class="nav-logo-text">M<span class="amp">&</span>K</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services" class="nav-link" data-index="01">Services</a>
+        <a href="#methodology" class="nav-link" data-index="02">Methodology</a>
+        <a href="#projects" class="nav-link" data-index="03">Projects</a>
+        <a href="#contact" class="nav-link" data-index="04">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../index.html" class="nav-link nav-link--themes">Themes</a>
+        <button class="nav-cta">Request Blueprint</button>
+      </div>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav-mobile"
+        data-nav-toggle
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile" hidden>
+      <div class="nav-mobile-panel">
+        <div class="nav-mobile-links">
+          <a href="#services" class="nav-mobile-link" data-index="01">Services</a>
+          <a href="#methodology" class="nav-mobile-link" data-index="02">Methodology</a>
+          <a href="#projects" class="nav-mobile-link" data-index="03">Projects</a>
+          <a href="#contact" class="nav-mobile-link" data-index="04">Contact</a>
+        </div>
+        <div class="nav-mobile-actions">
+          <a href="../index.html" class="nav-link nav-link--themes">Themes</a>
+          <a href="#contact" class="nav-cta nav-cta--link">Request Blueprint</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="hero">
+    <div class="hero-dimension hero-dim-top">
+      <span class="dim-line"></span>
+      <span class="dim-value">1440px</span>
+      <span class="dim-line"></span>
+    </div>
+    <div class="hero-dimension hero-dim-side">
+      <span class="dim-line"></span>
+      <span class="dim-value">100vh</span>
+      <span class="dim-line"></span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-label">
+        <span class="label-line"></span>
+        <span class="label-text">EST. 2009 — Strategic Consultancy</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-line" data-reveal>Meridian</span>
+        <span class="hero-title-line hero-title-accent" data-reveal><span class="amp-large">&</span> Kirsch</span>
+      </h1>
+      <p class="hero-subtitle" data-reveal>
+        We architect organizational transformation through<br>
+        precision strategy and measurable frameworks.
+      </p>
+      <div class="hero-actions" data-reveal>
+        <a href="#services" class="btn btn-primary">
+          <span class="btn-text">View Our Services</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#methodology" class="btn btn-outline">
+          <span class="btn-text">Our Methodology</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat" data-reveal>
+          <span class="stat-value" data-count="142">0</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat" data-reveal>
+          <span class="stat-value" data-count="96" data-suffix="%">0</span>
+          <span class="stat-label">Client Retention</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat" data-reveal>
+          <span class="stat-value" data-prefix="$" data-count="2" data-suffix=".4B">0</span>
+          <span class="stat-label">Value Created</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-annotation hero-anno-1">
+      <span class="anno-marker"></span>
+      <span class="anno-text">SECTION_01 :: HERO</span>
+    </div>
+    <div class="hero-annotation hero-anno-2">
+      <span class="anno-marker"></span>
+      <span class="anno-text">REV. 2026.03</span>
+    </div>
+
+    <div class="scroll-indicator" id="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <div class="section-index">02</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Services</h2>
+      <p class="section-desc">Precision-engineered solutions for complex organizational challenges.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card" data-reveal>
+        <div class="card-index">01</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect x="8" y="8" width="48" height="48" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <path d="M20 32 L32 20 L44 32 L32 44 Z" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="32" cy="32" r="4" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Strategic<br>Architecture</h3>
+        <p class="card-desc">Organizational blueprints that align structure, capability, and market positioning into a unified growth framework.</p>
+        <div class="card-tags">
+          <span class="tag">Org Design</span>
+          <span class="tag">M&A Integration</span>
+          <span class="tag">Market Entry</span>
+        </div>
+        <a href="#" class="card-link">
+          <span>Explore</span>
+          <span class="card-link-arrow">→</span>
+        </a>
+      </article>
+
+      <article class="service-card" data-reveal>
+        <div class="card-index">02</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <line x1="32" y1="8" x2="32" y2="56" stroke="currentColor" stroke-width="1"/>
+            <line x1="8" y1="32" x2="56" y2="32" stroke="currentColor" stroke-width="1"/>
+            <path d="M18 18 L46 46" stroke="currentColor" stroke-width="1"/>
+            <path d="M46 18 L18 46" stroke="currentColor" stroke-width="1"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Operations<br>Engineering</h3>
+        <p class="card-desc">End-to-end process redesign to eliminate friction, reduce cost, and accelerate throughput across every business function.</p>
+        <div class="card-tags">
+          <span class="tag">Process Optimization</span>
+          <span class="tag">Supply Chain</span>
+          <span class="tag">Automation</span>
+        </div>
+        <a href="#" class="card-link">
+          <span>Explore</span>
+          <span class="card-link-arrow">→</span>
+        </a>
+      </article>
+
+      <article class="service-card" data-reveal>
+        <div class="card-index">03</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <polygon points="32,6 58,48 6,48" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2" fill="none"/>
+            <polygon points="32,20 46,44 18,44" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <circle cx="32" cy="36" r="3" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Digital<br>Transformation</h3>
+        <p class="card-desc">Technology-led reinvention that embeds intelligence into every layer of the enterprise — from data to decision.</p>
+        <div class="card-tags">
+          <span class="tag">AI & ML Strategy</span>
+          <span class="tag">Cloud Migration</span>
+          <span class="tag">Data Architecture</span>
+        </div>
+        <a href="#" class="card-link">
+          <span>Explore</span>
+          <span class="card-link-arrow">→</span>
+        </a>
+      </article>
+
+      <article class="service-card" data-reveal>
+        <div class="card-index">04</div>
+        <div class="card-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect x="12" y="12" width="16" height="16" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="36" y="12" width="16" height="16" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <rect x="12" y="36" width="16" height="16" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <rect x="36" y="36" width="16" height="16" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="28" y1="20" x2="36" y2="20" stroke="currentColor" stroke-width="1"/>
+            <line x1="28" y1="44" x2="36" y2="44" stroke="currentColor" stroke-width="1"/>
+            <line x1="20" y1="28" x2="20" y2="36" stroke="currentColor" stroke-width="1"/>
+            <line x1="44" y1="28" x2="44" y2="36" stroke="currentColor" stroke-width="1"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Leadership<br>& Talent</h3>
+        <p class="card-desc">Building executive teams and organizational cultures that can sustain transformation beyond the engagement.</p>
+        <div class="card-tags">
+          <span class="tag">Executive Search</span>
+          <span class="tag">Culture Design</span>
+          <span class="tag">Succession</span>
+        </div>
+        <a href="#" class="card-link">
+          <span>Explore</span>
+          <span class="card-link-arrow">→</span>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="methodology" id="methodology">
+    <div class="section-header">
+      <div class="section-index">03</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Methodology</h2>
+      <p class="section-desc">A four-phase engagement model refined over 200+ projects.</p>
+    </div>
+
+    <div class="method-timeline">
+      <div class="method-connector"></div>
+
+      <div class="method-phase" data-reveal>
+        <div class="phase-node">
+          <div class="phase-ring"></div>
+          <div class="phase-dot"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-header">
+            <span class="phase-num">Phase I</span>
+            <span class="phase-duration">2–4 weeks</span>
+          </div>
+          <h3 class="phase-title">Discovery & Diagnostics</h3>
+          <p class="phase-desc">Comprehensive stakeholder mapping, quantitative assessment, and competitive benchmarking to establish the baseline reality of your organization.</p>
+          <div class="phase-deliverables">
+            <span class="deliverable">Diagnostic Report</span>
+            <span class="deliverable">Stakeholder Map</span>
+            <span class="deliverable">Opportunity Matrix</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="method-phase" data-reveal>
+        <div class="phase-node">
+          <div class="phase-ring"></div>
+          <div class="phase-dot"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-header">
+            <span class="phase-num">Phase II</span>
+            <span class="phase-duration">4–6 weeks</span>
+          </div>
+          <h3 class="phase-title">Blueprint Design</h3>
+          <p class="phase-desc">Translating insights into actionable architecture — defining the target state, sequencing initiatives, and modeling outcomes against investment scenarios.</p>
+          <div class="phase-deliverables">
+            <span class="deliverable">Strategic Blueprint</span>
+            <span class="deliverable">Initiative Roadmap</span>
+            <span class="deliverable">Investment Model</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="method-phase" data-reveal>
+        <div class="phase-node">
+          <div class="phase-ring"></div>
+          <div class="phase-dot"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-header">
+            <span class="phase-num">Phase III</span>
+            <span class="phase-duration">8–16 weeks</span>
+          </div>
+          <h3 class="phase-title">Guided Implementation</h3>
+          <p class="phase-desc">Embedded advisory through execution — sprint-based delivery with weekly calibration, risk mitigation, and real-time course correction.</p>
+          <div class="phase-deliverables">
+            <span class="deliverable">Sprint Cadence</span>
+            <span class="deliverable">Risk Register</span>
+            <span class="deliverable">Progress Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="method-phase" data-reveal>
+        <div class="phase-node">
+          <div class="phase-ring"></div>
+          <div class="phase-dot"></div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-header">
+            <span class="phase-num">Phase IV</span>
+            <span class="phase-duration">Ongoing</span>
+          </div>
+          <h3 class="phase-title">Measurement & Refinement</h3>
+          <p class="phase-desc">Post-implementation analytics, KPI tracking, and iterative refinement to ensure sustainable performance beyond the engagement window.</p>
+          <div class="phase-deliverables">
+            <span class="deliverable">KPI Framework</span>
+            <span class="deliverable">Impact Assessment</span>
+            <span class="deliverable">Sustainability Plan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="projects" id="projects">
+    <div class="section-header">
+      <div class="section-index">04</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-desc">A sample of engagements across sector and scale.</p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card project-card-wide" data-reveal>
+        <div class="project-overlay"></div>
+        <div class="project-meta">
+          <span class="project-sector">Financial Services</span>
+          <span class="project-year">2025</span>
+        </div>
+        <h3 class="project-title">Global Banking<br>Integration</h3>
+        <p class="project-result">Unified operations across 14 markets following a $3.2B acquisition — achieved in 11 months, 4 months ahead of schedule.</p>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-value">$480M</span>
+            <span class="metric-label">Synergies Captured</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">14</span>
+            <span class="metric-label">Markets Unified</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-overlay"></div>
+        <div class="project-meta">
+          <span class="project-sector">Healthcare</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h3 class="project-title">Digital Health<br>Platform</h3>
+        <p class="project-result">End-to-end digital transformation of patient journey across 200+ facilities.</p>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-value">62%</span>
+            <span class="metric-label">Efficiency Gain</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-overlay"></div>
+        <div class="project-meta">
+          <span class="project-sector">Energy</span>
+          <span class="project-year">2025</span>
+        </div>
+        <h3 class="project-title">Renewable<br>Transition</h3>
+        <p class="project-result">Strategic roadmap for Fortune 100 energy company's transition to 80% renewable operations.</p>
+        <div class="project-metrics">
+          <div class="metric">
+            <span class="metric-value">$1.2B</span>
+            <span class="metric-label">Investment Planned</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-header">
+          <div class="section-index">05</div>
+          <div class="section-line"></div>
+          <h2 class="section-title">Start a Conversation</h2>
+          <p class="section-desc">Every engagement begins with understanding. Tell us where you are and where you need to be.</p>
+        </div>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-label">General Inquiries</span>
+            <a href="mailto:hello@meridiankirsch.com" class="contact-value">hello@meridiankirsch.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">New Business</span>
+            <a href="mailto:engage@meridiankirsch.com" class="contact-value">engage@meridiankirsch.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Offices</span>
+            <span class="contact-value">New York — London — Singapore — Sydney</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Jane Richardson" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="jane@company.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="company">Organization</label>
+            <input type="text" id="company" class="form-input" placeholder="Acme Corporation">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">How can we help?</label>
+            <textarea id="message" class="form-input form-textarea" placeholder="Describe your challenge or objective..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span class="btn-text">Submit Inquiry</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">Meridian <span class="amp">&</span> Kirsch</span>
+          <p class="footer-tagline">Architecting transformation<br>since 2009.</p>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Services</h4>
+            <a href="#" class="footer-link">Strategic Architecture</a>
+            <a href="#" class="footer-link">Operations Engineering</a>
+            <a href="#" class="footer-link">Digital Transformation</a>
+            <a href="#" class="footer-link">Leadership & Talent</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Company</h4>
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Careers</a>
+            <a href="#" class="footer-link">Insights</a>
+            <a href="#" class="footer-link">Press</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Connect</h4>
+            <a href="#" class="footer-link">LinkedIn</a>
+            <a href="#" class="footer-link">Twitter</a>
+            <a href="#" class="footer-link">Newsletter</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Meridian & Kirsch Consultancy. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#" class="footer-legal-link">Privacy</a>
+          <a href="#" class="footer-legal-link">Terms</a>
+          <a href="#" class="footer-legal-link">Cookies</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-blueprint-stamp">
+      <span>DRAWING NO. MK-2026-LP-001</span>
+      <span>SCALE: 1:1</span>
+      <span>SHEET 1 OF 1</span>
+    </div>
+  </footer>
+
+  <script src="./page.js"></script>
+</body>
+</html>

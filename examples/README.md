@@ -49,7 +49,7 @@ Choose one mode per scenario and keep it identical in both runs:
 For `A`:
 
 - store font files in-repo (for example `public/fonts/` or `assets/fonts/`)
-- for this skill's vanilla starter, use `assets/fonts-bundled/` + `assets/vanilla-starter/styles.fonts.local.css`
+- for this repo's canonical theme runtime, use `assets/fonts-bundled/` + the font-face declarations shipped in `themes/*/theme.css`
 - record exact file paths and weights in scenario `notes.md`
 
 ## Required Files Per Scenario

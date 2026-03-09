@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-fixed-profile="modern-saas" data-fixed-profile-stylesheet="./theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modern SaaS — Vanilla UI Starter</title>
+    <meta name="description" content="Premium warm product narrative with serif-led hierarchy and selective glass." />
+    <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../shared/favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./theme.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button
+            class="icon-button"
+            type="button"
+            data-menu-button
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#features">Platform</a></li>
+            <li><a class="nav-link" href="#workflow">Workflow</a></li>
+            <li><a class="nav-link" href="#pricing">Pricing</a></li>
+            <li><a class="nav-link" href="#contact">Demo</a></li>
+            <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Book demo</a>
+        </nav>
+      </div>
+
+      <div
+        class="container mobile-menu"
+        id="mobile-menu"
+        data-mobile-menu
+        hidden
+      >
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#features">Platform</a></li>
+          <li><a class="nav-link" href="#workflow">Workflow</a></li>
+          <li><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li><a class="nav-link" href="#contact">Demo</a></li>
+          <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="orb orb-3"></div>
+        </div>
+
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="badge">Series A ready</p>
+            <h1 class="h1">
+              Revenue-minded product pages for software teams that need polish and <em>proof</em>.
+            </h1>
+            <p class="lead">
+              This is the canonical modern SaaS pass: seamless atmosphere, layered glass surfaces, premium product framing, and enough restraint that buyers can still scan it at speed.
+            </p>
+
+            <div class="cta-row">
+              <a class="button button-primary" href="#contact">Book demo</a>
+              <a class="button button-ghost" href="#features">See platform</a>
+            </div>
+
+            <div class="hero-proof" aria-label="Proof points">
+              <div class="hero-avatars" aria-hidden="true">
+                <span>AP</span>
+                <span>RM</span>
+                <span>SL</span>
+                <span>KT</span>
+              </div>
+              <p class="hero-proof-text">
+                The page is designed to bridge product marketing and sales motion: premium enough for executives, clear enough for operators.
+              </p>
+            </div>
+
+            <div class="mini-stats" aria-label="Highlights">
+              <div class="mini-stat">
+                <div class="mini-stat__value">38%</div>
+                <div class="mini-stat__label">Faster scan time</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">$42k</div>
+                <div class="mini-stat__label">Pipeline influenced</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">99.9%</div>
+                <div class="mini-stat__label">Trust posture</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Pipeline preview">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="h3">Pipeline preview</h2>
+                <p class="muted">
+                  Use the live surface to check whether the atmosphere feels premium without obscuring the actual product story.
+                </p>
+              </div>
+
+              <div class="card-body">
+                <div class="preview-shell" aria-hidden="true">
+                  <div class="preview-bar">
+                    <span class="preview-dot"></span>
+                    <span class="preview-dot"></span>
+                    <span class="preview-dot"></span>
+                  </div>
+                  <div class="preview-stage" data-preview-stage></div>
+                </div>
+
+                <div class="form-row">
+                  <label class="label" for="email">Work email</label>
+                  <input
+                    class="input"
+                    id="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="team@signalstack.com"
+                  />
+                </div>
+
+                <div class="form-row">
+                  <label class="label" for="plan">Pipeline</label>
+                  <select class="select" id="plan">
+                    <option>PLG audit</option>
+                    <option>Enterprise motion</option>
+                    <option>Messaging refresh</option>
+                  </select>
+                </div>
+
+                <button
+                  class="button button-primary button-full"
+                  type="button"
+                  data-toast-button
+                >
+                  Reserve slot
+                </button>
+
+                <p class="hint" id="hint">
+                  Portfolio preview. The profile stays locked while theme controls remain available.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="toast"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              hidden
+              data-toast
+            >
+              Direction saved.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-bar" aria-label="Modern SaaS traits">
+        <div class="container">
+          <p class="trust-label">Tuned for premium SaaS positioning, not generic launch-page gloss</p>
+          <div class="trust-logos">
+            <span>Glass depth</span>
+            <span>Buyer clarity</span>
+            <span>Layered proof</span>
+            <span>Calm motion</span>
+            <span>Revenue framing</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="features">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Platform overview</h2>
+            <p class="muted">
+              The structure is designed to move from product promise to workflow credibility without ever losing the premium look.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="feature-icon amber" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <rect x="6" y="9" width="36" height="24" rx="4"></rect>
+                  <path d="M16 39h16"></path>
+                  <path d="M24 33v6"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Premium hero</h3>
+              <p class="muted">
+                A large opening frame establishes the market category, the differentiation, and the product’s confidence level in seconds.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon sage" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M24 40s12-6 12-15V13l-12-5-12 5v12c0 9 12 15 12 15z"></path>
+                  <path d="M19 24l4 4 7-8"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Trust rail</h3>
+              <p class="muted">
+                The proof band is treated like part of the sales narrative rather than a decorative logo strip.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon coral" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M13 35v-6a7 7 0 0 1 7-7h8"></path>
+                  <path d="M35 13v6a7 7 0 0 1-7 7h-8"></path>
+                  <path d="M17 18l-4 4 4 4"></path>
+                  <path d="M31 30l4-4-4-4"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Product narrative</h3>
+              <p class="muted">
+                Spotlight sections make room for the wedge, the operating model, and the proof that closes skeptical buyers.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon sage" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M14 10h20a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path>
+                  <path d="M18 18h12"></path>
+                  <path d="M18 24h12"></path>
+                  <path d="M18 30h8"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Launch workflow</h3>
+              <p class="muted">
+                The middle of the page explains how the product actually fits into a team’s operating sequence.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon amber" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M12 36h24"></path>
+                  <path d="M16 36V22"></path>
+                  <path d="M24 36V14"></path>
+                  <path d="M32 36V27"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Proof dashboard</h3>
+              <p class="muted">
+                Metrics sit close to the story so claims feel quantified rather than aspirational.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon coral" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M12 15h24v18H12z"></path>
+                  <path d="M16 21h16"></path>
+                  <path d="M16 27h10"></path>
+                  <path d="M30 31l3 3 5-7"></path>
+                </svg>
+              </div>
+              <h3 class="h3">High-intent close</h3>
+              <p class="muted">
+                The close is optimized for the next sales conversation, not just for a low-commitment newsletter signup.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section spotlight" aria-labelledby="spotlight-title">
+        <div class="container spotlight-grid">
+          <div class="spotlight-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Product Story</span>
+            </div>
+            <h2 class="h2" id="spotlight-title">
+              Move from polished landing page to credible go-to-market surface.
+            </h2>
+            <p class="lead">
+              The modern SaaS profile works when the atmosphere feels premium but the product argument stays crisp enough for buyers, operators, and founders to agree on quickly.
+            </p>
+            <ul class="spotlight-list">
+              <li>Frame one category wedge clearly in the hero.</li>
+              <li>Stack proof close to the product narrative instead of burying it down-page.</li>
+              <li>Keep every surface ready for a future product screenshot or workflow diagram.</li>
+            </ul>
+          </div>
+
+          <div class="spotlight-stack">
+            <article class="card spotlight-panel">
+              <div class="card-header">
+                <h3 class="h3">Messaging stack</h3>
+              </div>
+              <div class="card-body">
+                <p class="muted">
+                  Hero promise, operational detail, quantified proof, then pricing. The order matters more here than ornament.
+                </p>
+              </div>
+            </article>
+
+            <article class="card spotlight-panel">
+              <div class="card-header">
+                <h3 class="h3">Handoff</h3>
+              </div>
+              <div class="card-body">
+                <div class="mini-stats">
+                  <div class="mini-stat">
+                    <div class="mini-stat__value">Sales</div>
+                    <div class="mini-stat__label">Can use it</div>
+                  </div>
+                  <div class="mini-stat">
+                    <div class="mini-stat__value">Design</div>
+                    <div class="mini-stat__label">Can scale it</div>
+                  </div>
+                  <div class="mini-stat">
+                    <div class="mini-stat__value">Eng</div>
+                    <div class="mini-stat__label">Can ship it</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section how-it-works" id="workflow">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Workflow</span>
+            </div>
+            <h2 class="h2">Set the wedge, stack the proof, route the next action.</h2>
+            <p class="muted">
+              The page is organized like a go-to-market sequence rather than a design exercise.
+            </p>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step__number step__number--amber">1</div>
+              <h3 class="h3">Define the wedge</h3>
+              <p class="muted">
+                State exactly who the product is for and why it is materially better than the safer incumbent option.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step__number step__number--sage">2</div>
+              <h3 class="h3">Stack the proof</h3>
+              <p class="muted">
+                Back the promise with workflow detail, buyer-safe language, and one compact data band that feels believable.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step__number step__number--coral">3</div>
+              <h3 class="h3">Route the action</h3>
+              <p class="muted">
+                End on the right ask for the motion: demo, trial, or procurement follow-up, not a vague generic button.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="metrics">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Revenue proof</h2>
+            <p class="muted">
+              These figures keep the premium tone tethered to actual business outcomes.
+            </p>
+          </div>
+
+          <div class="metrics-grid" role="list">
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Demo-to-trial lift</div>
+              <div class="metric__value">14%</div>
+              <div class="metric__delta metric__delta--up">Quarterly</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Qualified meetings</div>
+              <div class="metric__value">22</div>
+              <div class="metric__delta metric__delta--up">This month</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Pricing clarity</div>
+              <div class="metric__value">91%</div>
+              <div class="metric__delta metric__delta--up">Buyer survey</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Sales objections</div>
+              <div class="metric__value">03</div>
+              <div class="metric__delta metric__delta--down">Repeated</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Pricing</span>
+            </div>
+            <h2 class="h2">Clear packaging for the motion you actually run.</h2>
+            <p class="muted">
+              These plans are framed for product-led teams growing into a more structured sales motion.
+            </p>
+          </div>
+
+          <div class="pricing-toggle" role="radiogroup" aria-label="Billing period">
+            <button
+              class="pricing-toggle__option pricing-toggle__option--active"
+              type="button"
+              data-billing="monthly"
+              aria-checked="true"
+              role="radio"
+            >
+              Monthly
+            </button>
+            <button
+              class="pricing-toggle__option"
+              type="button"
+              data-billing="annual"
+              aria-checked="false"
+              role="radio"
+            >
+              Annual
+              <span class="pricing-toggle__badge">Save 25%</span>
+            </button>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card card">
+              <div class="pricing-card__header">
+                <h3 class="h3">Starter</h3>
+                <p class="muted">For new product teams tightening their story.</p>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-price-monthly="29" data-price-annual="22">
+                  <span class="pricing-card__currency">$</span><span data-price-value>29</span>
+                </span>
+                <span class="pricing-card__period">/ seat</span>
+              </div>
+              <ul class="pricing-card__features">
+                <li>Landing page system</li>
+                <li>Shared component library</li>
+                <li>Email support</li>
+                <li>Up to 5 teammates</li>
+              </ul>
+              <a class="button button-ghost button-full" href="#contact">Start now</a>
+            </article>
+
+            <article class="pricing-card pricing-card--featured card">
+              <span class="pricing-card__badge">Most Popular</span>
+              <div class="pricing-card__header">
+                <h3 class="h3">Growth</h3>
+                <p class="muted">For teams with active pipeline and sharper buyer segmentation.</p>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-price-monthly="79" data-price-annual="59">
+                  <span class="pricing-card__currency">$</span><span data-price-value>79</span>
+                </span>
+                <span class="pricing-card__period">/ seat</span>
+              </div>
+              <ul class="pricing-card__features">
+                <li>Everything in Starter</li>
+                <li>Proof-driven pricing section</li>
+                <li>Persona-specific variants</li>
+                <li>Priority review cycle</li>
+                <li>Analytics-ready handoff</li>
+              </ul>
+              <a class="button button-primary button-full" href="#contact">Book demo</a>
+            </article>
+
+            <article class="pricing-card card">
+              <div class="pricing-card__header">
+                <h3 class="h3">Scale</h3>
+                <p class="muted">For mature teams aligning product marketing and sales enablement.</p>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-price-monthly="149" data-price-annual="112">
+                  <span class="pricing-card__currency">$</span><span data-price-value>149</span>
+                </span>
+                <span class="pricing-card__period">/ seat</span>
+              </div>
+              <ul class="pricing-card__features">
+                <li>Everything in Growth</li>
+                <li>Executive message track</li>
+                <li>Enterprise proof surfaces</li>
+                <li>Dedicated rollout support</li>
+                <li>Custom implementation planning</li>
+              </ul>
+              <a class="button button-ghost button-full" href="#contact">Talk to sales</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Demo</span>
+            </div>
+            <h2 class="h2">Book the modern SaaS pass before the next launch cycle slips.</h2>
+            <p class="lead">
+              Use this direction when the page needs to feel premium, credible, and commercially sharp on day one.
+            </p>
+            <ul class="contact-points">
+              <li>Ideal for software products with a defined buyer and an active revenue motion.</li>
+              <li>Works best when product screenshots, workflow diagrams, and proof points are ready to slot in.</li>
+              <li>Use the Component Vault to pressure-test buttons, forms, and cards outside the full landing page.</li>
+            </ul>
+          </div>
+
+          <form class="card form contact-form" novalidate data-contact-form>
+            <div class="form-row">
+              <label class="label" for="name">Name</label>
+              <input
+                class="input"
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+              <p class="error" data-error-for="name" hidden>
+                Please enter your name.
+              </p>
+            </div>
+
+            <div class="form-row">
+              <label class="label" for="message">Demo brief</label>
+              <textarea
+                class="textarea"
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+              <p class="error" data-error-for="message" hidden>
+                Please enter a message.
+              </p>
+            </div>
+
+            <button class="button button-primary button-full" type="submit">
+              Request demo
+            </button>
+            <p class="hint">No network request is made in this starter.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-row">
+        <p class="muted">
+          © <span data-year></span> Framekit. Profile-ready vanilla starter.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./page.js" defer></script>
+  </body>
+</html>

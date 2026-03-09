@@ -1,6 +1,22 @@
 /* ========== Breadcrumb ========== */
 /* Token-driven navigation breadcrumb. Works with all 8 theme profiles. */
 
+nav[aria-label="Breadcrumb"] {
+  /* Reset broad page-level theme nav rules inside the isolated demo. */
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: block;
+  justify-content: initial;
+  align-items: stretch;
+  padding: 0;
+  transition: none;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
 .breadcrumb {
   display: flex;
   align-items: center;
