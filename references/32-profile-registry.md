@@ -24,10 +24,12 @@ Canonical source of profile IDs, labels, defaults, and design references.
 - Keep labels/descriptors consistent with user-facing menus.
 - Keep default theme values aligned with `themes/shared/theme-registry.json`.
 
-For Vanilla starter compatibility:
+Runtime alignment:
 
+- Canonical theme pages live under `themes/<profile>/index.html`.
 - Canonical theme runtime CSS lives under `themes/<profile>/theme.css`.
 - `design/profiles/styles.profile.*.css` is the canonical design-contract copy.
+- Canonical surface examples live under `design/examples/<surface>.<profile>.md` when present.
 
 ## React/Next Local/System Fallback Map
 

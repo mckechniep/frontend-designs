@@ -9,6 +9,8 @@
  * Structure (Marketing/Landing pattern):
  *   Header → Hero → Features → Metrics → CTA → Footer
  *
+ * Keep the exported buildBrief aligned with shared/build-brief.contract.json.
+ *
  * Each section is a composable block — remove, reorder, or add sections freely.
  * Tailwind utility classes only. Responsive at 360px+.
  */
@@ -16,6 +18,19 @@
 "use client";
 
 import { useState } from "react";
+
+export const buildBrief = {
+  profile_id: "choose-profile",
+  surface_archetype: "landing",
+  output_target: "react",
+  styling_system: "tailwind",
+  theme_mode: "choose-theme-mode",
+  expressive_intensity: "balanced",
+  component_scope: {
+    mode: "starter",
+    requested_components: [],
+  },
+} as const;
 
 /* ── Props ────────────────────────────────────────────────── */
 interface PageProps {

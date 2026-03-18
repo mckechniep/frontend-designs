@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="retro-terminal" data-fixed-profile="retro-terminal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nexus Sentinel — Retro Terminal Dashboard</title>
+    <meta
+      name="description"
+      content="Canonical Retro Terminal dashboard surface for Framekit with CRT telemetry, hard-edged shells, and operational console pacing."
+    />
+    <link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../../shared/favicon.ico" />
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="../../shared/surface-showcase.css" />
+  </head>
+  <body class="surface-runtime">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-frame">
+      <header class="surface-frame__header">
+        <a class="surface-frame__brand" href="../index.html">
+          <span class="surface-frame__brand-mark" aria-hidden="true"></span>
+          <span class="surface-frame__brand-copy">
+            <span class="surface-frame__brand-kicker">retro-terminal / dashboard</span>
+            <span class="surface-frame__brand-name">Nexus Sentinel</span>
+          </span>
+        </a>
+        <div class="surface-frame__links" role="navigation" aria-label="Surface routes">
+          <a href="../index.html">Landing</a>
+          <a class="is-active" href="./index.html">Dashboard</a>
+          <a href="../app-screen/index.html">App screen</a>
+        </div>
+        <div class="surface-frame__actions">
+          <a href="../../index.html">Theme Vault</a>
+          <a class="surface-frame__button" href="../../../build/index.html">Build brief</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <section class="surface-hero">
+          <div class="surface-hero__copy">
+            <span class="surface-pill">command center</span>
+            <h1>Live telemetry, process pressure, and shell-native alerts for operator-first founders.</h1>
+            <p>
+              Retro Terminal keeps the dashboard square, mono-led, and operational.
+              Everything reads like a real shell module: green-on-black, hard-edged,
+              with amber and red reserved for meaningful system state rather than
+              decorative color variety.
+            </p>
+          </div>
+          <aside class="surface-stat-grid">
+            <article class="surface-stat"><div class="surface-stat__label">Active sessions</div><div class="surface-stat__value">148</div></article>
+            <article class="surface-stat"><div class="surface-stat__label">Threat queue</div><div class="surface-stat__value">09</div></article>
+            <article class="surface-stat"><div class="surface-stat__label">Dropped packets</div><div class="surface-stat__value">1.2%</div></article>
+            <article class="surface-stat"><div class="surface-stat__label">Patch lag</div><div class="surface-stat__value">04h</div></article>
+          </aside>
+        </section>
+
+        <section class="surface-grid surface-grid--dashboard">
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">netstat mix</div>
+                <h2>Current console pressure</h2>
+              </div>
+              <span class="surface-badge">root shell</span>
+            </div>
+            <div class="surface-bars">
+              <div><div class="surface-bar__meta"><strong>Ingress noise</strong><span>61%</span></div><div class="surface-bar__track"><div class="surface-bar__fill" style="width: 61%"></div></div></div>
+              <div><div class="surface-bar__meta"><strong>Patch confidence</strong><span>74%</span></div><div class="surface-bar__track"><div class="surface-bar__fill" style="width: 74%"></div></div></div>
+              <div><div class="surface-bar__meta"><strong>Operator load</strong><span>47%</span></div><div class="surface-bar__track"><div class="surface-bar__fill" style="width: 47%"></div></div></div>
+            </div>
+          </article>
+
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">console rules</div>
+                <h3>Identity guardrails</h3>
+              </div>
+            </div>
+            <div class="surface-notes">
+              <article class="surface-note"><div class="surface-note__index">01</div><p>Do not round the shell back into a SaaS card layout just because the screen is data-heavy.</p></article>
+              <article class="surface-note"><div class="surface-note__index">02</div><p>Mono type leads nearly everything; bright terminal green stays the core signal color.</p></article>
+              <article class="surface-note"><div class="surface-note__index">03</div><p>Glow and scanlines can stay subtle once the data density is doing the work.</p></article>
+            </div>
+          </article>
+        </section>
+
+        <section class="surface-panel" style="margin-top: 20px;">
+          <div class="surface-panel__head">
+            <div>
+              <div class="surface-panel__eyebrow">incident log</div>
+              <h3>Open command queue</h3>
+            </div>
+            <span class="surface-badge">watchlist</span>
+          </div>
+          <div class="surface-table">
+            <div class="surface-table__head"><span>Command</span><span>Node</span><span>Owner</span><span>Result</span></div>
+            <div class="surface-table__row"><strong>patch --verify</strong><span>sentinel-03</span><span>ops/root</span><span>Hold / amber</span></div>
+            <div class="surface-table__row"><strong>route --flush</strong><span>relay-11</span><span>delta/desk</span><span>Queued</span></div>
+            <div class="surface-table__row"><strong>audit --session</strong><span>vault-02</span><span>nexus/lead</span><span>Complete</span></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -9,6 +9,8 @@
  *      - Only use `next/font/google` when user explicitly asks and environment supports network access.
  *      - Prefer `next/font/local` for custom brand fonts committed in-repo.
  *   4. Add global providers (theme, auth, etc.) inside the body wrapper
+ *   5. Source profile/surface choices from the page-level buildBrief contract
+ *      defined in shared/build-brief.contract.json.
  *
  * This is a Server Component by default.
  * Wrap interactive children (nav, theme toggle) in their own "use client" files.

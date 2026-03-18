@@ -11,10 +11,24 @@
  *   - forwardRef for DOM access and composition
  *   - className merging via cn() utility (install: npm i clsx tailwind-merge)
  *   - Variants through conditional classes, not separate components
+ *   - Keep buildBrief aligned with shared/build-brief.contract.json when adapting this into a live demo
  *   - Tailwind utility classes only — no inline styles
  */
 
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
+
+export const buildBrief = {
+  profile_id: "choose-profile",
+  surface_archetype: "component-demo",
+  output_target: "react",
+  styling_system: "tailwind",
+  theme_mode: "choose-theme-mode",
+  expressive_intensity: "balanced",
+  component_scope: {
+    mode: "universal",
+    requested_components: ["component-name"],
+  },
+} as const;
 
 /* ── Utility: className merger ────────────────────────────── */
 /* Replace with your project's cn() import if you have one:

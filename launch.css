@@ -1,0 +1,242 @@
+@import url("./shared/site-shell.css");
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 28px;
+  padding-top: 56px;
+}
+
+.hero__content h1 {
+  max-width: 12ch;
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 8vw, 6.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.hero__lead {
+  max-width: 62ch;
+  margin: 24px 0 0;
+  color: var(--site-muted);
+  font-size: 1.05rem;
+  line-height: 1.76;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.hero__panel {
+  padding: 24px;
+}
+
+.hero__panel-kicker {
+  margin: 0 0 18px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--site-dim);
+}
+
+.hero__stats {
+  display: grid;
+  gap: 14px;
+}
+
+.hero__stat {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hero__stat-value {
+  font-family: var(--font-display);
+  font-size: 2.05rem;
+  letter-spacing: -0.04em;
+}
+
+.hero__stat-label {
+  color: var(--site-muted);
+}
+
+.route-grid,
+.profile-grid,
+.anchor-grid,
+.stage-cards {
+  display: grid;
+  gap: 18px;
+}
+
+.route-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.route-card,
+.anchor-card,
+.stage-card,
+.profile-card {
+  padding: 22px;
+  text-decoration: none;
+}
+
+.route-card__num,
+.anchor-card__meta,
+.stage-card__label,
+.profile-card__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--site-dim);
+}
+
+.route-card h3,
+.anchor-card h3,
+.stage-card h3,
+.profile-card h3 {
+  margin: 0;
+  font-size: 1.28rem;
+}
+
+.route-card p,
+.anchor-card p,
+.stage-card p,
+.profile-card p,
+.profile-card__status,
+.profile-card__stack-line {
+  margin: 14px 0 0;
+  color: var(--site-muted);
+  line-height: 1.68;
+}
+
+.profile-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.profile-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.profile-card__theme {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--site-border);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--site-dim);
+}
+
+.profile-card__surface-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.profile-card__surface-links a {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--site-border);
+  text-decoration: none;
+  color: var(--site-muted);
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.profile-card__surface-links a:hover,
+.profile-card__surface-links a:focus-visible {
+  border-color: var(--site-border-strong);
+  color: var(--site-text);
+}
+
+.profile-card__stack-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.profile-card__stack-line span {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--site-border);
+}
+
+.anchor-grid,
+.stage-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.launch-callout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 26px;
+}
+
+.launch-callout h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.98;
+}
+
+.launch-callout p {
+  max-width: 62ch;
+  margin: 16px 0 0;
+  color: var(--site-muted);
+  line-height: 1.74;
+}
+
+.launch-callout__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .hero,
+  .launch-callout {
+    grid-template-columns: 1fr;
+  }
+
+  .route-grid,
+  .profile-grid,
+  .anchor-grid,
+  .stage-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .launch-callout__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 36px;
+  }
+
+  .hero__content h1 {
+    max-width: 11ch;
+  }
+}

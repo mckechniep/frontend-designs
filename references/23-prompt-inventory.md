@@ -39,6 +39,14 @@ Scope lock: I can’t infer stack/contracts yet from this repo, so lock these 3 
    - profile recipe lock: default is `signature-on` (recommended); choose `softened` only if you want a less theatrical first draft
 ```
 
+## Surface Archetype Clarifier (Verbatim)
+
+Use only when `surface_archetype` cannot be inferred from the user request or touched files and the choice changes which canonical example should be loaded.
+
+```text
+One scope-lock item is still ambiguous: which surface should I treat this as: `landing`, `dashboard`, `app-screen`, or `component-demo`? If it’s mixed, I’ll use `mixed-other`.
+```
+
 ## Existing UI Intervention Prompt (Verbatim)
 
 Source: `references/21-existing-ui-triage.md`

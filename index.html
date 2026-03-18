@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Framekit — Frontend Direction Vault &amp; Brief Builder</title>
+    <meta
+      name="description"
+      content="Framekit is a static frontend direction vault with theme demos, component demos, and a guided brief builder."
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./launch.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-brand" href="./index.html" aria-label="Framekit home">
+          <span class="site-brand__dot" aria-hidden="true"></span>
+          <span class="site-brand__text">Framekit</span>
+        </a>
+        <div class="site-nav__links">
+          <a href="./themes/index.html">Themes</a>
+          <a href="./components/index.html">Components</a>
+          <a href="./build/index.html">Brief Builder</a>
+          <a class="site-nav__cta" href="./build/index.html">Open Brief Builder</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="eyebrow">Static showroom for frontend direction</p>
+          <h1>Eight visual systems. One brief builder. A product people can actually use.</h1>
+          <p class="hero__lead">
+            Framekit is a static site for browsing frontend direction. Users open
+            the theme vault, inspect the component demos, and generate a locked
+            brief that points at the real runtime or starter source already
+            shipped in this repo.
+          </p>
+          <div class="hero__actions">
+            <a class="button-primary" href="./themes/index.html">Browse Theme Vault</a>
+            <a class="button-secondary" href="./build/index.html">Open Brief Builder</a>
+          </div>
+        </div>
+        <aside class="hero__panel site-card" aria-label="Coverage snapshot">
+          <p class="hero__panel-kicker">What Ships Today</p>
+          <div class="hero__stats" data-coverage-summary></div>
+        </aside>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <p class="section-kicker">How it works</p>
+          <h2>Users browse the work, then export a brief.</h2>
+          <p>
+            The product is intentionally static-first. Framekit is the public
+            showroom and brief builder. If generation ever becomes a separate
+            app, it should live outside this repo.
+          </p>
+        </div>
+        <div class="route-grid">
+          <a class="route-card site-card" href="./themes/index.html">
+            <span class="route-card__num">01</span>
+            <h3>Theme Vault</h3>
+            <p>Open all eight canonical profiles and compare landing, dashboard, and app-screen runtimes.</p>
+          </a>
+          <a class="route-card site-card" href="./components/index.html">
+            <span class="route-card__num">02</span>
+            <h3>Component Vault</h3>
+            <p>Inspect token-driven universal components and theme-exclusive building blocks across the profiles.</p>
+          </a>
+          <a class="route-card site-card" href="./build/index.html">
+            <span class="route-card__num">03</span>
+            <h3>Brief Builder</h3>
+            <p>Generate a locked build brief, prompt draft, and source recommendations from the shipped coverage registry.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <p class="section-kicker">Profile Matrix</p>
+          <h2>The design system is the product.</h2>
+          <p>
+            Each profile below is a real runtime family, not a loose mood board.
+            Coverage is generated from the same support registry that powers the
+            builder, so public claims stay tied to actual artifacts.
+          </p>
+        </div>
+        <div class="profile-grid" data-profile-grid></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-head">
+          <p class="section-kicker">Product Shape</p>
+          <h2>Framekit is a static vault with a builder, not a hosted generator.</h2>
+          <p>
+            The useful thing here is simple: browse the visual systems, inspect
+            the components, then leave with a brief you can build from. The repo
+            also contains starter and anchor source files, but those are support
+            material for the product, not the product itself.
+          </p>
+        </div>
+        <div class="anchor-grid">
+          <a class="anchor-card site-card" href="./themes/index.html">
+            <span class="anchor-card__meta">Public route / themes</span>
+            <h3>Theme Vault</h3>
+            <p>Eight profile families with live landing, dashboard, and app-screen examples.</p>
+          </a>
+          <a class="anchor-card site-card" href="./components/index.html">
+            <span class="anchor-card__meta">Public route / components</span>
+            <h3>Component Vault</h3>
+            <p>Universal and theme-exclusive demos that show what each direction can actually support.</p>
+          </a>
+          <a class="anchor-card site-card" href="./build/index.html">
+            <span class="anchor-card__meta">Public route / builder</span>
+            <h3>Brief Builder</h3>
+            <p>Turns the shipped coverage data into a build brief, prompt draft, and recommended starting sources.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section-block stage-grid">
+        <div class="section-head">
+          <p class="section-kicker">Finish Line</p>
+          <h2>Finish the static product first. Keep future app work separate.</h2>
+          <p>
+            The repo is strongest when it behaves like a clear public site with
+            honest coverage. Anything involving auth, jobs, saved workspaces, or
+            generation belongs in a separate application later.
+          </p>
+        </div>
+        <div class="stage-cards">
+          <article class="stage-card site-card">
+            <span class="stage-card__label">Now</span>
+            <h3>Public site</h3>
+            <p>Ship the homepage, theme vault, component vault, and brief builder as the finished Framekit experience.</p>
+          </article>
+          <article class="stage-card site-card">
+            <span class="stage-card__label">Next</span>
+            <h3>Sharper builder</h3>
+            <p>Improve coverage validation, export/shareable briefs, and clearer starter-vs-runtime recommendations.</p>
+          </article>
+          <article class="stage-card site-card">
+            <span class="stage-card__label">Later</span>
+            <h3>Separate app</h3>
+            <p>If you build generation, previews, or saved workspaces, put them on a separate app surface instead of bloating this repo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block launch-callout site-card">
+        <div>
+          <p class="section-kicker">Deployment posture</p>
+          <h2>Ship Framekit as a static public site.</h2>
+          <p>
+            Prefer Cloudflare Pages for git previews and simple static deploys.
+            Keep GitHub Pages as the fallback only if you also handle subpath
+            routing correctly. Keep any future generator on a separate app
+            subdomain or repo.
+          </p>
+        </div>
+        <div class="launch-callout__actions">
+          <a class="button-primary" href="./build/index.html">Open brief builder</a>
+          <a class="button-ghost" href="./references/92-launch-playbook.md">Read launch playbook</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="./shared/site-paths.js" defer></script>
+    <script src="./launch.js" defer></script>
+  </body>
+</html>

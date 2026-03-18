@@ -291,6 +291,91 @@ a {
   padding: 0 32px 28px;
 }
 
+.vault-surfaces {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px 28px;
+}
+
+.vault-section-head--surfaces {
+  margin-bottom: 24px;
+}
+
+.vault-surface-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.vault-surface-card {
+  padding: 22px;
+  border: 1px solid var(--vault-border);
+  border-radius: var(--vault-radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.24);
+}
+
+.vault-surface-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.vault-surface-card__eyebrow,
+.vault-surface-card__theme {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.vault-surface-card__eyebrow {
+  color: var(--vault-muted);
+}
+
+.vault-surface-card__theme {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--vault-border);
+  color: var(--vault-dim);
+}
+
+.vault-surface-card h3 {
+  margin: 12px 0 0;
+  font-size: 1.35rem;
+}
+
+.vault-surface-card p {
+  margin: 14px 0 0;
+  color: var(--vault-dim);
+  line-height: 1.72;
+}
+
+.vault-surface-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.vault-surface-card__links a {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--vault-border);
+  color: var(--vault-muted);
+  text-decoration: none;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.vault-surface-card__links a:hover,
+.vault-surface-card__links a:focus-visible {
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--vault-text);
+}
+
 .vault-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1397,6 +1482,7 @@ a {
   }
 
   .vault-gallery,
+  .vault-surfaces,
   .vault-lab,
   .vault-footer {
     padding-left: 20px;
@@ -1409,6 +1495,10 @@ a {
 
   .blueprint-preview-cursor {
     display: none;
+  }
+
+  .vault-surface-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1444,6 +1534,7 @@ a {
   }
 
   .vault-gallery,
+  .vault-surfaces,
   .vault-lab,
   .vault-footer {
     padding-left: 16px;

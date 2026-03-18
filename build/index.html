@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Framekit — Brief Builder</title>
+    <meta
+      name="description"
+      content="Generate a Framekit build brief, inspect current coverage, and open the runtime or source anchors that already ship in this repo."
+    />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="./builder.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-brand" href="../index.html" aria-label="Framekit home">
+          <span class="site-brand__dot" aria-hidden="true"></span>
+          <span class="site-brand__text">Framekit</span>
+        </a>
+        <div class="site-nav__links">
+          <a href="../index.html">Home</a>
+          <a href="../themes/index.html">Themes</a>
+          <a href="../components/index.html">Components</a>
+          <a class="site-nav__cta" href="../themes/index.html">Browse Themes</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="page-shell builder-shell">
+      <section class="builder-hero">
+        <div class="builder-hero__content">
+          <p class="eyebrow">Guided brief builder</p>
+          <h1>Lock the brief, then open the shipped sources.</h1>
+          <p class="builder-hero__lead">
+            This tool reads the shared brief contract and current coverage
+            registry. It tells you which stack and surface anchors actually ship
+            today, then points you to the closest live runtime, template source,
+            and design reference.
+          </p>
+        </div>
+        <aside class="builder-hero__panel site-card">
+          <p class="builder-hero__panel-kicker">What this outputs</p>
+          <ul class="builder-hero__list">
+            <li>machine-readable build brief JSON</li>
+            <li>prompt draft for manual build or skill usage</li>
+            <li>links to live runtimes, template sources, and design references</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="builder-grid">
+        <form class="builder-form site-card" data-builder-form>
+          <div class="builder-form__head">
+            <p class="section-kicker">Scope lock</p>
+            <h2>Choose the inputs you want to build from.</h2>
+          </div>
+          <div class="builder-form__grid">
+            <label>
+              <span>Profile</span>
+              <select name="profile_id" data-field="profile_id"></select>
+            </label>
+            <label>
+              <span>Surface</span>
+              <select name="surface_archetype" data-field="surface_archetype"></select>
+            </label>
+            <label>
+              <span>Output target</span>
+              <select name="output_target" data-field="output_target"></select>
+            </label>
+            <label>
+              <span>Styling system</span>
+              <select name="styling_system" data-field="styling_system"></select>
+            </label>
+            <label>
+              <span>Theme mode</span>
+              <select name="theme_mode" data-field="theme_mode"></select>
+            </label>
+            <label>
+              <span>Intensity</span>
+              <select name="expressive_intensity" data-field="expressive_intensity"></select>
+            </label>
+            <label>
+              <span>Component mode</span>
+              <select name="component_scope_mode" data-field="component_scope_mode"></select>
+            </label>
+            <label>
+              <span>Requested components</span>
+              <input
+                type="text"
+                name="requested_components"
+                data-field="requested_components"
+                placeholder="tooltip, command-palette, blueprint-annotation"
+              />
+            </label>
+          </div>
+        </form>
+
+        <section class="builder-output">
+          <article class="builder-status site-card" data-support-card>
+            <p class="section-kicker">Coverage Status</p>
+            <div data-support-status></div>
+          </article>
+
+          <article class="builder-artifact site-card" data-artifact-card>
+            <p class="section-kicker">Recommended Sources</p>
+            <div data-artifact-output></div>
+          </article>
+
+          <article class="builder-json site-card">
+            <div class="builder-json__head">
+              <p class="section-kicker">Build Brief JSON</p>
+              <button class="copy-button" type="button" data-copy-json>Copy</button>
+            </div>
+            <pre data-build-brief></pre>
+          </article>
+
+          <article class="builder-prompt site-card">
+            <div class="builder-json__head">
+              <p class="section-kicker">Prompt Draft</p>
+              <button class="copy-button" type="button" data-copy-prompt>Copy</button>
+            </div>
+            <pre data-prompt-draft></pre>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="../shared/site-paths.js" defer></script>
+    <script src="./builder.js" defer></script>
+  </body>
+</html>

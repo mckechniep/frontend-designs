@@ -8,11 +8,12 @@ Return only files required for selected target and current scope.
 - Avoid adding setup/config files unless requested or required to unblock delivery.
 - Avoid introducing dependencies silently.
 - Keep style-profile intent consistent with selected profile id.
-- On `full-build`, record `task_mode`, `icon_system`, and `intervention_mode` in `DESIGN_SPEC.scope_lock`.
+- On `full-build`, record `task_mode`, `surface_archetype`, `component_scope`, `icon_system`, and `intervention_mode` in `DESIGN_SPEC.scope_lock`.
 - Use `intervention_mode=not-applicable` for empty/greenfield repos.
 - On `small-refinement`, do not emit a fresh `DESIGN_SPEC`; restate locked invariants in `DELTA_SUMMARY`.
 - Do not ship untouched placeholder/template copy in final deliverables.
 - When blocked by environment/repo/input failures, return structured error per [references/90-error-taxonomy.md](references/90-error-taxonomy.md).
+- Align stack/template decisions to [references/34-build-brief-contract.md](references/34-build-brief-contract.md) and `shared/surface-coverage.json` when this repo is the source of truth.
 
 ## Mandatory Response Artifact Order
 

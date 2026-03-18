@@ -1,0 +1,502 @@
+{
+  "version": "1.0",
+  "title": "Framekit Surface Coverage Registry",
+  "profiles": [
+    {
+      "id": "modern-saas",
+      "label": "Modern SaaS",
+      "defaultTheme": "dark",
+      "descriptor": "Premium warm product narrative with serif-led hierarchy and selective glass.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.modern-saas.md",
+          "liveRuntime": "/themes/modern-saas/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/modern-saas/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "canonical",
+              "artifact": "/templates/next/modern-saas-landing-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.modern-saas.md",
+          "liveRuntime": "/themes/modern-saas/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/modern-saas/dashboard/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.modern-saas.md",
+          "liveRuntime": "/themes/modern-saas/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/modern-saas/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "cyberpunk-neon",
+      "label": "Cyberpunk Neon",
+      "defaultTheme": "dark",
+      "descriptor": "Neon-lit command UI with clipped geometry, glow, and operator-console posture.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.cyberpunk-neon.md",
+          "liveRuntime": "/themes/cyberpunk-neon/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/cyberpunk-neon/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.cyberpunk-neon.md",
+          "liveRuntime": "/themes/cyberpunk-neon/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/cyberpunk-neon/dashboard/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.cyberpunk-neon.md",
+          "liveRuntime": "/themes/cyberpunk-neon/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/cyberpunk-neon/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "arctic-mono",
+      "label": "Arctic Mono",
+      "defaultTheme": "dark",
+      "descriptor": "Frost-tech research archive with diagnostic modules and measured monochrome structure.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.arctic-mono.md",
+          "liveRuntime": "/themes/arctic-mono/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/arctic-mono/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.arctic-mono.md",
+          "liveRuntime": "/themes/arctic-mono/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/arctic-mono/dashboard/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.arctic-mono.md",
+          "liveRuntime": "/themes/arctic-mono/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/arctic-mono/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "noire-editorial",
+      "label": "Noire Editorial",
+      "defaultTheme": "dark",
+      "descriptor": "Near-black dossier editorial with serif contrast, redaction cues, and high-trust tone.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.noire-editorial.md",
+          "liveRuntime": "/themes/noire-editorial/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/noire-editorial/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.noire-editorial.md",
+          "liveRuntime": "/themes/noire-editorial/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/noire-editorial/dashboard/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.noire-editorial.md",
+          "liveRuntime": "/themes/noire-editorial/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/noire-editorial/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "canonical",
+              "artifact": "/templates/next/noire-editorial-app-screen.tsx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "corporate-blueprint",
+      "label": "Corporate Blueprint",
+      "defaultTheme": "dark",
+      "descriptor": "Architectural consultancy system with disciplined spacing, cyan annotation rhythm, and enterprise structure.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.corporate-blueprint.md",
+          "liveRuntime": "/themes/corporate-blueprint/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/corporate-blueprint/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.corporate-blueprint.md",
+          "liveRuntime": "/themes/corporate-blueprint/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/corporate-blueprint/dashboard/index.html"
+            },
+            "react": {
+              "status": "canonical",
+              "artifact": "/templates/react/corporate-blueprint-dashboard.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.corporate-blueprint.md",
+          "liveRuntime": "/themes/corporate-blueprint/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/corporate-blueprint/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "retro-terminal",
+      "label": "Retro Terminal",
+      "defaultTheme": "dark",
+      "descriptor": "CRT-green operator shell with phosphor glow, telemetry rows, and hard-edged console UI.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.retro-terminal.md",
+          "liveRuntime": "/themes/retro-terminal/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/retro-terminal/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.retro-terminal.md",
+          "liveRuntime": "/themes/retro-terminal/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/retro-terminal/dashboard/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.retro-terminal.md",
+          "liveRuntime": "/themes/retro-terminal/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/retro-terminal/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "pastel-dreamscape",
+      "label": "Pastel Dreamscape",
+      "defaultTheme": "light",
+      "descriptor": "Dreamy editorial collage with soft atmosphere, serif contrast, and warm founder-friendly softness.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.pastel-dreamscape.md",
+          "liveRuntime": "/themes/pastel-dreamscape/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/pastel-dreamscape/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.pastel-dreamscape.md",
+          "liveRuntime": "/themes/pastel-dreamscape/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/pastel-dreamscape/dashboard/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.pastel-dreamscape.md",
+          "liveRuntime": "/themes/pastel-dreamscape/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/pastel-dreamscape/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "sunset-gradient",
+      "label": "Sunset Gradient",
+      "defaultTheme": "dark",
+      "descriptor": "Warm cinematic enterprise poster system with horizon glow, glass framing, and launch pacing.",
+      "surfaces": {
+        "landing": {
+          "designExample": "/design/examples/landing.sunset-gradient.md",
+          "liveRuntime": "/themes/sunset-gradient/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/sunset-gradient/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "dashboard": {
+          "designExample": "/design/examples/dashboard.sunset-gradient.md",
+          "liveRuntime": "/themes/sunset-gradient/dashboard/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/sunset-gradient/dashboard/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Page.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        },
+        "app-screen": {
+          "designExample": "/design/examples/app-screen.sunset-gradient.md",
+          "liveRuntime": "/themes/sunset-gradient/app-screen/index.html",
+          "targets": {
+            "vanilla": {
+              "status": "canonical",
+              "artifact": "/themes/sunset-gradient/app-screen/index.html"
+            },
+            "react": {
+              "status": "preview",
+              "artifact": "/templates/react/Component.tsx"
+            },
+            "nextjs": {
+              "status": "preview",
+              "artifact": "/templates/next/app-page.tsx"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

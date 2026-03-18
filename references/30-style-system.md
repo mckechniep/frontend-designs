@@ -137,6 +137,13 @@ When keep-existing viability fails:
 
 ## Profile References
 
-Load only the selected profile design reference:
+Load the selected profile reference, then the closest matching canonical surface reference:
 
 - `design/profiles/profile.<id>.md`
+- `design/examples/<surface>.<id>.md` when present
+
+Runtime grounding rules:
+
+- For landing or page work in this repo, inspect `themes/<id>/index.html` and `themes/<id>/theme.css` before generating new structure or styling.
+- For component work in this repo, inspect the nearest relevant exemplar under `components/universal/` or `components/exclusive/` before designing a new variant.
+- If no exact `design/examples/<surface>.<id>.md` file exists, use the selected profile reference plus the nearest shipped runtime surface as the canonical guide.

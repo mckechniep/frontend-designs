@@ -1,0 +1,106 @@
+{
+  "version": "1.0",
+  "title": "Framekit Build Brief Contract",
+  "type": "object",
+  "required": [
+    "profile_id",
+    "surface_archetype",
+    "output_target",
+    "styling_system",
+    "theme_mode",
+    "expressive_intensity",
+    "component_scope"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "enum": [
+        "modern-saas",
+        "cyberpunk-neon",
+        "arctic-mono",
+        "noire-editorial",
+        "corporate-blueprint",
+        "retro-terminal",
+        "pastel-dreamscape",
+        "sunset-gradient"
+      ]
+    },
+    "surface_archetype": {
+      "type": "string",
+      "enum": [
+        "landing",
+        "dashboard",
+        "app-screen",
+        "component-demo",
+        "mixed-other"
+      ]
+    },
+    "output_target": {
+      "type": "string",
+      "enum": [
+        "vanilla",
+        "react",
+        "nextjs"
+      ]
+    },
+    "styling_system": {
+      "type": "string",
+      "enum": [
+        "css",
+        "tailwind"
+      ]
+    },
+    "theme_mode": {
+      "type": "string",
+      "enum": [
+        "dark",
+        "light",
+        "both-toggle-dark-default",
+        "both-toggle-light-default"
+      ]
+    },
+    "expressive_intensity": {
+      "type": "string",
+      "enum": [
+        "restrained",
+        "balanced",
+        "high-drama"
+      ]
+    },
+    "component_scope": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "starter",
+            "universal",
+            "theme-exclusive",
+            "mixed"
+          ]
+        },
+        "requested_components": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "defaults": {
+    "surface_archetype": "landing",
+    "output_target": "vanilla",
+    "styling_system": "css",
+    "theme_mode": "dark",
+    "expressive_intensity": "high-drama",
+    "component_scope": {
+      "mode": "starter",
+      "requested_components": []
+    }
+  }
+}

@@ -1,6 +1,13 @@
 (function () {
   'use strict';
 
+  const resolveSitePath =
+    window.FramekitPaths && typeof window.FramekitPaths.resolveSitePath === 'function'
+      ? window.FramekitPaths.resolveSitePath
+      : function (path) {
+          return path;
+        };
+
   function initArcticPreviewHelix() {
     const canvas = document.querySelector('.arctic-preview-helix');
     if (!canvas) return;
@@ -155,6 +162,47 @@
     });
   }
 
+  function initSurfaceDirectory() {
+    const root = document.querySelector('[data-surface-directory]');
+    if (!root) return;
+
+    fetch('../shared/surface-coverage.json')
+      .then((response) => {
+        if (!response.ok) throw new Error('surface coverage request failed');
+        return response.json();
+      })
+      .then((data) => {
+        root.innerHTML = data.profiles
+          .map((profile) => {
+            const links = Object.entries(profile.surfaces)
+              .map(([surfaceId, surface]) => {
+                const label = surfaceId === 'app-screen' ? 'App screen' : surfaceId.charAt(0).toUpperCase() + surfaceId.slice(1);
+                return `<a href="${resolveSitePath(surface.liveRuntime)}">${label}</a>`;
+              })
+              .join('');
+
+            return `
+              <article class="vault-surface-card">
+                <div class="vault-surface-card__top">
+                  <div>
+                    <span class="vault-surface-card__eyebrow">${profile.label}</span>
+                    <h3>${profile.label}</h3>
+                  </div>
+                  <span class="vault-surface-card__theme">${profile.defaultTheme}</span>
+                </div>
+                <p>${profile.descriptor}</p>
+                <div class="vault-surface-card__links">${links}</div>
+              </article>
+            `;
+          })
+          .join('');
+      })
+      .catch((error) => {
+        root.textContent = `Unable to load surface directory: ${error.message}`;
+      });
+  }
+
   initArcticPreviewHelix();
   initBlueprintPreviewCursor();
+  initSurfaceDirectory();
 })();

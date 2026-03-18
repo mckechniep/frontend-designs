@@ -1,6 +1,6 @@
 ---
 name: kickass-frontend
-description: Deterministic planner-first frontend skill for Vanilla HTML/CSS/JS, React, and Next.js. Invoke explicitly with $kickass-frontend to lock task mode and scope, produce PLAN and DESIGN_SPEC for full builds, or run a targeted refinement flow for small edits, then render verified, accessible, profile-consistent UI.
+description: Deterministic planner-first frontend skill for Vanilla HTML/CSS/JS, React, and Next.js. Invoke explicitly with $kickass-frontend to lock task mode and scope, ground work against canonical theme profiles and shipped runtime references, produce PLAN and DESIGN_SPEC for full builds, or run a targeted refinement flow for small edits, then render verified, accessible, profile-consistent UI.
 ---
 
 # Kickass Frontend
@@ -45,9 +45,10 @@ After `task_mode=full-build`, lock required execution choices before any impleme
 1. Lock `output_target`: `vanilla | react | nextjs`.
 2. Lock `styling_system`: `css | tailwind`.
 3. Lock `design_profile`: concrete profile id or `keep-existing`.
-4. Lock `theme_mode`, optional layers, and `icon_system`.
-5. Lock `expressive_intensity` (`high-drama` default; downgrade only when user asks).
-6. In non-empty repos, run existing UI triage and lock `intervention_mode`; use `not-applicable` in empty/greenfield repos.
+4. Lock `surface_archetype`: `landing | dashboard | app-screen | component-demo | mixed-other`.
+5. Lock `theme_mode`, optional layers, and `icon_system`.
+6. Lock `expressive_intensity` (`high-drama` default; downgrade only when user asks).
+7. In non-empty repos, run existing UI triage and lock `intervention_mode`; use `not-applicable` in empty/greenfield repos.
 
 Use:
 
@@ -58,6 +59,7 @@ Use:
 - Style system: [references/30-style-system.md](references/30-style-system.md)
 - Prompt inventory: [references/23-prompt-inventory.md](references/23-prompt-inventory.md)
 - Profile registry: [references/32-profile-registry.md](references/32-profile-registry.md)
+- Build brief contract: [references/34-build-brief-contract.md](references/34-build-brief-contract.md)
 - Expressive effects layer rules: [design/motion/motion.rules.md](design/motion/motion.rules.md)
 
 Scope-lock questioning rules:
@@ -67,8 +69,18 @@ Scope-lock questioning rules:
 - Ask at most 1-3 questions total across task-mode and scope lock, only when decisions are blocking.
 - Ask stack and styling as separate locks (`output_target`, `styling_system`); avoid ambiguous shorthand-only prompts.
 - When asking for a profile choice, include the profile menu from [references/30-style-system.md](references/30-style-system.md) in the same message.
+- Infer `surface_archetype` from the requested surface or touched files when possible; ask only when surface type changes the canonical reference to load, using the verbatim clarifier in [references/23-prompt-inventory.md](references/23-prompt-inventory.md).
 - In empty/greenfield ambiguous context, use the verbatim canned scope-lock prompt from [references/10-stack-detection.md](references/10-stack-detection.md).
 - Do not re-ask locked choices after proceeding.
+
+Canonical reference loading rules:
+
+- After locking `design_profile`, always load `design/profiles/profile.<id>.md`.
+- After locking `surface_archetype`, load `design/examples/<surface_archetype>.<id>.md` when that file exists; treat it as the canonical composition/signature reference for that surface.
+- When working inside this repo or another repo with established live frontend surfaces, inspect the matching shipped runtime before implementation:
+  - theme/page work -> `themes/<profile>/index.html`, `themes/<profile>/theme.css`, and relevant `themes/<profile>/page.js`
+  - component work -> `components/index.html` plus the nearest relevant file under `components/universal/` or `components/exclusive/`
+- If no exact surface example exists, fall back to the selected profile reference plus the nearest matching shipped runtime surface.
 
 ### Step 1 - PLAN (Required Output for `full-build`)
 
@@ -122,8 +134,11 @@ For structure and assets:
 
 - Layout patterns: [references/40-layout-patterns.md](references/40-layout-patterns.md)
 - Deliverables matrix: [references/20-deliverables-matrix.md](references/20-deliverables-matrix.md)
+- Surface examples: `design/examples/`
 - Design layouts: `design/layout/`
 - Design components: `design/components/`
+- Canonical live themes: `themes/`
+- Canonical live components: `components/`
 - Templates: `templates/`
 
 ### Step 4 - Quality Gates
@@ -142,6 +157,7 @@ Verification mode rules:
 
 - `full-build`: run full verification coverage, including responsive checks at `360px`, `768px`, and `1280px`.
 - `small-refinement`: run targeted checks first on touched surfaces and escalate only when shared primitives, config, or cross-surface behavior changed.
+- Verify alignment against the locked profile reference, the matching `design/examples/*` surface file when present, and the relevant shipped runtime surface when one exists.
 
 ### Step 5 - Deliverable Format
 
@@ -171,6 +187,7 @@ For first draft and refinements, follow:
 - Do not generate code before `PLAN` and `DESIGN_SPEC` on `full-build` tasks.
 - Do not emit a fresh `PLAN` or full `DESIGN_SPEC` on `small-refinement` tasks unless the user explicitly expands scope to `full-build`.
 - Do not implicitly invoke this skill.
+- Do not ignore a matching canonical `design/examples/<surface>.<profile>.md` file when one exists for the active surface.
 - Do not silently add dependencies.
 - Do not replace user-provided company/product/domain narrative with invented branding unless explicitly requested.
 - Do not break existing behavior/contracts while restyling.
@@ -209,16 +226,20 @@ For `small-refinement`:
 
 ```yaml
 DESIGN_SPEC:
-  version: "1.1"
+  version: "1.2"
   scope_lock:
     task_mode: "full-build"
     output_target: "vanilla|react|nextjs"
     styling_system: "css|tailwind"
     design_profile: "<profile-id|keep-existing>"
+    surface_archetype: "landing|dashboard|app-screen|component-demo|mixed-other"
     theme_mode: "dark|light|both-toggle-dark-default|both-toggle-light-default"
     expressive_intensity: "restrained|balanced|high-drama"
     icon_system: "keep-existing|heroicons|tabler|feather|material-icons|tabler-inline-svg|feather-inline-svg|material-inline-svg|none"
     intervention_mode: "polish-existing|partial-restyle|full-takeover|not-applicable"
+    component_scope:
+      mode: "none|starter|universal|theme-exclusive|mixed"
+      requested_components: ["<optional component ids>"]
     layers:
       tailwind: "yes|no|keep-existing"
       shadcn_ui: "yes|no|keep-existing"
@@ -264,10 +285,14 @@ DELTA_SUMMARY:
     output_target: "vanilla|react|nextjs"
     styling_system: "css|tailwind"
     design_profile: "<profile-id|keep-existing>"
+    surface_archetype: "landing|dashboard|app-screen|component-demo|mixed-other"
     theme_mode: "dark|light|both-toggle-dark-default|both-toggle-light-default"
     expressive_intensity: "restrained|balanced|high-drama"
     icon_system: "keep-existing|heroicons|tabler|feather|material-icons|tabler-inline-svg|feather-inline-svg|material-inline-svg|none"
     intervention_mode: "polish-existing|partial-restyle|full-takeover|not-applicable"
+    component_scope:
+      mode: "none|starter|universal|theme-exclusive|mixed"
+      requested_components: ["<optional component ids>"]
     layers:
       tailwind: "yes|no|keep-existing"
       shadcn_ui: "yes|no|keep-existing"

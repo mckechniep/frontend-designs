@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="cyberpunk-neon" data-fixed-profile="cyberpunk-neon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vector Grid — Cyberpunk Neon App Screen</title>
+    <meta
+      name="description"
+      content="Canonical Cyberpunk Neon app-screen surface for Framekit, translating the operator-console profile into a founder-ready control environment."
+    />
+    <link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../../shared/favicon.ico" />
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="../../shared/surface-showcase.css" />
+  </head>
+  <body class="surface-runtime">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-frame">
+      <header class="surface-frame__header">
+        <a class="surface-frame__brand" href="../index.html">
+          <span class="surface-frame__brand-mark" aria-hidden="true"></span>
+          <span class="surface-frame__brand-copy">
+            <span class="surface-frame__brand-kicker">cyberpunk-neon / app-screen</span>
+            <span class="surface-frame__brand-name">Vector Grid</span>
+          </span>
+        </a>
+        <div class="surface-frame__links" role="navigation" aria-label="Surface routes">
+          <a href="../index.html">Landing</a>
+          <a href="../dashboard/index.html">Dashboard</a>
+          <a class="is-active" href="./index.html">App screen</a>
+        </div>
+        <div class="surface-frame__actions">
+          <a href="../../index.html">Theme Vault</a>
+          <a class="surface-frame__button" href="../../../build/index.html">Build brief</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <section class="surface-hero">
+          <div class="surface-hero__copy">
+            <span class="surface-pill">operator control screen</span>
+            <h1>Deploy neon command logic that still reads like a real product workspace.</h1>
+            <p>
+              This app surface keeps clipped-console energy, alert posture, and luminous hierarchy,
+              but it channels them into a settings screen founders can actually operate. Glow stays
+              directional. Warnings stay legible. Control density stays disciplined.
+            </p>
+          </div>
+          <aside class="surface-stat-grid">
+            <article class="surface-stat">
+              <div class="surface-stat__label">Signal health</div>
+              <div class="surface-stat__value">97%</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Threat filters</div>
+              <div class="surface-stat__value">12</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Escalation delay</div>
+              <div class="surface-stat__value">04s</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Operator load</div>
+              <div class="surface-stat__value">61%</div>
+            </article>
+          </aside>
+        </section>
+
+        <section class="surface-grid surface-grid--app">
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">active command path</div>
+                <h2>Deployment console</h2>
+              </div>
+              <span class="surface-badge">Secure relay</span>
+            </div>
+            <p class="surface-panel__muted">
+              High-energy visuals should clarify command flow, not bury it. Every control here maps
+              to an escalation or release action.
+            </p>
+            <form class="surface-form">
+              <div class="surface-form__grid">
+                <div class="surface-field">
+                  <label for="cp-node">Node alias</label>
+                  <input id="cp-node" type="text" value="SECTOR-09 / WEST" />
+                </div>
+                <div class="surface-field">
+                  <label for="cp-threshold">Alert threshold</label>
+                  <select id="cp-threshold">
+                    <option>High sensitivity</option>
+                    <option>Balanced relay</option>
+                    <option>Ops override</option>
+                  </select>
+                </div>
+                <div class="surface-field">
+                  <label for="cp-channel">Comms channel</label>
+                  <input id="cp-channel" type="text" value="#signal-war-room" />
+                </div>
+                <div class="surface-field">
+                  <label for="cp-failover">Failover mode</label>
+                  <select id="cp-failover">
+                    <option>Mirror reroute</option>
+                    <option>Silent fallback</option>
+                    <option>Hard lockdown</option>
+                  </select>
+                </div>
+                <div class="surface-field surface-field--full">
+                  <label for="cp-note">Operator note</label>
+                  <textarea id="cp-note">Keep magenta alerts reserved for critical states only. Cyan remains the primary wayfinding channel for active controls and real-time confirmation.</textarea>
+                </div>
+              </div>
+              <div class="surface-form__actions">
+                <a class="surface-button" href="#arm">Arm release</a>
+                <a class="surface-button--ghost" href="#simulate">Simulate relay</a>
+              </div>
+            </form>
+          </article>
+
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">console discipline</div>
+                <h3>Operator guardrails</h3>
+              </div>
+            </div>
+            <div class="surface-summary">
+              <article class="surface-summary__item">
+                <strong>Glow budget</strong>
+                <p>Only live and urgent states get full neon intensity.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Geometry posture</strong>
+                <p>Clipped shapes keep the interface tactical without hurting input clarity.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Escalation clarity</strong>
+                <p>Destructive actions always sit behind explicit state language.</p>
+              </article>
+            </div>
+            <ul class="surface-checklist">
+              <li>Use cyan for movement, magenta for threat, and acid green for confirmations.</li>
+              <li>Keep dashboard-like metrics secondary to command actions on app screens.</li>
+              <li>Preserve clipped silhouettes instead of rounding the console into SaaS softness.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="surface-panel" style="margin-top: 20px;">
+          <div class="surface-panel__head">
+            <div>
+              <div class="surface-panel__eyebrow">event stream</div>
+              <h3>Live operator log</h3>
+            </div>
+            <span class="surface-badge">Threat-synced</span>
+          </div>
+          <div class="surface-activity">
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Shield handoff validated</strong><span>03 min</span></div>
+              <p>Fallback lane is ready if signal load crosses the mirrored threshold during deployment.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Channel integrity restored</strong><span>17 min</span></div>
+              <p>Cyan confirmation state returned after manual diagnostic sweep across the west relay sector.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Priority warning downgraded</strong><span>Today</span></div>
+              <p>Magenta alert rail now holds only one open incident after operator review.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

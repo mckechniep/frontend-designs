@@ -19,10 +19,25 @@
  * Structure (Marketing/Landing pattern):
  *   Hero → Features → Metrics → CTA
  *
+ * Keep the exported buildBrief aligned with shared/build-brief.contract.json.
+ *
  * Tailwind utility classes only. Responsive at 360px+.
  */
 
 import type { Metadata } from "next";
+
+export const buildBrief = {
+  profile_id: "choose-profile",
+  surface_archetype: "landing",
+  output_target: "nextjs",
+  styling_system: "tailwind",
+  theme_mode: "choose-theme-mode",
+  expressive_intensity: "balanced",
+  component_scope: {
+    mode: "starter",
+    requested_components: [],
+  },
+} as const;
 
 /* ── Metadata ─────────────────────────────────────────────── */
 export const metadata: Metadata = {

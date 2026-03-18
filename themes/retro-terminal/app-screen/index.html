@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="retro-terminal" data-fixed-profile="retro-terminal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gridline OS — Retro Terminal App Screen</title>
+    <meta
+      name="description"
+      content="Canonical Retro Terminal app-screen surface for Framekit, translating the CRT command profile into a usable operational workspace."
+    />
+    <link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../../shared/favicon.ico" />
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="../../shared/surface-showcase.css" />
+  </head>
+  <body class="surface-runtime">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-frame">
+      <header class="surface-frame__header">
+        <a class="surface-frame__brand" href="../index.html">
+          <span class="surface-frame__brand-mark" aria-hidden="true"></span>
+          <span class="surface-frame__brand-copy">
+            <span class="surface-frame__brand-kicker">retro-terminal / app-screen</span>
+            <span class="surface-frame__brand-name">Gridline OS</span>
+          </span>
+        </a>
+        <div class="surface-frame__links" role="navigation" aria-label="Surface routes">
+          <a href="../index.html">Landing</a>
+          <a href="../dashboard/index.html">Dashboard</a>
+          <a class="is-active" href="./index.html">App screen</a>
+        </div>
+        <div class="surface-frame__actions">
+          <a href="../../index.html">Theme Vault</a>
+          <a class="surface-frame__button" href="../../../build/index.html">Build brief</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <section class="surface-hero">
+          <div class="surface-hero__copy">
+            <span class="surface-pill">terminal-native workspace</span>
+            <h1>Run operational controls inside a shell that still feels truly terminal-born.</h1>
+            <p>
+              Retro Terminal app screens should keep the CRT stance, zero-radius geometry, and green
+              command authority of the canonical profile. The workspace can be practical, but it
+              should never get polished into glossy SaaS.
+            </p>
+          </div>
+          <aside class="surface-stat-grid">
+            <article class="surface-stat">
+              <div class="surface-stat__label">Sessions online</div>
+              <div class="surface-stat__value">128</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Queue depth</div>
+              <div class="surface-stat__value">03</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Shell latency</div>
+              <div class="surface-stat__value">18ms</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Warnings</div>
+              <div class="surface-stat__value">01</div>
+            </article>
+          </aside>
+        </section>
+
+        <section class="surface-grid surface-grid--app">
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">session controls</div>
+                <h2>Terminal environment</h2>
+              </div>
+              <span class="surface-badge">Authenticated</span>
+            </div>
+            <p class="surface-panel__muted">
+              Command surfaces stay dense but readable. Bright green remains the default action
+              language, while amber and red stay reserved for warnings and irreversible states.
+            </p>
+            <form class="surface-form">
+              <div class="surface-form__grid">
+                <div class="surface-field">
+                  <label for="rt-shell">Shell alias</label>
+                  <input id="rt-shell" type="text" value="OPS-MAINFRAME-02" />
+                </div>
+                <div class="surface-field">
+                  <label for="rt-retention">Log retention</label>
+                  <select id="rt-retention">
+                    <option>72 hours</option>
+                    <option>7 days</option>
+                    <option>30 days</option>
+                  </select>
+                </div>
+                <div class="surface-field">
+                  <label for="rt-operator">Operator</label>
+                  <input id="rt-operator" type="text" value="samir@ops.local" />
+                </div>
+                <div class="surface-field">
+                  <label for="rt-mode">Fail-safe mode</label>
+                  <select id="rt-mode">
+                    <option>Prompt before run</option>
+                    <option>Read-only lock</option>
+                    <option>Immediate execute</option>
+                  </select>
+                </div>
+                <div class="surface-field surface-field--full">
+                  <label for="rt-note">Session note</label>
+                  <textarea id="rt-note">Preserve terminal gravity. Inputs should feel like shell controls inside a framed console, with scanline atmosphere and zero-radius edges intact.</textarea>
+                </div>
+              </div>
+              <div class="surface-form__actions">
+                <a class="surface-button" href="#write">Write config</a>
+                <a class="surface-button--ghost" href="#tail">Tail session log</a>
+              </div>
+            </form>
+          </article>
+
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">command posture</div>
+                <h3>Terminal guardrails</h3>
+              </div>
+            </div>
+            <div class="surface-summary">
+              <article class="surface-summary__item">
+                <strong>Shape language</strong>
+                <p>Keep corners square and borders direct.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Color logic</strong>
+                <p>Green is default command confirmation; amber and red are exceptions.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Density control</strong>
+                <p>Readable stacking matters more than modern white-space aesthetics.</p>
+              </article>
+            </div>
+            <ul class="surface-checklist">
+              <li>Retain CRT shell character in every panel and action bar.</li>
+              <li>Use monospace labels everywhere the operator is making decisions.</li>
+              <li>Do not soften the interface into rounded consumer patterns.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="surface-panel" style="margin-top: 20px;">
+          <div class="surface-panel__head">
+            <div>
+              <div class="surface-panel__eyebrow">system log</div>
+              <h3>Recent terminal events</h3>
+            </div>
+            <span class="surface-badge">Read-only mirror</span>
+          </div>
+          <div class="surface-activity">
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Config file updated</strong><span>05 min</span></div>
+              <p>Session retention window extended after operator review of queue recovery performance.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Amber warning cleared</strong><span>18 min</span></div>
+              <p>Backup route returned to normal after a temporary spike in shell write latency.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Mirror output archived</strong><span>Today</span></div>
+              <p>Log mirror saved to long-term storage without changing the live terminal state.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
