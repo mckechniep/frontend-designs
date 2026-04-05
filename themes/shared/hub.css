@@ -95,14 +95,16 @@ a {
 /* ================================================================
    HEADER
    ================================================================ */
-.vault-header {
+.vault-header,
+.site-header {
   position: sticky;
   top: 0;
   z-index: 50;
   padding: 16px 24px;
 }
 
-.vault-nav {
+.vault-nav,
+.site-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,14 +118,16 @@ a {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.vault-brand {
+.vault-brand,
+.site-brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
 
-.vault-brand__dot {
+.vault-brand__dot,
+.site-brand__dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -131,7 +135,8 @@ a {
   box-shadow: 0 0 14px rgba(200, 160, 80, 0.35);
 }
 
-.vault-brand__text {
+.vault-brand__text,
+.site-brand__text {
   font-family: var(--font-mono);
   font-size: 0.76rem;
   font-weight: 500;
@@ -140,13 +145,15 @@ a {
   color: var(--vault-dim);
 }
 
-.vault-nav__links {
+.vault-nav__links,
+.site-nav__links {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.vault-nav__links a {
+.vault-nav__links a,
+.site-nav__links a {
   font-family: var(--font-body);
   font-size: 0.84rem;
   color: var(--vault-muted);
@@ -155,20 +162,33 @@ a {
 }
 
 .vault-nav__links a:hover,
-.vault-nav__links a:focus-visible {
+.vault-nav__links a:focus-visible,
+.site-nav__links a:hover,
+.site-nav__links a:focus-visible,
+.site-nav__links a[aria-current="page"] {
   color: var(--vault-text);
 }
 
-.vault-nav__cta {
+.vault-nav__cta,
+.site-nav__cta {
   padding: 7px 16px !important;
   border: 1px solid var(--vault-border);
   border-radius: 999px;
+  background: linear-gradient(135deg, rgba(232, 169, 74, 0.22), rgba(99, 213, 240, 0.14));
+  color: var(--vault-text) !important;
   transition: border-color 200ms ease, color 200ms ease !important;
 }
 
 .vault-nav__cta:hover,
-.vault-nav__cta:focus-visible {
+.vault-nav__cta:focus-visible,
+.site-nav__cta:hover,
+.site-nav__cta:focus-visible {
   border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.site-nav__cta[aria-current="page"] {
+  border-color: rgba(232, 169, 74, 0.32) !important;
+  background: linear-gradient(135deg, rgba(232, 169, 74, 0.3), rgba(99, 213, 240, 0.18));
 }
 
 /* ================================================================
@@ -299,6 +319,48 @@ a {
   padding: 0 32px 28px;
 }
 
+.vault-section-head {
+  margin-bottom: 32px;
+}
+
+.vault-section-head__kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vault-muted);
+}
+
+.vault-section-head__rule {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--vault-border);
+}
+
+.vault-section-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.vault-section-head__desc {
+  max-width: 52ch;
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--vault-dim);
+}
+
 .vault-section-head--surfaces {
   margin-bottom: 24px;
 }
@@ -306,17 +368,24 @@ a {
 .vault-surface-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
 }
 
 .vault-surface-card {
-  padding: 22px;
-  border: 1px solid var(--vault-border);
-  border-radius: var(--vault-radius);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.025));
-  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.24);
+  min-height: 100%;
+  cursor: default;
 }
 
+.vault-surface-card .card__canvas {
+  height: 190px;
+}
+
+.vault-surface-card .card__body {
+  gap: 10px;
+  padding: 22px 24px 24px;
+}
+
+.vault-surface-card__meta,
 .vault-surface-card__top {
   display: flex;
   align-items: flex-start;
@@ -324,55 +393,67 @@ a {
   gap: 14px;
 }
 
+.vault-surface-card__meta {
+  align-items: center;
+}
+
 .vault-surface-card__eyebrow,
-.vault-surface-card__theme {
+.vault-surface-card__theme,
+.vault-surface-card__count {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .vault-surface-card__eyebrow {
-  color: var(--vault-muted);
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: color-mix(in srgb, var(--card-accent) 58%, var(--vault-muted));
 }
 
-.vault-surface-card__theme {
+.vault-surface-card__theme,
+.vault-surface-card__count {
   padding: 8px 10px;
   border-radius: 999px;
-  border: 1px solid var(--vault-border);
-  color: var(--vault-dim);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 18%, var(--vault-border));
+  background: color-mix(in srgb, var(--card-accent) 11%, transparent);
+  color: color-mix(in srgb, var(--card-accent) 78%, #ffffff);
 }
 
 .vault-surface-card h3 {
-  margin: 12px 0 0;
-  font-size: 1.35rem;
+  margin: 0;
 }
 
-.vault-surface-card p {
-  margin: 14px 0 0;
-  color: var(--vault-dim);
-  line-height: 1.72;
+.vault-surface-card .card__desc {
+  margin: 0;
 }
 
 .vault-surface-card__links {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 10px;
 }
 
 .vault-surface-card__links a {
-  padding: 10px 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
   border-radius: 999px;
-  border: 1px solid var(--vault-border);
-  color: var(--vault-muted);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 24%, var(--vault-border));
+  background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+  color: color-mix(in srgb, var(--card-accent) 82%, #ffffff);
   text-decoration: none;
-  transition: border-color 200ms ease, color 200ms ease;
+  transition: transform 200ms ease, border-color 200ms ease, color 200ms ease, background 200ms ease;
 }
 
 .vault-surface-card__links a:hover,
 .vault-surface-card__links a:focus-visible {
-  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--card-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--card-accent) 18%, transparent);
   color: var(--vault-text);
 }
 
@@ -1503,11 +1584,13 @@ a {
 }
 
 @media (max-width: 640px) {
-  .vault-header {
+  .vault-header,
+  .site-header {
     padding: 10px 14px;
   }
 
-  .vault-nav {
+  .vault-nav,
+  .site-nav {
     border-radius: 22px;
     flex-direction: column;
     align-items: flex-start;

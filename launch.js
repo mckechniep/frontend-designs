@@ -10,6 +10,31 @@
           return path;
         };
 
+  const profileCardClassMap = {
+    'modern-saas': 'profile-card--modern-saas',
+    'cyberpunk-neon': 'profile-card--cyberpunk-neon',
+    'arctic-mono': 'profile-card--arctic-mono',
+    'noire-editorial': 'profile-card--noire-editorial',
+    'corporate-blueprint': 'profile-card--corporate-blueprint',
+    'retro-terminal': 'profile-card--retro-terminal',
+    'pastel-dreamscape': 'profile-card--pastel-dreamscape',
+    'sunset-gradient': 'profile-card--sunset-gradient'
+  };
+
+  function surfaceLinkLabel(surfaceId) {
+    return surfaceId === 'app-screen'
+      ? 'App screen'
+      : surfaceId.charAt(0).toUpperCase() + surfaceId.slice(1);
+  }
+
+  function renderProfilePreview(profileId) {
+    return `
+      <div class="profile-card__visual" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    `;
+  }
+
   function statusLabel(targets) {
     const statuses = Object.values(targets || {}).map((item) => item.status);
     const canonical = statuses.filter((status) => status === 'canonical').length;
@@ -63,7 +88,7 @@
         const surfaceLinks = Object.entries(profile.surfaces)
           .map(
             ([surfaceId, surface]) =>
-              `<a href="${resolveSitePath(surface.liveRuntime)}">${surfaceId === 'app-screen' ? 'App screen' : surfaceId}</a>`
+              `<a href="${resolveSitePath(surface.liveRuntime)}">${surfaceLinkLabel(surfaceId)}</a>`
           )
           .join('');
 
@@ -89,18 +114,21 @@
         }, 0);
 
         return `
-          <article class="profile-card site-card">
-            <div class="profile-card__top">
-              <div>
-                <span class="profile-card__eyebrow">${profile.label}</span>
-                <h3>${profile.label}</h3>
+          <article class="profile-card site-card ${profileCardClassMap[profile.id] || ''}">
+            ${renderProfilePreview(profile.id)}
+            <div class="profile-card__body">
+              <div class="profile-card__top">
+                <div>
+                  <span class="profile-card__eyebrow">${profile.label}</span>
+                  <h3>${profile.label}</h3>
+                </div>
+                <span class="profile-card__theme">${profile.defaultTheme}</span>
               </div>
-              <span class="profile-card__theme">${profile.defaultTheme}</span>
+              <p>${profile.descriptor}</p>
+              <p class="profile-card__status">${canonicalCount}/${surfaceCount} live vanilla surfaces are canonical.</p>
+              <div class="profile-card__stack-line">${stackLine}</div>
+              <div class="profile-card__surface-links">${surfaceLinks}</div>
             </div>
-            <p>${profile.descriptor}</p>
-            <p class="profile-card__status">${canonicalCount}/${surfaceCount} live vanilla surfaces are canonical.</p>
-            <div class="profile-card__stack-line">${stackLine}</div>
-            <div class="profile-card__surface-links">${surfaceLinks}</div>
           </article>
         `;
       })

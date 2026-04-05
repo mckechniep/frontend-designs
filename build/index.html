@@ -16,20 +16,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <nav class="site-nav" aria-label="Primary">
-        <a class="site-brand" href="../index.html" aria-label="Framekit home">
-          <span class="site-brand__dot" aria-hidden="true"></span>
-          <span class="site-brand__text">Framekit</span>
-        </a>
-        <div class="site-nav__links">
-          <a href="../index.html">Home</a>
-          <a href="../themes/index.html">Themes</a>
-          <a href="../components/index.html">Components</a>
-          <a class="site-nav__cta" href="../themes/index.html">Browse Themes</a>
-        </div>
-      </nav>
-    </header>
+    <header class="site-header" data-site-nav data-site-nav-current="build"></header>
 
     <main id="main" class="page-shell builder-shell">
       <section class="builder-hero">
@@ -131,6 +118,7 @@
     </main>
 
     <script src="../shared/site-paths.js" defer></script>
+    <script src="../shared/site-nav.js" defer></script>
     <script src="./builder.js" defer></script>
   </body>
 </html>

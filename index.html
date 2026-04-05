@@ -16,40 +16,50 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <nav class="site-nav" aria-label="Primary">
-        <a class="site-brand" href="./index.html" aria-label="Framekit home">
-          <span class="site-brand__dot" aria-hidden="true"></span>
-          <span class="site-brand__text">Framekit</span>
-        </a>
-        <div class="site-nav__links">
-          <a href="./themes/index.html">Themes</a>
-          <a href="./components/index.html">Components</a>
-          <a href="./build/index.html">Brief Builder</a>
-          <a class="site-nav__cta" href="./build/index.html">Open Brief Builder</a>
-        </div>
-      </nav>
-    </header>
+    <header class="site-header" data-site-nav data-site-nav-current="home"></header>
 
-    <main id="main" class="page-shell">
+    <main id="main" class="page-shell launch-shell">
       <section class="hero">
         <div class="hero__content">
           <p class="eyebrow">Static showroom for frontend direction</p>
-          <h1>Eight visual systems. One brief builder. A product people can actually use.</h1>
+          <h1>Framekit</h1>
+          <p class="hero__subhead">Frontend direction vault and brief builder.</p>
           <p class="hero__lead">
-            Framekit is a static site for browsing frontend direction. Users open
-            the theme vault, inspect the component demos, and generate a locked
-            brief that points at the real runtime or starter source already
-            shipped in this repo.
+            Compare live theme families, inspect reusable component demos, and
+            leave with a locked brief tied to the runtime or starter source
+            already shipped in this repo.
           </p>
           <div class="hero__actions">
             <a class="button-primary" href="./themes/index.html">Browse Theme Vault</a>
             <a class="button-secondary" href="./build/index.html">Open Brief Builder</a>
           </div>
+          <div class="hero__signal-strip" aria-label="Framekit homepage journey">
+            <span>Compare themes</span>
+            <span>Inspect components</span>
+            <span>Export briefs</span>
+          </div>
         </div>
         <aside class="hero__panel site-card" aria-label="Coverage snapshot">
           <p class="hero__panel-kicker">What Ships Today</p>
           <div class="hero__stats" data-coverage-summary></div>
+          <div class="hero__panel-divider" aria-hidden="true"></div>
+          <div class="hero__panel-routes">
+            <a class="hero__panel-route hero__panel-route--themes" href="./themes/index.html">
+              <span class="hero__panel-route-num">01</span>
+              <strong>Theme Vault</strong>
+              <em>Compare the full visual families first.</em>
+            </a>
+            <a class="hero__panel-route hero__panel-route--components" href="./components/index.html">
+              <span class="hero__panel-route-num">02</span>
+              <strong>Component Vault</strong>
+              <em>Inspect the building blocks that actually ship.</em>
+            </a>
+            <a class="hero__panel-route hero__panel-route--builder" href="./build/index.html">
+              <span class="hero__panel-route-num">03</span>
+              <strong>Brief Builder</strong>
+              <em>Export the JSON, prompt, and source anchors.</em>
+            </a>
+          </div>
         </aside>
       </section>
 
@@ -64,17 +74,20 @@
           </p>
         </div>
         <div class="route-grid">
-          <a class="route-card site-card" href="./themes/index.html">
+          <a class="route-card route-card--themes site-card" href="./themes/index.html">
+            <div class="route-card__visual" aria-hidden="true"><span></span><span></span><span></span></div>
             <span class="route-card__num">01</span>
             <h3>Theme Vault</h3>
             <p>Open all eight canonical profiles and compare landing, dashboard, and app-screen runtimes.</p>
           </a>
-          <a class="route-card site-card" href="./components/index.html">
+          <a class="route-card route-card--components site-card" href="./components/index.html">
+            <div class="route-card__visual" aria-hidden="true"><span></span><span></span><span></span></div>
             <span class="route-card__num">02</span>
             <h3>Component Vault</h3>
             <p>Inspect token-driven universal components and theme-exclusive building blocks across the profiles.</p>
           </a>
-          <a class="route-card site-card" href="./build/index.html">
+          <a class="route-card route-card--builder site-card" href="./build/index.html">
+            <div class="route-card__visual" aria-hidden="true"><span></span><span></span><span></span></div>
             <span class="route-card__num">03</span>
             <h3>Brief Builder</h3>
             <p>Generate a locked build brief, prompt draft, and source recommendations from the shipped coverage registry.</p>
@@ -95,84 +108,115 @@
         <div class="profile-grid" data-profile-grid></div>
       </section>
 
-      <section class="section-block">
+      <section class="section-block section-block--product-shape">
         <div class="section-head">
-          <p class="section-kicker">Product Shape</p>
-          <h2>Framekit is a static vault with a builder, not a hosted generator.</h2>
+          <p class="section-kicker">Public Routes</p>
+          <h2>Three public surfaces, each tied to the shipped work.</h2>
           <p>
-            The useful thing here is simple: browse the visual systems, inspect
-            the components, then leave with a brief you can build from. The repo
-            also contains starter and anchor source files, but those are support
-            material for the product, not the product itself.
+            Browse the visual systems, inspect the reusable parts, or go
+            straight to the builder. The supporting source files stay behind the
+            scenes instead of becoming the homepage.
           </p>
         </div>
-        <div class="anchor-grid">
-          <a class="anchor-card site-card" href="./themes/index.html">
-            <span class="anchor-card__meta">Public route / themes</span>
-            <h3>Theme Vault</h3>
-            <p>Eight profile families with live landing, dashboard, and app-screen examples.</p>
+        <div class="anchor-grid home-directory">
+          <a class="anchor-card anchor-card--themes site-card" href="./themes/index.html">
+            <div class="anchor-card__visual" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="anchor-card__body">
+              <span class="anchor-card__meta">Public route / themes</span>
+              <h3>Theme Vault</h3>
+              <p>Eight profile families with live landing, dashboard, and app-screen examples.</p>
+              <div class="anchor-card__tags">
+                <span>8 directions</span>
+                <span>Live runtimes</span>
+              </div>
+            </div>
           </a>
-          <a class="anchor-card site-card" href="./components/index.html">
-            <span class="anchor-card__meta">Public route / components</span>
-            <h3>Component Vault</h3>
-            <p>Universal and theme-exclusive demos that show what each direction can actually support.</p>
+          <a class="anchor-card anchor-card--components site-card" href="./components/index.html">
+            <div class="anchor-card__visual" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="anchor-card__body">
+              <span class="anchor-card__meta">Public route / components</span>
+              <h3>Component Vault</h3>
+              <p>Universal and theme-exclusive demos that show what each direction can actually support.</p>
+              <div class="anchor-card__tags">
+                <span>Universal parts</span>
+                <span>Theme-exclusive demos</span>
+              </div>
+            </div>
           </a>
-          <a class="anchor-card site-card" href="./build/index.html">
-            <span class="anchor-card__meta">Public route / builder</span>
-            <h3>Brief Builder</h3>
-            <p>Turns the shipped coverage data into a build brief, prompt draft, and recommended starting sources.</p>
+          <a class="anchor-card anchor-card--builder site-card" href="./build/index.html">
+            <div class="anchor-card__visual" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="anchor-card__body">
+              <span class="anchor-card__meta">Public route / builder</span>
+              <h3>Brief Builder</h3>
+              <p>Turns the shipped coverage data into a build brief, prompt draft, and recommended starting sources.</p>
+              <div class="anchor-card__tags">
+                <span>JSON brief</span>
+                <span>Source anchors</span>
+              </div>
+            </div>
           </a>
         </div>
       </section>
 
       <section class="section-block stage-grid">
         <div class="section-head">
-          <p class="section-kicker">Finish Line</p>
-          <h2>Finish the static product first. Keep future app work separate.</h2>
+          <p class="section-kicker">Product Boundary</p>
+          <h2>Finish the vault first. Keep any future app work separate.</h2>
           <p>
-            The repo is strongest when it behaves like a clear public site with
-            honest coverage. Anything involving auth, jobs, saved workspaces, or
-            generation belongs in a separate application later.
+            The homepage should make the product boundary obvious. Static
+            browsing and brief generation belong here. Auth, jobs, and saved
+            workspaces belong elsewhere later.
           </p>
         </div>
         <div class="stage-cards">
-          <article class="stage-card site-card">
-            <span class="stage-card__label">Now</span>
+          <article class="stage-card stage-card--now site-card">
+            <div class="stage-card__top">
+              <span class="stage-card__label">Now</span>
+              <span class="stage-card__step">01</span>
+            </div>
             <h3>Public site</h3>
             <p>Ship the homepage, theme vault, component vault, and brief builder as the finished Framekit experience.</p>
           </article>
-          <article class="stage-card site-card">
-            <span class="stage-card__label">Next</span>
+          <article class="stage-card stage-card--next site-card">
+            <div class="stage-card__top">
+              <span class="stage-card__label">Next</span>
+              <span class="stage-card__step">02</span>
+            </div>
             <h3>Sharper builder</h3>
             <p>Improve coverage validation, export/shareable briefs, and clearer starter-vs-runtime recommendations.</p>
           </article>
-          <article class="stage-card site-card">
-            <span class="stage-card__label">Later</span>
+          <article class="stage-card stage-card--later site-card">
+            <div class="stage-card__top">
+              <span class="stage-card__label">Later</span>
+              <span class="stage-card__step">03</span>
+            </div>
             <h3>Separate app</h3>
             <p>If you build generation, previews, or saved workspaces, put them on a separate app surface instead of bloating this repo.</p>
           </article>
         </div>
       </section>
 
-      <section class="section-block launch-callout site-card">
-        <div>
+      <section class="section-block section-block--launch-lab">
+        <div class="launch-callout site-card">
+          <div class="launch-callout__content">
           <p class="section-kicker">Deployment posture</p>
-          <h2>Ship Framekit as a static public site.</h2>
+          <h2>Deploy the vault like a vault.</h2>
           <p>
-            Prefer Cloudflare Pages for git previews and simple static deploys.
-            Keep GitHub Pages as the fallback only if you also handle subpath
-            routing correctly. Keep any future generator on a separate app
-            subdomain or repo.
+            Prefer a simple static host for preview branches and production.
+            Keep GitHub Pages only as a fallback if you handle subpaths
+            correctly, and keep any future generator on its own app surface.
           </p>
-        </div>
-        <div class="launch-callout__actions">
-          <a class="button-primary" href="./build/index.html">Open brief builder</a>
-          <a class="button-ghost" href="./references/92-launch-playbook.md">Read launch playbook</a>
+          </div>
+          <div class="launch-callout__actions">
+            <a class="button-primary" href="./build/index.html">Open brief builder</a>
+            <a class="button-ghost" href="./references/92-launch-playbook.md">Read launch playbook</a>
+          </div>
         </div>
       </section>
     </main>
 
     <script src="./shared/site-paths.js" defer></script>
+    <script src="./shared/site-nav.js" defer></script>
     <script src="./launch.js" defer></script>
   </body>
 </html>

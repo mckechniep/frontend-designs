@@ -17,20 +17,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="vault-header">
-      <nav class="vault-nav" aria-label="Primary">
-        <a class="vault-brand" href="#main" aria-label="Framekit home">
-          <span class="vault-brand__dot" aria-hidden="true"></span>
-          <span class="vault-brand__text">Framekit</span>
-        </a>
-        <div class="vault-nav__links">
-          <a href="../index.html">Home</a>
-          <a href="#gallery">Themes</a>
-          <a href="../build/index.html">Brief Builder</a>
-          <a class="vault-nav__cta" href="../components/index.html">Open Components</a>
-        </div>
-      </nav>
-    </header>
+    <header class="site-header" data-site-nav data-site-nav-current="themes"></header>
 
     <main id="main">
       <section class="vault-hero">
@@ -200,6 +187,7 @@
       <p>Each theme is intentionally distinct &mdash; built as its own standalone visual experience.</p>
     </footer>
     <script src="../shared/site-paths.js" defer></script>
+    <script src="../shared/site-nav.js" defer></script>
     <script src="./shared/hub.js" defer></script>
   </body>
 </html>

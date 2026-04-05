@@ -95,14 +95,16 @@ a {
 /* ================================================================
    HEADER
    ================================================================ */
-.vault-header {
+.vault-header,
+.site-header {
   position: sticky;
   top: 0;
   z-index: 50;
   padding: 16px 24px;
 }
 
-.vault-nav {
+.vault-nav,
+.site-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,14 +118,16 @@ a {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.vault-brand {
+.vault-brand,
+.site-brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
 
-.vault-brand__dot {
+.vault-brand__dot,
+.site-brand__dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -131,7 +135,8 @@ a {
   box-shadow: 0 0 14px rgba(200, 160, 80, 0.35);
 }
 
-.vault-brand__text {
+.vault-brand__text,
+.site-brand__text {
   font-family: var(--font-mono);
   font-size: 0.76rem;
   font-weight: 500;
@@ -140,13 +145,15 @@ a {
   color: var(--vault-dim);
 }
 
-.vault-nav__links {
+.vault-nav__links,
+.site-nav__links {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.vault-nav__links a {
+.vault-nav__links a,
+.site-nav__links a {
   font-family: var(--font-body);
   font-size: 0.84rem;
   color: var(--vault-muted);
@@ -155,20 +162,33 @@ a {
 }
 
 .vault-nav__links a:hover,
-.vault-nav__links a:focus-visible {
+.vault-nav__links a:focus-visible,
+.site-nav__links a:hover,
+.site-nav__links a:focus-visible,
+.site-nav__links a[aria-current="page"] {
   color: var(--vault-text);
 }
 
-.vault-nav__cta {
+.vault-nav__cta,
+.site-nav__cta {
   padding: 7px 16px !important;
   border: 1px solid var(--vault-border);
   border-radius: 999px;
+  background: linear-gradient(135deg, rgba(232, 169, 74, 0.22), rgba(99, 213, 240, 0.14));
+  color: var(--vault-text) !important;
   transition: border-color 200ms ease, color 200ms ease !important;
 }
 
 .vault-nav__cta:hover,
-.vault-nav__cta:focus-visible {
+.vault-nav__cta:focus-visible,
+.site-nav__cta:hover,
+.site-nav__cta:focus-visible {
   border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.site-nav__cta[aria-current="page"] {
+  border-color: rgba(232, 169, 74, 0.32) !important;
+  background: linear-gradient(135deg, rgba(232, 169, 74, 0.3), rgba(99, 213, 240, 0.18));
 }
 
 /* ================================================================
@@ -2257,11 +2277,13 @@ a {
 }
 
 @media (max-width: 640px) {
-  .vault-header {
+  .vault-header,
+  .site-header {
     padding: 10px 14px;
   }
 
-  .vault-nav {
+  .vault-nav,
+  .site-nav {
     border-radius: 22px;
     flex-direction: column;
     align-items: flex-start;
