@@ -1163,12 +1163,15 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--s-5);
-  align-items: start;
+  align-items: stretch;
 }
 
 .pricing-card {
   padding: var(--s-6);
   position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
 }
 
 .pricing-card--featured {
@@ -1240,6 +1243,7 @@ img {
   list-style: none;
   padding: 0;
   margin: 0 0 var(--s-6);
+  flex: 1;
 }
 
 .pricing-card__features li {
