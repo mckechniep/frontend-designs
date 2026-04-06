@@ -4556,15 +4556,7 @@ main::after {
 .metric::before,
 .contact-card::before,
 .banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -36%;
-  width: 36%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  transition: transform 260ms ease, opacity 180ms ease;
+  display: none;
 }
 
 .card:hover,
@@ -4579,8 +4571,7 @@ main::after {
 .metric:hover::before,
 .contact-card:hover::before,
 .banner:hover::before {
-  transform: translateX(215%);
-  opacity: 1;
+  display: none;
 }
 
 .button-primary {

@@ -656,11 +656,11 @@ function resizeArcticFrostCanvas() {
   arcticState.frostParticles = Array.from({ length: count }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
-    r: Math.random() * 1.5 + 0.4,
+    r: Math.random() * 2.5 + 1.2,
     dx: (Math.random() - 0.5) * 0.16,
     dy: Math.random() * 0.16 + 0.03,
     tw: Math.random() * Math.PI * 2,
-    alpha: Math.random() * 0.4 + 0.08,
+    alpha: Math.random() * 0.5 + 0.25,
   }));
   arcticState.frostStaticDrawn = false;
 }
@@ -680,7 +680,7 @@ function drawArcticFrostFrame(step = 1) {
     p.x += p.dx * step;
     p.y += p.dy * step;
     p.tw += 0.01 * step;
-    p.alpha = 0.08 + ((Math.sin(p.tw) + 1) * 0.22);
+    p.alpha = 0.25 + ((Math.sin(p.tw) + 1) * 0.3);
 
     if (p.y > height + 10) {
       p.y = -10;

@@ -260,9 +260,8 @@
       "tier": "high",
       "recipes": {
         "low": ["depth-fade-gradient"],
-        "medium": ["panel-sheen", "depth-fade-gradient", "interaction-lift"],
+        "medium": ["depth-fade-gradient", "interaction-lift"],
         "high": [
-          "panel-sheen",
           "depth-fade-gradient",
           "interaction-lift",
           "film-grain-overlay"
