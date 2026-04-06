@@ -11,7 +11,8 @@
   const primaryItems = [
     { id: 'home', label: 'Home', href: '/index.html' },
     { id: 'themes', label: 'Themes', href: '/themes/index.html' },
-    { id: 'components', label: 'Components', href: '/components/index.html' }
+    { id: 'components', label: 'Components', href: '/components/index.html' },
+    { id: 'present', label: 'Present', href: '/present/index.html' }
   ];
 
   function currentAttr(isCurrent) {

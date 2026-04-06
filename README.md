@@ -1,20 +1,28 @@
 # Framekit
 
-Framekit is a static frontend direction vault and brief builder.
+Framekit is a professional web development toolkit — a curated design system
+with eight visual directions, reusable components, an MCP server for AI-assisted
+site generation, and a client presentation mode.
 
-It is not a hosted generator app in its current form. The useful product that
-already exists in this repo is the public site:
+## Public Routes
 
-- `/` - homepage that explains the product
-- `/themes/` - theme vault with eight visual systems
+- `/` - homepage
+- `/themes/` - theme vault (developer view) with eight visual systems
 - `/components/` - component vault with live demos
-- `/build/` - brief builder that exports a locked brief and points to shipped sources
+- `/build/` - brief builder
+- `/present/` - client presentation mode for showing themes to clients
+
+## MCP Server
+
+The `mcp/` directory contains a design intelligence MCP server that exposes
+Framekit's themes, tokens, components, layout patterns, and universal design
+rules to AI models. Connect it in Claude Code, Cursor, or any MCP-compatible tool.
 
 ## What Users Do Here
 
-1. Browse the theme vault to find a visual direction.
-2. Inspect the component vault to see what the direction can actually support.
-3. Use the brief builder to export a build brief, prompt draft, and source links.
+1. Show clients the presentation mode to pick a visual direction.
+2. Use the MCP server with AI to generate sites constrained by Framekit's design system.
+3. Browse the theme vault and component vault for reference.
 
 ## Project Map
 
@@ -23,9 +31,13 @@ Framekit
 |
 +- Public product
 |  +- /                homepage
-|  +- /themes/         theme vault
+|  +- /themes/         theme vault (developer view)
 |  +- /components/     component vault
 |  +- /build/          brief builder
+|  +- /present/        client presentation mode
+|
++- MCP Server
+|  +- mcp/             design intelligence MCP server
 |
 +- Shared product data
 |  +- shared/surface-coverage.json
