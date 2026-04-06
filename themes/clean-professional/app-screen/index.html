@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-profile="clean-professional" data-fixed-profile="clean-professional">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meridian Advisory — Clean Professional App Screen</title>
+    <meta
+      name="description"
+      content="Canonical Clean Professional app-screen surface for Framekit, showing a restrained light-mode settings workspace for consulting and advisory firms."
+    />
+    <link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../../shared/favicon.ico" />
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="../../shared/surface-showcase.css" />
+  </head>
+  <body class="surface-runtime">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-frame">
+      <header class="surface-frame__header">
+        <a class="surface-frame__brand" href="../index.html">
+          <span class="surface-frame__brand-mark" aria-hidden="true"></span>
+          <span class="surface-frame__brand-copy">
+            <span class="surface-frame__brand-kicker">clean-professional / app-screen</span>
+            <span class="surface-frame__brand-name">Meridian Advisory</span>
+          </span>
+        </a>
+        <div class="surface-frame__links" role="navigation" aria-label="Surface routes">
+          <a href="../index.html">Landing</a>
+          <a href="../dashboard/index.html">Dashboard</a>
+          <a class="is-active" href="./index.html">App screen</a>
+        </div>
+        <div class="surface-frame__actions">
+          <a href="../../index.html">Theme Vault</a>
+          <a class="surface-frame__button" href="../../../build/index.html">Build brief</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <section class="surface-hero">
+          <div class="surface-hero__copy">
+            <span class="surface-pill">engagement configuration</span>
+            <h1>Configure client engagements without losing the professional posture.</h1>
+            <p>
+              The clean-professional app screen treats settings and configuration
+              as first-class surfaces. Clean form layout, visible labels, and
+              enough structure that the workspace feels as considered as the
+              client-facing landing page.
+            </p>
+          </div>
+          <aside class="surface-stat-grid">
+            <article class="surface-stat">
+              <div class="surface-stat__label">Setup completion</div>
+              <div class="surface-stat__value">88%</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Avg. config time</div>
+              <div class="surface-stat__value">6m</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Active workspaces</div>
+              <div class="surface-stat__value">12</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Team members</div>
+              <div class="surface-stat__value">08</div>
+            </article>
+          </aside>
+        </section>
+
+        <section class="surface-grid surface-grid--app">
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">engagement settings</div>
+                <h2>Client profile</h2>
+              </div>
+              <span class="surface-badge">Active</span>
+            </div>
+            <p class="surface-panel__muted">
+              Keep engagement details structured and accessible. Every field
+              should map to something that appears in a client deliverable or
+              internal review.
+            </p>
+            <form class="surface-form">
+              <div class="surface-form__grid">
+                <div class="surface-field">
+                  <label for="cp-client">Client name</label>
+                  <input id="cp-client" type="text" value="Harrington Group" />
+                </div>
+                <div class="surface-field">
+                  <label for="cp-type">Engagement type</label>
+                  <select id="cp-type">
+                    <option>Growth advisory</option>
+                    <option>Strategic planning</option>
+                    <option>Due diligence</option>
+                    <option>Operational audit</option>
+                    <option>Board reporting</option>
+                  </select>
+                </div>
+                <div class="surface-field">
+                  <label for="cp-partner">Lead partner</label>
+                  <input id="cp-partner" type="text" value="J. Mercer" />
+                </div>
+                <div class="surface-field">
+                  <label for="cp-cadence">Review cadence</label>
+                  <select id="cp-cadence">
+                    <option>Bi-weekly</option>
+                    <option>Monthly</option>
+                    <option>Quarterly</option>
+                  </select>
+                </div>
+                <div class="surface-field surface-field--full">
+                  <label for="cp-scope">Engagement scope</label>
+                  <textarea id="cp-scope">Growth strategy review with focus on market expansion in Q3. Deliverables include competitive landscape analysis, pricing model evaluation, and board-ready recommendation deck.</textarea>
+                </div>
+              </div>
+              <div class="surface-form__actions">
+                <a class="surface-button" href="#save">Save changes</a>
+                <a class="surface-button--ghost" href="#preview">Preview deliverable</a>
+              </div>
+            </form>
+          </article>
+
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">design principles</div>
+                <h3>Why this works</h3>
+              </div>
+            </div>
+            <div class="surface-summary">
+              <article class="surface-summary__item">
+                <strong>Form clarity</strong>
+                <p>Every field has a visible mono label. No placeholder-only inputs.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Professional tone</strong>
+                <p>Language matches what you'd see in a client proposal, not a SaaS onboarding wizard.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Restrained emphasis</strong>
+                <p>One primary action per form. Ghost button for secondary paths.</p>
+              </article>
+            </div>
+            <ul class="surface-checklist">
+              <li>Keep Fraunces for page-level headings only. Forms use Satoshi.</li>
+              <li>Navy accent reserved for the primary save action and active states.</li>
+              <li>Whitespace between form groups should match the landing page rhythm.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="surface-panel" style="margin-top: 20px;">
+          <div class="surface-panel__head">
+            <div>
+              <div class="surface-panel__eyebrow">recent changes</div>
+              <h3>Engagement timeline</h3>
+            </div>
+            <span class="surface-badge">Last 7 days</span>
+          </div>
+          <div class="surface-activity">
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Scope updated</strong><span>2 hours ago</span></div>
+              <p>Added Q3 market expansion focus and board deck deliverable to engagement scope.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Review cadence changed</strong><span>Yesterday</span></div>
+              <p>Moved from monthly to bi-weekly check-ins at client request during active strategy phase.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Partner reassigned</strong><span>3 days ago</span></div>
+              <p>Lead partner updated from S. Chen to J. Mercer for continuity with prior Harrington engagement.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

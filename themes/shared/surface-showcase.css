@@ -71,6 +71,25 @@
   --surface-radius-lg: 36px;
 }
 
+:root[data-profile="clean-professional"] {
+  --surface-bg: #f7f8fa;
+  --surface-panel: #ffffff;
+  --surface-panel-2: #f0f2f5;
+  --surface-panel-3: #e6e9ef;
+  --surface-text: #1a1d2b;
+  --surface-muted: #5c6370;
+  --surface-border: rgba(26, 29, 43, 0.10);
+  --surface-accent: #1e3a5f;
+  --surface-accent-2: #152d4a;
+  --surface-accent-glow: rgba(30, 58, 95, 0.12);
+  --surface-font-display: "Fraunces", Georgia, serif;
+  --surface-font-body: "Satoshi", system-ui, sans-serif;
+  --surface-font-mono: "Geist Mono", ui-monospace, monospace;
+  --surface-radius: 14px;
+  --surface-radius-lg: 20px;
+  --surface-shadow: 0 2px 8px rgba(26, 29, 43, 0.06), 0 12px 32px rgba(26, 29, 43, 0.08);
+}
+
 *,
 *::before,
 *::after {
