@@ -71,6 +71,25 @@
   --surface-radius-lg: 36px;
 }
 
+:root[data-profile="dark-gallery"] {
+  --surface-bg: #0a0a0a;
+  --surface-panel: #141414;
+  --surface-panel-2: #1a1a1a;
+  --surface-panel-3: #222222;
+  --surface-text: #e8e4de;
+  --surface-muted: #8a857e;
+  --surface-border: rgba(232, 228, 222, 0.08);
+  --surface-accent: #e8e4de;
+  --surface-accent-2: #c8c2b8;
+  --surface-accent-glow: rgba(232, 228, 222, 0.06);
+  --surface-font-display: "Playfair Display", Georgia, serif;
+  --surface-font-body: "Outfit", system-ui, sans-serif;
+  --surface-font-mono: "Outfit", system-ui, sans-serif;
+  --surface-radius: 0;
+  --surface-radius-lg: 0;
+  --surface-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
 :root[data-profile="clean-professional"] {
   --surface-bg: #f7f8fa;
   --surface-panel: #ffffff;
