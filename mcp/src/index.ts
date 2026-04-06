@@ -1,4 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import path from "node:path";
 import { z } from "zod";
@@ -7,6 +7,11 @@ import { handleGetTheme } from "./tools/get-theme.js";
 import { handleListComponents } from "./tools/list-components.js";
 import { handleGetDesignRules } from "./tools/get-design-rules.js";
 import { handleRecommendTheme } from "./tools/recommend-theme.js";
+import { loadThemes } from "./loaders/themes.js";
+import { getProfilesResource } from "./resources/profiles.js";
+import { getTokensResource } from "./resources/tokens.js";
+import { getDesignRulesResource } from "./resources/design-rules.js";
+import { getLayoutsResource } from "./resources/layouts.js";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "../../");
 
@@ -53,6 +58,45 @@ server.tool(
   ({ description }) => {
     return handleRecommendTheme(REPO_ROOT, description);
   }
+);
+
+server.resource("profiles", "framekit://profiles", async (uri) => ({
+  contents: [{ uri: uri.href, mimeType: "application/json", text: getProfilesResource(REPO_ROOT) }],
+}));
+
+server.resource("design-rules", "framekit://design-rules", async (uri) => ({
+  contents: [{ uri: uri.href, mimeType: "application/json", text: getDesignRulesResource() }],
+}));
+
+server.resource("layouts-landing", "framekit://layouts/landing", async (uri) => ({
+  contents: [{ uri: uri.href, mimeType: "application/json", text: getLayoutsResource("landing") }],
+}));
+
+server.resource("layouts-dashboard", "framekit://layouts/dashboard", async (uri) => ({
+  contents: [{ uri: uri.href, mimeType: "application/json", text: getLayoutsResource("dashboard") }],
+}));
+
+server.resource("layouts-app-screen", "framekit://layouts/app-screen", async (uri) => ({
+  contents: [{ uri: uri.href, mimeType: "application/json", text: getLayoutsResource("app-screen") }],
+}));
+
+server.resource(
+  "tokens",
+  new ResourceTemplate("framekit://tokens/{theme_id}", {
+    list: async () => {
+      const themes = loadThemes(REPO_ROOT);
+      return {
+        resources: themes.map((t) => ({
+          uri: `framekit://tokens/${t.id}`,
+          name: `${t.name} tokens`,
+          description: `CSS design tokens for the ${t.name} theme`,
+        })),
+      };
+    },
+  }),
+  async (uri, { theme_id }) => ({
+    contents: [{ uri: uri.href, mimeType: "application/json", text: getTokensResource(REPO_ROOT, theme_id as string) }],
+  })
 );
 
 async function main() {
