@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Framekit — Design Directions</title>
+    <meta
+      name="description"
+      content="Explore eight distinct visual directions for your next website. Each theme is a complete design system with landing pages, dashboards, and app screens."
+    />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="./present.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="present-header">
+      <nav class="present-nav">
+        <span class="present-brand">
+          <span class="present-brand__dot" aria-hidden="true"></span>
+          <span class="present-brand__text">Framekit</span>
+        </span>
+        <span class="present-nav__label">Design Direction Preview</span>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="present-hero">
+        <h1>Choose a visual direction.</h1>
+        <p class="present-hero__lead">
+          Each theme below is a complete design system — fonts, colors, spacing,
+          components, and layout patterns. Click any to see the full landing
+          page, dashboard, and app screen.
+        </p>
+      </section>
+
+      <section class="present-filters" aria-label="Filter themes by mood">
+        <div class="present-filter-bar" data-filter-bar>
+          <button class="present-filter is-active" data-filter="all">All</button>
+          <button class="present-filter" data-filter="dark">Dark</button>
+          <button class="present-filter" data-filter="light">Light</button>
+          <button class="present-filter" data-filter="luxury">Luxury</button>
+          <button class="present-filter" data-filter="technical">Technical</button>
+          <button class="present-filter" data-filter="editorial">Editorial</button>
+          <button class="present-filter" data-filter="playful">Playful</button>
+        </div>
+      </section>
+
+      <section class="present-gallery" id="gallery">
+        <div class="present-grid" data-theme-grid></div>
+      </section>
+    </main>
+
+    <footer class="present-footer">
+      <p>Each direction is a standalone visual system — built for real projects, not just mockups.</p>
+    </footer>
+
+    <script src="./present.js" defer></script>
+  </body>
+</html>
