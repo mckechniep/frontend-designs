@@ -446,6 +446,15 @@ img {
   text-decoration: none;
 }
 
+.nav-link--surface {
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.nav-link--surface:hover {
+  opacity: 1;
+}
+
 .nav-link--themes {
   color: var(--accent-soft);
 }
