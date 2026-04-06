@@ -630,13 +630,32 @@ body.surface-runtime a {
   font-size: clamp(2.2rem, 4.5vw, 3.6rem);
 }
 
+:root[data-theme="light"] .surface-hero {
+  align-items: start;
+}
+
+:root[data-theme="light"] .surface-stat-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
 :root[data-theme="light"] .surface-stat {
-  padding: 14px 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+:root[data-theme="light"] .surface-stat__label {
+  font-size: 0.64rem;
 }
 
 :root[data-theme="light"] .surface-stat__value {
-  font-size: 1.8rem;
-  margin-top: 8px;
+  font-size: 1.5rem;
+  margin-top: 6px;
+}
+
+:root[data-theme="light"] .surface-grid--dashboard,
+:root[data-theme="light"] .surface-grid--app {
+  align-items: start;
 }
 
 :root[data-theme="light"] .surface-panel {
@@ -644,11 +663,13 @@ body.surface-runtime a {
 }
 
 :root[data-theme="light"] .surface-panel__head h2 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  margin-top: 8px;
 }
 
 :root[data-theme="light"] .surface-panel__head h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  margin-top: 8px;
 }
 
 :root[data-theme="light"] .surface-summary__item {
