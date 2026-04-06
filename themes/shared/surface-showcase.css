@@ -678,6 +678,71 @@ body.surface-runtime a {
   gap: 4px;
 }
 
+/* Compact dashboard header for light themes */
+.dash-header {
+  padding: 28px 0 24px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.dash-header__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dash-header__title {
+  margin: 0;
+  font-family: var(--surface-font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.dash-header__desc {
+  margin: 4px 0 0;
+  font-size: 0.88rem;
+  color: var(--surface-muted);
+}
+
+.dash-header__kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.dash-kpi {
+  padding: 14px 16px;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface-panel);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.dash-kpi__value {
+  display: block;
+  font-family: var(--surface-font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--surface-text);
+}
+
+.dash-kpi__label {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--surface-font-mono);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--surface-muted);
+}
+
 /* Compact app header for light themes (replaces cinematic hero) */
 .app-header {
   display: flex;
@@ -764,6 +829,10 @@ body.surface-runtime a {
 
   .app-header__stats {
     flex-wrap: wrap;
+  }
+
+  .dash-header__kpis {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .surface-stat-grid,
