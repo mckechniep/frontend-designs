@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-fixed-profile="clean-professional" data-fixed-profile-stylesheet="./theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clean Professional — Vanilla UI Starter</title>
+    <meta name="description" content="Airy light-mode professional theme with editorial serif headlines, navy accents, and generous whitespace." />
+    <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../shared/favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./theme.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button
+            class="icon-button"
+            type="button"
+            data-menu-button
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#services">Services</a></li>
+            <li><a class="nav-link" href="#approach">Approach</a></li>
+            <li><a class="nav-link" href="#pricing">Pricing</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Get started</a>
+        </nav>
+      </div>
+
+      <div
+        class="container mobile-menu"
+        id="mobile-menu"
+        data-mobile-menu
+        hidden
+      >
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#approach">Approach</a></li>
+          <li><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="orb orb-3"></div>
+        </div>
+
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="badge">Trusted advisory</p>
+            <h1 class="h1">
+              Principled strategy for companies that value <em>clarity</em> over noise.
+            </h1>
+            <p class="lead">
+              A clean professional presence built on restraint, sharp typography, and the confidence to let whitespace do the talking. No gimmicks, no clutter.
+            </p>
+
+            <div class="cta-row">
+              <a class="button button-primary" href="#contact">Schedule a call</a>
+              <a class="button button-ghost" href="#services">Our services</a>
+            </div>
+
+            <div class="hero-proof" aria-label="Proof points">
+              <div class="hero-avatars" aria-hidden="true">
+                <span>JM</span>
+                <span>SC</span>
+                <span>AL</span>
+                <span>RK</span>
+              </div>
+              <p class="hero-proof-text">
+                Designed for firms where the work speaks louder than the website, but the website still needs to be impeccable.
+              </p>
+            </div>
+
+            <div class="mini-stats" aria-label="Highlights">
+              <div class="mini-stat">
+                <div class="mini-stat__value">12</div>
+                <div class="mini-stat__label">Years in practice</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">340+</div>
+                <div class="mini-stat__label">Client engagements</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat__value">97%</div>
+                <div class="mini-stat__label">Retention rate</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Inquiry preview">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="h3">Initial inquiry</h2>
+                <p class="muted">
+                  Start with a brief introduction so we can prepare for our first conversation.
+                </p>
+              </div>
+
+              <div class="card-body">
+                <div class="preview-shell" aria-hidden="true">
+                  <div class="preview-bar">
+                    <span class="preview-dot"></span>
+                    <span class="preview-dot"></span>
+                    <span class="preview-dot"></span>
+                  </div>
+                  <div class="preview-stage" data-preview-stage></div>
+                </div>
+
+                <div class="form-row">
+                  <label class="label" for="email">Work email</label>
+                  <input
+                    class="input"
+                    id="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="name@company.com"
+                  />
+                </div>
+
+                <div class="form-row">
+                  <label class="label" for="plan">Service interest</label>
+                  <select class="select" id="plan">
+                    <option>Strategic advisory</option>
+                    <option>Operational review</option>
+                    <option>Growth planning</option>
+                  </select>
+                </div>
+
+                <button
+                  class="button button-primary button-full"
+                  type="button"
+                  data-toast-button
+                >
+                  Request consultation
+                </button>
+
+                <p class="hint" id="hint">
+                  No commitment required. We respond within one business day.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="toast"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              hidden
+              data-toast
+            >
+              Inquiry received.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-bar" aria-label="Clean Professional traits">
+        <div class="container">
+          <p class="trust-label">Built for professionals who expect precision, not decoration</p>
+          <div class="trust-logos">
+            <span>Clear hierarchy</span>
+            <span>Measured tone</span>
+            <span>Light-mode first</span>
+            <span>Accessible</span>
+            <span>Print-ready</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="services">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">What we deliver</h2>
+            <p class="muted">
+              Each engagement is structured around outcomes, not hours. We work until the problem is solved.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="feature-icon navy" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <rect x="6" y="9" width="36" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                  <path d="M16 39h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M24 33v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Strategic planning</h3>
+              <p class="muted">
+                Structured roadmaps that connect your current position to a defensible market outcome, not just a wish list.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon slate" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M24 40s12-6 12-15V13l-12-5-12 5v12c0 9 12 15 12 15z" fill="none" stroke="currentColor" stroke-width="2"></path>
+                  <path d="M19 24l4 4 7-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Risk assessment</h3>
+              <p class="muted">
+                Independent evaluation of operational, financial, and reputational exposure before you commit resources.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon teal" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M13 35v-6a7 7 0 0 1 7-7h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M35 13v6a7 7 0 0 1-7 7h-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M17 18l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M31 30l4-4-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Operational clarity</h3>
+              <p class="muted">
+                Process audits and team alignment work that removes friction and creates space for the work that matters.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon slate" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M14 10h20a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none" stroke="currentColor" stroke-width="2"></path>
+                  <path d="M18 18h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M18 24h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M18 30h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Due diligence</h3>
+              <p class="muted">
+                Thorough review of opportunities, partnerships, and transactions with the detail your board expects.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon navy" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M12 36h24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M16 36V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M24 36V14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M32 36V27" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Growth advisory</h3>
+              <p class="muted">
+                Sustained engagement for scaling teams who need an experienced perspective without the overhead of a full hire.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="feature-icon teal" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M12 15h24v18H12z" fill="none" stroke="currentColor" stroke-width="2"></path>
+                  <path d="M16 21h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M16 27h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <path d="M30 31l3 3 5-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <h3 class="h3">Board reporting</h3>
+              <p class="muted">
+                Clean, decision-ready materials that respect your board's time and make the case without excess narrative.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section spotlight" aria-labelledby="spotlight-title">
+        <div class="container spotlight-grid">
+          <div class="spotlight-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Philosophy</span>
+            </div>
+            <h2 class="h2" id="spotlight-title">
+              Good advisory is invisible. The client gets the outcome; we get the referral.
+            </h2>
+            <p class="lead">
+              This profile works when the website needs to feel as considered as the work itself. Nothing ornamental, nothing accidental. Every element earns its place.
+            </p>
+            <ul class="spotlight-list">
+              <li>Lead with substance, not style theatrics.</li>
+              <li>Let typography create hierarchy without decorative crutches.</li>
+              <li>Keep every surface ready for real client logos and case references.</li>
+            </ul>
+          </div>
+
+          <div class="spotlight-stack">
+            <article class="card spotlight-panel">
+              <div class="card-header">
+                <h3 class="h3">Our method</h3>
+              </div>
+              <div class="card-body">
+                <p class="muted">
+                  Diagnose before you prescribe. Every engagement starts with structured discovery because assumptions are the most expensive risk.
+                </p>
+              </div>
+            </article>
+
+            <article class="card spotlight-panel">
+              <div class="card-header">
+                <h3 class="h3">What clients say</h3>
+              </div>
+              <div class="card-body">
+                <div class="mini-stats">
+                  <div class="mini-stat">
+                    <div class="mini-stat__value">Clear</div>
+                    <div class="mini-stat__label">Communication</div>
+                  </div>
+                  <div class="mini-stat">
+                    <div class="mini-stat__value">Direct</div>
+                    <div class="mini-stat__label">Recommendations</div>
+                  </div>
+                  <div class="mini-stat">
+                    <div class="mini-stat__value">Reliable</div>
+                    <div class="mini-stat__label">Follow-through</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section how-it-works" id="approach">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Process</span>
+            </div>
+            <h2 class="h2">Discovery, diagnosis, delivery.</h2>
+            <p class="muted">
+              Three phases, no surprises. We scope tightly, deliver on time, and document everything.
+            </p>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step__number step__number--navy">1</div>
+              <h3 class="h3">Listen first</h3>
+              <p class="muted">
+                Structured intake that maps your situation, constraints, and definition of success before any recommendations.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step__number step__number--slate">2</div>
+              <h3 class="h3">Analyze clearly</h3>
+              <p class="muted">
+                Independent assessment with findings presented in language your leadership team can act on immediately.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step__number step__number--teal">3</div>
+              <h3 class="h3">Deliver decisively</h3>
+              <p class="muted">
+                Implementation support with defined milestones, regular check-ins, and a clean handoff when the work is done.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="metrics">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Track record</h2>
+            <p class="muted">
+              Numbers that reflect sustained, careful work rather than startup growth theater.
+            </p>
+          </div>
+
+          <div class="metrics-grid" role="list">
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Client retention</div>
+              <div class="metric__value">97%</div>
+              <div class="metric__delta metric__delta--up">Annual</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Avg. engagement</div>
+              <div class="metric__value">14</div>
+              <div class="metric__delta metric__delta--up">Months</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">NPS score</div>
+              <div class="metric__value">82</div>
+              <div class="metric__delta metric__delta--up">Last quarter</div>
+            </div>
+            <div class="metric card" role="listitem">
+              <div class="metric__label">Referral rate</div>
+              <div class="metric__value">68%</div>
+              <div class="metric__delta metric__delta--up">Of new clients</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Engagement</span>
+            </div>
+            <h2 class="h2">Transparent pricing for serious work.</h2>
+            <p class="muted">
+              Structured tiers so you know exactly what you're getting. No hourly surprises.
+            </p>
+          </div>
+
+          <div class="pricing-toggle" role="radiogroup" aria-label="Billing period">
+            <button
+              class="pricing-toggle__option pricing-toggle__option--active"
+              type="button"
+              data-billing="monthly"
+              aria-checked="true"
+              role="radio"
+            >
+              Monthly
+            </button>
+            <button
+              class="pricing-toggle__option"
+              type="button"
+              data-billing="annual"
+              aria-checked="false"
+              role="radio"
+            >
+              Annual
+              <span class="pricing-toggle__badge">Save 20%</span>
+            </button>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card card">
+              <div class="pricing-card__header">
+                <h3 class="h3">Advisory</h3>
+                <p class="muted">For focused engagements with a defined scope and timeline.</p>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-price-monthly="2500" data-price-annual="2000">
+                  <span class="pricing-card__currency">$</span><span data-price-value>2,500</span>
+                </span>
+                <span class="pricing-card__period">/ month</span>
+              </div>
+              <ul class="pricing-card__features">
+                <li>Structured discovery phase</li>
+                <li>Monthly strategy sessions</li>
+                <li>Written recommendations</li>
+                <li>Email support</li>
+              </ul>
+              <a class="button button-ghost button-full" href="#contact">Start here</a>
+            </article>
+
+            <article class="pricing-card pricing-card--featured card">
+              <span class="pricing-card__badge">Recommended</span>
+              <div class="pricing-card__header">
+                <h3 class="h3">Retained</h3>
+                <p class="muted">For ongoing partnerships with regular touchpoints and priority access.</p>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-price-monthly="6500" data-price-annual="5200">
+                  <span class="pricing-card__currency">$</span><span data-price-value>6,500</span>
+                </span>
+                <span class="pricing-card__period">/ month</span>
+              </div>
+              <ul class="pricing-card__features">
+                <li>Everything in Advisory</li>
+                <li>Bi-weekly working sessions</li>
+                <li>Board-ready deliverables</li>
+                <li>Direct partner access</li>
+                <li>Quarterly business reviews</li>
+              </ul>
+              <a class="button button-primary button-full" href="#contact">Get started</a>
+            </article>
+
+            <article class="pricing-card card">
+              <div class="pricing-card__header">
+                <h3 class="h3">Enterprise</h3>
+                <p class="muted">For complex organizations requiring embedded advisory support.</p>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-price-monthly="0" data-price-annual="0">
+                  <span class="pricing-card__currency"></span><span data-price-value>Custom</span>
+                </span>
+                <span class="pricing-card__period">/ engagement</span>
+              </div>
+              <ul class="pricing-card__features">
+                <li>Everything in Retained</li>
+                <li>Multi-workstream coordination</li>
+                <li>On-site presence as needed</li>
+                <li>Dedicated team allocation</li>
+                <li>Custom reporting cadence</li>
+              </ul>
+              <a class="button button-ghost button-full" href="#contact">Talk to us</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker" aria-label="Section label">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Contact</span>
+            </div>
+            <h2 class="h2">The best engagements start with a straightforward conversation.</h2>
+            <p class="lead">
+              Tell us what you're working on. If we're the right fit, you'll know within the first call.
+            </p>
+            <ul class="contact-points">
+              <li>Best for professional services, consulting, legal, financial advisory, and B2B firms.</li>
+              <li>Works when your clients expect substance, not visual spectacle.</li>
+              <li>The design earns trust by showing restraint, not by showing off.</li>
+            </ul>
+          </div>
+
+          <form class="card form contact-form" novalidate data-contact-form>
+            <div class="form-row">
+              <label class="label" for="name">Name</label>
+              <input
+                class="input"
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+              <p class="error" data-error-for="name" hidden>
+                Please enter your name.
+              </p>
+            </div>
+
+            <div class="form-row">
+              <label class="label" for="message">How can we help?</label>
+              <textarea
+                class="textarea"
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+              <p class="error" data-error-for="message" hidden>
+                Please describe your situation briefly.
+              </p>
+            </div>
+
+            <button class="button button-primary button-full" type="submit">
+              Send inquiry
+            </button>
+            <p class="hint">No network request is made in this starter.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-row">
+        <p class="muted">
+          &copy; <span data-year></span> Framekit. Clean Professional direction.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./page.js" defer></script>
+  </body>
+</html>
