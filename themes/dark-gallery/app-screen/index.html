@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-profile="dark-gallery" data-fixed-profile="dark-gallery">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Elara Voss — Dark Gallery App Screen</title>
+    <meta name="description" content="Dark Gallery app-screen surface for project configuration." />
+    <link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../../shared/favicon.ico" />
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="../../shared/surface-showcase.css" />
+  </head>
+  <body class="surface-runtime">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-frame">
+      <header class="surface-frame__header">
+        <a class="surface-frame__brand" href="../index.html">
+          <span class="surface-frame__brand-mark" aria-hidden="true"></span>
+          <span class="surface-frame__brand-copy">
+            <span class="surface-frame__brand-kicker">dark-gallery / app-screen</span>
+            <span class="surface-frame__brand-name">Elara Voss</span>
+          </span>
+        </a>
+        <div class="surface-frame__links" role="navigation" aria-label="Surface routes">
+          <a href="../index.html">Landing</a>
+          <a href="../dashboard/index.html">Dashboard</a>
+          <a class="is-active" href="./index.html">App screen</a>
+        </div>
+        <div class="surface-frame__actions">
+          <a href="../../index.html">Theme Vault</a>
+          <a class="surface-frame__button" href="../../../build/index.html">Build brief</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <section class="surface-hero">
+          <div class="surface-hero__copy">
+            <span class="surface-pill">project workspace</span>
+            <h1>Configure projects with the same restraint as the portfolio itself.</h1>
+            <p>
+              The dark-gallery app screen keeps the same near-black palette and sharp
+              geometry. Forms feel like editing metadata on a print, not filling out
+              a SaaS onboarding wizard.
+            </p>
+          </div>
+          <aside class="surface-stat-grid">
+            <article class="surface-stat">
+              <div class="surface-stat__label">Deliverables</div>
+              <div class="surface-stat__value">24</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">In review</div>
+              <div class="surface-stat__value">08</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Approved</div>
+              <div class="surface-stat__value">16</div>
+            </article>
+            <article class="surface-stat">
+              <div class="surface-stat__label">Due this week</div>
+              <div class="surface-stat__value">03</div>
+            </article>
+          </aside>
+        </section>
+
+        <section class="surface-grid surface-grid--app">
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">project settings</div>
+                <h2>Commission details</h2>
+              </div>
+              <span class="surface-badge">Active</span>
+            </div>
+            <p class="surface-panel__muted">
+              Every field maps to something that appears in a client contract or delivery manifest.
+            </p>
+            <form class="surface-form">
+              <div class="surface-form__grid">
+                <div class="surface-field">
+                  <label for="dg-client">Client</label>
+                  <input id="dg-client" type="text" value="Kinfolk Magazine" />
+                </div>
+                <div class="surface-field">
+                  <label for="dg-type">Project type</label>
+                  <select id="dg-type">
+                    <option>Editorial commission</option>
+                    <option>Portrait session</option>
+                    <option>Architecture documentation</option>
+                    <option>Commercial / brand</option>
+                  </select>
+                </div>
+                <div class="surface-field">
+                  <label for="dg-deadline">Delivery date</label>
+                  <input id="dg-deadline" type="text" value="April 15, 2026" />
+                </div>
+                <div class="surface-field">
+                  <label for="dg-rate">Project rate</label>
+                  <input id="dg-rate" type="text" value="$4,200" />
+                </div>
+                <div class="surface-field surface-field--full">
+                  <label for="dg-brief">Creative brief</label>
+                  <textarea id="dg-brief">Twelve-page editorial exploring domestic stillness. Natural light only. Muted palette. Emphasis on negative space and the tension between occupied and empty rooms.</textarea>
+                </div>
+              </div>
+              <div class="surface-form__actions">
+                <a class="surface-button" href="#save">Save project</a>
+                <a class="surface-button--ghost" href="#preview">Preview contract</a>
+              </div>
+            </form>
+          </article>
+
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">design notes</div>
+                <h3>Why this works</h3>
+              </div>
+            </div>
+            <div class="surface-summary">
+              <article class="surface-summary__item">
+                <strong>Zero radius</strong>
+                <p>Sharp form edges match the gallery's exhibition aesthetic.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Warm inputs</strong>
+                <p>Input text in #e8e4de feels like handwriting on a dark matte print.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Sparse chrome</strong>
+                <p>Only the save button has visual weight. Everything else recedes.</p>
+              </article>
+            </div>
+          </article>
+        </section>
+
+        <section class="surface-panel" style="margin-top: 20px;">
+          <div class="surface-panel__head">
+            <div>
+              <div class="surface-panel__eyebrow">delivery log</div>
+              <h3>Recent activity</h3>
+            </div>
+            <span class="surface-badge">This week</span>
+          </div>
+          <div class="surface-activity">
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Selects delivered</strong><span>2 hours ago</span></div>
+              <p>24 high-resolution selects uploaded to client review portal.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Color grade approved</strong><span>Yesterday</span></div>
+              <p>Final color treatment confirmed for pages 1-6. Warm shift +4, shadow lift +2.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Shoot day 2 complete</strong><span>3 days ago</span></div>
+              <p>Interior kitchen and living room sequences. 340 frames captured, 28 flagged for edit.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-fixed-profile="dark-gallery" data-fixed-profile-stylesheet="./theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dark Gallery — Vanilla UI Starter</title>
+    <meta name="description" content="Near-black photography portfolio with floating images, minimal chrome, and warm white accents." />
+    <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../shared/favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./theme.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="icon-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+            <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Book a session</a>
+        </nav>
+      </div>
+
+      <div class="container mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+          <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-image" aria-hidden="true">
+          <div class="hero-image__placeholder"></div>
+        </div>
+        <div class="hero-overlay">
+          <div class="container">
+            <p class="badge">Fine art &amp; editorial</p>
+            <h1 class="h1">Elara<br>Voss</h1>
+            <p class="lead">Quiet images for loud moments.</p>
+            <div class="cta-row">
+              <a class="button button-primary" href="#portfolio">View work</a>
+              <a class="button button-ghost" href="#contact">Get in touch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Selected Work</span>
+            </div>
+            <h2 class="h2">Portfolio</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 24; --sat: 18%; --light: 28%;" aria-label="Portrait in warm light"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Golden Hour</span>
+                <span class="gallery-item__meta">Editorial, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 210; --sat: 12%; --light: 22%;" aria-label="Architecture detail"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Still Forms</span>
+                <span class="gallery-item__meta">Architecture, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 160; --sat: 10%; --light: 20%;" aria-label="Forest interior"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Understory</span>
+                <span class="gallery-item__meta">Landscape, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--wide">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 18%;" aria-label="Studio portrait"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Presence</span>
+                <span class="gallery-item__meta">Portrait, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 35; --sat: 22%; --light: 25%;" aria-label="Desert landscape"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Dry Season</span>
+                <span class="gallery-item__meta">Travel, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 280; --sat: 8%; --light: 16%;" aria-label="Night scene"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">After Hours</span>
+                <span class="gallery-item__meta">Street, 2024</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="about">
+        <div class="container about-grid">
+          <div class="about-portrait">
+            <div class="about-portrait__image" aria-label="Photographer portrait"></div>
+          </div>
+          <div class="about-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">About</span>
+            </div>
+            <h2 class="h2">The work should feel like a memory you almost forgot.</h2>
+            <p class="lead">
+              Based in Portland. Shooting since 2012. Drawn to the tension between stillness
+              and motion, between what's visible and what's implied.
+            </p>
+            <div class="about-details">
+              <div class="about-detail">
+                <span class="about-detail__label">Focus</span>
+                <span class="about-detail__value">Editorial, portrait, architecture</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">Available</span>
+                <span class="about-detail__value">Worldwide for commissioned work</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">Clients</span>
+                <span class="about-detail__value">Kinfolk, Cereal, Monocle, Wallpaper*</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Featured Projects</span>
+            </div>
+            <h2 class="h2">Recent commissions</h2>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 30; --sat: 20%; --light: 24%;" aria-label="Kinfolk editorial shoot"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Editorial</span>
+                <h3 class="h3">The Quiet Issue</h3>
+                <p class="muted">A twelve-page editorial for Kinfolk exploring domestic stillness through natural light and negative space.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 200; --sat: 10%; --light: 20%;" aria-label="Architecture documentation"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Architecture</span>
+                <h3 class="h3">Concrete & Sky</h3>
+                <p class="muted">Documentation of three brutalist structures in Osaka for a monograph on post-war Japanese architecture.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 340; --sat: 12%; --light: 22%;" aria-label="Portrait session"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Portrait</span>
+                <h3 class="h3">The Founders</h3>
+                <p class="muted">Intimate portraits of twelve startup founders for a venture capital annual report.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="testimonials">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <h2 class="h2">What clients say</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"Elara sees what the rest of us walk past. The images arrived and we immediately scrapped our original layout to build around them."</p>
+              <footer class="testimonial__source">
+                <strong>M. Tanaka</strong>
+                <span class="muted">Creative Director, Kinfolk</span>
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"Minimal direction, maximum result. She understood the building better than the architects did."</p>
+              <footer class="testimonial__source">
+                <strong>R. Holm</strong>
+                <span class="muted">Editor, Cereal Magazine</span>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Inquiries</span>
+            </div>
+            <h2 class="h2">Let's make something quiet and unforgettable.</h2>
+            <p class="lead">
+              Available for editorial commissions, portrait sessions, and architectural documentation. Based in Portland, working worldwide.
+            </p>
+          </div>
+
+          <form class="card form contact-form" novalidate data-contact-form>
+            <div class="form-row">
+              <label class="label" for="name">Name</label>
+              <input class="input" id="name" name="name" type="text" autocomplete="name" required />
+              <p class="error" data-error-for="name" hidden>Please enter your name.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+              <p class="error" data-error-for="email" hidden>Please enter your email.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="project">Project type</label>
+              <select class="select" id="project" name="project">
+                <option>Editorial commission</option>
+                <option>Portrait session</option>
+                <option>Architecture documentation</option>
+                <option>Commercial / brand</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="label" for="message">Brief</label>
+              <textarea class="textarea" id="message" name="message" rows="4" required></textarea>
+              <p class="error" data-error-for="message" hidden>Please describe your project.</p>
+            </div>
+            <button class="button button-primary button-full" type="submit">Send inquiry</button>
+            <p class="hint">No network request is made in this starter.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+        <p class="muted">&copy; <span data-year></span> Elara Voss. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./page.js" defer></script>
+  </body>
+</html>
