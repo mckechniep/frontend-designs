@@ -1,0 +1,184 @@
+[
+  {
+    "id": "type-scale-ratio",
+    "category": "typography",
+    "principle": "Use a consistent type scale with a defined ratio between sizes.",
+    "rationale": "A mathematical scale creates visual hierarchy that feels intentional and harmonious — the eye perceives proportional relationships as natural order.",
+    "example": "Do: 14px, 16px, 20px, 25px, 31px (1.25 ratio). Don't: arbitrary jumps like 14px, 18px, 22px, 30px."
+  },
+  {
+    "id": "type-hierarchy-levels",
+    "category": "typography",
+    "principle": "Limit to 3-4 distinct typographic levels per page or section.",
+    "rationale": "More than four levels dilutes hierarchy — the user's eye stops knowing where to look first, and every level loses its meaning.",
+    "example": "Do: Display, Heading, Body, Caption. Don't: H1 through H5 plus Body plus Small plus Tiny — eight levels compete with each other."
+  },
+  {
+    "id": "type-line-length",
+    "category": "typography",
+    "principle": "Keep body text between 45-75 characters per line.",
+    "rationale": "The eye's return sweep on long lines causes fatigue and increases the chance of re-reading the same line — 65 characters is the sweet spot for comfortable reading.",
+    "example": "Do: max-width: 65ch on prose containers. Don't: full-width paragraphs spanning 1200px on a widescreen monitor."
+  },
+  {
+    "id": "type-font-pairing",
+    "category": "typography",
+    "principle": "Pair a distinctive display font with a neutral body font. Maximum two families plus one mono.",
+    "rationale": "Contrast between expressive display and restrained body creates hierarchy without friction — adding a third expressive family introduces noise, not richness.",
+    "example": "Do: Syne (display) + Outfit (body) + IBM Plex Mono (code). Don't: five different fonts across headings, subheadings, body, captions, and labels."
+  },
+  {
+    "id": "type-line-height",
+    "category": "typography",
+    "principle": "Body text needs 1.5-1.7 line-height. Display text needs 1.0-1.2.",
+    "rationale": "Line-height should tighten as type size increases — large text at 1.6 looks floaty and disconnected, while small body text at 1.1 becomes unreadable.",
+    "example": "Do: body { line-height: 1.6 } and h1 { line-height: 1.05 }. Don't: apply line-height: 1.5 to everything uniformly."
+  },
+  {
+    "id": "spacing-base-unit",
+    "category": "spacing",
+    "principle": "Use an 8px base unit for all spacing.",
+    "rationale": "An 8px grid aligns with device pixel densities and creates consistent visual rhythm — arbitrary spacing values produce subtle misalignments that make interfaces feel unpolished.",
+    "example": "Do: 8, 16, 24, 32, 48, 64px. Don't: 10, 15, 23, 37px — values that don't relate to any base unit."
+  },
+  {
+    "id": "spacing-section-rhythm",
+    "category": "spacing",
+    "principle": "Section gaps should be 2-3x larger than element gaps.",
+    "rationale": "Gestalt proximity — elements close together are perceived as a group. If section gaps equal element gaps, the page reads as a single undifferentiated mass.",
+    "example": "Do: card gap 16px, section gap 48-64px. Don't: 24px everywhere, making sections and cards indistinguishable."
+  },
+  {
+    "id": "spacing-generous-padding",
+    "category": "spacing",
+    "principle": "Cards need at least 24px padding, often 32-48px.",
+    "rationale": "Cramped padding signals amateur design — generous padding communicates confidence and makes content feel premium and breathable.",
+    "example": "Do: .card { padding: 32px }. Don't: padding: 12px, which squashes content against card edges."
+  },
+  {
+    "id": "spacing-whitespace-intent",
+    "category": "spacing",
+    "principle": "Whitespace directs attention. Use asymmetric whitespace intentionally.",
+    "rationale": "Uneven space guides the eye — more space above creates separation, more space below creates association with the following element. Equal space on all sides stops directing the eye.",
+    "example": "Do: 64px margin-top before a heading, 16px margin-bottom after it, linking it visually to its content. Don't: equal 32px on all sides."
+  },
+  {
+    "id": "color-contrast-minimum",
+    "category": "color",
+    "principle": "WCAG AA requires 4.5:1 contrast for body text and 3:1 for large text.",
+    "rationale": "Insufficient contrast is both a legal liability and a readability failure — 1 in 12 users has some form of color vision deficiency, and low contrast affects everyone in bright environments.",
+    "example": "Do: #e5e2dc on #08080c achieves 13.5:1. Don't: #666 on #333 at 2.8:1 which fails AA entirely."
+  },
+  {
+    "id": "color-dominant-accent",
+    "category": "color",
+    "principle": "Apply the 60-30-10 rule: dominant background, secondary surface, accent.",
+    "rationale": "Timid palettes that use accent colors sparingly feel generic — a bold 10% accent reads as intentional design, while 2% accent disappears into the background noise.",
+    "example": "Do: 60% dark background, 30% elevated surface color, 10% gold accent across interactive elements. Don't: accent only on one button."
+  },
+  {
+    "id": "color-semantic-consistency",
+    "category": "color",
+    "principle": "The same color must mean the same thing everywhere in the interface.",
+    "rationale": "Users build color associations within 30 seconds — if success is green on one screen and blue on another, the system feels broken and untrustworthy.",
+    "example": "Do: use consistent --success, --error, --warning semantic tokens across every component. Don't: reuse accent color for both links and error states."
+  },
+  {
+    "id": "color-not-only-signal",
+    "category": "color",
+    "principle": "Never use color as the only way to convey information.",
+    "rationale": "Approximately 8% of men have color vision deficiency — using color alone to signal errors or status excludes a significant portion of users.",
+    "example": "Do: red text + error icon + 'Error:' prefix label. Don't: just turning a border red to indicate a failed field."
+  },
+  {
+    "id": "layout-visual-hierarchy",
+    "category": "layout",
+    "principle": "Every page needs one clear focal point — one element that demands attention first.",
+    "rationale": "If everything is important, nothing is. Pages without a dominant element force users to scan randomly, increasing cognitive load and reducing comprehension.",
+    "example": "Do: hero at 4rem, section headings at 2rem, body at 1rem — a clear size cascade. Don't: hero at 2.5rem and sections at 2rem, creating no dominant element."
+  },
+  {
+    "id": "layout-grid-discipline",
+    "category": "layout",
+    "principle": "Align everything to the grid, then break it intentionally for emphasis.",
+    "rationale": "Random misalignment reads as broken — but a deliberate grid break creates visual tension that draws the eye. The difference is intent and consistency.",
+    "example": "Do: 12-column grid with one hero image that bleeds to the edge intentionally. Don't: elements randomly misaligned by 7px or 13px with no pattern."
+  },
+  {
+    "id": "layout-content-density",
+    "category": "layout",
+    "principle": "Match information density to the purpose of the interface.",
+    "rationale": "Marketing pages that are too dense overwhelm visitors before they convert. Dashboards that are too sparse waste screen real estate and require excessive scrolling.",
+    "example": "Do: landing page with 64-96px section gaps, dashboard with 12-16px gaps between data points. Don't: apply the same density to both."
+  },
+  {
+    "id": "layout-responsive-reflow",
+    "category": "layout",
+    "principle": "Design three distinct layouts — mobile, tablet, desktop — not one layout that shrinks.",
+    "rationale": "Simply stacking columns is not responsive design — it ignores the different usage contexts, content priorities, and interaction patterns of each breakpoint.",
+    "example": "Do: reorder elements on mobile, promote key CTAs higher, simplify navigation. Don't: just stack all columns vertically and call it responsive."
+  },
+  {
+    "id": "layout-z-index-discipline",
+    "category": "layout",
+    "principle": "Use named z-index layers with defined token values, never arbitrary numbers.",
+    "rationale": "Arbitrary z-index values create a race to the top — the next developer adds z-index: 9999 to override the last, and the system collapses into chaos.",
+    "example": "Do: --z-dropdown: 10, --z-sticky: 20, --z-modal: 30, --z-toast: 40. Don't: z-index: 9999 or z-index: 99999."
+  },
+  {
+    "id": "motion-purpose",
+    "category": "motion",
+    "principle": "Every animation must serve a purpose: orient, guide, confirm, or delight.",
+    "rationale": "Gratuitous animation increases cognitive load and fatigues users — motion that serves no purpose trains users to ignore all motion, including the purposeful kind.",
+    "example": "Do: staggered card reveal that orients the user to the page structure. Don't: every button wiggling on hover with no informational value."
+  },
+  {
+    "id": "motion-duration",
+    "category": "motion",
+    "principle": "UI feedback: 150-300ms. Content reveals: 300-600ms. Never exceed 1 second.",
+    "rationale": "Animations slower than 300ms for micro-interactions feel sluggish and make the interface feel unresponsive — longer durations are only appropriate for content entering the viewport.",
+    "example": "Do: hover state 180ms, dropdown open 220ms, page section reveal 400ms. Don't: 800ms on a button hover or 2s on a modal open."
+  },
+  {
+    "id": "motion-easing",
+    "category": "motion",
+    "principle": "Use ease-out for entrances, ease-in for exits. Never use linear for UI animations.",
+    "rationale": "Natural motion accelerates and decelerates — objects in the physical world don't move at constant speed. Linear motion reads as mechanical and unnatural.",
+    "example": "Do: slide-in with 300ms ease-out, slide-out with 200ms ease-in. Don't: all transitions at 300ms linear."
+  },
+  {
+    "id": "motion-reduced-motion",
+    "category": "motion",
+    "principle": "Always respect the prefers-reduced-motion media query.",
+    "rationale": "Vestibular disorders affect approximately 35% of adults over 40 — motion that triggers vestibular responses is not a preference, it is a disability accommodation requirement.",
+    "example": "Do: @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms; transition-duration: 0.01ms; } }. Don't: ignore this query entirely."
+  },
+  {
+    "id": "a11y-focus-visible",
+    "category": "accessibility",
+    "principle": "Every interactive element must have a clearly visible focus indicator.",
+    "rationale": "Keyboard navigation is essential for users who cannot use a mouse — removing focus styles makes the interface completely unusable for this group.",
+    "example": "Do: :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }. Don't: outline: none without a custom replacement."
+  },
+  {
+    "id": "a11y-touch-targets",
+    "category": "accessibility",
+    "principle": "Interactive elements must have a minimum 44x44px touch target size.",
+    "rationale": "Apple and Google both mandate 44px minimum touch targets — smaller targets cause mis-taps, frustrate users with motor difficulties, and fail platform accessibility guidelines.",
+    "example": "Do: min-height: 44px; min-width: 44px on buttons and links. Don't: 24px icon buttons with no padding that require pixel-precise tapping."
+  },
+  {
+    "id": "a11y-semantic-html",
+    "category": "accessibility",
+    "principle": "Use semantic HTML elements, maintain heading order, and include landmark regions.",
+    "rationale": "Screen readers navigate by landmarks and headings — without semantic structure, blind users cannot jump to content or understand page organization.",
+    "example": "Do: <nav>, <main>, <aside>, headings in order from <h1> through <h3>. Don't: div soup with no landmark roles or headings that jump from h1 to h4."
+  },
+  {
+    "id": "a11y-form-labels",
+    "category": "accessibility",
+    "principle": "Every form input needs a persistent visible label — placeholders are not labels.",
+    "rationale": "Placeholders disappear when the user starts typing, leaving them unable to remember what a field is for — this particularly affects users with cognitive disabilities.",
+    "example": "Do: <label for='email'>Email</label><input id='email' placeholder='you@example.com'>. Don't: <input placeholder='Email'> with no associated label element."
+  }
+]
