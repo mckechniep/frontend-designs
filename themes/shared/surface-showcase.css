@@ -82,7 +82,7 @@
   --surface-accent: #1e3a5f;
   --surface-accent-2: #152d4a;
   --surface-accent-glow: rgba(30, 58, 95, 0.12);
-  --surface-font-display: "Fraunces", Georgia, serif;
+  --surface-font-display: "DM Serif Display", Georgia, serif;
   --surface-font-body: "Satoshi", system-ui, sans-serif;
   --surface-font-mono: "Geist Mono", ui-monospace, monospace;
   --surface-radius: 14px;
@@ -563,6 +563,62 @@ body.surface-runtime a {
   margin: 22px 0 0;
   padding: 0;
   list-style: none;
+}
+
+/* --- Light theme overrides --- */
+:root[data-theme="light"] body.surface-runtime {
+  background: var(--surface-bg);
+}
+
+:root[data-theme="light"] body.surface-runtime::before {
+  background:
+    radial-gradient(circle at 15% 8%, color-mix(in srgb, var(--surface-accent) 5%, transparent), transparent 0 16rem),
+    radial-gradient(circle at 82% 0%, color-mix(in srgb, var(--surface-accent-2) 4%, transparent), transparent 0 14rem);
+  opacity: 0.6;
+}
+
+:root[data-theme="light"] body.surface-runtime::after {
+  opacity: 0.08;
+}
+
+:root[data-theme="light"] .surface-frame__header {
+  background: color-mix(in srgb, var(--surface-bg) 88%, transparent);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="light"] .surface-stat,
+:root[data-theme="light"] .surface-panel,
+:root[data-theme="light"] .surface-note {
+  background: var(--surface-panel);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="light"] .surface-summary__item,
+:root[data-theme="light"] .surface-note,
+:root[data-theme="light"] .surface-activity__item,
+:root[data-theme="light"] .surface-table__row,
+:root[data-theme="light"] .surface-form__actions,
+:root[data-theme="light"] .surface-checklist li {
+  background: var(--surface-panel-2);
+}
+
+:root[data-theme="light"] .surface-table__head {
+  background: var(--surface-panel-2);
+}
+
+:root[data-theme="light"] .surface-field input,
+:root[data-theme="light"] .surface-field select,
+:root[data-theme="light"] .surface-field textarea {
+  background: var(--surface-bg);
+}
+
+:root[data-theme="light"] .surface-button {
+  background: var(--surface-accent);
+  color: #ffffff;
+}
+
+:root[data-theme="light"] .surface-bar__track {
+  background: var(--surface-panel-2);
 }
 
 @media (max-width: 1024px) {

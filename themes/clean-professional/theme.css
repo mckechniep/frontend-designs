@@ -1,11 +1,27 @@
 /* ================================================================
    Clean Professional — Theme CSS
-   Airy light-mode with editorial Fraunces headlines, navy accents,
+   Airy light-mode with DM Serif Display headlines, navy accents,
    Satoshi body, Geist Mono labels, and generous whitespace.
    ================================================================ */
 
-/* --- Font imports --- */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap');
+/* --- Bundled font --- */
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("../../assets/fonts-bundled/dm-serif-display-v17-latin/dm-serif-display-v17-latin-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("../../assets/fonts-bundled/dm-serif-display-v17-latin/dm-serif-display-v17-latin-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* --- CDN fonts --- */
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap');
 
@@ -47,7 +63,7 @@
   --s-7: 48px;
   --s-8: 72px;
 
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
   --font: "Satoshi", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
   --font-ui: "Satoshi", ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -229,28 +245,28 @@ img {
 .h1 {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5.2vw, 3.8rem);
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   line-height: 1.08;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   margin: 0;
-  font-variation-settings: "opsz" 72;
+
 }
 
 .h1 em {
   font-style: italic;
   color: var(--accent);
-  font-variation-settings: "opsz" 72;
+
 }
 
 .h2 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.6vw, 2.6rem);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.14;
   letter-spacing: -0.025em;
   margin: 0;
-  font-variation-settings: "opsz" 48;
+
 }
 
 .h3 {
@@ -596,10 +612,10 @@ img {
 .mini-stat__value {
   font-family: var(--font-display);
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.1;
   color: var(--text);
-  font-variation-settings: "opsz" 36;
+
 }
 
 .mini-stat__label {
@@ -1083,10 +1099,10 @@ img {
 .metric__value {
   font-family: var(--font-display);
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
   color: var(--text);
-  font-variation-settings: "opsz" 48;
+
 }
 
 .metric__delta {
@@ -1220,10 +1236,10 @@ img {
 .pricing-card__amount {
   font-family: var(--font-display);
   font-size: 2.4rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
   color: var(--text);
-  font-variation-settings: "opsz" 48;
+
 }
 
 .pricing-card__currency {
