@@ -1,0 +1,98 @@
+[
+  {
+    "id": "L1",
+    "name": "Product Narrative",
+    "surface": "landing",
+    "description": "Classic SaaS/product landing with trust and conversion flow.",
+    "sections": ["hero", "trust-bar", "features-grid", "metrics-band", "pricing", "cta-contact", "footer"],
+    "responsive": {
+      "mobile": "Single column, stacked hero, 1-col features",
+      "tablet": "2-column features grid, stacked hero",
+      "desktop": "2-column hero with side panel, 3-column features grid"
+    }
+  },
+  {
+    "id": "L2",
+    "name": "Conversion Focused",
+    "surface": "landing",
+    "description": "Problem/solution narrative optimized for a single conversion goal.",
+    "sections": ["hero", "problem-solution", "proof-points", "faq", "cta-contact"],
+    "responsive": {
+      "mobile": "Single column, hero bullets stacked",
+      "tablet": "2-column proof points",
+      "desktop": "Full width hero, 2-column problem/solution split"
+    }
+  },
+  {
+    "id": "L3",
+    "name": "Brand / Studio",
+    "surface": "landing",
+    "description": "Portfolio/consultancy page with capability showcase and credibility.",
+    "sections": ["hero", "capability-ticker", "work-showcase", "credibility-strip", "cta-contact"],
+    "responsive": {
+      "mobile": "Single column, carousel for work showcase",
+      "tablet": "2-column showcase grid",
+      "desktop": "Full width hero, masonry or carousel showcase"
+    }
+  },
+  {
+    "id": "L4",
+    "name": "Cinematic Research Narrative",
+    "surface": "landing",
+    "description": "Expressive technical profiles — research archive, diagnostic, or editorial narrative.",
+    "sections": ["hero-system-state", "research-grid", "signature-showcase", "divisions-list", "publication-archive", "field-briefing"],
+    "responsive": {
+      "mobile": "Single column, simplified signature module",
+      "tablet": "2-column research grid",
+      "desktop": "Full cinematic layout with side-by-side signature module"
+    }
+  },
+  {
+    "id": "D1",
+    "name": "KPI + Trends",
+    "surface": "dashboard",
+    "description": "Metrics-first dashboard with KPI cards, trend charts, and transaction table.",
+    "sections": ["header-row", "kpi-cards", "trend-chart", "transactions-table", "activity-rail"],
+    "responsive": {
+      "mobile": "KPI cards stack vertical, table scrolls horizontal",
+      "tablet": "2-column KPI grid, full-width chart",
+      "desktop": "Full KPI row, chart + table side by side, activity rail"
+    }
+  },
+  {
+    "id": "D2",
+    "name": "Operations Board",
+    "surface": "dashboard",
+    "description": "Command-center layout with charts, tables, and event stream.",
+    "sections": ["header-command-bar", "chart-split", "table-search", "event-stream"],
+    "responsive": {
+      "mobile": "Stacked panels, collapsed command bar",
+      "tablet": "2-column chart split",
+      "desktop": "Full operations layout with event stream rail"
+    }
+  },
+  {
+    "id": "A1",
+    "name": "Settings Screen",
+    "surface": "app-screen",
+    "description": "Form-driven settings page with grouped sections and danger zone.",
+    "sections": ["app-header", "settings-form", "notifications-preferences", "danger-zone"],
+    "responsive": {
+      "mobile": "Single column, summary panel below form",
+      "tablet": "Optional 2-column",
+      "desktop": "Stable 2-column: form left, summary right"
+    }
+  },
+  {
+    "id": "A2",
+    "name": "Workspace Detail",
+    "surface": "app-screen",
+    "description": "Detail view with primary content panel and metadata side rail.",
+    "sections": ["title-breadcrumb", "primary-panel", "side-rail", "inline-feedback"],
+    "responsive": {
+      "mobile": "Single column, rail below primary",
+      "tablet": "Optional 2-column",
+      "desktop": "Stable 2-column shell with side rail"
+    }
+  }
+]
