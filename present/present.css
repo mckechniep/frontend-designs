@@ -713,3 +713,91 @@ a {
   letter-spacing: 0.06em;
   color: var(--p-muted);
 }
+
+/* ================================================================
+   CANVAS EFFECTS — Arctic Mono helix + Corporate Blueprint cursor
+   ================================================================ */
+
+/* Arctic Mono — rotating DNA helix canvas */
+.card--arctic .arctic-preview-helix {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 140px;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px rgba(126, 200, 227, 0.32));
+  pointer-events: none;
+}
+
+/* Corporate Blueprint — crosshair cursor */
+.blueprint-preview-cursor {
+  --coord-shift-x: 12px;
+  --coord-shift-y: -28px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease;
+}
+
+.blueprint-preview-cursor.is-active {
+  opacity: 1;
+}
+
+.blueprint-preview-cursor__ring,
+.blueprint-preview-cursor__h,
+.blueprint-preview-cursor__v,
+.blueprint-preview-cursor__coord {
+  position: absolute;
+  display: block;
+}
+
+.blueprint-preview-cursor__ring {
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(62, 198, 224, 0.32);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(62, 198, 224, 0.18);
+}
+
+.blueprint-preview-cursor__h {
+  top: 0;
+  left: -20px;
+  width: 40px;
+  height: 1px;
+  background: rgba(62, 198, 224, 0.48);
+}
+
+.blueprint-preview-cursor__v {
+  top: -20px;
+  left: 0;
+  width: 1px;
+  height: 40px;
+  background: rgba(62, 198, 224, 0.48);
+}
+
+.blueprint-preview-cursor__coord {
+  top: 0;
+  left: 0;
+  padding: 4px 7px;
+  border: 1px solid rgba(62, 198, 224, 0.2);
+  background: rgba(6, 16, 31, 0.9);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  color: rgba(62, 198, 224, 0.74);
+  transform: translate(var(--coord-shift-x), var(--coord-shift-y));
+  white-space: nowrap;
+}
+
+@media (pointer: coarse) {
+  .blueprint-preview-cursor {
+    display: none;
+  }
+}
