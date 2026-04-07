@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-profile="brutalist-portfolio" data-fixed-profile="brutalist-portfolio">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Raz Volkov — Brutalist App Screen</title>
+    <meta name="description" content="Brutalist photography project configuration — raw forms, no polish." />
+    <link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../../shared/favicon.ico" />
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="../../shared/surface-showcase.css" />
+  </head>
+  <body class="surface-runtime">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-frame">
+      <header class="surface-frame__header">
+        <a class="surface-frame__brand" href="../index.html">
+          <span class="surface-frame__brand-mark" aria-hidden="true"></span>
+          <span class="surface-frame__brand-copy">
+            <span class="surface-frame__brand-kicker">brutalist-portfolio / app-screen</span>
+            <span class="surface-frame__brand-name">Raz Volkov</span>
+          </span>
+        </a>
+        <div class="surface-frame__links" role="navigation" aria-label="Surface routes">
+          <a href="../index.html">Landing</a>
+          <a href="../dashboard/index.html">Dashboard</a>
+          <a class="is-active" href="./index.html">App screen</a>
+        </div>
+        <div class="surface-frame__actions">
+          <a href="../../index.html">Theme Vault</a>
+          <a class="surface-frame__button" href="../../../build/index.html">Build brief</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <header class="app-header">
+          <div class="app-header__left">
+            <h1 class="app-header__title">PROJECT SETTINGS</h1>
+            <p class="app-header__desc">Configure. Ship. Move on.</p>
+          </div>
+          <div class="app-header__stats">
+            <span class="app-header__stat"><strong>24</strong> FRAMES</span>
+            <span class="app-header__stat"><strong>12</strong> SELECTS</span>
+            <span class="app-header__stat"><strong>3D</strong> DEADLINE</span>
+          </div>
+        </header>
+
+        <section class="surface-grid surface-grid--app">
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">CONFIG</div>
+                <h2>SHOOT DETAILS</h2>
+              </div>
+              <span class="surface-badge">ACTIVE</span>
+            </div>
+            <p class="surface-panel__muted">
+              Fill it in. Don't overthink it.
+            </p>
+            <form class="surface-form">
+              <div class="surface-form__grid">
+                <div class="surface-field">
+                  <label for="bp-client">CLIENT</label>
+                  <input id="bp-client" type="text" value="The Face Magazine" />
+                </div>
+                <div class="surface-field">
+                  <label for="bp-type">TYPE</label>
+                  <select id="bp-type">
+                    <option>Editorial</option>
+                    <option>Documentary</option>
+                    <option>Zine</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="surface-field">
+                  <label for="bp-film">MEDIUM</label>
+                  <input id="bp-film" type="text" value="Tri-X 400 pushed to 1600" />
+                </div>
+                <div class="surface-field">
+                  <label for="bp-rate">RATE</label>
+                  <input id="bp-rate" type="text" value="$2,400 flat" />
+                </div>
+                <div class="surface-field surface-field--full">
+                  <label for="bp-notes">NOTES</label>
+                  <textarea id="bp-notes">London nightlife. No flash. No direction. Shoot what's real. 8 pages, delivered as high-res scans + contact sheets.</textarea>
+                </div>
+              </div>
+              <div class="surface-form__actions">
+                <a class="surface-button" href="#save">SAVE</a>
+                <a class="surface-button--ghost" href="#preview">EXPORT</a>
+              </div>
+            </form>
+          </article>
+
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">NOTES</div>
+                <h3>WHY THIS WORKS</h3>
+              </div>
+            </div>
+            <div class="surface-summary">
+              <article class="surface-summary__item">
+                <strong>RAW FORMS</strong>
+                <p>2px borders, no radius, monospace labels. Looks like a terminal, not a SaaS app.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>NO DECORATION</strong>
+                <p>Zero shadows, zero gradients, zero border-radius. The content IS the design.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>HIGH CONTRAST</strong>
+                <p>Black on white. White on black. No gray areas (metaphorically).</p>
+              </article>
+            </div>
+          </article>
+        </section>
+
+        <section class="surface-panel" style="margin-top: 20px;">
+          <div class="surface-panel__head">
+            <div>
+              <div class="surface-panel__eyebrow">LOG</div>
+              <h3>ACTIVITY</h3>
+            </div>
+            <span class="surface-badge">THIS WEEK</span>
+          </div>
+          <div class="surface-activity">
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>SCANS UPLOADED</strong><span>4HR AGO</span></div>
+              <p>36 frames from night 2. Contact sheet generated.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>SELECTS MARKED</strong><span>YESTERDAY</span></div>
+              <p>12 frames flagged from night 1. Sent to editor.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>BRIEF RECEIVED</strong><span>3 DAYS AGO</span></div>
+              <p>"London after dark. 8 pages. No rules." Perfect.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

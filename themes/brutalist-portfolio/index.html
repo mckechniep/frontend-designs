@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-fixed-profile="brutalist-portfolio" data-fixed-profile-stylesheet="./theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brutalist Portfolio — Vanilla UI Starter</title>
+    <meta name="description" content="Raw black-and-white photography portfolio with exposed structure, dense grids, and zine-like typography." />
+    <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../shared/favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./theme.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="icon-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#portfolio">Work</a></li>
+            <li><a class="nav-link" href="#about">Info</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+            <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Hire me</a>
+        </nav>
+      </div>
+
+      <div class="container mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#portfolio">Work</a></li>
+          <li><a class="nav-link" href="#about">Info</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+          <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-title-block">
+            <p class="badge">Street / Documentary / Zine</p>
+            <h1 class="h1">RAZ<br>VOLKOV</h1>
+          </div>
+          <div class="hero-meta">
+            <p class="lead">Shoots what most people pretend not to see. Based nowhere in particular.</p>
+            <div class="cta-row">
+              <a class="button button-primary" href="#portfolio">See the work</a>
+              <a class="button button-ghost" href="#contact">Commission</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-strip" aria-hidden="true">
+          <span>2024</span>
+          <span>35mm + Digital</span>
+          <span>Available worldwide</span>
+          <span>No stock licensing</span>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Selected Work</span>
+            </div>
+            <h2 class="h2">Portfolio</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 30%;" aria-label="Street scene"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">NO EXIT</span>
+                <span class="gallery-item__meta">Street, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 45%;" aria-label="Concrete texture"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">SURFACE</span>
+                <span class="gallery-item__meta">Abstract, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 18%;" aria-label="Night alley"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">02:47</span>
+                <span class="gallery-item__meta">Night, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--wide">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 55%;" aria-label="Overcast landscape"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">FLAT LIGHT</span>
+                <span class="gallery-item__meta">Landscape, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 24%;" aria-label="Portrait"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">UNNAMED</span>
+                <span class="gallery-item__meta">Portrait, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 38%;" aria-label="Urban decay"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">STILL HERE</span>
+                <span class="gallery-item__meta">Documentary, 2024</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="about">
+        <div class="container about-grid">
+          <div class="about-portrait">
+            <div class="about-portrait__image" aria-label="Photographer portrait"></div>
+          </div>
+          <div class="about-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Info</span>
+            </div>
+            <h2 class="h2">I DON'T MAKE PRETTY PICTURES. I MAKE HONEST ONES.</h2>
+            <p class="lead">
+              Ten years shooting what's real. No retouching, no staging, no brand guidelines. If you want polished, you're in the wrong place.
+            </p>
+            <div class="about-details">
+              <div class="about-detail">
+                <span class="about-detail__label">MEDIUM</span>
+                <span class="about-detail__value">35mm film + Ricoh GR III</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">FOCUS</span>
+                <span class="about-detail__value">Street, documentary, zine</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">PRESS</span>
+                <span class="about-detail__value">Vice, i-D, The Face, Dazed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Projects</span>
+            </div>
+            <h2 class="h2">Recent work</h2>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 0; --sat: 0%; --light: 28%;" aria-label="Zine cover"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">ZINE</span>
+                <h3 class="h3">DEAD MALLS VOL. 3</h3>
+                <p class="muted">Self-published 48-page zine documenting abandoned retail spaces across the American midwest.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 0; --sat: 0%; --light: 42%;" aria-label="Documentary frame"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">DOCUMENTARY</span>
+                <h3 class="h3">NIGHT SHIFT</h3>
+                <p class="muted">Long-form documentation of overnight workers in 24-hour establishments. Shot on Tri-X 400 pushed to 1600.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 0; --sat: 0%; --light: 35%;" aria-label="Editorial spread"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">EDITORIAL</span>
+                <h3 class="h3">THE FACE: LONDON AFTER DARK</h3>
+                <p class="muted">Eight-page commission for The Face. London nightlife without the glamour.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="testimonials">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <h2 class="h2">They said</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"Raz doesn't ask permission. That's why the pictures are good."</p>
+              <footer class="testimonial__source">
+                <strong>K. Okonkwo</strong>
+                <span class="muted">Photo Editor, The Face</span>
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"We sent a brief. He ignored it. The result was better than anything we could have planned."</p>
+              <footer class="testimonial__source">
+                <strong>J. Sato</strong>
+                <span class="muted">Creative Director, i-D</span>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Contact</span>
+            </div>
+            <h2 class="h2">SEND THE BRIEF. OR DON'T. I'LL PROBABLY IGNORE IT ANYWAY.</h2>
+            <p class="lead">
+              Available for editorial, documentary, and zine commissions. No product shots. No headshots. No weddings.
+            </p>
+          </div>
+
+          <form class="card form contact-form" novalidate data-contact-form>
+            <div class="form-row">
+              <label class="label" for="name">NAME</label>
+              <input class="input" id="name" name="name" type="text" autocomplete="name" required />
+              <p class="error" data-error-for="name" hidden>Required.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="email">EMAIL</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+              <p class="error" data-error-for="email" hidden>Required.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="project">TYPE</label>
+              <select class="select" id="project" name="project">
+                <option>Editorial</option>
+                <option>Documentary</option>
+                <option>Zine collaboration</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="label" for="message">BRIEF</label>
+              <textarea class="textarea" id="message" name="message" rows="4" required></textarea>
+              <p class="error" data-error-for="message" hidden>Write something.</p>
+            </div>
+            <button class="button button-primary button-full" type="submit">SEND</button>
+            <p class="hint">No network request. This is a demo.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+        <p class="muted">&copy; <span data-year></span> Raz Volkov.</p>
+      </div>
+    </footer>
+
+    <script src="./page.js" defer></script>
+  </body>
+</html>
