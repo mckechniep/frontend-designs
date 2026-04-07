@@ -533,8 +533,8 @@ body.surface-runtime a {
 }
 
 .surface-button {
-  background: linear-gradient(135deg, var(--surface-accent), var(--surface-accent-2));
-  color: color-mix(in srgb, var(--surface-bg) 82%, black 18%);
+  background: var(--surface-accent);
+  color: var(--surface-bg);
 }
 
 .surface-button--ghost {
