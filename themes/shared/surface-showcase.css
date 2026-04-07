@@ -12,9 +12,9 @@
   --surface-font-display: var(--font-display, var(--font-body, serif));
   --surface-font-body: var(--font-body, var(--font-ui, var(--font, system-ui)));
   --surface-font-mono: var(--font-mono, ui-monospace, monospace);
-  --surface-radius: 24px;
-  --surface-radius-lg: 30px;
-  --surface-shadow: 0 24px 56px rgba(0, 0, 0, 0.26);
+  --surface-radius: var(--radius-lg, var(--radius, 24px));
+  --surface-radius-lg: var(--radius-lg, 30px);
+  --surface-shadow: var(--shadow, 0 24px 56px rgba(0, 0, 0, 0.26));
 }
 
 :root[data-profile="corporate-blueprint"] {
@@ -71,43 +71,9 @@
   --surface-radius-lg: 36px;
 }
 
-:root[data-profile="dark-gallery"] {
-  --surface-bg: #0a0a0a;
-  --surface-panel: #141414;
-  --surface-panel-2: #1a1a1a;
-  --surface-panel-3: #222222;
-  --surface-text: #e8e4de;
-  --surface-muted: #8a857e;
-  --surface-border: rgba(232, 228, 222, 0.08);
-  --surface-accent: #e8e4de;
-  --surface-accent-2: #c8c2b8;
-  --surface-accent-glow: rgba(232, 228, 222, 0.06);
-  --surface-font-display: "Playfair Display", Georgia, serif;
-  --surface-font-body: "Outfit", system-ui, sans-serif;
-  --surface-font-mono: "Outfit", system-ui, sans-serif;
-  --surface-radius: 0;
-  --surface-radius-lg: 0;
-  --surface-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-}
-
-:root[data-profile="clean-professional"] {
-  --surface-bg: #f7f8fa;
-  --surface-panel: #ffffff;
-  --surface-panel-2: #f0f2f5;
-  --surface-panel-3: #e6e9ef;
-  --surface-text: #1a1d2b;
-  --surface-muted: #5c6370;
-  --surface-border: rgba(26, 29, 43, 0.10);
-  --surface-accent: #1e3a5f;
-  --surface-accent-2: #152d4a;
-  --surface-accent-glow: rgba(30, 58, 95, 0.12);
-  --surface-font-display: "DM Serif Display", Georgia, serif;
-  --surface-font-body: "Satoshi", system-ui, sans-serif;
-  --surface-font-mono: "Geist Mono", ui-monospace, monospace;
-  --surface-radius: 14px;
-  --surface-radius-lg: 20px;
-  --surface-shadow: 0 2px 8px rgba(26, 29, 43, 0.06), 0 12px 32px rgba(26, 29, 43, 0.08);
-}
+/* dark-gallery and clean-professional: tokens inherit from theme.css
+   via the var() fallbacks above — no override blocks needed.
+   Only legacy themes with non-standard variable names need overrides. */
 
 *,
 *::before,
