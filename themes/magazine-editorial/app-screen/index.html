@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-profile="magazine-editorial" data-fixed-profile="magazine-editorial">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lena Mori — Magazine Editorial App Screen</title>
+    <meta name="description" content="Magazine Editorial photography project configuration." />
+    <link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../../shared/favicon.ico" />
+    <link rel="stylesheet" href="../theme.css" />
+    <link rel="stylesheet" href="../../shared/surface-showcase.css" />
+  </head>
+  <body class="surface-runtime">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="surface-frame">
+      <header class="surface-frame__header">
+        <a class="surface-frame__brand" href="../index.html">
+          <span class="surface-frame__brand-mark" aria-hidden="true"></span>
+          <span class="surface-frame__brand-copy">
+            <span class="surface-frame__brand-kicker">magazine-editorial / app-screen</span>
+            <span class="surface-frame__brand-name">Lena Mori</span>
+          </span>
+        </a>
+        <div class="surface-frame__links" role="navigation" aria-label="Surface routes">
+          <a href="../index.html">Landing</a>
+          <a href="../dashboard/index.html">Dashboard</a>
+          <a class="is-active" href="./index.html">App screen</a>
+        </div>
+        <div class="surface-frame__actions">
+          <a href="../../index.html">Theme Vault</a>
+          <a class="surface-frame__button" href="../../../build/index.html">Build brief</a>
+        </div>
+      </header>
+
+      <main id="main">
+        <header class="app-header">
+          <div class="app-header__left">
+            <h1 class="app-header__title">Story settings</h1>
+            <p class="app-header__desc">Configure the commission details and delivery timeline.</p>
+          </div>
+          <div class="app-header__stats">
+            <span class="app-header__stat"><strong>48</strong> frames</span>
+            <span class="app-header__stat"><strong>18</strong> selects</span>
+            <span class="app-header__stat"><strong>Apr 15</strong> deadline</span>
+          </div>
+        </header>
+
+        <section class="surface-grid surface-grid--app">
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">Commission</div>
+                <h2>Story details</h2>
+              </div>
+              <span class="surface-badge">Active</span>
+            </div>
+            <p class="surface-panel__muted">
+              Capture the essential details. The story will find its own shape on location.
+            </p>
+            <form class="surface-form">
+              <div class="surface-form__grid">
+                <div class="surface-field">
+                  <label for="me-pub">Publication</label>
+                  <input id="me-pub" type="text" value="Cereal Magazine" />
+                </div>
+                <div class="surface-field">
+                  <label for="me-type">Story type</label>
+                  <select id="me-type">
+                    <option>Travel essay</option>
+                    <option>Documentary</option>
+                    <option>Wedding editorial</option>
+                    <option>Cultural portrait</option>
+                  </select>
+                </div>
+                <div class="surface-field">
+                  <label for="me-location">Location</label>
+                  <input id="me-location" type="text" value="Fez, Morocco" />
+                </div>
+                <div class="surface-field">
+                  <label for="me-medium">Medium</label>
+                  <input id="me-medium" type="text" value="Mamiya 7 II / Portra 400" />
+                </div>
+                <div class="surface-field surface-field--full">
+                  <label for="me-notes">Story direction</label>
+                  <textarea id="me-notes">The medina at dawn before the tourists arrive. Three weeks in January. Focus on light, shadow, and the small rituals that haven't changed in centuries. No staged shots, no models.</textarea>
+                </div>
+              </div>
+              <div class="surface-form__actions">
+                <a class="surface-button" href="#save">Save story</a>
+                <a class="surface-button--ghost" href="#preview">Preview pitch</a>
+              </div>
+            </form>
+          </article>
+
+          <article class="surface-panel">
+            <div class="surface-panel__head">
+              <div>
+                <div class="surface-panel__eyebrow">Design notes</div>
+                <h3>Why this works</h3>
+              </div>
+            </div>
+            <div class="surface-summary">
+              <article class="surface-summary__item">
+                <strong>Warm foundation</strong>
+                <p>Cream background gives forms the feeling of writing on good paper.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Editorial typography</strong>
+                <p>Instrument Serif for headings, General Sans for forms. Magazine meets workspace.</p>
+              </article>
+              <article class="surface-summary__item">
+                <strong>Red with restraint</strong>
+                <p>Deep red only on the save button and active states. Everything else stays neutral.</p>
+              </article>
+            </div>
+          </article>
+        </section>
+
+        <section class="surface-panel" style="margin-top: 20px;">
+          <div class="surface-panel__head">
+            <div>
+              <div class="surface-panel__eyebrow">Story timeline</div>
+              <h3>Recent activity</h3>
+            </div>
+            <span class="surface-badge">This week</span>
+          </div>
+          <div class="surface-activity">
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Selects shared</strong><span>6 hours ago</span></div>
+              <p>18 medium-format scans sent to editor for initial layout review.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Location scouted</strong><span>Yesterday</span></div>
+              <p>Three mornings in the tannery quarter. Best light between 6:30-7:45am.</p>
+            </article>
+            <article class="surface-activity__item">
+              <div class="surface-activity__head"><strong>Commission confirmed</strong><span>4 days ago</span></div>
+              <p>12 pages confirmed for the Summer issue. Delivery by April 15.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

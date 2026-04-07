@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-fixed-profile="magazine-editorial" data-fixed-profile-stylesheet="./theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Magazine Editorial — Vanilla UI Starter</title>
+    <meta name="description" content="Warm editorial photography portfolio with storytelling layouts, deep red accents, and magazine-grade typography." />
+    <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../shared/favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./theme.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="icon-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#stories">Stories</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#contact">Inquire</a></li>
+            <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+            <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Work with me</a>
+        </nav>
+      </div>
+
+      <div class="container mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#stories">Stories</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#contact">Inquire</a></li>
+          <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+          <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-editorial">
+          <div class="hero-text">
+            <p class="badge">Travel &amp; Documentary</p>
+            <h1 class="h1">Lena<br><em>Mori</em></h1>
+            <p class="lead">Stories told in frames. Tokyo to Tangier, always on foot, always with time.</p>
+          </div>
+          <div class="hero-feature">
+            <div class="hero-feature__image" style="--hue: 28; --sat: 30%; --light: 38%;" aria-label="Featured travel photograph"></div>
+            <p class="hero-feature__caption">Fez Medina, 2025 &mdash; from the series <em>Quiet Hours</em></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Selected Work</span>
+            </div>
+            <h2 class="h2">Portfolio</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 32; --sat: 28%; --light: 42%;" aria-label="Market scene"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Morning Market</span>
+                <span class="gallery-item__meta">Marrakech, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 200; --sat: 18%; --light: 48%;" aria-label="Coastal village"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Salt &amp; Stone</span>
+                <span class="gallery-item__meta">Essaouira, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 45; --sat: 20%; --light: 55%;" aria-label="Golden temple"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">First Light</span>
+                <span class="gallery-item__meta">Kyoto, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--wide">
+              <div class="gallery-item__image" style="--hue: 15; --sat: 24%; --light: 35%;" aria-label="Desert caravan"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">The Long Way</span>
+                <span class="gallery-item__meta">Sahara, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 120; --sat: 12%; --light: 32%;" aria-label="Tea ceremony"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Ceremony</span>
+                <span class="gallery-item__meta">Uji, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 8; --sat: 32%; --light: 30%;" aria-label="Street portrait"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">The Baker</span>
+                <span class="gallery-item__meta">Fez, 2025</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="about">
+        <div class="container about-grid">
+          <div class="about-portrait">
+            <div class="about-portrait__image" aria-label="Photographer portrait"></div>
+          </div>
+          <div class="about-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">About</span>
+            </div>
+            <h2 class="h2">I travel slowly and photograph what stays with me after the trip ends.</h2>
+            <p class="lead">
+              Documentary and travel photographer based between Tokyo and Lisbon. Every project starts with a place, a season, and enough time to let the story find its own shape.
+            </p>
+            <div class="about-details">
+              <div class="about-detail">
+                <span class="about-detail__label">Focus</span>
+                <span class="about-detail__value">Travel, documentary, cultural editorial</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">Published</span>
+                <span class="about-detail__value">Cereal, Kinfolk, National Geographic Traveller</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">Approach</span>
+                <span class="about-detail__value">Available light, medium format, long stays</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="stories">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Featured Stories</span>
+            </div>
+            <h2 class="h2">Recent commissions</h2>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 25; --sat: 26%; --light: 40%;" aria-label="Morocco editorial"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Travel Essay</span>
+                <h3 class="h3">Quiet Hours in Fez</h3>
+                <p class="muted">A twelve-page essay for Cereal on the medina at dawn. Shot over three weeks in January when the tourists are gone and the city belongs to itself again.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 190; --sat: 14%; --light: 44%;" aria-label="Japan documentary"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Documentary</span>
+                <h3 class="h3">Last Craftsmen of Kyoto</h3>
+                <p class="muted">Portraits and process documentation of traditional artisans. Published as a limited-edition book with Editions du LIC.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 40; --sat: 22%; --light: 50%;" aria-label="Wedding editorial"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Wedding Editorial</span>
+                <h3 class="h3">The Lemon Orchard</h3>
+                <p class="muted">An intimate ceremony in a Sicilian lemon grove. Featured in Martha Stewart Weddings. Shot entirely on Portra 400.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="testimonials">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <h2 class="h2">Kind words</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"Lena doesn't photograph places. She photographs the feeling of being in them. We gave her a plane ticket and she gave us the best issue of the year."</p>
+              <footer class="testimonial__source">
+                <strong>A. Ferreira</strong>
+                <span class="muted">Editor-in-Chief, Cereal</span>
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"Our wedding photos feel like pages from a novel. She saw moments we didn't even know were happening."</p>
+              <footer class="testimonial__source">
+                <strong>S. &amp; M. Rossi</strong>
+                <span class="muted">Private commission, Sicily</span>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Inquiries</span>
+            </div>
+            <h2 class="h2">Every good story starts with a conversation.</h2>
+            <p class="lead">
+              Available for travel editorials, documentary commissions, wedding coverage, and cultural storytelling. I work best with generous timelines and minimal shot lists.
+            </p>
+          </div>
+
+          <form class="card form contact-form" novalidate data-contact-form>
+            <div class="form-row">
+              <label class="label" for="name">Name</label>
+              <input class="input" id="name" name="name" type="text" autocomplete="name" required />
+              <p class="error" data-error-for="name" hidden>Please enter your name.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+              <p class="error" data-error-for="email" hidden>Please enter your email.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="project">Project type</label>
+              <select class="select" id="project" name="project">
+                <option>Travel editorial</option>
+                <option>Documentary commission</option>
+                <option>Wedding coverage</option>
+                <option>Cultural storytelling</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="label" for="message">Tell me about it</label>
+              <textarea class="textarea" id="message" name="message" rows="4" required></textarea>
+              <p class="error" data-error-for="message" hidden>Please share some details.</p>
+            </div>
+            <button class="button button-primary button-full" type="submit">Send inquiry</button>
+            <p class="hint">No network request is made in this starter.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+        <p class="muted">&copy; <span data-year></span> Lena Mori. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./page.js" defer></script>
+  </body>
+</html>
