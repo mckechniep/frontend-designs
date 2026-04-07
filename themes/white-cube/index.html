@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-fixed-profile="white-cube" data-fixed-profile-stylesheet="./theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>White Cube — Vanilla UI Starter</title>
+    <meta name="description" content="Clean white gallery aesthetic for fine art and architectural photography. Extreme whitespace, thin borders, restrained type." />
+    <link rel="icon" href="../shared/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../shared/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="../shared/favicon.ico" />
+    <link id="profile-stylesheet" rel="stylesheet" href="./theme.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="icon-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+            <span class="sr-only">Open menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+
+          <ul class="nav-list" data-desktop-nav>
+            <li><a class="nav-link" href="#portfolio">Work</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+            <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          </ul>
+
+          <a class="button button-primary" href="#contact">Inquire</a>
+        </nav>
+      </div>
+
+      <div class="container mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <ul class="mobile-nav-list">
+          <li><a class="nav-link" href="#portfolio">Work</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link nav-link--surface" href="./dashboard/index.html">Dashboard</a></li>
+          <li><a class="nav-link nav-link--surface" href="./app-screen/index.html">App Screen</a></li>
+          <li><a class="nav-link nav-link--themes" href="../index.html">Themes</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-content">
+          <p class="badge">Fine Art &amp; Architecture</p>
+          <h1 class="h1">Yuki Tanaka</h1>
+          <p class="lead">Light, form, silence. Photographs made with patience and very little else.</p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#portfolio">View work</a>
+            <a class="button button-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Selected Work</span>
+            </div>
+            <h2 class="h2">Portfolio</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 82%;" aria-label="Concrete wall detail"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Interval</span>
+                <span class="gallery-item__meta">Architecture, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 210; --sat: 5%; --light: 72%;" aria-label="Stairwell in blue light"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Ascent</span>
+                <span class="gallery-item__meta">Interior, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 40; --sat: 6%; --light: 88%;" aria-label="White sculpture"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Object No. 7</span>
+                <span class="gallery-item__meta">Still Life, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--wide">
+              <div class="gallery-item__image" style="--hue: 0; --sat: 0%; --light: 68%;" aria-label="Gallery interior"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Room Three</span>
+                <span class="gallery-item__meta">Exhibition, 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__image" style="--hue: 180; --sat: 4%; --light: 78%;" aria-label="Reflecting pool"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Surface</span>
+                <span class="gallery-item__meta">Landscape, 2025</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--tall">
+              <div class="gallery-item__image" style="--hue: 20; --sat: 3%; --light: 75%;" aria-label="Doorway shadow"></div>
+              <figcaption class="gallery-item__caption">
+                <span class="gallery-item__title">Threshold</span>
+                <span class="gallery-item__meta">Architecture, 2024</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="about">
+        <div class="container about-grid">
+          <div class="about-portrait">
+            <div class="about-portrait__image" aria-label="Photographer portrait"></div>
+          </div>
+          <div class="about-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">About</span>
+            </div>
+            <h2 class="h2">The less there is in the frame, the more there is to see.</h2>
+            <p class="lead">
+              Based in Tokyo. Working in large format and medium format film. Drawn to architecture, empty spaces, and the geometry of ordinary things.
+            </p>
+            <div class="about-details">
+              <div class="about-detail">
+                <span class="about-detail__label">Focus</span>
+                <span class="about-detail__value">Fine art, architecture, interiors</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">Exhibited</span>
+                <span class="about-detail__value">Tokyo Photographic Art Museum, Foam Amsterdam, ICP New York</span>
+              </div>
+              <div class="about-detail">
+                <span class="about-detail__label">Medium</span>
+                <span class="about-detail__value">4x5 large format, Hasselblad 500CM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Exhibitions</span>
+            </div>
+            <h2 class="h2">Recent projects</h2>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 0; --sat: 0%; --light: 78%;" aria-label="Gallery installation"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Solo Exhibition</span>
+                <h3 class="h3">Intervals</h3>
+                <p class="muted">Twenty-four large-format prints exploring the negative space between Tadao Ando structures. Tokyo Photographic Art Museum, 2025.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 210; --sat: 4%; --light: 84%;" aria-label="Museum collection"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Group Show</span>
+                <h3 class="h3">Foam Talent</h3>
+                <p class="muted">Selected for the annual Foam Talent exhibition in Amsterdam. Three prints from the ongoing series on Japanese minimalist architecture.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-card__image" style="--hue: 30; --sat: 5%; --light: 80%;" aria-label="Monograph pages"></div>
+              <div class="project-card__body">
+                <span class="project-card__tag">Monograph</span>
+                <h3 class="h3">Light Holds</h3>
+                <p class="muted">First monograph published by MACK Books. 96 pages, cloth-bound. Available at select bookshops and museum stores.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="testimonials">
+        <div class="container">
+          <div class="section-head section-head--center">
+            <h2 class="h2">Press</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"Tanaka's photographs are so quiet they make you hold your breath. You're not looking at buildings. You're looking at the space between things."</p>
+              <footer class="testimonial__source">
+                <strong>British Journal of Photography</strong>
+                <span class="muted">Exhibition Review, 2025</span>
+              </footer>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p class="testimonial__text">"A masterclass in restraint. Every frame is an argument for leaving things out."</p>
+              <footer class="testimonial__source">
+                <strong>Foam Magazine</strong>
+                <span class="muted">Talent Feature, Issue 64</span>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-copy">
+            <div class="section-kicker">
+              <span class="section-kicker__rule" aria-hidden="true"></span>
+              <span class="section-kicker__text">Inquiries</span>
+            </div>
+            <h2 class="h2">For exhibitions, commissions, and print sales.</h2>
+            <p class="lead">
+              Represented by Gallery Koyanagi, Tokyo. For commercial inquiries, please reach out directly.
+            </p>
+          </div>
+
+          <form class="card form contact-form" novalidate data-contact-form>
+            <div class="form-row">
+              <label class="label" for="name">Name</label>
+              <input class="input" id="name" name="name" type="text" autocomplete="name" required />
+              <p class="error" data-error-for="name" hidden>Please enter your name.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+              <p class="error" data-error-for="email" hidden>Please enter your email.</p>
+            </div>
+            <div class="form-row">
+              <label class="label" for="project">Inquiry type</label>
+              <select class="select" id="project" name="project">
+                <option>Exhibition proposal</option>
+                <option>Print purchase</option>
+                <option>Commission</option>
+                <option>Press / licensing</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="label" for="message">Message</label>
+              <textarea class="textarea" id="message" name="message" rows="4" required></textarea>
+              <p class="error" data-error-for="message" hidden>Please write a message.</p>
+            </div>
+            <button class="button button-primary button-full" type="submit">Send</button>
+            <p class="hint">No network request is made in this starter.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container footer-row">
+        <a class="brand" href="#main" aria-label="Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">Framekit</span>
+        </a>
+        <p class="muted">&copy; <span data-year></span> Yuki Tanaka. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./page.js" defer></script>
+  </body>
+</html>
